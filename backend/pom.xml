@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>application-bootstrap</module>
+        <module>application-core</module>
     </modules>
 
     <properties>
