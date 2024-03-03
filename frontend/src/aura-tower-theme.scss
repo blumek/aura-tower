@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+@import '../src/assets/styles/aura-tower-pallets.scss';
+
+// font: normal normal normal 14px/19px Montserrat;
+
+$aura-tower-typography: mat.define-typography-config(
+  $font-family: 'Montserrat',
+  $body-1: mat.define-typography-level(14px, 24px, 400),
+);
+
+@include mat.all-component-typographies($aura-tower-typography);
+@include mat.core();
+
+$aura-tower-primary: mat.define-palette($aura-tower-primary-palette, 500);
+$aura-tower-accent: mat.define-palette($aura-tower-accent-palette, 500);
+$aura-tower-warn: mat.define-palette(mat.$red-palette);
+
+
+$aura-tower-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $aura-tower-primary,
+      accent: $aura-tower-accent,
+      warn: $aura-tower-warn,
+
+    ),
+  )
+);
+
+@include mat.all-component-themes($aura-tower-theme);
+
+//Our styles
+@import 'src/assets/styles/import';

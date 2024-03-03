@@ -97,6 +97,9 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "src/aura-tower-theme.scss"
+            },
               "src/styles.scss"
             ],
             "scripts": []
