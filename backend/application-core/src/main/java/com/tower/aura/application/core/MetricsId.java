@@ -7,12 +7,16 @@ import java.util.Objects;
 public final class MetricsId {
     private final String value;
 
-    public MetricsId(String value) {
+    private MetricsId(String value) {
         if (StringUtils.isBlank(value)) {
             throw new IllegalArgumentException("Id cannot be blank");
         }
 
         this.value = value;
+    }
+
+    public static MetricsId fromString(String value) {
+        return new MetricsId(value);
     }
 
     public String asString() {
