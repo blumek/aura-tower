@@ -15,6 +15,10 @@ public final class MetricsId {
         this.value = value;
     }
 
+    public String asString() {
+        return value;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (this == other) return true;
@@ -33,9 +37,5 @@ public final class MetricsId {
         return "MetricsId{" +
                 "value='" + value + '\'' +
                 '}';
-    }
-
-    public String asString() {
-        return value;
     }
 }
