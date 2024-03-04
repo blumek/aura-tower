@@ -7,6 +7,14 @@ public final class Metrics {
     private final MetricsCollection metricsCollection;
 
     private Metrics(MetricsId metricsId, MetricsCollection metricsCollection) {
+        if (metricsId == null) {
+            throw new IllegalArgumentException("MetricsId cannot be null");
+        }
+
+        if (metricsCollection == null) {
+            throw new IllegalArgumentException("MetricsCollection cannot be null");
+        }
+
         this.metricsId = metricsId;
         this.metricsCollection = metricsCollection;
     }
