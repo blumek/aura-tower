@@ -1,0 +1,70 @@
+@import "../styles/variables.scss";
+
+.at-button {
+    font-family: $at-font;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
+    line-height: 0;
+
+    &.iconic {
+        gap: 10px;
+        
+        mat-icon {
+            vertical-align: middle;
+            font-weight: bolder;
+        }
+    }
+
+    &.normal {
+        padding: 10px 30px;
+    }
+
+    &.circle {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+    }
+
+    &.flat-green {
+        background-color: $at-green;
+        color: $white;
+
+        &:hover {
+            cursor: pointer;
+            background-color: $at-green-active;
+            box-shadow: $shadow-active-green;
+        }
+    }
+
+    &.outline-green {
+        background-color: $white;
+        border: 2px solid $at-green;
+        color: $at-green;
+
+        &:hover {
+            cursor: pointer;
+            border-color: $at-green-active;
+            color: $at-green-active;
+            box-shadow: $shadow-active-green;
+
+            & mat-icn, & span {
+                box-shadow: $shadow-active-green;
+            }
+        }
+    }
+
+
+}
+
+.buttons-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 20px;
+}

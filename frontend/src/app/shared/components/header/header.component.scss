@@ -1,0 +1,33 @@
+@import '../../../../assets/styles/variables.scss';
+
+nav {
+    position: static;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: $white;
+    height: 64px;
+    width: 100%;
+    padding: 5px 20px;
+    box-shadow: $shadow-light;
+    display: flex;
+
+    div {
+        width: 100%;
+     
+    }
+
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: $at-font;
+    }
+
+    .right-container {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+}

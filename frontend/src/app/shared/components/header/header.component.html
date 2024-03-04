@@ -1,0 +1,41 @@
+<nav>
+  <div class="left-container">
+    <img
+      src="../../../../assets/images/logo.svg"
+      alt="Aura-Tower logo">
+  </div>
+  <div class="center-container">
+    <p *ngIf="homeName">Witaj w: {{homeName}}</p>
+  </div>
+  <div class="right-container">
+    <div class="buttons-container">
+      <button class="at-button normal flat-green iconic">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>Dodaj urządzenie</span>
+      </button>
+      <button
+        class="at-button circle outline-green"
+        [matMenuTriggerFor]="menu">
+        <mat-icon>more_horiz</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Zarządzaj obszarami</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Ustawienia aplikacji</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Instrukcja</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Zmień obszar</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</nav>
