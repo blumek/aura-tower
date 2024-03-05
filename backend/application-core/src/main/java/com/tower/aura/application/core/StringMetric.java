@@ -7,6 +7,10 @@ public final class StringMetric extends Metric {
 
     private StringMetric(String name, String value) {
         super(name);
+        if (value == null) {
+            throw new IllegalArgumentException("Value cannot be null");
+        }
+
         this.value = value;
     }
 
