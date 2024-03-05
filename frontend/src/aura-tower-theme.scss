@@ -4,8 +4,8 @@
 // font: normal normal normal 14px/19px Montserrat;
 
 $aura-tower-typography: mat.define-typography-config(
-  $font-family: 'Noto Sans', sans-serif,
-  $body-1: mat.define-typography-level(16px, 24px, 400),
+  $font-family: 'Noto Sans',
+  $body-1: mat.define-typography-level(14px, 24px, 400),
 );
 
 @include mat.all-component-typographies($aura-tower-typography);
@@ -22,12 +22,8 @@ $aura-tower-theme: mat.define-light-theme(
       primary: $aura-tower-primary,
       accent: $aura-tower-accent,
       warn: $aura-tower-warn,
-
     ),
   )
 );
 
 @include mat.all-component-themes($aura-tower-theme);
-
-//Our styles
-@import 'src/assets/styles/import.scss';

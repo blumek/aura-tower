@@ -58,8 +58,6 @@
             }
         }
     }
-
-
 }
 
 .buttons-container {
@@ -67,4 +65,16 @@
     align-items: center;
     justify-content: flex-end;
     gap: 20px;
+}
+
+.mobile-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.at-mobile-button {
+    color: $at-green;
+    background-color: $white;
+    font-size: 44px;
+    border: none;
 }

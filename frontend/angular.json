@@ -37,6 +37,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/aura-tower-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
@@ -97,9 +98,7 @@
               "src/assets"
             ],
             "styles": [
-              {
-                "input": "src/aura-tower-theme.scss"
-            },
+              "src/aura-tower-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
