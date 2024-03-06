@@ -7,6 +7,10 @@ public final class NumberMetric extends Metric {
 
     private NumberMetric(String name, Number value) {
         super(name);
+        if (value == null) {
+            throw new IllegalArgumentException("value cannot be null");
+        }
+
         this.value = value;
     }
 
