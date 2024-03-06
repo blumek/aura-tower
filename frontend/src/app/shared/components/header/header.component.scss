@@ -1,7 +1,7 @@
 @import '../../../../assets/styles/variables.scss';
 
 nav {
-    position: static;
+    position: fixed;
     box-sizing: border-box;
     top: 0;
     left: 0;
@@ -33,7 +33,11 @@ nav {
             font-size: 16px;
 
             span:nth-of-type(2) {
+                max-width: 350px;
                 margin-top: 2px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis; 
             }
         }
     }
@@ -42,10 +46,6 @@ nav {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-
-        .mobile-button-container {
-            display: none;
-        }
     }
 
     @media (max-width: 932px) {
@@ -53,22 +53,20 @@ nav {
         .right-container {
             width: 153px;
         }
-
-        .right-container {
-            .mobile-button-container {
-                display: flex;
-            }
-    
-            .buttons-container {
-                display: none;
-            }
-        }
     }
 
     @media (max-width: 565px) {
         .left-container,
         .right-container {
             width: 153px;
+        }
+
+        .center-container {
+            .home-name {
+                span:nth-of-type(2) {
+                    max-width: 190px;
+                }
+            }
         }
 
         .normal-logo {
@@ -95,6 +93,8 @@ nav {
     box-shadow: $shadow-light;
     background-color: $white;
     border-radius: 15px 0 0 15px;
+    opacity: 1;
+    transition: 1s ease;
 
     .at-mobile {
         display: none;
@@ -161,4 +161,34 @@ nav {
             }
         }
     }
+
+    @media (max-width: 932px) and (orientation: portrait) {
+        & {
+            padding: 20px;
+            
+            .menu-items-container  {
+                gap: 15px;
+            }
+        }
+    }
+}
+
+.at-menu-disable {
+    top: -250px;
+    opacity: 0;
+
+    @media (max-width: 932px)  {
+        top: -100%;
+    }
+}
+
+.expand-more { 
+    margin-top: 4px;
+    font-size: 28px;
+    transition: .5s;
+}
+
+.collapse-up{
+    margin-top: 0;
+    transform: rotate(180deg);
 }

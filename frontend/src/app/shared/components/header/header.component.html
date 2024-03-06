@@ -14,42 +14,27 @@
       *ngIf="homeName"
       class="home-name">
       <span class="material-symbols-outlined">home</span>
-      <span>{{homeName}}</span>
+      <span [matTooltip]="homeName" [matTooltipDisabled]="homeName.length < 25">{{homeName}}</span>
     </div>
   </div>
   <div class="right-container">
     <div class="buttons-container">
-      <button class="at-button normal flat-green iconic">
-        <span class="material-symbols-outlined">add_circle</span>
-        <span>Dodaj urządzenie</span>
-      </button>
       <button
         class="at-button circle outline-green"
         (click)="changeMenuVisible()">
-        <mat-icon>more_horiz</mat-icon>
-      </button>
-    </div>
-    <div class="mobile-button-container">
-      <button
-        class="at-mobile-button material-symbols-outlined"
-        (click)="changeMenuVisible()">
-        menu
+        <span [ngClass]="{'material-symbols-outlined': true, 'expand-more': true, 'collapse-up': menuVisible}">expand_more</span>
       </button>
     </div>
   </div>
 </nav>
 
-<div *ngIf="menuVisible" class="at-menu-container animate__animated animate__fadeInDown animate__faster">
+<div [ngClass]="{'at-menu-container': true, 'at-menu-disable': !menuVisible}">
   <div class="menu-items-container">
     <div *ngFor="let menuItem of menuElements" class="menu-item-container">
-      <div class="item-box">
+      <div (click)="onMenuIteMSelected(menuItem.action)" class="item-box">
         <span class="material-symbols-outlined">{{menuItem.icon}}</span>
       </div>
       <p class="item-name-text">{{menuItem.name}}</p>
     </div>
   </div>
-  <button class="at-mobile at-button normal flat-green iconic">
-    <span class="material-symbols-outlined">add_circle</span>
-    <span>Dodaj urządzenie</span>
-  </button>
 </div>

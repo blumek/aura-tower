@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HeaderComponent } from '../../shared/components/header/header.component';
 import { MainViewComponent } from './main-view.component';
 
 describe('MainViewComponent', () => {

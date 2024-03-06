@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainViewComponent } from './main-view.component';
-import { SharedModule } from '../../shared/shared.module';
 import { MainViewRoutingModule } from './main-view-routing.module';
-
-
+import { HeaderComponent } from '../../shared/components/header/header.component';
 
 @NgModule({
   declarations: [
-    MainViewComponent
+    MainViewComponent 
   ],
   imports: [
     CommonModule,
-    SharedModule,
-    MainViewRoutingModule
+    MainViewRoutingModule,
+    HeaderComponent
   ]
 })
 export class MainViewModule { }

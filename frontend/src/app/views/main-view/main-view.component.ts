@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrl: './main-view.component.scss'
 })
 export class MainViewComponent {
-
+  homeName: string = 'Domek Jordana'
 }
