@@ -4,6 +4,7 @@ import { HeaderComponent } from './components/header/header.component';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 const sharedComponents = [
@@ -21,7 +22,8 @@ const sharedComponents = [
   imports: [
     CommonModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatDividerModule
   ]
 })
 export class SharedModule { }

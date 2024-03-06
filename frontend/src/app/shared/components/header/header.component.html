@@ -1,41 +1,55 @@
-<nav>
+<nav class="animate__animated animate__fadeInDown">
   <div class="left-container">
     <img
+      class="normal-logo"
       src="../../../../assets/images/logo.svg"
+      alt="Aura-Tower logo">
+    <img
+      class="mobile-logo"
+      src="../../../../assets/images/logo-mobile.svg"
       alt="Aura-Tower logo">
   </div>
   <div class="center-container">
-    <p *ngIf="homeName">Witaj w: {{homeName}}</p>
+    <div
+      *ngIf="homeName"
+      class="home-name">
+      <span class="material-symbols-outlined">home</span>
+      <span>{{homeName}}</span>
+    </div>
   </div>
   <div class="right-container">
     <div class="buttons-container">
       <button class="at-button normal flat-green iconic">
-        <mat-icon>add_circle_outline</mat-icon>
+        <span class="material-symbols-outlined">add_circle</span>
         <span>Dodaj urządzenie</span>
       </button>
       <button
         class="at-button circle outline-green"
-        [matMenuTriggerFor]="menu">
+        (click)="changeMenuVisible()">
         <mat-icon>more_horiz</mat-icon>
       </button>
-      <mat-menu #menu="matMenu">
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Zarządzaj obszarami</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Ustawienia aplikacji</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Instrukcja</span>
-        </button>
-        <button mat-menu-item>
-          <mat-icon>settings</mat-icon>
-          <span>Zmień obszar</span>
-        </button>
-      </mat-menu>
+    </div>
+    <div class="mobile-button-container">
+      <button
+        class="at-mobile-button material-symbols-outlined"
+        (click)="changeMenuVisible()">
+        menu
+      </button>
     </div>
   </div>
 </nav>
+
+<div *ngIf="menuVisible" class="at-menu-container animate__animated animate__fadeInDown animate__faster">
+  <div class="menu-items-container">
+    <div *ngFor="let menuItem of menuElements" class="menu-item-container">
+      <div class="item-box">
+        <span class="material-symbols-outlined">{{menuItem.icon}}</span>
+      </div>
+      <p class="item-name-text">{{menuItem.name}}</p>
+    </div>
+  </div>
+  <button class="at-mobile at-button normal flat-green iconic">
+    <span class="material-symbols-outlined">add_circle</span>
+    <span>Dodaj urządzenie</span>
+  </button>
+</div>
