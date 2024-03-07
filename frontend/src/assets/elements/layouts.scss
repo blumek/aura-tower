@@ -1,0 +1,13 @@
+@import '../styles/variables.scss';
+
+.main-container{
+    min-height: 100vh;
+    background-color: $background-light;
+}
+
+.site-container {
+    display: grid;
+    gap: 20px;
+    padding: 94px 30px 30px 30px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

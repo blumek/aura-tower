@@ -14,11 +14,18 @@
       *ngIf="homeName"
       class="home-name">
       <span class="material-symbols-outlined">home</span>
-      <span [matTooltip]="homeName" [matTooltipDisabled]="homeName.length < 25">{{homeName}}</span>
+      <span
+        [matTooltip]="homeName"
+        [matTooltipDisabled]="homeName.length < 25">{{homeName}}</span>
     </div>
   </div>
   <div class="right-container">
     <div class="buttons-container">
+      <button
+        class="at-button circle outline-green"
+        (click)="changeLocationMenuVisible()">
+        <span [ngClass]="{'material-symbols-outlined': true}">moved_location</span>
+      </button>
       <button
         class="at-button circle outline-green"
         (click)="changeMenuVisible()">
@@ -28,13 +35,7 @@
   </div>
 </nav>
 
-<div [ngClass]="{'at-menu-container': true, 'at-menu-disable': !menuVisible}">
-  <div class="menu-items-container">
-    <div *ngFor="let menuItem of menuElements" class="menu-item-container">
-      <div (click)="onMenuIteMSelected(menuItem.action)" class="item-box">
-        <span class="material-symbols-outlined">{{menuItem.icon}}</span>
-      </div>
-      <p class="item-name-text">{{menuItem.name}}</p>
-    </div>
-  </div>
-</div>
+<app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible()" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
+
+<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible()" [ngClass]="{'at-menu': true, 'at-menu-disable': !menuVisible}"></app-menu>
+

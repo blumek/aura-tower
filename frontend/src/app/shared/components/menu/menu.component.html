@@ -1,0 +1,22 @@
+<div class="at-menu-container">
+  <div class="menu-items-container">
+    <div *ngIf="isAreaChangeMenu" class="menu-item-container">
+      <div
+        (click)="onMenuIteMSelected(0)"
+        class="item-box">
+        <span class="material-symbols-outlined">home</span>
+      </div>
+      <p class="item-name-text">Całe otoczenie</p>
+    </div>
+    <div
+      *ngFor="let item of menuItems"
+      class="menu-item-container">
+      <div
+        (click)="onMenuIteMSelected(item.id)"
+        class="item-box">
+        <span class="material-symbols-outlined">{{item.icon}}</span>
+      </div>
+      <p class="item-name-text">{{item.name}}</p>
+    </div>
+  </div>
+</div>
