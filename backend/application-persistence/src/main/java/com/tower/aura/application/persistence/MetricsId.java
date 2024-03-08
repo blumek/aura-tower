@@ -1,4 +1,4 @@
-package com.tower.aura.application.core;
+package com.tower.aura.application.persistence;
 
 import org.apache.commons.lang3.StringUtils;
 

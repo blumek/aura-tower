@@ -1,4 +1,4 @@
-package com.tower.aura.application.core;
+package com.tower.aura.application.persistence;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
