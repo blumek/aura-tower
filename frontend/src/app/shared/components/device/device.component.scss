@@ -10,6 +10,14 @@
     border-radius: 15px;
     height: 250px;
 
+    &:hover .bottom-section {
+        div:nth-of-type(1),
+        div:nth-of-type(3) {
+            opacity: 1;
+        }
+
+    }
+
     .top-section {
         display: flex;
         position: relative;
@@ -38,20 +46,37 @@
     }
 
     .bottom-section {
-        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-        p {
-            margin: 0;
+        div:nth-of-type(1),
+        div:nth-of-type(3) {
+            transition: .3s;
+            opacity: 0;
+            color: $icon-light;
         }
 
-        .device-title {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        div:nth-of-type(2) {
+            text-align: center;
+
+            p {
+                margin: 0;
+            }
+    
+            .device-title {
+                font-size: 16px;
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+    
+            .device-type {
+                font-size: 13px;
+            }
         }
 
-        .device-type {
-            font-size: 13px;
+        div:nth-of-type(3) {
+            text-align: end;
         }
     }
 }

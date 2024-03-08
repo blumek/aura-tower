@@ -35,6 +35,48 @@ export class DashboardComponent {
       }
     },
     {
+      name: 'Xiaoomi Vacum Mi 2 PRO',
+      type: 'Odkurzacz',
+      location: 'Salon',
+      status: 'online',
+      data: {
+        power: '100',
+        water: '100',
+        weight: '100',
+        x: '100',
+        y: '100',
+        z: '100'
+      }
+    },
+    {
+      name: 'Xiaoomi Vacum Mi 2 PRO',
+      type: 'Odkurzacz',
+      location: 'Salon',
+      status: 'online',
+      data: {
+        power: '100',
+        water: '100',
+        weight: '100',
+        x: '100',
+        y: '100',
+        z: '100'
+      }
+    },
+    {
+      name: 'Xiaoomi Vacum Mi 2 PRO',
+      type: 'Odkurzacz',
+      location: 'Salon',
+      status: 'online',
+      data: {
+        power: '100',
+        water: '100',
+        weight: '100',
+        x: '100',
+        y: '100',
+        z: '100'
+      }
+    },
+    {
       name: 'Seba',
       type: 'Głośnik',
       location: 'Salon',
