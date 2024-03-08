@@ -1,4 +1,4 @@
-package com.tower.aura.application.core;
+package com.tower.aura.application.persistence;
 
 import java.util.Objects;
 

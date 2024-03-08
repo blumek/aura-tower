@@ -10,7 +10,6 @@
     <packaging>pom</packaging>
     <modules>
         <module>application-bootstrap</module>
-        <module>application-core</module>
         <module>application-persistence</module>
         <module>persistence-adapter-in-memory</module>
     </modules>
