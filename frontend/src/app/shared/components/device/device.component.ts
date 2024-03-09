@@ -29,10 +29,9 @@ export class DeviceComponent {
 
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      minWidth: '300px',
       data: {
         title: 'Usunąć urządzenie?',
-        content: 'Usunięcie urządzenia spwoduje utratę wszystkich jego zapisanych danych oraz nie będzie ono już wyświetlane na panelu głównym',
+        content: 'Usunięcie urządzenia spwoduje utratę wszystkich jego zapisanych danych oraz nie będzie ono już widoczne na panelu głównym',
         cancelButtonText: 'Anuluj',
         acceptButtonText: 'Usuń'
       }
