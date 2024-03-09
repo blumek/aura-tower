@@ -1,10 +1,6 @@
 package com.tower.aura.application.persistence.adapter;
 
-import com.tower.aura.application.core.MetricsCollection;
-import com.tower.aura.application.core.MetricsId;
-import com.tower.aura.application.persistence.MetricsPersistenceGateway;
-import com.tower.aura.application.persistence.MetricsPersistenceReply;
-import com.tower.aura.application.persistence.MetricsPersistenceRequest;
+import com.tower.aura.application.persistence.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
