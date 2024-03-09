@@ -1,0 +1,41 @@
+@import './variables.scss';
+
+//Material element text color set
+.mat-mdc-form-field-label,
+.mat-mdc-checkbox-label,
+.mat-mdc-radio-label,
+.mat-mdc-select-value,
+.mat-mdc-button,
+.mat-mdc-tab-label,
+.mat-mdc-menu-item {
+    color: $text-light !important;
+
+    .mat-mdc-menu-item-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .mat-icon,
+    .material-symbols-outlined {
+      color: $icon-light !important;
+    }
+}
+
+.mat-mdc-elevation-specific.mat-elevation-z8 {
+  box-shadow: $shadow-light !important;
+  border-radius: 15px !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 15px !important;
+}
+
+
+.danger {
+    color: $danger !important;
+
+    .mat-icon,
+    .material-symbols-outlined {
+      color: $danger-icon-light !important;
+    }
+}

@@ -22,6 +22,8 @@
         display: flex;
         position: relative;
         flex-direction: column;
+        overflow: hidden;
+        padding-bottom: 10px;
         height: 90%;
 
         .offline-msg {
@@ -29,7 +31,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-          text-align: center;
+            text-align: center;
 
           span {
             font-size: 60px;
@@ -55,6 +57,10 @@
             transition: .3s;
             opacity: 0;
             color: $icon-light;
+
+            &:hover {
+                cursor: pointer;
+            }
         }
 
         div:nth-of-type(2) {

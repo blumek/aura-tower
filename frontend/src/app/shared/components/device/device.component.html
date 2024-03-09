@@ -1,23 +1,46 @@
 <div class="device-container">
-    <div class="top-section">
-        <div *ngIf="deviceData.status === 'offline'" class="offline-msg">
-            <span class="material-symbols-outlined">wifi_off</span>
-            <p>Brak komunikacji</p>
-        </div>
-        <div *ngIf="deviceData.status === 'online'">
-            <p *ngFor="let key of getObjectData()" class="device-data"><span>{{key}}</span><span>{{deviceData.data[key]}}</span></p>
-        </div>
+  <div class="top-section">
+    <div
+      *ngIf="deviceData.status === 'offline'"
+      class="offline-msg">
+      <span class="material-symbols-outlined">wifi_off</span>
+      <p>Brak komunikacji</p>
     </div>
-    <div class="bottom-section">
-        <div>
-            <span class="material-symbols-outlined">edit</span>
-        </div>
-        <div>
-            <p class="device-title">{{deviceData.name}}</p>
-            <p class="device-type">{{deviceData.type}}</p>
-        </div>
-        <div>
-            <span class="material-symbols-outlined">menu</span>
-        </div>
+    <div *ngIf="deviceData.status === 'online'">
+      <p
+        *ngFor="let key of getObjectData()"
+        class="device-data"><span>{{key}}</span><span>{{deviceData.data[key]}}</span></p>
     </div>
+  </div>
+  <div class="bottom-section">
+    <div>
+      <span
+        (click)="refreshDeviceData()"
+        class="material-symbols-outlined">refresh</span>
+    </div>
+    <div>
+      <p class="device-title">{{deviceData.name}}</p>
+      <p class="device-type">{{deviceData.type}}</p>
+    </div>
+    <div>
+      <span
+        [matMenuTriggerFor]="menu"
+        class="material-symbols-outlined">menu</span>
+    </div>
+  </div>
 </div>
+
+<mat-menu #menu="matMenu">
+  <button (click)="openEditDialog()" mat-menu-item>
+    <mat-icon>edit</mat-icon>
+    <span>Edytuj urządzenie</span>
+  </button>
+  <button (click)="openOrderingDialog()" mat-menu-item>
+    <mat-icon>low_priority</mat-icon>
+    <span>Zmień kolejność urządzenia</span>
+  </button>
+  <button (click)="openDeleteDialog()" class="danger" mat-menu-item>
+    <mat-icon>delete_forever</mat-icon>
+    <span>Usuń urządzenie</span>
+  </button>
+</mat-menu>
