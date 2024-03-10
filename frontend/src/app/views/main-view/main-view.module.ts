@@ -5,6 +5,7 @@ import { MainViewRoutingModule } from './main-view-routing.module';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DeviceComponent } from '../../shared/components/device/device.component';
+import { NoResultsComponent } from '../../shared/components/no-results/no-results.component';
 
 @NgModule({
   declarations: [
@@ -15,8 +16,8 @@ import { DeviceComponent } from '../../shared/components/device/device.component
     CommonModule,
     MainViewRoutingModule,
     HeaderComponent,
-    DeviceComponent
-
+    DeviceComponent,
+    NoResultsComponent
   ]
 })
 export class MainViewModule { }

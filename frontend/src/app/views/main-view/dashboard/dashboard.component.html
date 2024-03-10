@@ -1,3 +1,8 @@
-<div class="site-container flex-row flex-wrap gap-20">
+<div *ngIf="mockData.length > 0; else noResults" class="site-container flex-row flex-wrap gap-20">
     <app-device *ngFor="let device of mockData" [deviceData]="device"></app-device>
 </div>
+
+<ng-template #noResults>
+    <app-no-results></app-no-results>
+</ng-template>
+
