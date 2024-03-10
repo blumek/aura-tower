@@ -1,0 +1,25 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title>{{data.title}}</h2>
+  <mat-dialog-content class="mat-typography">
+    <p>{{data.content}}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <div class="buttons-container mobile buttons-small-space">
+      <button
+        class="at-button normal iconic outline-green"
+        mat-button
+        mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+        <span>{{data.cancelButtonText}}</span>
+      </button>
+      <button
+        class="at-button normal iconic flat-green"
+        mat-button
+        [mat-dialog-close]="true"
+        cdkFocusInitial>
+        <span class="material-symbols-outlined">done</span>
+        <span>{{data.acceptButtonText}}</span>
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>
