@@ -4,11 +4,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../dialogs/confirmation-dialog/confirmation-dialog.component';
+import { LoadingComponent } from '../loading/loading.component';
 
 @Component({
   selector: 'app-device',
   standalone: true,
-  imports: [NgIf, NgFor, MatMenuModule, MatIconModule, MatDialogModule],
+  imports: [NgIf, NgFor, MatMenuModule, MatIconModule, MatDialogModule, LoadingComponent],
   templateUrl: './device.component.html',
   styleUrl: './device.component.scss',
 })

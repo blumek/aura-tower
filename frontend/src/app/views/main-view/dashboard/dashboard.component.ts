@@ -108,7 +108,18 @@ export class DashboardComponent {
         sound: '100',
         voltage: '100',
         weight: '100',
+        a: '100',
+        b: '100',
+        c: '100',
+        d: '100',
+        e: '100',
+        f: '100',
+        g: '100',
+        h: '100',
+        i: '100',
+        j: '100',
       }
     },
+    
   ]
 }
