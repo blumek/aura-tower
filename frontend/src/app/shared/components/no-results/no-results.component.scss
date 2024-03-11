@@ -4,5 +4,50 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
+    .no-results-box {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+
+        @media (max-width: 796px) {
+            width: 80%
+        }
+
+        .no-results-img,
+        .add-device-button {
+            display: flex;
+            justify-content: center;
+        }
+
+        .no-results-img {
+            img {
+                width: 70%;
+                
+                @media (max-width: 1585px) {
+                    width: 85%;
+                }
+
+                @media (max-width: 990px) {
+                    width: 110%;
+                }
+
+                @media (max-width: 796px) {
+                    width: 80%
+                }
+            }
+        }
+
+        .no-results-text {
+            text-align: center;
+
+            h2 {
+                margin: 16px 0
+            }
+
+            p {
+                margin-bottom: 20px;
+            }
+        }
+    }
 }
