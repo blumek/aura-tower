@@ -13,6 +13,7 @@
         <module>application-persistence</module>
         <module>persistence-adapter-in-memory</module>
         <module>persistence-adapter-mongodb</module>
+        <module>rest-web-adapter</module>
     </modules>
 
     <properties>
@@ -28,6 +29,11 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>3.2.3</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
