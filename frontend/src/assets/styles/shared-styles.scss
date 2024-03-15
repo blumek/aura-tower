@@ -39,3 +39,17 @@
       color: $danger-icon-light !important;
     }
 }
+
+.at-snackbar-success {
+  --mdc-snackbar-supporting-text-color: #fff;
+  margin: 0 20px 20px 0 !important;
+  --mdc-snackbar-container-color: #5bcba9;
+  max-width: unset;
+}
+
+.at-snackbar-error {
+  --mdc-snackbar-supporting-text-color: #fff;
+  margin: 0 20px 20px 0 !important;
+  --mdc-snackbar-container-color: #f44336de;
+  max-width: unset;
+}

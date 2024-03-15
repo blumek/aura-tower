@@ -13,10 +13,11 @@ export class SnackbarService {
     this.snackBar.openFromComponent(SnackbarComponent, {
       data: {
         message: message,
+        error: error ? error : false
       },
-      panelClass: error ? "at-snackbar-error" : "at-snackbar-sccess",
+      panelClass: error ? "at-snackbar-error" : "at-snackbar-success",
       horizontalPosition: 'end',
-      duration: 5000,
+      duration: 500000,
     });
   }
 }

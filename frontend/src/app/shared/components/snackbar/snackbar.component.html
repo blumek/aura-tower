@@ -1,1 +1,15 @@
-<p>snackbar works!</p>
+<div class="snackbar-container">
+    <div class="logo-snackbar">
+        <span *ngIf="!data.error" class="material-symbols-outlined">Check</span>
+        <span *ngIf="data.error" class="material-symbols-outlined">Warning</span>
+    </div>
+    <div class="spacer-right"></div>
+    <div class="data">
+        {{ data.message }}
+    </div>
+    <div class="dismiss">
+        <button mat-icon-button (click)="snackBarRef.dismiss()">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</div>

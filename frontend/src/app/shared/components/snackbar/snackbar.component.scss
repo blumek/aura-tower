@@ -1,0 +1,38 @@
+@import '../../../../assets/styles/variables.scss';
+
+.snackbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;  
+  
+    .logo-snackbar{
+      width: 38px;
+      background-size: 38px auto;
+      height: 38px;
+      padding: 12px 10px 10px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: scale(1.5);
+    }
+  
+    .spacer-right{
+      width: 14px;
+      height: 60px;
+    }
+  
+    .data{
+      flex-grow: 1;
+      margin-left: 27px;
+      font-weight: bold;
+    }
+
+    .dismiss {
+        button {
+            background-color: transparent;
+            border: none;
+            color: $white;
+        }
+    }
+  }
+  

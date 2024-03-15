@@ -3,6 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DeviceConfigDialogComponent } from '../dialogs/device-config-dialog/device-config-dialog.component';
+import { SnackbarService } from '../../services/snackbar.service';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +19,8 @@ export class MenuComponent {
 
   constructor (
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private snackBarService: SnackbarService
   ) {}
   
   onMenuIteMSelected(elementId: number) {
@@ -40,7 +42,7 @@ export class MenuComponent {
         this.menuItems[0] = {icon: 'fullscreen', name: 'Tryb pełnoekranowy', action: 'full-screen'}
         break;
       case 'add-device':
-        this.openAddDeviceDialog();
+        this.snackBarService.openSnackBar('Komponent w budowie', true);
         break;
       default:
         console.log('navigate')
