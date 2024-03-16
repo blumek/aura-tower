@@ -13,4 +13,17 @@ describe('SnackbarService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should show snackbar', () => {
+    service.openSnackBar('Test');
+  });
+
+  it('should show snackbar with action', () => {
+    service.openSnackBar('Test', false);
+  });
+
+  it('should show snackbar with action', () => {
+    service.openSnackBar('Test', true);
+  });
+
 });
