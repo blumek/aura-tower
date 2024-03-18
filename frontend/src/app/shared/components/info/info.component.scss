@@ -1,0 +1,22 @@
+@import "../../../../assets/styles/variables.scss";
+
+.info-container {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid $disabled-gray;
+    column-gap: 50px;
+    padding: 24px;
+    width: 100%;
+  
+    .info-icon{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $at-green;
+      width: 10;
+    }
+  
+    .info-text{
+      width: 90%;
+    }
+  }

@@ -17,7 +17,7 @@ export class SnackbarService {
       },
       panelClass: error ? "at-snackbar-error" : "at-snackbar-success",
       horizontalPosition: 'end',
-      duration: 500000,
+      duration: 10000,
     });
   }
 }

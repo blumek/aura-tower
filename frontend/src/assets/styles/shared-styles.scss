@@ -53,3 +53,26 @@
   --mdc-snackbar-container-color: #f44336de;
   max-width: unset;
 }
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
+  color: $text-light;
+  font-size: 14px;
+}
+
+.mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-icon {
+  color: $white;
+  background-color: $disabled-gray;
+}
+
+.mat-step-icon {
+  background-color: $disabled-gray;
+}
+
+.mat-step-icon-selected {
+  background-color: $at-green !important;
+  color: $white;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: $white !important;
+}

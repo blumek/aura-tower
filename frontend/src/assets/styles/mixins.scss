@@ -48,3 +48,8 @@
     gap: 30px
 }
 
+@for $i from 1 through 10 {
+    .spacer-#{$i} {
+        padding-bottom: $i * 10px !important;
+    }
+}

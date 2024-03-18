@@ -1,15 +1,53 @@
-<mat-stepper labelPosition="bottom" #stepper>
-    <mat-step >
-        <ng-template matStepLabel>Uno</ng-template>
-        <p>You are now uno.</p>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>Due</ng-template>
+<div class="dialog-container">
+  <h2 mat-dialog-title>{{data.title}}</h2>
+  <mat-dialog-content>
+    <mat-stepper labelPosition="bottom" #stepper [disableRipple]="true">
+      <mat-step >
+          <ng-template matStepLabel>Nazwa urządzenia</ng-template>
+          <div class="spacer-2"></div>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nazwa urządzenia</mat-label>
+            <input matInput>
+          </mat-form-field>
+          <div class="spacer-2"></div>
+          <app-info infoText="Podaj nazwę swojego urządzenia, która będzie wyświetlana w panelu głównym, nazwę będziesz mógł zmienić w każdej chwili."></app-info>
+      </mat-step>
+      <mat-step>
+          <ng-template matStepLabel>Typ urządzenia</ng-template>
+          <div class="spacer-2"></div>
+          <p>You are now due.</p>
+  
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Dane urządzenia</ng-template>
+        <div class="spacer-2"></div>
         <p>You are now due.</p>
 
     </mat-step>
-    <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
-    </mat-step>
-  </mat-stepper>
+      <mat-step>
+        <ng-template matStepLabel>Podsumowanie</ng-template>
+        <div class="spacer-2"></div>
+      </mat-step>
+    </mat-stepper>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <div class="buttons-container mobile buttons-small-space">
+      <button
+        class="at-button normal iconic outline-green"
+        mat-button
+        mat-dialog-close>
+        <span class="material-symbols-outlined">close</span>
+        <span>Anuluj</span>
+      </button>
+      <button
+        class="at-button normal iconic flat-green"
+        mat-button
+        [mat-dialog-close]="true"
+        disabled
+        cdkFocusInitial>
+        <span class="material-symbols-outlined">navigate_next</span>
+        <span>Następny krok</span>
+      </button>
+    </div>
+  </mat-dialog-actions>
+</div>

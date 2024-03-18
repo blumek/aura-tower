@@ -40,6 +40,16 @@
             background-color: $at-green-active;
             box-shadow: $shadow-active-green;
         }
+
+        &:disabled {
+            background-color: $disabled-gray;
+
+            &:hover {
+                box-shadow: none;
+                background-color: $disabled-gray;
+                cursor: default;
+            }
+        }
     }
 
     &.outline-green {
