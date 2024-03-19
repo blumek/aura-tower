@@ -14,6 +14,7 @@
         <module>persistence-adapter-in-memory</module>
         <module>persistence-adapter-mongodb</module>
         <module>rest-web-adapter</module>
+        <module>application</module>
     </modules>
 
     <properties>
