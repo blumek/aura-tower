@@ -106,3 +106,46 @@ nav {
     margin-top: 0;
     transform: rotate(180deg);
 }
+
+@media (min-width: 768px) {
+    nav {
+        height: 100%;
+        width: 100px;
+        border-radius: 0 15px 15px 0;
+        flex-direction: column;
+
+        .left-container {
+            display: flex;
+            justify-content: center;
+            padding: 25px 0;
+
+            .circle {
+                width: 55px;
+                height: 55px
+            }
+        };
+
+        .center-container {
+            .menu-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 35px;
+                padding: 25px 0;
+                color: $icon-light;
+    
+                .material-symbols-outlined{
+                    font-size: 28px;
+                }
+
+                mat-divider {
+                    width: 100%;
+                    height: 3px;
+                    color: $icon-light;
+                }
+            }
+        }
+
+    }
+}

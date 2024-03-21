@@ -76,3 +76,21 @@
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
   background-color: $white !important;
 }
+
+.mobile {
+  display: block;
+
+  @media (min-width: 768px) {
+    & {
+      display: none !important;
+    }
+  }
+}
+
+.desktop {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}

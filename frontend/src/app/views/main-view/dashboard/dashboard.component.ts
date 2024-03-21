@@ -9,4 +9,5 @@ import { mockDevices } from '../../../shared/mocks/devices';
 export class DashboardComponent {
   loading: boolean = false;
   mockData = mockDevices
+  homeName = 'Domek Jordana'
 }

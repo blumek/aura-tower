@@ -3,13 +3,13 @@ import { Component, Input } from '@angular/core';
 import { MatTooltipModule} from '@angular/material/tooltip';
 import { MenuComponent } from '../menu/menu.component';
 import { menuElements, menuLocalizations } from '../../mocks/menu';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass, MatTooltipModule, MenuComponent],
+  imports: [NgFor, NgIf, NgClass, MatTooltipModule, MenuComponent, MatDividerModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

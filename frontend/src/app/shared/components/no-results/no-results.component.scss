@@ -51,3 +51,9 @@
         }
     }
 }
+
+@media (min-width: 768px) {
+    .no-results-container {
+        height: calc(100vh - 105px);
+    }
+}
