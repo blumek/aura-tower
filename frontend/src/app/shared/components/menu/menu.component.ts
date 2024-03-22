@@ -1,8 +1,7 @@
 import { NgFor, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { DeviceConfigDialogComponent } from '../dialogs/device-config-dialog/device-config-dialog.component';
+import { DevicesService } from '../../services/devices.service';
 
 @Component({
   selector: 'app-menu',
@@ -18,7 +17,7 @@ export class MenuComponent {
 
   constructor (
     private router: Router,
-    private dialog: MatDialog,
+    private devicesService: DevicesService,
   ) {}
   
   onMenuIteMSelected(elementId: number) {
@@ -40,7 +39,7 @@ export class MenuComponent {
         this.menuItems[0] = {icon: 'fullscreen', name: 'Tryb pełnoekranowy', action: 'full-screen'}
         break;
       case 'add-device':
-        this.openAddDeviceDialog();
+        this.devicesService.openAddDeviceDialog();
         break;
       default:
         console.log('navigate')
@@ -56,18 +55,4 @@ export class MenuComponent {
     return foundItem ? foundItem : id;
   }
 
-  openAddDeviceDialog(): void {
-    const dialogRef = this.dialog.open(DeviceConfigDialogComponent , {
-      data: {
-        title: 'Dodaj nowe urządzenie',
-        content: '',
-        cancelButtonText: 'Anuluj',
-        acceptButtonText: 'Kolejny krok'
-      }
-    });
-
-    dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
 }

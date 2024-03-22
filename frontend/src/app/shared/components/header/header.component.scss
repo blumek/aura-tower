@@ -137,6 +137,12 @@ nav {
     
                 .material-symbols-outlined{
                     font-size: 28px;
+                    transition: .3s;
+
+                    &:hover {
+                        color: $at-green-active;
+                        cursor: pointer;
+                    }
                 }
 
                 mat-divider {
@@ -147,5 +153,30 @@ nav {
             }
         }
 
+        .right-container {
+            display: block;
+            margin-top: auto;
+            padding: 25px 0
+        }
+
+    }
+
+    .at-menu {
+        position: fixed;
+        z-index: 2;
+        top: 64px;
+        right: auto;
+        left: 100px;
+        transition: 1s
+
+    }
+
+    .at-menu-disable {
+        left: -50%;
+        opacity: 0;
+    }
+
+    .button-active {
+        color: $at-green;
     }
 }
