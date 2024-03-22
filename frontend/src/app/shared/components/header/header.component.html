@@ -10,7 +10,7 @@
       alt="Aura-Tower logo">
     <button
       class="at-button circle flat-green desktop"
-      (click)="changeLocationMenuVisible()">
+      (click)="openAddDeviceDialog()">
       <span [ngClass]="{'material-symbols-outlined': true}">add</span>
     </button>
   </div>
@@ -24,9 +24,7 @@
         [matTooltipDisabled]="homeName.length < 25">{{homeName}}</span>
     </div>
     <div class="desktop menu-container">
-      <span class="material-symbols-outlined">home</span>
-      <span class="material-symbols-outlined">chair</span>
-      <span class="material-symbols-outlined">oven_gen</span>
+      <span (click)="changeLocationMenuVisible()" [ngClass]="{'material-symbols-outlined': true, 'button-active': locationMenuVisible}">moved_location</span>
       <mat-divider></mat-divider>
       <span class="material-symbols-outlined">fullscreen</span>
       <span class="material-symbols-outlined">home_pin</span>
@@ -48,10 +46,24 @@
         <span [ngClass]="{'material-symbols-outlined': true, 'expand-more': true, 'collapse-up': menuVisible}">expand_more</span>
       </button>
     </div>
+    <div class="desktop">
+      <app-avatar [matMenuTriggerFor]="menu" [hover]="true" [size]="50" sourceName="Adam Kowalski" class="flex-row justify-center"></app-avatar>
+    </div>
   </div>
+
 </nav>
 
 <app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible()" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
 
-<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible()" [ngClass]="{'at-menu': true, 'at-menu-disable': !menuVisible}"></app-menu>
+<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible()" [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>
 
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>
+    <mat-icon>manage_accounts</mat-icon>
+    <span>Edytuj profil</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>logout</mat-icon>
+    <span>Wyloguj</span>
+  </button>
+</mat-menu>
