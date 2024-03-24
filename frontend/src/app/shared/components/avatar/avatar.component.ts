@@ -12,6 +12,9 @@ export class AvatarComponent {
   @Input() size: number = 50;
   @Input() sourceName!: string;
   @Input() hover: boolean = false;
+  @Input() visibleFullName: boolean = false;
+  @Input() fullNameSite: string = 'left';
+
 
   initials!: string;
   color!: string;

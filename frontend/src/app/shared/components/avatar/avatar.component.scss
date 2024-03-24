@@ -7,12 +7,3 @@
     color: white;
     font-weight: 600;  
   }
-
-  .avatar-hover {
-    cursor: pointer;
-    transition: .3s;
-
-    &:hover {
-        transform: scale(1.1);
-    }
-  }
