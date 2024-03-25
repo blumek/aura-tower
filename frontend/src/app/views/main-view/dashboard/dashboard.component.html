@@ -1,19 +1,7 @@
 @if (loading) {
     <app-loading [blur]="true"></app-loading>
 } @else {
-    <div class="desktop header-dashboard">
-        <div
-        *ngIf="homeName"
-        class="home-name">
-        <span class="material-symbols-outlined">home</span>
-        <span>{{homeName}}</span>
-      </div>
-      <img
-      class="normal-logo"
-      src="../../../../assets/images/logo-transparent.svg"
-      alt="Aura-Tower logo">
 
-    </div>
     <div *ngIf="mockData.length > 0; else noResults" class="dashboard-container flex-row flex-wrap gap-20">
         <app-device *ngFor="let device of mockData" [deviceData]="device"></app-device>
     </div>

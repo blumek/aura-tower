@@ -1,6 +1,9 @@
 <div class="main-container">
-    <app-header [homeName]="homeName"></app-header>
-    <div class="site-container">
-        <router-outlet></router-outlet>
+    <app-navbar></app-navbar>
+    <div class="flex-column">
+        <app-header [homeName]="homeName"></app-header>
+        <div class="site-container">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

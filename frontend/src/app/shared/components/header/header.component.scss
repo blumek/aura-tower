@@ -1,182 +1,28 @@
-@import '../../../../assets/styles/variables.scss';
-
-nav {
-    position: fixed;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    background-color: $white;
-    height: 64px;
-    width: 100%;
-    padding: 5px 20px;
-    box-shadow: $shadow-light;
+.header-container {
+    margin: 94px 30px 0 30px;
     display: flex;
-
-    .mobile-logo {
-        display: none;
-    }
-
-    div {
-        width: 100%;
-    }
-
-    .center-container {
+    justify-content: center;
+    .home-name {
         display: flex;
         align-items: center;
-        .home-name {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin: 0;
-            font-size: 16px;
+        gap: 20px;
+        font-size: 24px;
 
-            span:nth-of-type(2) {
-                max-width: 350px;
-                margin-top: 2px;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis; 
-            }
+        .material-symbols-outlined {
+            font-size: 32px;
         }
     }
-
-    .right-container {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-    }
-
-    @media (max-width: 932px) {
-        .left-container,
-        .right-container {
-            width: 153px;
-        }
-    }
-
-    @media (max-width: 565px) {
-        .left-container,
-        .right-container {
-            width: 153px;
-        }
-
-        .center-container {
-            .home-name {
-                span:nth-of-type(2) {
-                    max-width: 190px;
-                }
-            }
-        }
-
-        .normal-logo {
-            display: none;
-        }
-
-        .mobile-logo {
-            display: block;
-        }
-    }
-}
-
-.at-menu {
-    position: fixed;
-    z-index: 2;
-    top: 64px;
-    right: 0;
-    transition: 1s ease;
-}
-
-.at-menu-disable {
-    top: -250px;
-    opacity: 0;
-
-    @media (max-width: 932px)  {
-        top: -100%;
-    }
-}
-
-.expand-more { 
-    margin-top: 4px;
-    font-size: 28px;
-    transition: .5s;
-}
-
-.collapse-up{
-    margin-top: 0;
-    transform: rotate(180deg);
 }
 
 @media (min-width: 768px) {
-    nav {
-        height: 100%;
-        width: 100px;
-        border-radius: 0 15px 15px 0;
-        flex-direction: column;
-
-        .left-container {
-            display: flex;
-            justify-content: center;
-            padding: 25px 0;
-
-            .circle {
-                width: 55px;
-                height: 55px
-            }
-        };
-
-        .center-container {
-            .menu-container {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 35px;
-                padding: 25px 0;
-                color: $icon-light;
-    
-                .material-symbols-outlined{
-                    font-size: 28px;
-                    transition: .3s;
-
-                    &:hover {
-                        color: $at-green-active;
-                        cursor: pointer;
-                    }
-                }
-
-                mat-divider {
-                    width: 100%;
-                    height: 3px;
-                    color: $icon-light;
-                }
-            }
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        margin: -10px 0 -10px 0;
+        padding: 30px 30px 0 130px;
+        
+        .home-name {
+            padding-left: 10px;
         }
-
-        .right-container {
-            display: block;
-            margin-top: auto;
-            padding: 25px 0
-        }
-
-    }
-
-    .at-menu {
-        position: fixed;
-        z-index: 2;
-        top: 64px;
-        right: auto;
-        left: 100px;
-        transition: 1s
-
-    }
-
-    .at-menu-disable {
-        left: -50%;
-        opacity: 0;
-    }
-
-    .button-active {
-        color: $at-green;
     }
 }

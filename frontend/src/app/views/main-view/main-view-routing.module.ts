@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { MainViewComponent } from "./main-view.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 
 const operatorRoutes: Routes = [
@@ -13,6 +14,10 @@ const operatorRoutes: Routes = [
             { 
                 path: 'dashboard',
                 component: DashboardComponent
+            },
+            { 
+                path: 'settings',
+                component: SettingsComponent
             }
         ]
     },

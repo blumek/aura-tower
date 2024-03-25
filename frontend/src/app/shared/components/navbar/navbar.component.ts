@@ -1,0 +1,46 @@
+import { NgClass, NgFor, NgIf } from '@angular/common';
+import { Component, Input } from '@angular/core';
+import { MatTooltipModule} from '@angular/material/tooltip';
+import { MenuComponent } from '../menu/menu.component';
+import { menuElements, menuLocalizations } from '../../mocks/menu';
+import { MatDividerModule } from '@angular/material/divider';
+import { DevicesService } from '../../services/devices.service';
+import { AvatarComponent } from '../avatar/avatar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [NgFor, NgIf, NgClass, MatTooltipModule, MenuComponent, MatDividerModule, AvatarComponent, MatMenuModule, MatIconModule],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.scss'
+})
+export class NavbarComponent {
+  @Input() homeName: string = '';
+  menuVisible: boolean = false;
+  locationMenuVisible: boolean = false;
+  isFullScreen: boolean = false;
+
+  menuElements = menuElements
+  mockLocalizationData = menuLocalizations
+
+  constructor(
+    private devicesService: DevicesService
+  ){}
+
+  changeMenuVisible() {
+    this.menuVisible = !this.menuVisible;
+    this.locationMenuVisible = false;
+  }
+
+  changeLocationMenuVisible() {
+    this.locationMenuVisible = !this.locationMenuVisible;
+    this.menuVisible = false;
+  }
+
+  openAddDeviceDialog() {
+    this.devicesService.openAddDeviceDialog();
+  }
+}

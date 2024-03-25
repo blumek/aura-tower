@@ -1,0 +1,50 @@
+<nav class="animate__animated animate__fadeInDown">
+  <div class="left-container">
+    <img
+      class="normal-logo mobile"
+      src="../../../../assets/images/logo.svg"
+      alt="Aura-Tower logo">
+    <img
+      class="mobile-logo mobile"
+      src="../../../../assets/images/logo-mobile.svg"
+      alt="Aura-Tower logo">
+    <button
+      class="at-button circle flat-green desktop"
+      (click)="openAddDeviceDialog()">
+      <span [ngClass]="{'material-symbols-outlined': true}">add</span>
+    </button>
+  </div>
+  <div class="center-container">
+    <div class="desktop menu-container">
+      <span (click)="changeLocationMenuVisible()" [ngClass]="{'material-symbols-outlined': true, 'button-active': locationMenuVisible}">moved_location</span>
+      <mat-divider></mat-divider>
+      <span class="material-symbols-outlined">fullscreen</span>
+      <span class="material-symbols-outlined">home_pin</span>
+      <span class="material-symbols-outlined">settings</span>
+      <span class="material-symbols-outlined">power_settings_new</span>
+    </div>
+  </div>
+  <div class="right-container">
+    <div class="buttons-container">
+      <app-avatar [size]="43" [hover]="true" sourceName="Jarosław Matczak" class="mobile"></app-avatar>
+      <button
+        class="at-button circle outline-green mobile"
+        (click)="changeLocationMenuVisible()">
+        <span [ngClass]="{'material-symbols-outlined': true}">moved_location</span>
+      </button>
+      <button
+        class="at-button circle outline-green mobile"
+        (click)="changeMenuVisible()">
+        <span [ngClass]="{'material-symbols-outlined': true, 'expand-more': true, 'collapse-up': menuVisible}">expand_more</span>
+      </button>
+    </div>
+    <div class="desktop">
+      <app-avatar [size]="40" [hover]="true" sourceName="Jarosław Matczak" class="flex-row justify-center"></app-avatar>
+    </div>
+  </div>
+
+</nav>
+
+<app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible()" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
+
+<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible()" [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>

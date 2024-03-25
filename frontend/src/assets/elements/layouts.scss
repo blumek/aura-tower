@@ -8,8 +8,12 @@
 .dashboard-container {
     display: grid;
     gap: 20px;
-    padding: 94px 30px 30px 30px;
+    margin: 30px 30px 30px 30px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.settings-container {
+    margin: 30px 30px 30px 30px;
 }
 
 
@@ -18,12 +22,12 @@
         display: flex;
     }
 
-    .dashboard-container {
-        padding: 0;
+    .dashboard-container, .settings-container {
+        margin: 0;
     }
 
     .site-container {
-        padding: 30px 30px 30px 130px;
+        margin: 30px 30px 30px 130px;
         width: calc(100vw - 160px);
     }
 }

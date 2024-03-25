@@ -1,10 +1,11 @@
 import { NgClass } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-avatar',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, MatTooltipModule],
   templateUrl: './avatar.component.html',
   styleUrl: './avatar.component.scss'
 })
@@ -14,7 +15,6 @@ export class AvatarComponent {
   @Input() hover: boolean = false;
   @Input() visibleFullName: boolean = false;
   @Input() fullNameSite: string = 'left';
-
 
   initials!: string;
   color!: string;
