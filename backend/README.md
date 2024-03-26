@@ -1,4 +1,7 @@
-# How to run backend
+# Backend
+
+The backend for the Aura Tower is a modular Spring Boot application that allows you to write your own plugins for IoT devices of your choice. The project exposes endpoints for dashboard and allows gathering data from IoT devices. 
+
 
 ## Requirements
 
