@@ -1,33 +1,41 @@
+import { ActionName } from "../models/menu"
+
 export const menuElements = [
     {
       icon: 'fullscreen',
       name: 'Tryb pełnoekranowy',
-      action: 'full-screen',
+      action: ActionName['fullscreen'],
       id: 1
     },
     {
       icon: 'add',
       name: 'Dodaj urządzenie',
-      action: 'add-device',
+      action: ActionName['addDevice'],
       id: 2
+    },
+    {
+      icon: 'dashboard',
+      name: 'Panel główny',
+      action: ActionName['dashboard'],
+      id: 3
     },
     {
       icon: 'home_pin',
       name: 'Zarządaj otoczeniem',
-      action: '/main/manage-localizations',
-      id: 3
+      action: ActionName['manageLocalizations'],
+      id: 4
     },
     {
       icon: 'settings',
       name: 'Ustawienia aplikacji',
-      action: '/main/app-settings',
-      id: 4
+      action: ActionName['settings'],
+      id: 5
     },
     {
       icon: 'power_settings_new',
       name: 'Wyjdź z lokalizacji',
-      action: '/',
-      id: 5
+      action: ActionName['logout'],
+      id: 6
     },
   ]
 
@@ -35,11 +43,11 @@ export const menuElements = [
     {
       name: 'Salon',
       icon: 'chair',
-      id: 1
+      id: 11
     },
     {
       name: 'Kuchnia',
       icon: 'oven_gen',
-      id: 2,
+      id: 12,
     },
   ]

@@ -2,7 +2,7 @@
   <div class="menu-items-container">
     <div *ngIf="isAreaChangeMenu" class="menu-item-container">
       <div
-        (click)="onMenuIteMSelected(0)"
+        (click)="onMenuIteMSelected('0')"
         class="item-box">
         <span class="material-symbols-outlined">apps</span>
       </div>
@@ -12,7 +12,7 @@
       *ngFor="let item of menuItems"
       class="menu-item-container">
       <div
-        (click)="onMenuIteMSelected(item.id)"
+        (click)="onMenuIteMSelected(item.action)"
         class="item-box">
         <span class="material-symbols-outlined">{{item.icon}}</span>
       </div>

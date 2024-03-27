@@ -1,4 +1,4 @@
-<nav class="animate__animated animate__fadeInDown">
+<nav>
   <div class="left-container">
     <img
       class="normal-logo mobile"
@@ -18,10 +18,7 @@
     <div class="desktop menu-container">
       <span (click)="changeLocationMenuVisible()" [ngClass]="{'material-symbols-outlined': true, 'button-active': locationMenuVisible}">moved_location</span>
       <mat-divider></mat-divider>
-      <span class="material-symbols-outlined">fullscreen</span>
-      <span class="material-symbols-outlined">home_pin</span>
-      <span class="material-symbols-outlined">settings</span>
-      <span class="material-symbols-outlined">power_settings_new</span>
+      <span *ngFor="let item of menuElements" (click)="onMenuItemSelected(item.action)" class="material-symbols-outlined">{{item.icon}}</span>
     </div>
   </div>
   <div class="right-container">
@@ -45,6 +42,6 @@
 
 </nav>
 
-<app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible()" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
+<app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible(); onMenuItemSelected($event)" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
 
-<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible()" [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>
+<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible(); onMenuItemSelected($event)" [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>

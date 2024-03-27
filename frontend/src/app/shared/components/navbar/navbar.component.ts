@@ -8,6 +8,8 @@ import { DevicesService } from '../../services/devices.service';
 import { AvatarComponent } from '../avatar/avatar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
+import { ActionName, IMenu } from '../../models/menu';
 
 
 @Component({
@@ -18,15 +20,14 @@ import { MatIconModule } from '@angular/material/icon';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  @Input() homeName: string = '';
   menuVisible: boolean = false;
   locationMenuVisible: boolean = false;
   isFullScreen: boolean = false;
-
-  menuElements = menuElements
+  menuElements: IMenu[] = menuElements
   mockLocalizationData = menuLocalizations
 
   constructor(
+    private router: Router,
     private devicesService: DevicesService
   ){}
 
@@ -42,5 +43,32 @@ export class NavbarComponent {
 
   openAddDeviceDialog() {
     this.devicesService.openAddDeviceDialog();
+  }
+
+  onMenuItemSelected(actionName: string) {
+    switch (actionName) {
+      case 'full-screen':
+        document.documentElement.requestFullscreen();
+        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Wyjdź z trybu pełnoekranowego', action: ActionName['fullscreenExit'], id: 1}
+        break;
+      case 'full-screen-exit':
+        document.exitFullscreen();
+        this.menuElements[0] = {icon: 'fullscreen', name: 'Tryb pełnoekranowy', action: ActionName['fullscreen'], id: 1}
+        break;
+      case 'add-device':
+        this.devicesService.openAddDeviceDialog();
+        break;
+      case 'logout':
+        console.log('logout')
+        break;
+      default:
+        const link: string = actionName
+        this.router.navigate(['main/', link]);
+    }
+  }
+
+  findItem(id: number): string | number {
+    const foundItem = this.menuElements.find(item => item.id === id)?.action;
+    return foundItem ? foundItem : id;
   }
 }
