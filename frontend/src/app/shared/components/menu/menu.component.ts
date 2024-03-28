@@ -11,7 +11,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 export class MenuComponent {
   @Input() isAreaChangeMenu: boolean = false;
   @Input() menuItems: any[] = [];
-  @Output() menuItemSelected = new EventEmitter();
+  @Output() menuItemSelected = new EventEmitter<string>();
   
   onMenuIteMSelected(actionName: string) {
     this.menuItemSelected.emit(actionName);

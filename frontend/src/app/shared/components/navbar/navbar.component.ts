@@ -1,4 +1,4 @@
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { MatTooltipModule} from '@angular/material/tooltip';
 import { MenuComponent } from '../menu/menu.component';
@@ -15,7 +15,7 @@ import { ActionName, IMenu } from '../../models/menu';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [NgFor, NgIf, NgClass, MatTooltipModule, MenuComponent, MatDividerModule, AvatarComponent, MatMenuModule, MatIconModule],
+  imports: [NgFor, NgIf, NgClass, NgStyle, MatTooltipModule, MenuComponent, MatDividerModule, AvatarComponent, MatMenuModule, MatIconModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })

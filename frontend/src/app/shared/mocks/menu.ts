@@ -11,6 +11,7 @@ export const menuElements = [
       icon: 'add',
       name: 'Dodaj urządzenie',
       action: ActionName['addDevice'],
+      mobile: true,
       id: 2
     },
     {

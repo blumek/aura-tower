@@ -1,15 +1,15 @@
 <div class="device-container">
   <div class="top-section">
     <div
-      *ngIf="deviceData.status === 'offline'"
+      *ngIf="!deviceData"
       class="offline-msg">
       <span class="material-symbols-outlined">wifi_off</span>
       <p>Brak komunikacji</p>
     </div>
-    <div *ngIf="deviceData.status === 'online'">
+    <div *ngIf="deviceData">
       <p
         *ngFor="let key of getObjectData()"
-        class="device-data"><span>{{key}}</span><span>{{deviceData.data[key]}}</span></p>
+        class="device-data"><span>{{key}}</span><span>{{deviceData.deviceData[key]}}</span></p>
     </div>
   </div>
   <div class="bottom-section">
@@ -20,7 +20,7 @@
     </div>
     <div>
       <p class="device-title">{{deviceData.name}}</p>
-      <p class="device-type">{{deviceData.type}}</p>
+      <p class="device-type">{{deviceData.deviceType.name}}</p>
     </div>
     <div>
       <span

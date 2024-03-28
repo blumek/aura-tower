@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../dialogs/confirmation-dialog/confirmation-dialog.component';
 import { LoadingComponent } from '../loading/loading.component';
+import { IDevice } from '../../models/devices';
 
 @Component({
   selector: 'app-device',
@@ -14,12 +15,12 @@ import { LoadingComponent } from '../loading/loading.component';
   styleUrl: './device.component.scss',
 })
 export class DeviceComponent {
-  @Input() deviceData: any = {};
+  @Input() deviceData!: IDevice;
 
   constructor(public dialog: MatDialog) {}
 
   getObjectData(): string[] {
-    return Object.keys(this.deviceData.data);
+    return Object.keys(this.deviceData.deviceData);
   }
 
   refreshDeviceData(): void {}

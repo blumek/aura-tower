@@ -13,4 +13,5 @@ export interface IMenu {
     name: string;
     action: ActionName;
     id: number;
+    mobile?: boolean;
 }
