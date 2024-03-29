@@ -1,6 +1,24 @@
+@import '../../../../assets/styles/variables.scss';
+
 .settings-box {
     width: 100%;
     margin: 0 auto;
+
+    .setting-expansion-panel {
+        margin: 5px 0;
+        border-radius: 15px;
+        box-shadow: $shadow-light;
+
+        .mat-expansion-panel-header-title {
+            color: $text-light !important;
+            font-size: 16px;
+
+            .material-symbols-outlined {
+                color: $icon-light;
+                margin-right: 20px;
+            }
+        }
+    }
 }
 
 @media (min-width: 992px) {
