@@ -19,7 +19,7 @@
         class="material-symbols-outlined">refresh</span>
     </div>
     <div>
-      <p class="device-title">{{deviceData.name}}</p>
+      <p [appTruncateText]="50" class="device-title">{{deviceData.name}}</p>
       <p class="device-type">{{deviceData.deviceType.name}}</p>
     </div>
     <div>

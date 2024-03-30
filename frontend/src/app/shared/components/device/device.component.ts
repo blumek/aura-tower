@@ -6,11 +6,12 @@ import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../dialogs/confirmation-dialog/confirmation-dialog.component';
 import { LoadingComponent } from '../loading/loading.component';
 import { IDevice } from '../../models/devices';
+import { TruncateTextDirective } from '../../directives/truncate-text.directive';
 
 @Component({
   selector: 'app-device',
   standalone: true,
-  imports: [NgIf, NgFor, MatMenuModule, MatIconModule, MatDialogModule, LoadingComponent],
+  imports: [NgIf, NgFor, MatMenuModule, MatIconModule, MatDialogModule, LoadingComponent, TruncateTextDirective],
   templateUrl: './device.component.html',
   styleUrl: './device.component.scss',
 })
