@@ -13,11 +13,13 @@ const operatorRoutes: Routes = [
             { path: "", redirectTo: "dashboard", pathMatch: 'full'},
             { 
                 path: 'dashboard',
-                component: DashboardComponent
+                component: DashboardComponent,
+                data: { title: 'Dashboard', icon: 'dashboard' }
             },
             { 
                 path: 'settings',
-                component: SettingsComponent
+                component: SettingsComponent,
+                data: { title: 'Ustawienia', icon: 'settings' }
             }
         ]
     },
