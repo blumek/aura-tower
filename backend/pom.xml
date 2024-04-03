@@ -21,11 +21,17 @@
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
         <spring-boot-starter.version>3.2.4</spring-boot-starter.version>
         <commons-lang3.version>3.14.0</commons-lang3.version>
+
         <junit-jupiter.version>5.10.2</junit-jupiter.version>
         <assertj.version>3.25.3</assertj.version>
         <mockito.version>5.11.0</mockito.version>
+
+        <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
+        <findbugs-maven-plugin.version>3.0.5</findbugs-maven-plugin.version>
+        <maven-dependency-plugin.version>3.6.1</maven-dependency-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -84,33 +90,23 @@
     </dependencyManagement>
 
 	<build>
-		<plugin>
-
-			<groupId>org.apache.maven.plugins</groupId>
-
-			<artifactId>maven-surefire-plugin</artifactId>
-		
-			<version>3.0.0-M5</version>
-
-		</plugin>
-		<plugin>
-  <groupId>org.codehaus.mojo</groupId>
-  <artifactId>findbugs-maven-plugin</artifactId>
-  <version>3.0.5</version>
-</plugin>
-		<plugin>
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-dependency-plugin</artifactId>
-  <version>3.1.2</version>
-</plugin>
-		<plugin>
- <groupId>org.apache.maven.plugins</groupId>
- <artifactId>maven-resources-plugin</artifactId>
- <version>3.1.0</version>
- <configuration>
-   <encoding>UTF-8</encoding>
- </configuration>
-</plugin>
+		<plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${findbugs-maven-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${maven-dependency-plugin.version}</version>
+            </plugin>
+        </plugins>
 	</build>
 
 </project>
