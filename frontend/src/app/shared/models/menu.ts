@@ -6,6 +6,7 @@ export enum ActionName {
     manageLocalizations = 'manage-localizations',
     settings = 'settings',
     logout = 'logout',
+    showHideNav = 'show-hide-nav'
 }
 
 export interface IMenu {

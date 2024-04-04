@@ -1,8 +1,8 @@
 <div class="main-container">
-    <app-navbar></app-navbar>
-    <div class="flex-column">
+    <app-navbar (closeNavBar)="changeNavBarVisible($event)"></app-navbar>
+    <div [ngClass]="{'flex-column': true, 'site-container': true, 'close-navbar': navBarClose}">
         <app-header [homeName]="homeName"></app-header>
-        <div class="site-container">
+        <div >
             <router-outlet></router-outlet>
         </div>
     </div>

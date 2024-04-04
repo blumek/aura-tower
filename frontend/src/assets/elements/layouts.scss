@@ -28,7 +28,12 @@
 
     .site-container {
         margin: 30px 30px 30px 130px;
-        width: calc(100vw - 160px);
+        width: 100vw;
+        transition: .3s;
+    }
+
+    .close-navbar {
+        margin: 30px;
     }
 }
 

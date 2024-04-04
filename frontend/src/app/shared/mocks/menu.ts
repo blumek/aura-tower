@@ -8,6 +8,12 @@ export const menuElements = [
       id: 1
     },
     {
+      icon: 'chevron_left',
+      name: 'Pokaż / ukry pasek boczny',
+      action: ActionName['showHideNav'],
+      id: 1
+    },
+    {
       icon: 'add',
       name: 'Dodaj urządzenie',
       action: ActionName['addDevice'],

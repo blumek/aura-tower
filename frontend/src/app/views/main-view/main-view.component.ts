@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class MainViewComponent {
   homeName: string = 'Domek Jordana'
+  navBarClose!: boolean;
+
+  changeNavBarVisible(value: boolean): void {
+    this.navBarClose = value;
+  }
 }

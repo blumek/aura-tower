@@ -12,6 +12,7 @@ nav {
     padding: 5px 20px;
     box-shadow: $shadow-light;
     display: flex;
+    transition: .5s;
 
     .mobile-logo {
         display: none;
@@ -160,6 +161,30 @@ nav {
         }
 
     }
+
+    .nav-close {
+        left: -100px
+    }
+
+    .navbar-open-button-container{
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        padding: 10px 5px;
+        background-color: $white;
+        box-shadow: $shadow-light;
+        border-radius: 0 25% 25% 0; 
+        color: $icon-light;
+        transition: .3s;
+
+        &:hover {
+            color: $at-green-active
+        }
+    }
+
+
 
     .at-menu {
         position: fixed;

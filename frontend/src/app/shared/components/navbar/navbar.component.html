@@ -1,4 +1,4 @@
-<nav>
+<nav [ngClass]="{'nav-close': !navBarVisible}">
   <div class="left-container">
     <img
       class="normal-logo mobile"
@@ -41,8 +41,11 @@
       <app-avatar [size]="40" [hover]="true" sourceName="Jarosław Matczak" class="flex-row justify-center"></app-avatar>
     </div>
   </div>
-
 </nav>
+
+<div *ngIf="!navBarVisible" class="navbar-open-button-container" (click)="changeNavBarVisible()">
+  <span class="material-symbols-outlined">more_vert</span>
+</div>
 
 <app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible(); onMenuItemSelected($event)" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
 

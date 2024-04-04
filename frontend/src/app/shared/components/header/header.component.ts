@@ -1,14 +1,12 @@
 import { NgIf } from '@angular/common';
 import {
   Component,
-  DoCheck,
   Input,
-  OnChanges,
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { Subscription, filter } from 'rxjs';
+import { NavigationEnd, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-header',

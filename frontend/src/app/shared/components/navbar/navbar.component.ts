@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatTooltipModule} from '@angular/material/tooltip';
 import { MenuComponent } from '../menu/menu.component';
 import { menuElements, menuLocalizations } from '../../mocks/menu';
@@ -20,6 +20,8 @@ import { ActionName, IMenu } from '../../models/menu';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  @Output() closeNavBar = new EventEmitter<boolean>();
+  navBarVisible: boolean = true;
   menuVisible: boolean = false;
   locationMenuVisible: boolean = false;
   isFullScreen: boolean = false;
@@ -41,6 +43,11 @@ export class NavbarComponent {
     this.menuVisible = false;
   }
 
+  changeNavBarVisible() {
+    this.navBarVisible = !this.navBarVisible;
+    this.closeNavBar.emit(!this.navBarVisible);
+  }
+
   openAddDeviceDialog() {
     this.devicesService.openAddDeviceDialog();
   }
@@ -57,6 +64,9 @@ export class NavbarComponent {
         break;
       case 'add-device':
         this.devicesService.openAddDeviceDialog();
+        break;
+      case 'show-hide-nav':
+        this.changeNavBarVisible()
         break;
       case 'logout':
         console.log('logout')
