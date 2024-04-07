@@ -11,13 +11,15 @@ import { NavbarComponent } from '../../shared/components/navbar/navbar.component
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { MatIconModule } from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { GroupManagementComponent } from './group-management/group-management.component';
 
 
 @NgModule({
   declarations: [
     MainViewComponent,
     DashboardComponent,
-    SettingsComponent 
+    SettingsComponent,
+    GroupManagementComponent 
   ],
   imports: [
     CommonModule,
