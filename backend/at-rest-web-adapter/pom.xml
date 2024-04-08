@@ -10,13 +10,12 @@
     </parent>
 
     <groupId>com.tower.aura.rest.web.adapter</groupId>
-    <artifactId>rest-web-adapter</artifactId>
+    <artifactId>at-rest-web-adapter</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.tower.aura.application</groupId>
-            <artifactId>application</artifactId>
-            <version>${project.parent.version}</version>
+            <groupId>com.tower.aura.application.api</groupId>
+            <artifactId>at-application-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

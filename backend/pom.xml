@@ -9,13 +9,11 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>application-bootstrap</module>
-        <module>application-persistence</module>
-        <module>persistence-adapter-in-memory</module>
-        <module>persistence-adapter-mongodb</module>
-        <module>rest-web-adapter</module>
-        <module>application</module>
+        <module>at-application-bootstrap</module>
         <module>at-application-api</module>
+        <module>at-application-persistence</module>
+        <module>at-persistence-mongodb-adapter</module>
+        <module>at-rest-web-adapter</module>
     </modules>
 
     <properties>
@@ -49,6 +47,16 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.tower.aura.application.api</groupId>
+                <artifactId>at-application-api</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tower.aura.application.persistence</groupId>
+                <artifactId>at-application-persistence</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>

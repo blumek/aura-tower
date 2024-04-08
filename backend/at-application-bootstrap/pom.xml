@@ -9,7 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>application-bootstrap</artifactId>
+    <artifactId>at-application-bootstrap</artifactId>
 
     <dependencies>
         <dependency>
@@ -18,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>com.tower.aura.rest.web.adapter</groupId>
-            <artifactId>rest-web-adapter</artifactId>
+            <artifactId>at-rest-web-adapter</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
