@@ -9,18 +9,13 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.tower.aura.rest.web.adapter</groupId>
-    <artifactId>rest-web-adapter</artifactId>
+    <groupId>com.tower.aura.application.api</groupId>
+    <artifactId>at-application-api</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.tower.aura.application</groupId>
-            <artifactId>application</artifactId>
-            <version>${project.parent.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
     </dependencies>
 

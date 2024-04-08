@@ -9,11 +9,7 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>application-bootstrap</artifactId>
-
-    <properties>
-        <docker.image.name>aura-tower</docker.image.name>
-    </properties>
+    <artifactId>at-application-bootstrap</artifactId>
 
     <dependencies>
         <dependency>
@@ -22,7 +18,7 @@
         </dependency>
         <dependency>
             <groupId>com.tower.aura.rest.web.adapter</groupId>
-            <artifactId>rest-web-adapter</artifactId>
+            <artifactId>at-rest-web-adapter</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
@@ -43,6 +39,13 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>${docker.registry.repository}/aura-tower</name>
+                        </image>
+                    </images>
+                </configuration>
             </plugin>
         </plugins>
     </build>

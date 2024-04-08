@@ -9,13 +9,17 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.tower.aura.application.persistence</groupId>
-    <artifactId>application-persistence</artifactId>
+    <groupId>com.tower.aura.application.persistence.adapter</groupId>
+    <artifactId>at-persistence-mongodb-adapter</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>com.tower.aura.application.persistence</groupId>
+            <artifactId>at-application-persistence</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -25,6 +29,16 @@
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
     </dependencies>

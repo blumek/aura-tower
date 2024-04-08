@@ -9,21 +9,22 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>application-bootstrap</module>
-        <module>application-persistence</module>
-        <module>persistence-adapter-in-memory</module>
-        <module>persistence-adapter-mongodb</module>
-        <module>rest-web-adapter</module>
-        <module>application</module>
+        <module>at-application-bootstrap</module>
+        <module>at-application-api</module>
+        <module>at-application-persistence</module>
+        <module>at-persistence-mongodb-adapter</module>
+        <module>at-rest-web-adapter</module>
     </modules>
 
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
+        <java.version>21</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <docker.registry.host>docker.io</docker.registry.host>
-        <docker.image.name>TO_BE_OVERRIDDEN</docker.image.name>
+        <docker.registry.owner>bluemek</docker.registry.owner>
+        <docker.registry.repository>${docker.registry.host}/${docker.registry.owner}</docker.registry.repository>
         <docker.service.tag.unique>${project.version}</docker.service.tag.unique>
         <docker.skip>false</docker.skip>
 
@@ -46,6 +47,16 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.tower.aura.application.api</groupId>
+                <artifactId>at-application-api</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tower.aura.application.persistence</groupId>
+                <artifactId>at-application-persistence</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
@@ -177,7 +188,6 @@
                     <configuration>
                         <images>
                             <image>
-                                <name>${docker.registry.host}/${docker.image.name}</name>
                                 <build>
                                     <tags>
                                         <tag>${docker.service.tag.unique}</tag>
