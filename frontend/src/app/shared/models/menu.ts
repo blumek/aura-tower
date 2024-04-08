@@ -9,10 +9,16 @@ export enum ActionName {
     showHideNav = 'show-hide-nav'
 }
 
+export enum DisplayType {
+    desktop = 'desktop',
+    mobile = 'mobile',
+    both = 'both'
+}
+
 export interface IMenu {
     icon: string;
     name: string;
     action: ActionName;
     id: number;
-    mobile?: boolean;
+    display: DisplayType
 }

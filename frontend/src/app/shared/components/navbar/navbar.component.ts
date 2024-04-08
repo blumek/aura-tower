@@ -9,7 +9,7 @@ import { AvatarComponent } from '../avatar/avatar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
-import { ActionName, IMenu } from '../../models/menu';
+import { ActionName, DisplayType, IMenu } from '../../models/menu';
 
 
 @Component({
@@ -25,8 +25,9 @@ export class NavbarComponent {
   menuVisible: boolean = false;
   locationMenuVisible: boolean = false;
   isFullScreen: boolean = false;
-  menuElements: IMenu[] = menuElements
-  mockLocalizationData = menuLocalizations
+  menuElements: IMenu[] = menuElements;
+  displayTypeMobile: DisplayType = DisplayType.mobile;
+  mockLocalizationData = menuLocalizations;
 
   constructor(
     private router: Router,
@@ -56,11 +57,11 @@ export class NavbarComponent {
     switch (actionName) {
       case 'full-screen':
         document.documentElement.requestFullscreen();
-        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Wyjdź z trybu pełnoekranowego', action: ActionName['fullscreenExit'], id: 1}
+        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Wyjdź z trybu pełnoekranowego', action: ActionName.fullscreenExit, display: DisplayType.both, id: 1}
         break;
       case 'full-screen-exit':
         document.exitFullscreen();
-        this.menuElements[0] = {icon: 'fullscreen', name: 'Tryb pełnoekranowy', action: ActionName['fullscreen'], id: 1}
+        this.menuElements[0] = {icon: 'fullscreen', name: 'Tryb pełnoekranowy', action: ActionName.fullscreen, display: DisplayType.both, id: 1}
         break;
       case 'add-device':
         this.devicesService.openAddDeviceDialog();

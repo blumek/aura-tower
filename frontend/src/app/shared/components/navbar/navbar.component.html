@@ -18,8 +18,8 @@
     <div class="desktop menu-container">
       <span (click)="changeLocationMenuVisible()" [ngClass]="{'material-symbols-outlined': true, 'button-active': locationMenuVisible}">moved_location</span>
       <mat-divider></mat-divider>
-      <div *ngFor="let item of menuElements" [ngStyle]="{'display': item.mobile ? 'none' : 'flex'}" class="flex-row justify-center">
-        <span *ngIf="!item.mobile" (click)="onMenuItemSelected(item.action)" class="material-symbols-outlined">{{item.icon}}</span>
+      <div *ngFor="let item of menuElements" [ngStyle]="{'display': item.display === displayTypeMobile ? 'none' : 'flex'}" class="flex-row justify-center">
+        <span *ngIf="item.display !== displayTypeMobile" (click)="onMenuItemSelected(item.action)" class="material-symbols-outlined">{{item.icon}}</span>
       </div>
     </div>
   </div>

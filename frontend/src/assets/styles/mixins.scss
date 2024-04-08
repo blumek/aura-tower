@@ -48,6 +48,14 @@
     gap: 30px
 }
 
+.d-none {
+    display: none !important
+}
+
+.d-block {
+    display: block !important;
+}
+
 @for $i from 1 through 10 {
     .spacer-#{$i} {
         padding-bottom: $i * 10px !important;
