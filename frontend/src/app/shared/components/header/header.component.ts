@@ -5,7 +5,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { RoutesService } from '../../services/routes.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -17,43 +17,16 @@ import { Subscription } from 'rxjs';
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   @Input() homeName: string = '';
-  urlTitle!: string | undefined;
-  pageTitle!: string;
-  pageIcon!: string;
+  pageData!: {title: string, icon: string};
   sub!: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(
+    private routesService: RoutesService) {}
 
   ngOnInit(): void {
-    this.getPageTitle(this.router.url.substring(6));
-
-    this.sub = this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.updateUrlTitle();
-      }
+    this.sub = this.routesService.pageData.subscribe((value: {title: string, icon: string}) => {
+      this.pageData = value;
     });
-  }
-
-  updateUrlTitle(): void {
-    this.urlTitle = this.router.url.substring(6);
-    this.getPageTitle(this.urlTitle);
-  }
-
-  getPageTitle(urlTitle: string): void {
-    switch (urlTitle) {
-      case 'dashboard':
-        this.pageTitle = 'Panel główny';
-        this.pageIcon = 'dashboard';
-        break;
-      case 'settings':
-        this.pageTitle = 'Ustawienia';
-        this.pageIcon = 'settings';
-        break;
-      default:
-        this.pageTitle = 'Panel główny';
-        this.pageIcon = 'dashboard';
-        break;
-    }
   }
 
   ngOnDestroy(): void {

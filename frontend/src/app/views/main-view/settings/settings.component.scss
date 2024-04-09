@@ -1,6 +1,6 @@
 @import '../../../../assets/styles/variables.scss';
 
-.settings-box {
+.settings-container {
     width: 100%;
     margin: 0 auto;
 
@@ -22,7 +22,7 @@
 }
 
 @media (min-width: 992px) {
-    .settings-box {
+    .settings-container {
         width: 1080px;
     }
 }

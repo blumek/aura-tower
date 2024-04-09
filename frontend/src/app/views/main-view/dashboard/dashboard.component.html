@@ -2,7 +2,7 @@
     <app-loading [blur]="true"></app-loading>
 </ng-template>
 
-<div >
+<div *ngIf="data$ | async as devices else loading">
     <div *ngIf="devices.length > 0; else noResults" class="dashboard-container flex-row flex-wrap gap-20">
         <app-device *ngFor="let device of devices" [deviceData]="device"></app-device>
     </div>

@@ -1,9 +1,7 @@
 @if (loading) {
     <app-loading [blur]="true"></app-loading>
 } @else {
-
-    <div class="settings-container flex-row flex-wrap gap-20">
-        <div class="settings-box">
+    <div class="settings-container">
             <mat-accordion class="example-headers-align" multi>
                 <mat-expansion-panel class="setting-expansion-panel">
                   <mat-expansion-panel-header>
@@ -60,6 +58,6 @@
                   </mat-expansion-panel-header>
                 </mat-expansion-panel>
               </mat-accordion>
-        </div>
+
     </div>
 }

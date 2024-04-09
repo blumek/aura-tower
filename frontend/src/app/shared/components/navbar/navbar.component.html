@@ -16,16 +16,28 @@
   </div>
   <div class="center-container">
     <div class="desktop menu-container">
-      <span (click)="changeLocationMenuVisible()" [ngClass]="{'material-symbols-outlined': true, 'button-active': locationMenuVisible}">moved_location</span>
+      <span
+        (click)="changeLocationMenuVisible()"
+        [ngClass]="{'material-symbols-outlined': true, 'button-active': locationMenuVisible}">moved_location</span>
       <mat-divider></mat-divider>
-      <div *ngFor="let item of menuElements" [ngStyle]="{'display': item.display === displayTypeMobile ? 'none' : 'flex'}" class="flex-row justify-center">
-        <span *ngIf="item.display !== displayTypeMobile" (click)="onMenuItemSelected(item.action)" class="material-symbols-outlined">{{item.icon}}</span>
+      <div
+        *ngFor="let item of menuElements"
+        [ngStyle]="{'display': item.display === displayTypeMobile ? 'none' : 'flex'}"
+        class="flex-row justify-center">
+        <span
+          *ngIf="item.display !== displayTypeMobile"
+          (click)="onMenuItemSelected(item.action)"
+          [ngClass]="{'material-symbols-outlined': true, 'menu-item-active': pageData.icon === item.icon}">{{item.icon}}</span>
       </div>
     </div>
   </div>
   <div class="right-container">
     <div class="buttons-container">
-      <app-avatar [size]="43" [hover]="true" sourceName="Jarosław Matczak" class="mobile"></app-avatar>
+      <app-avatar
+        [size]="43"
+        [hover]="true"
+        sourceName="Jarosław Matczak"
+        class="mobile"></app-avatar>
       <button
         class="at-button circle outline-green mobile"
         (click)="changeLocationMenuVisible()">
@@ -38,15 +50,29 @@
       </button>
     </div>
     <div class="desktop">
-      <app-avatar [size]="40" [hover]="true" sourceName="Jarosław Matczak" class="flex-row justify-center"></app-avatar>
+      <app-avatar
+        [size]="40"
+        [hover]="true"
+        sourceName="Jarosław Matczak"
+        class="flex-row justify-center"></app-avatar>
     </div>
   </div>
 </nav>
 
-<div *ngIf="!navBarVisible" class="navbar-open-button-container" (click)="changeNavBarVisible()">
+<div
+  *ngIf="!navBarVisible"
+  class="navbar-open-button-container"
+  (click)="changeNavBarVisible()">
   <span class="material-symbols-outlined">more_vert</span>
 </div>
 
-<app-menu [menuItems]="mockLocalizationData" [isAreaChangeMenu]="true" (menuItemSelected)="changeLocationMenuVisible(); onMenuItemSelected($event)" [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
+<app-menu
+  [menuItems]="mockLocalizationData"
+  [isAreaChangeMenu]="true"
+  (menuItemSelected)="changeLocationMenuVisible(); onMenuItemSelected($event)"
+  [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
 
-<app-menu [menuItems]="menuElements" (menuItemSelected)="changeMenuVisible(); onMenuItemSelected($event)" [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>
+<app-menu
+  [menuItems]="menuElements"
+  (menuItemSelected)="changeMenuVisible(); onMenuItemSelected($event)"
+  [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>

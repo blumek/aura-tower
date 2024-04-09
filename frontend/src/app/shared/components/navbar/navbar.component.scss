@@ -80,6 +80,12 @@ nav {
     }
 }
 
+.menu-item-active{
+    color: $at-green;
+    border-color: $at-green;
+    box-shadow: $shadow-green;
+}
+
 .at-menu {
     position: fixed;
     z-index: 2;
@@ -161,6 +167,13 @@ nav {
         }
 
     }
+
+    .menu-item-active{
+        color: $at-green;
+        border-color: unset;
+        box-shadow: unset;
+    }
+    
 
     .nav-close {
         left: -100px

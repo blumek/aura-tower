@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf, NgStyle } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { MatTooltipModule} from '@angular/material/tooltip';
 import { MenuComponent } from '../menu/menu.component';
 import { menuElements, menuLocalizations } from '../../mocks/menu';
@@ -10,6 +10,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { ActionName, DisplayType, IMenu } from '../../models/menu';
+import { RoutesService } from '../../services/routes.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -19,7 +21,7 @@ import { ActionName, DisplayType, IMenu } from '../../models/menu';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   @Output() closeNavBar = new EventEmitter<boolean>();
   navBarVisible: boolean = true;
   menuVisible: boolean = false;
@@ -28,11 +30,20 @@ export class NavbarComponent {
   menuElements: IMenu[] = menuElements;
   displayTypeMobile: DisplayType = DisplayType.mobile;
   mockLocalizationData = menuLocalizations;
+  pageData!: {title: string, icon: string};
+  sub!: Subscription;
 
   constructor(
     private router: Router,
-    private devicesService: DevicesService
+    private devicesService: DevicesService,
+    private routesService: RoutesService
   ){}
+
+  ngOnInit(): void {
+    this.sub = this.routesService.pageData.subscribe((value: {title: string, icon: string}) => {
+      this.pageData = value;
+    });
+  }
 
   changeMenuVisible() {
     this.menuVisible = !this.menuVisible;
@@ -81,5 +92,9 @@ export class NavbarComponent {
   findItem(id: number): string | number {
     const foundItem = this.menuElements.find(item => item.id === id)?.action;
     return foundItem ? foundItem : id;
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 }
