@@ -1,5 +1,6 @@
 package com.tower.aura.rest.web.adapter.controller.metric;
 
+import com.tower.aura.api.metrics.GetMetricsUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,11 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/metrics")
 public class MetricsController {
+    private final GetMetricsUseCase getMetricsUseCase;
+
+    public MetricsController(GetMetricsUseCase getMetricsUseCase) {
+        this.getMetricsUseCase = getMetricsUseCase;
+    }
 
     @GetMapping
     public ResponseEntity<List<Metrics>> retrieveMetrics() {
