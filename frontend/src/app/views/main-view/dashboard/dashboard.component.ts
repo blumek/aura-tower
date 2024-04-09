@@ -12,7 +12,7 @@ import { SnackbarService } from '../../../shared/services/snackbar.service';
 })
 export class DashboardComponent implements OnInit {
   loading: boolean = false;
-  // mockData = mockDevices
+  devices = [];
   homeName = 'Domek Jordana'
   data$!: Observable<IDevice[]>
   deviceData!: IDevice[]
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     this.getDevicesData()
   }
 
-  getDevicesData() {
+  getDevicesData(): void {
     this.data$ = this.deviceService.fetchDevicesData().pipe(
       catchError(err => {
         this.snackbarService.openSnackBar('Błąd pobierania danych urządzeń', true)
@@ -34,4 +34,11 @@ export class DashboardComponent implements OnInit {
       })
     )
   }
+
+  openAddDeviceDialog(): void {
+    this.deviceService.openAddDeviceDialog();
+  }
+
+  openAddDeviceDialogFnc = this.openAddDeviceDialog.bind(this)
+
 }

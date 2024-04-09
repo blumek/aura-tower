@@ -2,13 +2,21 @@
     <app-loading [blur]="true"></app-loading>
 </ng-template>
 
-<div *ngIf="data$ | async as devices else loading" >
+<div >
     <div *ngIf="devices.length > 0; else noResults" class="dashboard-container flex-row flex-wrap gap-20">
         <app-device *ngFor="let device of devices" [deviceData]="device"></app-device>
     </div>
     
     <ng-template #noResults>
-        <app-no-results></app-no-results>
+        <app-no-results
+            imgSrc="../../../../assets/images/devices.svg"
+            alt="no-results"
+            mainTitle="Dodawaj urządzenia IoT"
+            description="Zarządzaj, edytuj i dostosowuj do własnych preferencji, aby wygodnie odczytywać dane z inteligentnych urządzeń i nimi sterować"
+            buttonIcon="add"
+            buttonText="Dodaj urządzenie"
+            [buttonAction]="openAddDeviceDialogFnc">
+        </app-no-results>
     </ng-template>
 </div>
 

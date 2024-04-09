@@ -1,16 +1,16 @@
 <div class="no-results-container">
     <div class="no-results-box">
         <div class="no-results-img">
-            <img src="../../../../assets/images/devices.svg" alt="">
+            <img [src]="imgSrc" [alt]="imgAlt">
         </div>
         <div class="no-results-text">
-            <h2>Dodawaj urządzenia IoT</h2>
-            <p>Zarządzaj, edytuj i dostosowuj ustawienia do własnych preferencji, aby wygodnie odczytywać dane z inteligentnych urządzeń i nimi sterować</p>
+            <h2>{{mainTitle}}</h2>
+            <p>{{description}}</p>
         </div>
-        <div class="add-device-button">
-            <button (click)="opneAddDeviceDialog()" class="at-button iconic normal flat-green">
-                <span class="material-symbols-outlined">add</span>
-                <span>Dodaj urządzenie</span>
+        <div *ngIf="buttonText" class="add-device-button">
+            <button (click)="onButtonClick()" class="at-button iconic normal flat-green">
+                <span class="material-symbols-outlined">{{buttonIcon}}</span>
+                <span>{{buttonText}}</span>
             </button>
         </div>
     </div>
