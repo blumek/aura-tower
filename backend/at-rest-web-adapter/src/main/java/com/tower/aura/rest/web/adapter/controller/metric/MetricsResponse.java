@@ -1,12 +1,16 @@
 package com.tower.aura.rest.web.adapter.controller.metric;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tower.aura.api.metrics.ApiMetrics;
 
 import java.util.Map;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record MetricsResponse(String id, String name, DeviceTypeResponse deviceTypeResponse, Map<String, Object> deviceData) {
+public record MetricsResponse(@JsonProperty("id") String id,
+                              @JsonProperty("name") String name,
+                              @JsonProperty("deviceType") DeviceTypeResponse deviceTypeResponse,
+                              @JsonProperty("deviceData") Map<String, Object> deviceData) {
     public MetricsResponse {
         if (id == null) {
             throw new IllegalArgumentException("Id cannot be null");

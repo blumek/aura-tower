@@ -24,6 +24,10 @@
             <groupId>com.tower.aura.application.service</groupId>
             <artifactId>at-application-service</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

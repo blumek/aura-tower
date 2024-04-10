@@ -9,7 +9,7 @@ import java.util.*;
 public class MetricsDocument {
     @Id
     private String id;
-    private List<Map<String, Object>> metrics;
+    private final List<Map<String, Object>> metrics;
 
     private MetricsDocument(String id, List<Map<String, Object>> metrics) {
         this.id = id;
