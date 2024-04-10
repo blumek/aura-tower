@@ -14,6 +14,7 @@
         <module>at-application-persistence</module>
         <module>at-persistence-mongodb-adapter</module>
         <module>at-rest-web-adapter</module>
+        <module>at-application-service</module>
     </modules>
 
     <properties>
@@ -53,8 +54,18 @@
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.tower.aura.application.service</groupId>
+                <artifactId>at-application-service</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.tower.aura.application.persistence</groupId>
                 <artifactId>at-application-persistence</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tower.aura.rest.web.adapter</groupId>
+                <artifactId>at-rest-web-adapter</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>

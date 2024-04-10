@@ -19,7 +19,10 @@
         <dependency>
             <groupId>com.tower.aura.rest.web.adapter</groupId>
             <artifactId>at-rest-web-adapter</artifactId>
-            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tower.aura.application.service</groupId>
+            <artifactId>at-application-service</artifactId>
         </dependency>
     </dependencies>
 
