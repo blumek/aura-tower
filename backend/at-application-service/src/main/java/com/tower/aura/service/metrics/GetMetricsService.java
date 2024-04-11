@@ -1,6 +1,7 @@
 package com.tower.aura.service.metrics;
 
 import com.tower.aura.api.metrics.*;
+import com.tower.aura.api.metrics.model.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +14,9 @@ public class GetMetricsService implements GetMetricsUseCase {
     public GetMetricsReply getMetrics() {
         return new GetMetricsReply(List.of(
                 new ApiMetrics(
-                        UUID.randomUUID().toString(),
-                        "Smart Light Bulb",
-                        new ApiDeviceType(UUID.randomUUID().toString(), "Light Bulb"),
+                        new ApiMetricsIdentifier(UUID.randomUUID().toString()),
+                        new ApiMetricsName("Smart Light Bulb"),
+                        new ApiDeviceType(new ApiDeviceTypeIdentifier(UUID.randomUUID().toString()), new ApiDeviceTypeName("Light Bulb")),
                         ApiDeviceData.of(Map.of(
                                 "status", "ON",
                                 "color", "#FFFF"

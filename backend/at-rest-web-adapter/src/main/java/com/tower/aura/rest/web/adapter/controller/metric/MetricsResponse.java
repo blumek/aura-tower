@@ -1,7 +1,7 @@
 package com.tower.aura.rest.web.adapter.controller.metric;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.tower.aura.api.metrics.ApiMetrics;
+import com.tower.aura.api.metrics.model.ApiMetrics;
 
 import java.util.Map;
 
@@ -29,7 +29,12 @@ public record MetricsResponse(@JsonProperty("id") String id,
         }
     }
 
-    public static MetricsResponse fromApiMetrics(ApiMetrics metrics ) {
-        return new MetricsResponse(metrics.id(), metrics.name(), DeviceTypeResponse.fromApiDeviceType(metrics.deviceType()), metrics.deviceData().asMap());
+    public static MetricsResponse fromApiMetrics(ApiMetrics metrics) {
+        return new MetricsResponse(
+                metrics.identifier().value(),
+                metrics.name().value(),
+                DeviceTypeResponse.fromApiDeviceType(metrics.deviceType()),
+                metrics.deviceData().asMap()
+        );
     }
 }

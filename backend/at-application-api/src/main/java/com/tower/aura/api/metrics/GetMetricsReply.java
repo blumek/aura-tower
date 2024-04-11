@@ -1,5 +1,7 @@
 package com.tower.aura.api.metrics;
 
+import com.tower.aura.api.metrics.model.ApiMetrics;
+
 import java.util.List;
 
 public record GetMetricsReply(List<ApiMetrics> metrics) {

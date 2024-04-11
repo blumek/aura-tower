@@ -1,6 +1,6 @@
 package com.tower.aura.rest.web.adapter.controller.metric;
 
-import com.tower.aura.api.metrics.ApiDeviceType;
+import com.tower.aura.api.metrics.model.ApiDeviceType;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
@@ -16,6 +16,9 @@ public record DeviceTypeResponse(String id, String name) {
     }
 
     public static DeviceTypeResponse fromApiDeviceType(ApiDeviceType deviceType) {
-        return new DeviceTypeResponse(deviceType.id(), deviceType.name());
+        return new DeviceTypeResponse(
+                deviceType.identifier().value(),
+                deviceType.name().value()
+        );
     }
 }
