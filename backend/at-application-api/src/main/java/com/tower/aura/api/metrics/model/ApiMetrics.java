@@ -1,4 +1,4 @@
-package com.tower.aura.api.metrics;
+package com.tower.aura.api.metrics.model;
 
 public record ApiMetrics(ApiMetricsIdentifier identifier,
                          ApiMetricsName name,

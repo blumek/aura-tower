@@ -1,7 +1,7 @@
 package com.tower.aura.rest.web.adapter.controller.metric;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.tower.aura.api.metrics.ApiMetrics;
+import com.tower.aura.api.metrics.model.ApiMetrics;
 
 import java.util.Map;
 

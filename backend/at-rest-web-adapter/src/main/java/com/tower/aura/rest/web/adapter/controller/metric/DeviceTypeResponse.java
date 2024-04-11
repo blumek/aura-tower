@@ -1,6 +1,6 @@
 package com.tower.aura.rest.web.adapter.controller.metric;
 
-import com.tower.aura.api.metrics.ApiDeviceType;
+import com.tower.aura.api.metrics.model.ApiDeviceType;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
