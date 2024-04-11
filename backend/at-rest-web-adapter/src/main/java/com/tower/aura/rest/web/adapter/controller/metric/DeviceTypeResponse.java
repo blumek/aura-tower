@@ -16,6 +16,9 @@ public record DeviceTypeResponse(String id, String name) {
     }
 
     public static DeviceTypeResponse fromApiDeviceType(ApiDeviceType deviceType) {
-        return new DeviceTypeResponse(deviceType.id(), deviceType.name());
+        return new DeviceTypeResponse(
+                deviceType.identifier().value(),
+                deviceType.name().value()
+        );
     }
 }
