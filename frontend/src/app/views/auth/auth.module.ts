@@ -4,6 +4,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthComponent } from './auth.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
+import { ResetPassComponent } from './reset-pass/reset-pass.component';
 
 
 
@@ -12,7 +13,8 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
     SignInComponent,
     AuthComponent,
     SignUpComponent,
-    ForgotPassComponent
+    ForgotPassComponent,
+    ResetPassComponent
   ],
   imports: [
     CommonModule
