@@ -1,9 +1,9 @@
-package com.tower.aura.api.auth.login;
+package com.tower.aura.api.auth.refresh;
 
 import com.tower.aura.api.auth.model.ApiJsonWebTokenPair;
 
-public record LogInUserReply(ApiJsonWebTokenPair tokenPair) {
-    public LogInUserReply {
+public record RefreshTokenRequest(ApiJsonWebTokenPair tokenPair) {
+    public RefreshTokenRequest {
         if (tokenPair == null) {
             throw new IllegalArgumentException("Token pair cannot be null");
         }

@@ -1,11 +1,11 @@
 package com.tower.aura.api.auth.register;
 
-import com.tower.aura.api.auth.model.ApiJsonWebToken;
+import com.tower.aura.api.auth.model.ApiJsonWebTokenPair;
 
-public record RegisterUserReply(ApiJsonWebToken token) {
+public record RegisterUserReply(ApiJsonWebTokenPair tokenPair) {
     public RegisterUserReply {
-        if (token == null) {
-            throw new IllegalArgumentException("Token cannot be null");
+        if (tokenPair == null) {
+            throw new IllegalArgumentException("Token pair cannot be null");
         }
     }
 }
