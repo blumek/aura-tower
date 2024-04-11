@@ -1,9 +1,9 @@
-package com.tower.aura.api.auth.register;
+package com.tower.aura.api.auth.login;
 
 import com.tower.aura.api.auth.model.JsonWebToken;
 
-public record RegisterUserReply(JsonWebToken token) {
-    public RegisterUserReply {
+public record LogInUserReply(JsonWebToken token) {
+    public LogInUserReply {
         if (token == null) {
             throw new IllegalArgumentException("Token cannot be null");
         }
