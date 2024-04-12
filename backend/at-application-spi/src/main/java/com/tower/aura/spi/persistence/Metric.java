@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence;
+package com.tower.aura.spi.persistence;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 

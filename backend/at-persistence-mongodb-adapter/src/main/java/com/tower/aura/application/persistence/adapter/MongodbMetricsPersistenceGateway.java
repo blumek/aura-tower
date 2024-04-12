@@ -1,6 +1,7 @@
 package com.tower.aura.application.persistence.adapter;
 
-import com.tower.aura.application.persistence.*;
+
+import com.tower.aura.spi.persistence.*;
 
 import java.util.Map;
 
