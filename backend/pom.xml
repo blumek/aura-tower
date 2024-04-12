@@ -11,10 +11,10 @@
     <modules>
         <module>at-application-bootstrap</module>
         <module>at-application-api</module>
-        <module>at-application-persistence</module>
         <module>at-persistence-mongodb-adapter</module>
         <module>at-rest-web-adapter</module>
         <module>at-application-service</module>
+        <module>at-application-spi</module>
     </modules>
 
     <properties>
@@ -60,8 +60,8 @@
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.tower.aura.application.persistence</groupId>
-                <artifactId>at-application-persistence</artifactId>
+                <groupId>com.tower.aura.application.spi</groupId>
+                <artifactId>at-application-spi</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>

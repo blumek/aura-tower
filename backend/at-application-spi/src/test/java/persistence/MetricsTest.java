@@ -1,5 +1,8 @@
-package com.tower.aura.application.persistence;
+package persistence;
 
+import com.tower.aura.spi.persistence.Metrics;
+import com.tower.aura.spi.persistence.MetricsCollection;
+import com.tower.aura.spi.persistence.MetricsId;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;

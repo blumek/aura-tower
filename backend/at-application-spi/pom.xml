@@ -9,8 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.tower.aura.application.persistence</groupId>
-    <artifactId>at-application-persistence</artifactId>
+    <groupId>com.tower.aura.application.spi</groupId>
+    <artifactId>at-application-spi</artifactId>
 
     <dependencies>
         <dependency>

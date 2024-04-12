@@ -1,24 +1,24 @@
-package com.tower.aura.application.persistence;
+package com.tower.aura.spi.persistence;
 
 import java.util.Objects;
 
-public final class StringMetric extends Metric {
-    private final String value;
+public final class NumberMetric extends Metric {
+    private final Number value;
 
-    private StringMetric(String name, String value) {
+    private NumberMetric(String name, Number value) {
         super(name);
         if (value == null) {
-            throw new IllegalArgumentException("Value cannot be null");
+            throw new IllegalArgumentException("value cannot be null");
         }
 
         this.value = value;
     }
 
-    public static StringMetric of(String name, String value) {
-        return new StringMetric(name, value);
+    public static NumberMetric of(String name, Number value) {
+        return new NumberMetric(name, value);
     }
 
-    public String value() {
+    public Number value() {
         return value;
     }
 
@@ -26,7 +26,7 @@ public final class StringMetric extends Metric {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        StringMetric that = (StringMetric) other;
+        NumberMetric that = (NumberMetric) other;
         return Objects.equals(value, that.value);
     }
 
@@ -37,8 +37,8 @@ public final class StringMetric extends Metric {
 
     @Override
     public String toString() {
-        return "StringMetric{" +
-                "value='" + value + '\'' +
+        return "NumberMetric{" +
+                "value=" + value +
                 '}';
     }
 }

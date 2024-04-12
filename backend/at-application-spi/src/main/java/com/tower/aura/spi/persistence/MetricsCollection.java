@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence;
+package com.tower.aura.spi.persistence;
 
 import java.util.Collection;
 import java.util.HashMap;

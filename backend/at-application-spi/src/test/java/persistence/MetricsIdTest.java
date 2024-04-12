@@ -1,5 +1,6 @@
-package com.tower.aura.application.persistence;
+package persistence;
 
+import com.tower.aura.spi.persistence.MetricsId;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;

@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence;
+package com.tower.aura.spi.persistence;
 
 public record MetricsPersistenceRequest(MetricsId metricsId, MetricsCollection metricsCollection) {
 }
