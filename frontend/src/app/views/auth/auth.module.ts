@@ -5,6 +5,8 @@ import { AuthComponent } from './auth.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
+import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
+import { AuthRoutingModule } from './auth-routing.module';
 
 
 
@@ -14,10 +16,12 @@ import { ResetPassComponent } from './reset-pass/reset-pass.component';
     AuthComponent,
     SignUpComponent,
     ForgotPassComponent,
-    ResetPassComponent
+    ResetPassComponent,
+    AuthNavComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AuthRoutingModule
   ]
 })
 export class AuthModule { }

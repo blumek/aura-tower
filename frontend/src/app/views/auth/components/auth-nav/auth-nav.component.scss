@@ -1,0 +1,11 @@
+.auth-nav-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 70px;
+}
+
+@media (min-width: 768px) {
+    .auth-nav-container { 
+        justify-content: flex-start
+    }
+}

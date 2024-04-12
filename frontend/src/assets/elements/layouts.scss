@@ -1,8 +1,12 @@
 @import '../styles/variables.scss';
 
-.main-container{
+.main-container, .auth-container{
     min-height: 100vh;
     background-color: $background-light;
+}
+
+.auth-container {
+    background-color: $white
 }
 
 .dashboard-container {
@@ -11,13 +15,13 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.site-container {
+.site-container, .auth-site-container {
     margin: 30px
 }
 
 
 @media (min-width: 768px) {
-    .main-container{
+    .main-container, .auth-container{
         display: flex;
     }
 

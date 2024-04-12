@@ -1,0 +1,15 @@
+@import '../../../assets/styles/variables.scss';
+
+.auth-right-content {
+    background-color: $at-green;
+}
+
+@media (min-width: 768px) {
+    .auth-left-content {
+        width: 60%;
+    }
+
+    .auth-right-content {
+        width: 40%;
+    }
+}

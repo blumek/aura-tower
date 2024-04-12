@@ -1,4 +1,4 @@
-@import './variables.scss';
+@import "./variables.scss";
 
 //Material element text color set
 .mat-mdc-form-field-label,
@@ -8,17 +8,17 @@
 .mat-mdc-button,
 .mat-mdc-tab-label,
 .mat-mdc-menu-item {
-    color: $text-light !important;
+  color: $text-light !important;
 
-    .mat-mdc-menu-item-text {
-      display: flex;
-      align-items: center;
-    }
+  .mat-mdc-menu-item-text {
+    display: flex;
+    align-items: center;
+  }
 
-    .mat-icon,
-    .material-symbols-outlined {
-      color: $icon-light !important;
-    }
+  .mat-icon,
+  .material-symbols-outlined {
+    color: $icon-light !important;
+  }
 }
 
 .mat-mdc-elevation-specific.mat-elevation-z8 {
@@ -30,14 +30,13 @@
   border-radius: 15px !important;
 }
 
-
 .danger {
-    color: $danger !important;
+  color: $danger !important;
 
-    .mat-icon,
-    .material-symbols-outlined {
-      color: $danger-icon-light !important;
-    }
+  .mat-icon,
+  .material-symbols-outlined {
+    color: $danger-icon-light !important;
+  }
 }
 
 .at-snackbar-success {
@@ -92,5 +91,28 @@
 
   @media (min-width: 768px) {
     display: block;
+  }
+}
+
+//Auth
+
+.auth-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  // @media (min-width: 768px) {
+  //   align-items: flex-start;
+  //   text-align: left;
+  // }
+
+  h3 {
+    font-size: 38px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 16px;
   }
 }
