@@ -7,8 +7,16 @@ import { ForgotPassComponent } from './forgot-pass/forgot-pass.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
 import { AuthNavComponent } from './components/auth-nav/auth-nav.component';
 import { AuthRoutingModule } from './auth-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
-
+const matModules = [
+  MatFormFieldModule,
+  MatInputModule, 
+  MatIconModule
+]
 
 @NgModule({
   declarations: [
@@ -21,7 +29,9 @@ import { AuthRoutingModule } from './auth-routing.module';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    matModules,
   ]
 })
 export class AuthModule { }

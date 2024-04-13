@@ -95,17 +95,11 @@
 }
 
 //Auth
-
 .auth-section-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
-  // @media (min-width: 768px) {
-  //   align-items: flex-start;
-  //   text-align: left;
-  // }
 
   h3 {
     font-size: 38px;
@@ -114,5 +108,24 @@
 
   p {
     font-size: 16px;
+  }
+}
+
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // margin-top: 60px;
+  height: calc(100vh - 76px - 123px - 30px - 60px);
+  overflow-y: auto;
+
+  .auth-botton-text span {
+    color: $at-green;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
 }

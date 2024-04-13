@@ -1,0 +1,35 @@
+@import '../styles/variables.scss';
+
+.field-container {
+    padding: 10px;
+
+    mat-icon {
+        margin-bottom: -6px;
+        cursor: pointer
+    }
+}
+
+.mat-mdc-form-field{
+    width: 300px;
+
+    @media (min-width: 768px) {
+        width: 400px;
+    }
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+    border-bottom-color: $icon-light ;
+    border-width: 2px;
+}
+
+
+.mat-mdc-form-field {
+    --mat-form-field-state-layer-color: transparent ;
+    --mdc-filled-text-field-active-indicator-color: #c0c0c0;
+    --mdc-filled-text-field-hover-active-indicator-color: #c0c0c0;
+  }
+
+
+
+
+

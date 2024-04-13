@@ -1,5 +1,34 @@
 <div class="auth-section-header">
-    <h3>Zaloguj się!</h3>
-    <p>Zarządzaj swoim domem niczym kontroler w wieży lotniczej</p>
+  <h3>Zaloguj się!</h3>
+  <p>Zarządzaj swoim domem niczym kontroler w wieży lotniczej</p>
 </div>
 
+<div class="auth-form-container">
+  <form [formGroup]="signInForm">
+    <div class="field-container">
+      <mat-form-field>
+        <mat-label>Nazwa użytkownika</mat-label>
+        <input
+          matInput
+          formControlName="userName"
+          required>
+      </mat-form-field>
+    </div>
+    <div class="field-container">
+      <mat-form-field>
+        <mat-label>Hasło</mat-label>
+        <input matInput  formControlName="password" required [type]="hidePassword ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+    <div class="spacer-6"></div>
+      <button class="at-button normal flat-green iconic auth-button">
+        <span class="material-symbols-outlined">login</span>
+        <span>Zaloguj się!</span>
+      </button>
+  </form>
+
+  <div class="spacer-3"></div>
+  <p class="auth-botton-text">Nie pamiętasz hasła ? <span (click)="onLinkClick('forgot-pass')">Przypomnij hasło</span></p>
+  <p class="auth-botton-text">Nie masz jeszcze konta ? <span (click)="onLinkClick('sign-up')">Zarejestruj się</span></p>
+</div>
