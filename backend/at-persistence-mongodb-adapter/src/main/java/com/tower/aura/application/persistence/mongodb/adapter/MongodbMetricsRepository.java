@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence.adapter;
+package com.tower.aura.application.persistence.mongodb.adapter;
 
 import java.util.Optional;
 

@@ -1,4 +1,4 @@
-package com.tower.aura.spi.persistence;
+package com.tower.aura.spi.persistence.metrics.model;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public final class MetricsCollection {
-    private final Map<String, Metric> metrics;
+public final class PersistenceMetricsCollection {
+    private final Map<String, PersistenceMetric> metrics;
 
-    private MetricsCollection(Map<String, Metric> metrics) {
+    private PersistenceMetricsCollection(Map<String, PersistenceMetric> metrics) {
         if (metrics == null) {
             throw new IllegalArgumentException("Metrics cannot be null");
         }
@@ -17,11 +17,15 @@ public final class MetricsCollection {
         this.metrics = metrics;
     }
 
-    public Stream<Metric> asStream() {
+    public static PersistenceMetricsCollection fromMap(Map<String, PersistenceMetric> metrics) {
+        return new PersistenceMetricsCollection(metrics);
+    }
+
+    public Stream<PersistenceMetric> asStream() {
         return metrics.values().stream();
     }
 
-    public Collection<Metric> asCollection() {
+    public Collection<PersistenceMetric> asCollection() {
         return metrics.values();
     }
 
@@ -29,7 +33,7 @@ public final class MetricsCollection {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        MetricsCollection that = (MetricsCollection) other;
+        PersistenceMetricsCollection that = (PersistenceMetricsCollection) other;
         return Objects.equals(metrics, that.metrics);
     }
 
@@ -50,15 +54,15 @@ public final class MetricsCollection {
     }
 
     public static final class Builder {
-        private final Map<String, Metric> metrics = new HashMap<>();
+        private final Map<String, PersistenceMetric> metrics = new HashMap<>();
 
-        public Builder withMetric(Metric metric) {
+        public Builder withMetric(PersistenceMetric metric) {
             this.metrics.put(metric.name(), metric);
             return this;
         }
 
-        public MetricsCollection build() {
-            return new MetricsCollection(Map.copyOf(metrics));
+        public PersistenceMetricsCollection build() {
+            return new PersistenceMetricsCollection(Map.copyOf(metrics));
         }
     }
 }

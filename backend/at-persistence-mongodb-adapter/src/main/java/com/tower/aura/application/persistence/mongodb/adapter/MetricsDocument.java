@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence.adapter;
+package com.tower.aura.application.persistence.mongodb.adapter;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
