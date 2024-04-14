@@ -1,8 +1,8 @@
 package com.tower.aura.service.auth.register;
 
-import com.tower.aura.api.auth.register.RegisterUserReply;
-import com.tower.aura.api.auth.register.RegisterUserRequest;
-import com.tower.aura.api.auth.register.RegisterUserUseCase;
+import com.tower.aura.api.auth.RegisterUserReply;
+import com.tower.aura.api.auth.RegisterUserRequest;
+import com.tower.aura.api.auth.RegisterUserUseCase;
 import org.springframework.stereotype.Service;
 
 @Service

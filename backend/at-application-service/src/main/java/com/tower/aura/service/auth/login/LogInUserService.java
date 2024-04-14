@@ -1,8 +1,8 @@
 package com.tower.aura.service.auth.login;
 
-import com.tower.aura.api.auth.login.LogInUserReply;
-import com.tower.aura.api.auth.login.LogInUserRequest;
-import com.tower.aura.api.auth.login.LogInUserUseCase;
+import com.tower.aura.api.auth.LogInUserReply;
+import com.tower.aura.api.auth.LogInUserRequest;
+import com.tower.aura.api.auth.LogInUserUseCase;
 import org.springframework.stereotype.Service;
 
 @Service
