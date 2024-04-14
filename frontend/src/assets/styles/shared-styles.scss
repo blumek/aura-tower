@@ -116,8 +116,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin-top: 60px;
-  height: calc(100vh - 76px - 123px - 30px - 60px);
+  margin-top: 20px;
+  padding-top: 10px;
+  height: calc(100vh - 76px - 123px - 30px - 60px - 40px);
   overflow-y: auto;
 
   .auth-botton-text span {

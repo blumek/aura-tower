@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { signInForm } from '../../../shared/models/auth';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent {
   hidePassword: boolean = true;
-  signInForm: FormGroup<any> = this.fb.group({
+  signInForm: FormGroup<signInForm> = this.fb.group({
     userName: ['', Validators.required],
     password: ['', Validators.required]
   })
@@ -23,4 +24,12 @@ export class SignInComponent {
     this.router.navigate(['auth/', link])
   }
 
+  get userNameControl(): FormControl<string> {
+    return this.signInForm.get('userName') as FormControl<string>
+  }
+
+  get passwordControl(): FormControl<string> {
+    return this.signInForm.get('password') as FormControl<string>
+  }
+  
 }
