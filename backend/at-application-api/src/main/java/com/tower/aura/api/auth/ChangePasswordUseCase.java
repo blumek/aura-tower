@@ -1,4 +1,4 @@
-package com.tower.aura.api.auth.change_password;
+package com.tower.aura.api.auth;
 
 public interface ChangePasswordUseCase {
     void change(ChangePasswordRequest changePasswordRequest);

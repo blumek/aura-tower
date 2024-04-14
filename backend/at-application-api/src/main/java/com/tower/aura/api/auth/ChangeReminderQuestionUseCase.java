@@ -1,4 +1,4 @@
-package com.tower.aura.api.auth.change_reminder_question;
+package com.tower.aura.api.auth;
 
 public interface ChangeReminderQuestionUseCase {
     void change(ChangeReminderQuestionRequest changeReminderQuestionRequest);

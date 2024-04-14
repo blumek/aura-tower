@@ -1,4 +1,4 @@
-package com.tower.aura.api.auth.change_password;
+package com.tower.aura.api.auth;
 
 import com.tower.aura.api.auth.model.ApiPassword;
 import com.tower.aura.api.auth.model.ApiUserIdentifier;

@@ -1,4 +1,4 @@
-package com.tower.aura.api.auth.register;
+package com.tower.aura.api.auth;
 
 import com.tower.aura.api.auth.model.ApiForgotPassword;
 import com.tower.aura.api.auth.model.ApiPassword;

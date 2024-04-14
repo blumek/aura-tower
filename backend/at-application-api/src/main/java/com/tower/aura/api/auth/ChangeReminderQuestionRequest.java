@@ -1,4 +1,4 @@
-package com.tower.aura.api.auth.change_reminder_question;
+package com.tower.aura.api.auth;
 
 import com.tower.aura.api.auth.model.ApiForgotPassword;
 import com.tower.aura.api.auth.model.ApiUserIdentifier;

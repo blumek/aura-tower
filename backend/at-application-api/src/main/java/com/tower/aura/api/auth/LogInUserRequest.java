@@ -1,4 +1,4 @@
-package com.tower.aura.api.auth.login;
+package com.tower.aura.api.auth;
 
 import com.tower.aura.api.auth.model.ApiPassword;
 import com.tower.aura.api.auth.model.ApiUsername;
