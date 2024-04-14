@@ -1,7 +1,10 @@
-package com.tower.aura.application.persistence.mongodb.adapter;
+package com.tower.aura.application.persistence.mongodb.adapter.metrics;
+
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 class DefaultMongodbMetricsRepository implements MongodbMetricsRepository {
     private final SpringMongodbMetricsRepository repository;
 
@@ -10,8 +13,8 @@ class DefaultMongodbMetricsRepository implements MongodbMetricsRepository {
     }
 
     @Override
-    public Optional<MetricsDocument> findById(String id) {
-        return repository.findById(id);
+    public Optional<MetricsDocument> findById(String identifier) {
+        return repository.findById(identifier);
     }
 
     @Override

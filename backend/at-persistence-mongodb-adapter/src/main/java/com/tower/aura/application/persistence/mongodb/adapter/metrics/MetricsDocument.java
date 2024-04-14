@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence.mongodb.adapter;
+package com.tower.aura.application.persistence.mongodb.adapter.metrics;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -30,12 +30,12 @@ public class MetricsDocument {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
         MetricsDocument that = (MetricsDocument) other;
-        return Objects.equals(id, that.id) && Objects.equals(metrics, that.metrics);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, metrics);
+        return Objects.hash(id);
     }
 
     @Override

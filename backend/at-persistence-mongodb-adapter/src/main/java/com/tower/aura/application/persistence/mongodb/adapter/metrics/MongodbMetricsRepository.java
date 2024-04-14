@@ -1,4 +1,4 @@
-package com.tower.aura.application.persistence.mongodb.adapter;
+package com.tower.aura.application.persistence.mongodb.adapter.metrics;
 
 import java.util.Optional;
 
