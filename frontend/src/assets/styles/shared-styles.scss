@@ -79,7 +79,7 @@
 .mobile {
   display: block;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     & {
       display: none !important;
     }
@@ -89,44 +89,8 @@
 .desktop {
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 992px) {
     display: block;
   }
 }
 
-//Auth
-.auth-section-header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  h3 {
-    font-size: 38px;
-    font-weight: bold;
-  }
-
-  p {
-    font-size: 16px;
-  }
-}
-
-.auth-form-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-  padding-top: 10px;
-  height: calc(100vh - 76px - 123px - 30px - 60px - 40px);
-  overflow-y: auto;
-
-  .auth-botton-text span {
-    color: $at-green;
-
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
-    }
-  }
-}

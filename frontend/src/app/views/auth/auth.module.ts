@@ -11,12 +11,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ErrorMsgComponent } from '../../shared/components/error-msg/error-msg.component';
+import { MatSelectModule } from '@angular/material/select';
+
 
 const matModules = [
   MatFormFieldModule,
   MatInputModule, 
-  MatIconModule
+  MatIconModule,
+  MatProgressSpinnerModule,
+  MatSelectModule
 ]
 
 const standaloneComponents = [
