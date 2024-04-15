@@ -4,6 +4,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/metadata")
+@RequestMapping("/v1/metadata")
 public class MetadataController {
 }
