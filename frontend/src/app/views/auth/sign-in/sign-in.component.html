@@ -28,7 +28,8 @@
       </mat-form-field>
     </div>
     <div class="spacer-6"></div>
-      <button class="at-button normal flat-green iconic auth-button">
+      <button (click)="signIn()" [disabled]="signInForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
+        <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
         <span class="material-symbols-outlined">login</span>
         <span>Zaloguj się!</span>
       </button>

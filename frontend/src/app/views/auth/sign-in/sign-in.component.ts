@@ -6,10 +6,11 @@ import { signInForm } from '../../../shared/models/auth';
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrl: './sign-in.component.scss'
+  styleUrl: '../auth.component.scss'
 })
 export class SignInComponent {
   hidePassword: boolean = true;
+  loadingButton: boolean = false;
   signInForm: FormGroup<signInForm> = this.fb.group({
     userName: ['', Validators.required],
     password: ['', Validators.required]
@@ -20,10 +21,6 @@ export class SignInComponent {
     private fb: NonNullableFormBuilder
   ) { }
 
-  onLinkClick(link: string) {
-    this.router.navigate(['auth/', link])
-  }
-
   get userNameControl(): FormControl<string> {
     return this.signInForm.get('userName') as FormControl<string>
   }
@@ -31,5 +28,12 @@ export class SignInComponent {
   get passwordControl(): FormControl<string> {
     return this.signInForm.get('password') as FormControl<string>
   }
-  
+
+  onLinkClick(link: string) {
+    this.router.navigate(['auth/', link])
+  }
+
+  signIn(): void {
+    this.loadingButton = true
+  }
 }

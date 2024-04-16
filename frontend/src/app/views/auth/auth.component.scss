@@ -4,12 +4,66 @@
     background-color: $at-green;
 }
 
-@media (min-width: 768px) {
+.auth-left-content {
+    background-color: $white;
+}
+
+.auth-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  h3 {
+    font-size: 38px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  padding-top: 10px;
+//   height: calc(100vh - 76px - 123px - 30px - 60px - 40px);
+    height: 400px;
+  overflow-y: auto;
+
+  .auth-botton-text span {
+    color: $at-green;
+
+    &:hover {
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
+}
+
+@media (min-width: 992px) {
     .auth-left-content {
         width: 60%;
+        border-radius: 0 15px 15px 0;
+        box-shadow: $shadow-light;
+        z-index: 3;
+        
     }
 
     .auth-right-content {
         width: 40%;
+        background-image: url('../../../assets/images/side-background.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 }
+
+@media (min-width: 1800px) {
+    .auth-form-container {
+        height: 650px;
+    }
+}
+

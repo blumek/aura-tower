@@ -2,3 +2,77 @@
     <h3>Zarejestruj się!</h3>
     <p>Potrzebujemy od Ciebie kilku informacji, abyś mógł korzystać z wierży w swoim otoczeniu</p>
 </div>
+
+<div class="auth-form-container">
+ 
+    <p class="auth-botton-text">Masz już konto? <span (click)="goToSignIn()">Zaloguj się</span></p>
+    <form [formGroup]="signUpForm">
+      <div class="field-container">
+        <mat-form-field>
+          <mat-label>Nazwa użytkownika</mat-label>
+          <input
+            matInput
+            formControlName="userName"
+            required>
+            @if (userNameControl.invalid) {
+              <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            }
+        </mat-form-field>
+      </div>
+      <div class="field-container">
+        <mat-form-field>
+          <mat-label>Hasło</mat-label>
+          <input matInput  formControlName="password" required [type]="hidePassword ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          @if (passwordControl.invalid) {
+            <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="field-container">
+        <mat-form-field>
+          <mat-label>Powtórz hasło</mat-label>
+          <input matInput  formControlName="confirmPassword" required [type]="hideConfirmPassword ? 'password' : 'text'">
+          <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+          @if (passwordControl.invalid) {
+            <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+          }
+        </mat-form-field>
+      </div>
+      <div class="field-container">
+        <mat-form-field>
+          <mat-label>Pytanie pomocnicze</mat-label>
+          <mat-select formControlName="auxiliaryQuestion" required>
+            <mat-option value="1">First option</mat-option>
+            <mat-option value="2">Second option</mat-option>
+            <mat-option value="3">Second option</mat-option>
+            <mat-option value="4">Second option</mat-option>
+            <mat-option value="5">Second option</mat-option>
+            <mat-option value="6">Second option</mat-option>
+            <mat-option value="7">Second option</mat-option>
+          </mat-select>
+            @if (userNameControl.invalid) {
+              <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            }
+        </mat-form-field>
+      </div>
+      <div class="field-container">
+        <mat-form-field>
+          <mat-label>Odpowiedź na pytanie pomocnicze</mat-label>
+          <input
+            matInput
+            formControlName="auxiliaryAnswer"
+            required>
+            @if (userNameControl.invalid) {
+              <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            }
+        </mat-form-field>
+      </div>
+      <div class="spacer-6"></div>
+        <button (click)="signUp()" [disabled]="signUpForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
+          <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
+          <span class="material-symbols-outlined">login</span>
+          <span>Zarejestruj się</span>
+        </button>
+    </form>
+  </div>
