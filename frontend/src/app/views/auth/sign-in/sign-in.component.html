@@ -27,13 +27,13 @@
         }
       </mat-form-field>
     </div>
-    <div class="spacer-6"></div>
-      <button (click)="signIn()" [disabled]="signInForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
-        <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
-        <span class="material-symbols-outlined">login</span>
-        <span>Zaloguj się!</span>
-      </button>
   </form>
+  <div class="spacer-4"></div>
+  <button (click)="signIn()" [disabled]="signInForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
+    <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
+    <span class="material-symbols-outlined">login</span>
+    <span>Zaloguj się!</span>
+  </button>
 
   <div class="spacer-3"></div>
   <p class="auth-botton-text">Nie pamiętasz hasła ? <span (click)="onLinkClick('forgot-pass')">Przypomnij hasło</span></p>

@@ -4,8 +4,6 @@
 </div>
 
 <div class="auth-form-container">
- 
-    <p class="auth-botton-text">Masz już konto? <span (click)="goToSignIn()">Zaloguj się</span></p>
     <form [formGroup]="signUpForm">
       <div class="field-container">
         <mat-form-field>
@@ -68,11 +66,14 @@
             }
         </mat-form-field>
       </div>
-      <div class="spacer-6"></div>
-        <button (click)="signUp()" [disabled]="signUpForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
-          <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
-          <span class="material-symbols-outlined">login</span>
-          <span>Zarejestruj się</span>
-        </button>
     </form>
+    <div class="spacer-4"></div>
+    <button (click)="signUp()" [disabled]="signUpForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
+      <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
+      <span class="material-symbols-outlined">login</span>
+      <span>Zarejestruj się</span>
+    </button>
+    <div class="spacer-3"></div>
+    <p class="auth-botton-text">Masz już konto? <span (click)="goToSignIn()">Zaloguj się</span></p>
+
   </div>

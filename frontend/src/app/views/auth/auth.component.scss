@@ -1,7 +1,7 @@
 @import '../../../assets/styles/variables.scss';
 
 .auth-right-content {
-    background-color: $at-green;
+    background-color: $white
 }
 
 .auth-left-content {
@@ -28,11 +28,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  padding-top: 10px;
-//   height: calc(100vh - 76px - 123px - 30px - 60px - 40px);
-    height: 400px;
-  overflow-y: auto;
+  width: 480px;
+  margin: 0 auto;
+  
+  form {
+    margin-top: 20px;
+    padding-top: 10px;
+    max-height: 460px;
+    overflow-y: auto;
+  }
 
   .auth-botton-text span {
     color: $at-green;
@@ -46,15 +50,13 @@
 
 @media (min-width: 992px) {
     .auth-left-content {
-        width: 60%;
-        border-radius: 0 15px 15px 0;
-        box-shadow: $shadow-light;
+        width: 55%;
         z-index: 3;
         
     }
 
     .auth-right-content {
-        width: 40%;
+        width: 45%;
         background-image: url('../../../assets/images/side-background.svg');
         background-repeat: no-repeat;
         background-size: cover;
