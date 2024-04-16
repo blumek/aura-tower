@@ -1,4 +1,4 @@
-package com.tower.aura.spi.persistence.user.authentication.model;
+package com.tower.aura.spi.persistence.user.model;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 

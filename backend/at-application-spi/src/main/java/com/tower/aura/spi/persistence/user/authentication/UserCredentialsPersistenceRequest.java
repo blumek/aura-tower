@@ -1,7 +1,7 @@
 package com.tower.aura.spi.persistence.user.authentication;
 
 import com.tower.aura.spi.persistence.user.authentication.model.PersistencePassword;
-import com.tower.aura.spi.persistence.user.authentication.model.PersistenceUsername;
+import com.tower.aura.spi.persistence.user.model.PersistenceUsername;
 import com.tower.aura.spi.persistence.user.model.PersistenceUserIdentifier;
 
 public record UserCredentialsPersistenceRequest(PersistenceUserIdentifier userIdentifier,

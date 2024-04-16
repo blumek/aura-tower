@@ -29,6 +29,10 @@
             <artifactId>at-application-service</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.tower.aura.application.persistence.adapter</groupId>
+            <artifactId>at-persistence-mongodb-adapter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
         </dependency>

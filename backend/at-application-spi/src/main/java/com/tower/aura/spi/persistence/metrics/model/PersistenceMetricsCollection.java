@@ -57,7 +57,7 @@ public final class PersistenceMetricsCollection {
         private final Map<String, PersistenceMetric> metrics = new HashMap<>();
 
         public Builder withMetric(PersistenceMetric metric) {
-            this.metrics.put(metric.name(), metric);
+            this.metrics.put(metric.metricName().value(), metric);
             return this;
         }
 
