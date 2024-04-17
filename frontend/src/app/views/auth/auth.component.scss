@@ -33,8 +33,8 @@
   
   form {
     margin-top: 20px;
-    padding-top: 10px;
-    max-height: 460px;
+    padding: 10px 20px 0 30px;
+    max-height: 250px;
     overflow-y: auto;
   }
 
@@ -50,14 +50,12 @@
 
 @media (min-width: 992px) {
     .auth-left-content {
-        width: 55%;
-        z-index: 3;
-        
+        width: 55%;   
     }
 
     .auth-right-content {
         width: 45%;
-        background-image: url('../../../assets/images/side-background.svg');
+        background-image: url('../../../assets/images/auth-side-background.svg');
         background-repeat: no-repeat;
         background-size: cover;
     }

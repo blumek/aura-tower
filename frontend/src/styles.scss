@@ -9,3 +9,24 @@ body {
 }
 html, body { height: 100%; overflow-x: hidden}
 
+::-webkit-scrollbar-track {
+
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar {
+    border-radius: 15px;
+    width: 8px;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: rgb(150, 150, 150);
+
+
+    &:hover {
+        transition: .3s;
+        background-color: #5bcba9;
+    }
+}
