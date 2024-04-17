@@ -3,6 +3,9 @@ services:
     image: bluemek/aura-tower:latest
     ports:
       - "8080:8080"
+    depends_on:
+      - mongodb
+    restart: always
   mongodb:
     image: mongo:7.0.8
     ports:
