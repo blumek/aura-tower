@@ -6,9 +6,9 @@ export interface signInForm {
 }
 
 export interface signUpForm {
-    userName: FormControl<string>;
-    password: FormControl<string>;
-    confirmPassword: FormControl<string>;
-    auxiliaryQuestion: FormControl<string>;
-    auxiliaryAnswer: FormControl<string>;
+    userName: FormControl<string | null>;
+    password: FormControl<string | null>;
+    confirmPassword: FormControl<string | null>;
+    auxiliaryQuestion: FormControl<string | null>;
+    auxiliaryAnswer: FormControl<string | null>;
 }

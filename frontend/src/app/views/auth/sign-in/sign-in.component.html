@@ -12,7 +12,7 @@
           matInput
           formControlName="userName"
           required>
-          @if (userNameControl.invalid) {
+          @if (userNameControl.errors?.['required']) {
             <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
           }
       </mat-form-field>
@@ -20,9 +20,9 @@
     <div class="field-container">
       <mat-form-field>
         <mat-label>Hasło</mat-label>
-        <input matInput  formControlName="password" required [type]="hidePassword ? 'password' : 'text'">
+        <input matInput  formControlName="password"  [type]="hidePassword ? 'password' : 'text'" (keydown.enter)="signIn()" required>
         <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-        @if (passwordControl.invalid) {
+        @if (passwordControl.errors?.['required']) {
           <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
         }
       </mat-form-field>

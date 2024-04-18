@@ -12,8 +12,10 @@
             matInput
             formControlName="userName"
             required>
-            @if (userNameControl.invalid) {
+            @if (userNameControl.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            } @else if (userNameControl.errors?.['minLength']) {
+              <mat-error><span class="material-symbols-outlined">error</span>Hasło musi mieć minimum 8 znaków</mat-error>
             }
         </mat-form-field>
       </div>
@@ -22,18 +24,20 @@
           <mat-label>Hasło</mat-label>
           <input matInput  formControlName="password" required [type]="hidePassword ? 'password' : 'text'">
           <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          @if (passwordControl.invalid) {
+          @if (passwordControl.errors?.['required']) {
             <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+          } @else if (passwordControl.errors?.['minlength']) {
+            <mat-error><span class="material-symbols-outlined">error</span>Wymagane jest przynajmniej 8 znaków</mat-error>
           }
         </mat-form-field>
       </div>
       <div class="field-container">
         <mat-form-field>
           <mat-label>Powtórz hasło</mat-label>
-          <input matInput  formControlName="confirmPassword" required [type]="hideConfirmPassword ? 'password' : 'text'">
+          <input matInput  formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" required>
           <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
-          @if (passwordControl.invalid) {
-            <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+          @if (signUpForm.errors?.['notSame']) {
+            <mat-error><span class="material-symbols-outlined">error</span>Hasła muszą być takie same</mat-error>
           }
         </mat-form-field>
       </div>
@@ -49,7 +53,7 @@
             <mat-option value="6">Second option</mat-option>
             <mat-option value="7">Second option</mat-option>
           </mat-select>
-            @if (userNameControl.invalid) {
+            @if (auxiliaryQuestion.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
             }
         </mat-form-field>
@@ -61,7 +65,7 @@
             matInput
             formControlName="auxiliaryAnswer"
             required>
-            @if (userNameControl.invalid) {
+            @if (auxiliaryAnswer.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
             }
         </mat-form-field>

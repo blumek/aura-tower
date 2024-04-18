@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, ValidatorFn, Validators } from '@angular/forms';
 import { signUpForm } from '../../../shared/models/auth';
 import { Router } from '@angular/router';
 
@@ -14,15 +14,15 @@ export class SignUpComponent {
   loadingButton: boolean = false;
   signUpForm: FormGroup<signUpForm> = this.fb.group({
     userName: ['', Validators.required],
-    password: ['', Validators.required],
+    password: ['', [Validators.required, Validators.minLength(8)]],
     confirmPassword: ['', Validators.required],
     auxiliaryQuestion: ['', Validators.required],
     auxiliaryAnswer: ['', Validators.required],
-  })
+  }, {validators: [this.checkPasswords as ValidatorFn]})
 
   constructor(
     private router: Router,
-    private fb: NonNullableFormBuilder
+    private fb: FormBuilder
   ) { }
 
   get userNameControl(): FormControl<string> {
@@ -43,6 +43,13 @@ export class SignUpComponent {
 
   get auxiliaryAnswer(): FormControl<string> {
     return this.signUpForm.get('auxiliaryAnswer') as FormControl<string>
+  }
+
+  checkPasswords(formGroup: FormGroup): null | {notSame: boolean} {
+    const pass = formGroup.controls['password'].value
+    const confirmPassword = formGroup.controls['confirmPassword'].value
+      
+    return confirmPassword ? null : {notSame: true}  
   }
 
   goToSignIn(): void {
