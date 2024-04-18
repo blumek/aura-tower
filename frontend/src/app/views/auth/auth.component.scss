@@ -1,11 +1,11 @@
-@import '../../../assets/styles/variables.scss';
+@import "../../../assets/styles/variables.scss";
 
 .auth-right-content {
-    background-color: $white
+  background-color: $white;
 }
 
 .auth-left-content {
-    background-color: $white;
+  background-color: $white;
 }
 
 .auth-section-header {
@@ -28,14 +28,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 480px;
   margin: 0 auto;
-  
+
   form {
     margin-top: 20px;
     padding: 10px 20px 0 30px;
-    max-height: 250px;
     overflow-y: auto;
+  }
+
+  button {
+    width: 300px;
   }
 
   .auth-botton-text span {
@@ -49,21 +51,40 @@
 }
 
 @media (min-width: 992px) {
-    .auth-left-content {
-        width: 55%;   
+  .auth-left-content {
+    width: 55%;
+  }
+
+  .auth-form-container {
+    form {
+      max-height: 280px;
     }
 
-    .auth-right-content {
-        width: 45%;
-        background-image: url('../../../assets/images/auth-side-background.svg');
-        background-repeat: no-repeat;
-        background-size: cover;
+    button {
+      width: 480px;
     }
+  }
+
+  .auth-right-content {
+    width: 45%;
+    background-image: url("../../../assets/images/auth-side-background.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
-@media (min-width: 1800px) {
-    .auth-form-container {
-        height: 650px;
+@media (min-width: 992px) and (min-height: 800px) {
+  .auth-form-container {
+    form {
+      max-height: 320px;
     }
+  }
 }
 
+@media (min-width: 992px) and (min-height: 945px) {
+  .auth-form-container {
+    form {
+      max-height: 600px
+    }
+  }
+}

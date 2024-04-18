@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { signInForm } from '../../../shared/models/auth';
+import { signInForm } from '../models/forms';
 
 @Component({
   selector: 'app-sign-in',

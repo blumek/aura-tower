@@ -22,7 +22,12 @@
       <div class="field-container">
         <mat-form-field>
           <mat-label>Hasło</mat-label>
-          <input matInput  formControlName="password" required [type]="hidePassword ? 'password' : 'text'">
+          <input 
+            matInput 
+            formControlName="password" 
+            [type]="hidePassword ? 'password' : 'text'" 
+            autocomplete="on" 
+            required>
           <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           @if (passwordControl.errors?.['required']) {
             <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
@@ -34,7 +39,12 @@
       <div class="field-container">
         <mat-form-field>
           <mat-label>Powtórz hasło</mat-label>
-          <input matInput  formControlName="confirmPassword" [type]="hideConfirmPassword ? 'password' : 'text'" required>
+          <input 
+            matInput 
+            formControlName="confirmPassword" 
+            [type]="hideConfirmPassword ? 'password' : 'text'" 
+            autocomplete="on" 
+            required>
           <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           @if (signUpForm.errors?.['notSame']) {
             <mat-error><span class="material-symbols-outlined">error</span>Hasła muszą być takie same</mat-error>

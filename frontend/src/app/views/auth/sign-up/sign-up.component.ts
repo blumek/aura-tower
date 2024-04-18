@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, NonNullableFormBuilder, ValidatorFn, Validators } from '@angular/forms';
-import { signUpForm } from '../../../shared/models/auth';
+import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { signUpForm } from '../models/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -22,7 +23,8 @@ export class SignUpComponent {
 
   constructor(
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authService: AuthenticationService
   ) { }
 
   get userNameControl(): FormControl<string> {
@@ -48,8 +50,11 @@ export class SignUpComponent {
   checkPasswords(formGroup: FormGroup): null | {notSame: boolean} {
     const pass = formGroup.controls['password'].value
     const confirmPassword = formGroup.controls['confirmPassword'].value
+    const validation = confirmPassword === pass ? null : {notSame: true}  
+
+    formGroup.controls['confirmPassword'].setErrors(validation)
       
-    return confirmPassword ? null : {notSame: true}  
+    return validation
   }
 
   goToSignIn(): void {
@@ -57,6 +62,11 @@ export class SignUpComponent {
   }
 
   signUp() {
+    const signUpFormRaw = this.signUpForm.getRawValue()
+
+    // this.authService.signUp(signUpFormRaw).subscribe(() => {
+
+    // })
 
   }
 }
