@@ -31,7 +31,7 @@
 
         <application.port>8080</application.port>
 
-        <spring-boot-starter.version>3.2.4</spring-boot-starter.version>
+        <spring-boot-starter.version>3.2.5</spring-boot-starter.version>
         <springdoc-openapi-starter.version>2.5.0</springdoc-openapi-starter.version>
         <commons-lang3.version>3.14.0</commons-lang3.version>
 
