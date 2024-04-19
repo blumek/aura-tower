@@ -1,5 +1,17 @@
 @import "../../../assets/styles/variables.scss";
 
+.auth-nav-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 992px) {
+  .auth-nav-container { 
+      justify-content: flex-start
+  }
+}
+
 .auth-right-content {
   background-color: $white;
 }

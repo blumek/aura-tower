@@ -30,7 +30,7 @@ const operatorRoutes: Routes = [
                 component: ForgotPassComponent
             },
             {
-                path: 'reset-pass',
+                path: 'reset-pass/:hash',
                 component: ResetPassComponent
             }
         ]

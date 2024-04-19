@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { signInForm } from '../models/forms';
+import { SignInForm } from '../models/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,7 +11,7 @@ import { signInForm } from '../models/forms';
 export class SignInComponent {
   hidePassword: boolean = true;
   loadingButton: boolean = false;
-  signInForm: FormGroup<signInForm> = this.fb.group({
+  signInForm: FormGroup<SignInForm> = this.fb.group({
     userName: ['', Validators.required],
     password: ['', Validators.required]
   })

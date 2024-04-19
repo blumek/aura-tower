@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
-import { signUpForm } from '../models/forms';
+import { SignUpForm } from '../models/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
@@ -13,7 +13,7 @@ export class SignUpComponent {
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
   loadingButton: boolean = false;
-  signUpForm: FormGroup<signUpForm> = this.fb.group({
+  signUpForm: FormGroup<SignUpForm> = this.fb.group({
     userName: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(8)]],
     confirmPassword: ['', Validators.required],

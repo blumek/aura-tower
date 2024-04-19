@@ -28,6 +28,17 @@
     border-width: 2px;
 }
 
+.mat-mdc-select-value-text {
+    color: rgba($color: #000000, $alpha: 0.87);
+}
+
+.mat-mdc-select-arrow svg {
+    top: unset;
+    left: unset;
+    transform: unset;
+    right: -8px;
+}
+
 
 .mat-mdc-form-field {
     --mat-form-field-state-layer-color: transparent ;
