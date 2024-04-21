@@ -15,6 +15,11 @@ const routes: Routes = [
         path: 'auth',
         loadChildren: () => import('./views/auth/auth.module').then(m => m.AuthModule),
     },
+    {
+        path: 'base',
+        loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule),
+    },
+    
 ]
 
 @NgModule({
