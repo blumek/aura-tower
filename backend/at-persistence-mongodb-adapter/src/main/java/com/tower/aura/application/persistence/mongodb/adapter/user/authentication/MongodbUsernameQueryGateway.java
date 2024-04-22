@@ -6,8 +6,14 @@ import org.springframework.stereotype.Service;
 
 @Service
 class MongodbUsernameQueryGateway implements UsernameQueryGateway {
+    private final MongodbUserCredentialsRepository userCredentialsRepository;
+
+    MongodbUsernameQueryGateway(MongodbUserCredentialsRepository userCredentialsRepository) {
+        this.userCredentialsRepository = userCredentialsRepository;
+    }
+
     @Override
     public boolean exists(PersistenceUsername username) {
-        return false;
+        return userCredentialsRepository.usernameExists(username.value());
     }
 }
