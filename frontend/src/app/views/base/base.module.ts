@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseComponent } from './base.component';
+import { AppRoutingModule } from '../../app-routing.module';
 
 
 
@@ -9,7 +10,8 @@ import { BaseComponent } from './base.component';
     BaseComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    AppRoutingModule
   ]
 })
 export class BaseModule { }
