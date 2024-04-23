@@ -13,6 +13,11 @@ class DefaultMongodbUserCredentialsRepository implements MongodbUserCredentialsR
     }
 
     @Override
+    public Optional<UserCredentialsDocument> findByUsername(String username) {
+        return repository.findByUsername(username);
+    }
+
+    @Override
     public boolean usernameExists(String username) {
         return repository.existsByUsername(username);
     }

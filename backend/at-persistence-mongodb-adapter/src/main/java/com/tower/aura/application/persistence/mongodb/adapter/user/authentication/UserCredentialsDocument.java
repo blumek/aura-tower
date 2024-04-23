@@ -3,8 +3,6 @@ package com.tower.aura.application.persistence.mongodb.adapter.user.authenticati
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 @Document
@@ -13,6 +11,8 @@ public class UserCredentialsDocument {
     private String userIdentifier;
     private String username;
     private String password;
+
+    private UserCredentialsDocument() {}
 
     public UserCredentialsDocument(String userIdentifier, String username, String password) {
         this.userIdentifier = userIdentifier;
