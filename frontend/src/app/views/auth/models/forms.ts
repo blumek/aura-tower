@@ -13,6 +13,15 @@ export interface SignUpForm {
     auxiliaryAnswer: FormControl<string | null>;
 }
 
+
+export interface SignUpFormRaw {
+    userName: string | null;
+    password: string | null;
+    confirmPassword: string | null;
+    auxiliaryQuestion: string | null;
+    auxiliaryAnswer: string | null;
+}
+
 export interface ForgotPassForm {
     userName: FormControl<string | null>;
     auxiliaryQuestion: FormControl<string | null>;

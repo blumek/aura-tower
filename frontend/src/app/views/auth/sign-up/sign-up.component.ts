@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@a
 import { SignUpForm } from '../models/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -24,7 +25,8 @@ export class SignUpComponent {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private snackbaService: SnackbarService
   ) { }
 
   get userNameControl(): FormControl<string> {
@@ -62,11 +64,17 @@ export class SignUpComponent {
   }
 
   signUp() {
+    this.loadingButton = true
     const signUpFormRaw = this.signUpForm.getRawValue()
 
-    // this.authService.signUp(signUpFormRaw).subscribe(() => {
-
-    // })
+    this.authService.signUp(signUpFormRaw).subscribe({
+      next: () => {
+        console.log('git');
+      },
+      error: () => {
+        this.snackbaService.openSnackBar('Wystąpił błąd', true)
+      }
+    })
 
   }
 }
