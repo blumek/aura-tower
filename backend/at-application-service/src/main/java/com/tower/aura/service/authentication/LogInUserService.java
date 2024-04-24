@@ -30,6 +30,6 @@ class LogInUserService implements LogInUserUseCase {
             throw new IllegalArgumentException("Password does not match");
         }
 
-        return new LogInUserReply(new ApiJsonWebTokenPair(new ApiJsonWebToken("1"), new ApiJsonWebToken("2")));
+        return new LogInUserReply(new ApiJsonWebTokenPair(new ApiJsonWebToken("accessToken"), new ApiJsonWebToken("refreshToken")));
     }
 }
