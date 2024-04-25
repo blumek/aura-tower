@@ -5,7 +5,7 @@
     background-color: $background-light;
 }
 
-.auth-container {
+.auth-container, .base-container {
     height: 100vh;
     background-color: $white
 }
@@ -16,7 +16,7 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.site-container, .auth-site-container {
+.site-container, .auth-site-container, .base-site-container {
     padding: 30px
 }
 

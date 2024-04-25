@@ -69,7 +69,7 @@ export class SignUpComponent {
 
     this.authService.signUp(signUpFormRaw).subscribe({
       next: () => {
-        console.log('git');
+        console.log('register');
       },
       error: () => {
         this.snackbaService.openSnackBar('Wystąpił błąd', true)

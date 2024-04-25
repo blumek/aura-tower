@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BaseComponent } from './base.component';
-import { AppRoutingModule } from '../../app-routing.module';
 import { IntroComponent } from './intro/intro.component';
+import { BaseRoutingModule } from './base-routing.module';
 
 
 
@@ -13,7 +13,7 @@ import { IntroComponent } from './intro/intro.component';
   ],
   imports: [
     CommonModule,
-    AppRoutingModule
+    BaseRoutingModule
   ]
 })
 export class BaseModule { }

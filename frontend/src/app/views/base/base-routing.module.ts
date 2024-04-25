@@ -1,18 +1,18 @@
 import { RouterModule, Routes } from "@angular/router";
 import { BaseComponent } from "./base.component";
 import { NgModule } from "@angular/core";
+import { IntroComponent } from "./intro/intro.component";
 
 const operatorRoutes: Routes = [
     {
         path: '',
         component: BaseComponent,
         children: [
-            { path: "", redirectTo: "center", pathMatch: 'full'},
-            // { 
-            //     path: 'center',
-            //     component: CenterComponent
-            // },
-
+            { path: "", redirectTo: "intro", pathMatch: 'full'},
+            { 
+                path: 'intro',
+                component: IntroComponent
+            },
         ]
     },
 ];
