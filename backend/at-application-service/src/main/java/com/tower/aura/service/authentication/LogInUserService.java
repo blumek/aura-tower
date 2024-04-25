@@ -8,6 +8,7 @@ import com.tower.aura.api.authentication.model.ApiJsonWebTokenPair;
 import com.tower.aura.api.authentication.model.ApiPassword;
 import com.tower.aura.spi.encryption.PasswordValidator;
 import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryGateway;
+import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryReply;
 import com.tower.aura.spi.persistence.user.model.PersistenceUsername;
 import org.springframework.stereotype.Service;
 
@@ -26,10 +27,14 @@ class LogInUserService implements LogInUserUseCase {
     public LogInUserReply logIn(LogInUserRequest logInUserRequest) {
         final var username = new PersistenceUsername(logInUserRequest.username().value());
         final var userCredentialsQueryReply = userCredentialsQueryGateway.findByUsername(username);
-        if (!passwordValidator.matches(logInUserRequest.password(), new ApiPassword(userCredentialsQueryReply.password().value()))) {
+        if (passwordAlreadyExists(logInUserRequest.password(), userCredentialsQueryReply)) {
             throw new IllegalArgumentException("Password does not match");
         }
 
         return new LogInUserReply(new ApiJsonWebTokenPair(new ApiJsonWebToken("accessToken"), new ApiJsonWebToken("refreshToken")));
+    }
+
+    private boolean passwordAlreadyExists(ApiPassword password, UserCredentialsQueryReply userCredentialsQueryReply) {
+        return !passwordValidator.matches(password, new ApiPassword(userCredentialsQueryReply.password().value()));
     }
 }
