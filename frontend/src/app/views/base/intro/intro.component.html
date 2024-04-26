@@ -1,19 +1,26 @@
 <div class="intro-container">
-  <img
-    #imgElement
-    src
-    alt>
-  <h3>{{title}}</h3>
-  <p>{{description}}</p>
-
-  <div class="buttons-container buttons-container-mobile buttons-small-space">
-    <button
-      class="at-button normal iconic outline-green"
-      mat-button
-      mat-dialog-close>
-      <span class="material-symbols-outlined">close</span>
-      <span>Następny krok</span>
-    </button>
+  <div class="upper-section">
+    <img
+      #imgElement
+      src
+      alt>
+    <h3>{{title}}</h3>
+    <p>{{description}}</p>
   </div>
 
+  <div class="bottom-section">
+    <app-slider-stepper [steps]="4" [currentStep]="1"></app-slider-stepper>
+    <div class="spacer-3"></div>
+    <div class="buttons-container buttons-container-mobile buttons-small-space">
+      <button
+        class="at-button normal iconic flat-green"
+        mat-button
+        mat-dialog-close>
+        <span class="material-symbols-outlined">arrow_forward_ios</span>
+        <span>Następny krok</span>
+      </button>
+    </div>
+    <div class="spacer-2"></div>
+    <p class="skip-button">Pomiń wprowadzenie</p>
+  </div>
 </div>

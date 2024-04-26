@@ -20,6 +20,10 @@
     padding: 30px
 }
 
+.base-site-container {
+    height: calc(100vh - 60px);
+}
+
 
 @media (min-width: 992px) {
     .main-container, .auth-container{

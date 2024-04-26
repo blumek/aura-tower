@@ -1,0 +1,5 @@
+<div class="stepper-container">
+    @for (step of stepsArray; track $index ) {
+        <div [ngClass]="{'step': true, 'active': step === currentStep}"></div>
+    }
+</div>

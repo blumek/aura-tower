@@ -1,0 +1,19 @@
+@import '../../../../assets/styles/variables.scss';
+
+.stepper-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .step {
+        width: 20px;
+        height: 7px;
+        border-radius: 15px;
+        background-color: $icon-light;
+    }
+
+    .active {
+        background-color: $at-green;
+    }
+}
