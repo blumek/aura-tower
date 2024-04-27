@@ -10,18 +10,15 @@ import org.springframework.stereotype.Service;
 import java.time.Clock;
 import java.time.Instant;
 
-import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 import static java.time.temporal.ChronoUnit.MINUTES;
 
 @Service
 class DefaultAccessTokenCreator implements AccessTokenCreator {
+    private final Algorithm algorithm;
     private final Clock clock;
 
-    public DefaultAccessTokenCreator() {
-        this(Clock.systemUTC());
-    }
-
-    DefaultAccessTokenCreator(Clock clock) {
+    DefaultAccessTokenCreator(Algorithm algorithm, Clock clock) {
+        this.algorithm = algorithm;
         this.clock = clock;
     }
 
@@ -33,11 +30,7 @@ class DefaultAccessTokenCreator implements AccessTokenCreator {
                 .withClaim("username", jwtCreateRequest.username().value())
                 .withIssuedAt(now)
                 .withExpiresAt(now.plus(30, MINUTES))
-                .sign(signAlgorithm());
+                .sign(algorithm);
         return new ApiJsonWebToken(accessToken);
-    }
-
-    private Algorithm signAlgorithm() {
-        return HMAC512("secret".getBytes());
     }
 }
