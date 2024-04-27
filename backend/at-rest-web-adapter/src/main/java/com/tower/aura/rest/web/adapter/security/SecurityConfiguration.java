@@ -35,10 +35,7 @@ class SecurityConfiguration {
                 .cors(AbstractHttpConfigurer::disable)
                 .sessionManagement(SecurityConfiguration::sessionManagementConfiguration)
                 .authorizeHttpRequests(SecurityConfiguration::httpRequestsAuthorizationConfiguration)
-                .addFilterBefore(
-                        jwtAccessTokenFilter,
-                        UsernamePasswordAuthenticationFilter.class
-                )
+                .addFilterBefore(jwtAccessTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
