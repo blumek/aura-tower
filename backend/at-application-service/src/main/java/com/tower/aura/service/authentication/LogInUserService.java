@@ -4,7 +4,7 @@ import com.tower.aura.api.authentication.LogInUserReply;
 import com.tower.aura.api.authentication.LogInUserRequest;
 import com.tower.aura.api.authentication.LogInUserUseCase;
 import com.tower.aura.api.authentication.model.*;
-import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
+import com.tower.aura.spi.authentication.jwt.JwtTokenPairCreator;
 import com.tower.aura.spi.authentication.jwt.JwtCreateRequest;
 import com.tower.aura.spi.encryption.PasswordValidator;
 import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryGateway;
@@ -16,14 +16,14 @@ import org.springframework.stereotype.Service;
 class LogInUserService implements LogInUserUseCase {
     private final UserCredentialsQueryGateway userCredentialsQueryGateway;
     private final PasswordValidator passwordValidator;
-    private final AccessTokenCreator accessTokenCreator;
+    private final JwtTokenPairCreator jwtTokenPairCreator;
 
     LogInUserService(UserCredentialsQueryGateway userCredentialsQueryGateway,
                      PasswordValidator passwordValidator,
-                     AccessTokenCreator accessTokenCreator) {
+                     JwtTokenPairCreator jwtTokenPairCreator) {
         this.userCredentialsQueryGateway = userCredentialsQueryGateway;
         this.passwordValidator = passwordValidator;
-        this.accessTokenCreator = accessTokenCreator;
+        this.jwtTokenPairCreator = jwtTokenPairCreator;
     }
 
     @Override
@@ -34,16 +34,15 @@ class LogInUserService implements LogInUserUseCase {
             throw new IllegalArgumentException("Password does not match");
         }
 
-        final var accessToken = generateAccessToken(userCredentialsQueryReply);
-        return new LogInUserReply(new ApiJsonWebTokenPair(accessToken, new ApiJsonWebToken("refreshToken")));
+        return new LogInUserReply(generateJwtTokenPair(userCredentialsQueryReply));
     }
 
     private boolean passwordAlreadyExists(ApiPassword password, UserCredentialsQueryReply userCredentialsQueryReply) {
         return !passwordValidator.matches(password, new ApiPassword(userCredentialsQueryReply.password().value()));
     }
 
-    private ApiJsonWebToken generateAccessToken(UserCredentialsQueryReply userCredentialsQueryReply) {
-        return accessTokenCreator.create(new JwtCreateRequest(
+    private ApiJsonWebTokenPair generateJwtTokenPair(UserCredentialsQueryReply userCredentialsQueryReply) {
+        return jwtTokenPairCreator.create(new JwtCreateRequest(
                 new ApiUserIdentifier(userCredentialsQueryReply.userIdentifier().value()),
                 new ApiUsername(userCredentialsQueryReply.username().value())
         ));
