@@ -1,33 +1,44 @@
 <div class="intro-container">
-  <div class="upper-section">
-    <img
-      [ngClass]="{'hide': !visibleConfig.image, 'show': visibleConfig.image}"
-      #imgElement
-      [src]="imgSrc"
-      alt>
-    <h3 [ngClass]="{'hide': !visibleConfig.title, 'show': visibleConfig.title}">{{title}}</h3>
-    <p [ngClass]="{'hide': !visibleConfig.description, 'show': visibleConfig.description}">{{description}}</p>
+  <div class="intro-content">
+    <div class="upper-section">
+      <img
+        [ngClass]="{'hide': !visibleConfig.image, 'show': visibleConfig.image}"
+        #imgElement
+        [src]="imgSrc"
+        alt>
+      <h3 [ngClass]="{'hide': !visibleConfig.title, 'show': visibleConfig.title}">{{title}}</h3>
+      <p [ngClass]="{'hide': !visibleConfig.description, 'show': visibleConfig.description}">{{description}}</p>
+    </div>
+
+    <div class="bottom-section">
+      <app-slider-stepper
+        (currentStepChange)="changeStep($event)"
+        [steps]="allSteps"
+        [currentStep]="step"></app-slider-stepper>
+      <div class="spacer-3"></div>
+      <div class="buttons-container buttons-container-mobile buttons-small-space">
+        <button
+          *ngIf="step < allSteps"
+          (click)="changeStep()"
+          [ngClass]="{'at-button': true, 'normal': true, 'iconic': true, 'flat-green': true, 'hide': !visibleConfig.button, 'show': visibleConfig.button}"
+          class="at-button normal iconic flat-green">
+          <span class="material-symbols-outlined">arrow_forward_ios</span>
+          <span>Następny krok</span>
+        </button>
+        <button
+          *ngIf="step === allSteps"
+          (click)="goToBaseCenter()"
+          [ngClass]="{'at-button': true, 'normal': true, 'iconic': true, 'flat-green': true, 'hide': !visibleConfig.button, 'show': visibleConfig.button}"
+          class="at-button normal iconic flat-green">
+          <span class="material-symbols-outlined">login</span>
+          <span>Zaczynamy!</span>
+        </button>
+      </div>
+      <div class="spacer-2"></div>
+      <p
+        (click)="skipIntro()"
+        [ngClass]="{'skip-button': true, 'hide': step === allSteps}">Pomiń wprowadzenie</p>
+    </div>
   </div>
 
-  <div class="bottom-section">
-    <app-slider-stepper
-      (currentStepChange)="changeStep($event)"
-      [steps]="allSteps"
-      [currentStep]="step"></app-slider-stepper>
-    <div class="spacer-3"></div>
-    <div class="buttons-container buttons-container-mobile buttons-small-space">
-      <button
-        *ngIf="step < allSteps"
-        (click)="changeStep()"
-        [ngClass]="{'at-button': true, 'normal': true, 'iconic': true, 'flat-green': true, 'hide': !visibleConfig.image, 'show': visibleConfig.image}"
-        class="at-button normal iconic flat-green">
-        <span class="material-symbols-outlined">arrow_forward_ios</span>
-        <span>Następny krok</span>
-      </button>
-    </div>
-    <div class="spacer-2"></div>
-    <p
-      (click)="skipIntro()"
-      class="skip-button">Pomiń wprowadzenie</p>
-  </div>
 </div>

@@ -1,4 +1,4 @@
-@import '../styles/variables.scss';
+@import "../styles/variables.scss";
 
 .main-container {
     min-height: 100vh;
@@ -7,7 +7,7 @@
 
 .auth-container, .base-container {
     height: 100vh;
-    background-color: $white
+    background-color: $white;
 }
 
 .dashboard-container {
@@ -16,19 +16,14 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
-.site-container, .auth-site-container, .base-site-container {
-    padding: 30px
+.site-container,
+.auth-site-container {
+    padding: 30px;
 }
-
-.base-site-container {
-    height: calc(100vh - 60px);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(91,203,169,0.16299019607843135) 100%);
-
-}
-
 
 @media (min-width: 992px) {
-    .main-container, .auth-container{
+    .main-container,
+    .auth-container {
         display: flex;
     }
 
@@ -43,11 +38,10 @@
     .site-container {
         padding: 30px 30px 30px 130px;
         width: 100vw;
-        transition: .3s;
+        transition: 0.3s;
     }
 
     .close-navbar {
         padding: 30px;
     }
 }
-
