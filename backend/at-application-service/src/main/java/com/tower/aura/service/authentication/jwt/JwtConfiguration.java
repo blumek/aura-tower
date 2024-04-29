@@ -1,20 +1,17 @@
 package com.tower.aura.service.authentication.jwt;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.JWTVerifier;
-import com.auth0.jwt.algorithms.Algorithm;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import java.time.Duration;
 
-@Configuration
-public class JwtConfiguration {
-    @Bean
-    Algorithm algorithm() {
-        return Algorithm.HMAC256("secret");
-    }
+import static org.apache.commons.lang3.StringUtils.isBlank;
 
-    @Bean
-    JWTVerifier jwtVerifier(Algorithm algorithm) {
-        return JWT.require(algorithm).build();
+public record JwtConfiguration(String secret, Duration expirationTime) {
+    public JwtConfiguration {
+        if (isBlank(secret)) {
+            throw new IllegalArgumentException("Secret cannot be blank");
+        }
+
+        if (expirationTime == null) {
+            throw new IllegalArgumentException("Expiration time cannot be null");
+        }
     }
 }

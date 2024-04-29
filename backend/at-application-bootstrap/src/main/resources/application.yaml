@@ -1,8 +1,5 @@
-spring:
-  data:
-    mongodb:
-      host: ${MONGODB_HOST}
-      port: ${MONGODB_PORT}
-      database: ${MONGODB_DATABASE}
-      username: ${MONGODB_USERNAME}
-      password: ${MONGODB_PASSWORD}
+aura-tower:
+  security:
+    jwt:
+      secret: ${JWT_SECRET}
+      expiration-time: ${JWT_EXPIRATION_TIME:15m}

@@ -8,10 +8,14 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
+import org.springframework.security.config.annotation.web.configurers.ExceptionHandlingConfigurer;
 import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.http.HttpStatus.FORBIDDEN;
+import static org.springframework.http.HttpStatus.UNAUTHORIZED;
 import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
 
 @Configuration
@@ -35,6 +39,7 @@ class SecurityConfiguration {
                 .cors(AbstractHttpConfigurer::disable)
                 .sessionManagement(SecurityConfiguration::sessionManagementConfiguration)
                 .authorizeHttpRequests(SecurityConfiguration::httpRequestsAuthorizationConfiguration)
+                .exceptionHandling(SecurityConfiguration::exceptionHandlerConfiguration)
                 .addFilterBefore(jwtAccessTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
@@ -51,5 +56,11 @@ class SecurityConfiguration {
                         "/v1/authentications/refreshed-tokens"
                 ).permitAll()
                 .anyRequest().authenticated();
+    }
+
+    private static void exceptionHandlerConfiguration(ExceptionHandlingConfigurer<HttpSecurity> httpSecurityExceptionHandlingConfigurer) {
+        httpSecurityExceptionHandlingConfigurer
+                .accessDeniedHandler((request, response, accessDeniedException) -> response.setStatus(FORBIDDEN.value()))
+                .authenticationEntryPoint(new HttpStatusEntryPoint(UNAUTHORIZED));
     }
 }
