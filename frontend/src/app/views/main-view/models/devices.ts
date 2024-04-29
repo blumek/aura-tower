@@ -1,11 +1,11 @@
-export interface IDevice {
+export interface Device {
     id: string;
     name: string;
-    deviceType: IDeviceType;
+    deviceType: DeviceType;
     deviceData: any
 }
 
-interface IDeviceType {
+interface DeviceType {
     id: string;
     name: string;
 }

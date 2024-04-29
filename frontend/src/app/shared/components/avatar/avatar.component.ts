@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
-  selector: 'app-avatar',
+  selector: 'at-avatar',
   standalone: true,
   imports: [NgClass, MatTooltipModule],
   templateUrl: './avatar.component.html',

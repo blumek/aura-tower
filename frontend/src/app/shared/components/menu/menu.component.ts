@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DisplayType } from '../../models/menu';
 
 @Component({
-  selector: 'app-menu',
+  selector: 'at-menu',
   standalone: true,
   imports: [NgFor, NgIf, NgClass],
   templateUrl: './menu.component.html',

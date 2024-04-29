@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
-  selector: 'app-reset-pass',
+  selector: 'at-reset-pass',
   templateUrl: './reset-pass.component.html',
   styleUrl: '../auth.component.scss'
 })

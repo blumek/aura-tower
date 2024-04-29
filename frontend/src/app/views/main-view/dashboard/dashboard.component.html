@@ -1,14 +1,14 @@
 <ng-template #loading>
-    <app-loading [blur]="true"></app-loading>
+    <at-loading [blur]="true"></at-loading>
 </ng-template>
 
 <div *ngIf="data$ | async as devices else loading">
     <div *ngIf="devices.length > 0; else noResults" class="dashboard-container flex-row flex-wrap gap-20">
-        <app-device *ngFor="let device of devices" [deviceData]="device"></app-device>
+        <at-device *ngFor="let device of devices" [deviceData]="device"></at-device>
     </div>
     
     <ng-template #noResults>
-        <app-no-results
+        <at-no-results
             imgSrc="../../../../assets/images/devices.svg"
             alt="no-results"
             mainTitle="Dodawaj urządzenia IoT"
@@ -16,7 +16,7 @@
             buttonIcon="add"
             buttonText="Dodaj urządzenie"
             [buttonAction]="openAddDeviceDialogFnc">
-        </app-no-results>
+        </at-no-results>
     </ng-template>
 </div>
 

@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { SignInForm } from '../models/forms';
 
 @Component({
-  selector: 'app-sign-in',
+  selector: 'at-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrl: '../auth.component.scss'
 })

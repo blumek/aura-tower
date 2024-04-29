@@ -10,7 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @Component({
-  selector: 'app-device-config-dialog',
+  selector: 'at-device-config-dialog',
   standalone: true,
   imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatStepperModule, InfoComponent, FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
   templateUrl: './device-config-dialog.component.html',

@@ -2,7 +2,7 @@ import { NgClass, NgIf } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-slider-stepper',
+  selector: 'at-slider-stepper',
   standalone: true,
   imports: [NgClass, NgIf],
   templateUrl: './slider-stepper.component.html',

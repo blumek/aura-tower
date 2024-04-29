@@ -9,7 +9,7 @@ import { RoutesService } from '../../services/routes.service';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-header',
+  selector: 'at-header',
   standalone: true,
   imports: [NgIf],
   templateUrl: './header.component.html',

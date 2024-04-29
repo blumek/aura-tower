@@ -6,7 +6,7 @@ import { AuthenticationService } from '../services/authentication.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
-  selector: 'app-sign-up',
+  selector: 'at-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrl: '../auth.component.scss'
 })

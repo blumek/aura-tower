@@ -33,11 +33,11 @@
   </div>
   <div class="right-container">
     <div class="buttons-container">
-      <app-avatar
+      <at-avatar
         [size]="43"
         [hover]="true"
         sourceName="Jarosław Matczak"
-        class="mobile"></app-avatar>
+        class="mobile"></at-avatar>
       <button
         class="at-button circle outline-green mobile"
         (click)="changeLocationMenuVisible()">
@@ -50,11 +50,11 @@
       </button>
     </div>
     <div class="desktop">
-      <app-avatar
+      <at-avatar
         [size]="40"
         [hover]="true"
         sourceName="Jarosław Matczak"
-        class="flex-row justify-center"></app-avatar>
+        class="flex-row justify-center"></at-avatar>
     </div>
   </div>
 </nav>
@@ -66,13 +66,13 @@
   <span class="material-symbols-outlined">more_vert</span>
 </div>
 
-<app-menu
+<at-menu
   [menuItems]="mockLocalizationData"
   [isAreaChangeMenu]="true"
   (menuItemSelected)="changeLocationMenuVisible(); onMenuItemSelected($event)"
-  [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></app-menu>
+  [ngClass]="{'at-menu': true, 'at-menu-disable': !locationMenuVisible}"></at-menu>
 
-<app-menu
+<at-menu
   [menuItems]="menuElements"
   (menuItemSelected)="changeMenuVisible(); onMenuItemSelected($event)"
-  [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></app-menu>
+  [ngClass]="{'at-menu': true, 'mobile': true, 'at-menu-disable': !menuVisible}"></at-menu>

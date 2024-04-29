@@ -5,18 +5,18 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../dialogs/confirmation-dialog/confirmation-dialog.component';
 import { LoadingComponent } from '../loading/loading.component';
-import { IDevice } from '../../models/devices';
+import { Device } from '../../../views/main-view/models/devices';
 import { TruncateTextDirective } from '../../directives/truncate-text.directive';
 
 @Component({
-  selector: 'app-device',
+  selector: 'at-device',
   standalone: true,
   imports: [NgIf, NgFor, MatMenuModule, MatIconModule, MatDialogModule, LoadingComponent, TruncateTextDirective],
   templateUrl: './device.component.html',
   styleUrl: './device.component.scss',
 })
 export class DeviceComponent {
-  @Input() deviceData!: IDevice;
+  @Input() deviceData!: Device;
 
   constructor(public dialog: MatDialog) {}
 

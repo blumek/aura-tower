@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-group-management',
+  selector: 'at-group-management',
   templateUrl: './group-management.component.html',
   styleUrl: './group-management.component.scss'
 })

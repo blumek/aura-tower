@@ -4,7 +4,7 @@ import { MatTooltipModule} from '@angular/material/tooltip';
 import { MenuComponent } from '../menu/menu.component';
 import { menuElements, menuLocalizations } from '../../mocks/menu';
 import { MatDividerModule } from '@angular/material/divider';
-import { DevicesService } from '../../services/devices.service';
+import { DevicesService } from '../../../views/main-view/services/devices.service';
 import { AvatarComponent } from '../avatar/avatar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
@@ -15,7 +15,7 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-navbar',
+  selector: 'at-navbar',
   standalone: true,
   imports: [NgFor, NgIf, NgClass, NgStyle, MatTooltipModule, MenuComponent, MatDividerModule, AvatarComponent, MatMenuModule, MatIconModule],
   templateUrl: './navbar.component.html',

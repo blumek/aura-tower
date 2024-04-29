@@ -2,7 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-no-results',
+  selector: 'at-no-results',
   standalone: true,
   imports: [NgIf],
   templateUrl: './no-results.component.html',

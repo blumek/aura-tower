@@ -5,7 +5,7 @@ import { MAT_SNACK_BAR_DATA, MatSnackBarRef } from '@angular/material/snack-bar'
 import { ISnackbar } from '../../models/snackbar';
 
 @Component({
-  selector: 'app-snackbar',
+  selector: 'at-snackbar',
   standalone: true, 
   imports: [ MatIconModule, NgIf ],
   templateUrl: './snackbar.component.html',

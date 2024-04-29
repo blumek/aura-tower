@@ -3,7 +3,7 @@ import { MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, Ma
 import { IConfirmationDialogData } from '../../../models/dialogs';
 
 @Component({
-  selector: 'app-confirmation-dialog',
+  selector: 'at-confirmation-dialog',
   standalone: true,
   imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose],
   templateUrl: './confirmation-dialog.component.html',

@@ -9,12 +9,11 @@
       <h3 [ngClass]="{'hide': !visibleConfig.title, 'show': visibleConfig.title}">{{title}}</h3>
       <p [ngClass]="{'hide': !visibleConfig.description, 'show': visibleConfig.description}">{{description}}</p>
     </div>
-
     <div class="bottom-section">
-      <app-slider-stepper
+      <at-slider-stepper
         (currentStepChange)="changeStep($event)"
         [steps]="allSteps"
-        [currentStep]="step"></app-slider-stepper>
+        [currentStep]="step"></at-slider-stepper>
       <div class="spacer-3"></div>
       <div class="buttons-container buttons-container-mobile buttons-small-space">
         <button
@@ -40,5 +39,4 @@
         [ngClass]="{'skip-button': true, 'hide': step === allSteps}">Pomiń wprowadzenie</p>
     </div>
   </div>
-
 </div>

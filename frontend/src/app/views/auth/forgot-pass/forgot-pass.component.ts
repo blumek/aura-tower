@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 
 @Component({
-  selector: 'app-forgot-pass',
+  selector: 'at-forgot-pass',
   templateUrl: './forgot-pass.component.html',
   styleUrl: '../auth.component.scss'
 })

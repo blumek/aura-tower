@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { mockDevices } from '../../../shared/mocks/devices';
-import { Observable, catchError, tap, throwError } from 'rxjs';
-import { IDevice } from '../../../shared/models/devices';
-import { DevicesService } from '../../../shared/services/devices.service';
+import { Observable, catchError, throwError } from 'rxjs';
+import { Device } from '../models/devices';
+import { DevicesService } from '../services/devices.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'at-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
@@ -14,8 +13,8 @@ export class DashboardComponent implements OnInit {
   loading: boolean = false;
   devices = [];
   homeName = 'Domek Jordana'
-  data$!: Observable<IDevice[]>
-  deviceData!: IDevice[]
+  data$!: Observable<Device[]>
+  deviceData!: Device[]
 
   constructor(
     private deviceService: DevicesService,

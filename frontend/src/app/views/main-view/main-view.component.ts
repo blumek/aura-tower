@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-main-view',
+  selector: 'at-main-view',
   templateUrl: './main-view.component.html',
   styleUrl: './main-view.component.scss'
 })
