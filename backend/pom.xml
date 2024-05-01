@@ -43,7 +43,7 @@
         <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
         <maven-surefire-plugin.version>3.2.5</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>3.2.5</maven-failsafe-plugin.version>
-        <spotbugs-maven-plugin.version>4.2.0</spotbugs-maven-plugin.version>
+        <spotbugs-maven-plugin.version>4.8.4.0</spotbugs-maven-plugin.version>
         <findsecbugs-plugin.version>1.13.0</findsecbugs-plugin.version>
         <docker-maven-plugin.version>0.44.0</docker-maven-plugin.version>
     </properties>
