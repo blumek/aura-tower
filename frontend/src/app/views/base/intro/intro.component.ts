@@ -23,12 +23,12 @@ export class IntroComponent implements OnInit {
   };
   stepsData: StepData[] = [
     {
-      imgSrc: '../../../../assets/images/intro/welcome_to_at.svg',
+      imgSrc: '../../../../assets/images/intro/what_at_can_give_you.svg',
       title: 'Na co pozwoli ci Aura Tower?',
       description: 'Dodawaj, zarządzaj, steruj inteligentynymi urządzeniami w Twoim domu, biurze... Z poziomu dowolnego urządzenia przejdź do dashboardu i zobacz swoje urządzenia, dziel je na zdefiniowane obszary i udostępniaj innym użytkownikom z Twojego centrum zarządzania',
     },
     {
-      imgSrc: '../../../../assets/images/intro/welcome_to_at.svg',
+      imgSrc: '../../../../assets/images/intro/create_center.svg',
       title: 'Stwórz własne centrum dowodzenia',
       description: 'Na początek stwórz własne centrum dowodzenia czyli miejsce w którym będziesz dodawać swoje inteligentne urządzenia. Chcesz podzielić urządzenia na te znajdujące się np. w mieszkaniu i te w biurze? Nie ma problemu - jedno centrum zarządzania jest odpowiednikiem jednego obszaru',
     },
