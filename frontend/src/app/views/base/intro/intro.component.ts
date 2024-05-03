@@ -33,12 +33,12 @@ export class IntroComponent implements OnInit {
       description: 'Na początek stwórz własne centrum dowodzenia czyli miejsce w którym będziesz dodawać swoje inteligentne urządzenia. Chcesz podzielić urządzenia na te znajdujące się np. w mieszkaniu i te w biurze? Nie ma problemu - jedno centrum zarządzania jest odpowiednikiem jednego obszaru',
     },
     {
-      imgSrc: '../../../../assets/images/intro/welcome_to_at.svg',
+      imgSrc: '../../../../assets/images/intro/fill_dashboard.svg',
       title: 'Wypełnij swój dashboard',
       description: 'W kolejnym etapie dodaj swoje urządzenia smart, przechodząc przez krótki proces konfiguratora, wybieraj odpowiedni typ urządzenia, jego nazwę i wizualizację danych na ekranie',
     },
     {
-      imgSrc: '../../../../assets/images/intro/welcome_to_at.svg',
+      imgSrc: '../../../../assets/images/intro/programmer.svg',
       title: 'Jesteś programistą?',
       description: 'Aura Tower to tylko solidna podstawa w świecie IoT, rozwijaj swoje centum zarządzania dodając nowe wtyczki, obsługę nowych urządzeń i funkcjonalności',
     },
