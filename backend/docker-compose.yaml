@@ -16,6 +16,7 @@ services:
     image: mongo:7.0.8
     ports:
       - "27017:27017"
+    restart: always
     environment:
       MONGO_INITDB_DATABASE: aura-tower
       MONGO_INITDB_ROOT_USERNAME: root-aura-tower
