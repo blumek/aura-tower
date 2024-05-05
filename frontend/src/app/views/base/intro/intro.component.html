@@ -4,8 +4,10 @@
       <img
         [ngClass]="{'hide': !visibleConfig.image, 'show': visibleConfig.image}"
         #imgElement
-        [src]="imgSrc"
-        alt>
+        [ngSrc]="imgSrc"
+        alt="intro-image"
+        width="540"
+        height="332">
       <h3 [ngClass]="{'hide': !visibleConfig.title, 'show': visibleConfig.title}">{{title}}</h3>
       <p [ngClass]="{'hide': !visibleConfig.description, 'show': visibleConfig.description}">{{description}}</p>
     </div>

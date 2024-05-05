@@ -1,7 +1,11 @@
 @import "../../../../assets/styles/variables.scss";
 
 .intro-container {
-    height: calc(100vh - 60px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
     padding: 30px;
     background: $light-green-gradient;
 

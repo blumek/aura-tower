@@ -3,11 +3,15 @@ import { StepData, VisibleConfig } from '../models/intro';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../../../shared/components/dialogs/confirmation-dialog/confirmation-dialog.component';
+import { NgClass, NgIf, NgOptimizedImage } from '@angular/common';
+import { SliderStepperComponent } from '../../../shared/components/slider-stepper/slider-stepper.component';
 
 @Component({
   selector: 'at-intro',
   templateUrl: './intro.component.html',
   styleUrl: './intro.component.scss',
+  standalone: true,
+  imports: [NgClass, NgIf, SliderStepperComponent, NgOptimizedImage]
 })
 export class IntroComponent implements OnInit {
   imgSrc: string = '../../../../assets/images/intro/welcome_to_at.svg';
