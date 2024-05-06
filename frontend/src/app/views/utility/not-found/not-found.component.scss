@@ -1,0 +1,60 @@
+@import "../../../../assets/styles/variables.scss";
+
+.utility-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 30px;
+    background: $light-green-gradient;
+
+    .utility-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+
+        img {
+            width: 100%;
+        }
+
+        h3 {
+            font-size: 23px;
+            font-weight: bolder;
+        }
+    }
+
+    .skip-button {
+        text-align: center;
+        color: $at-green;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+
+    .hide {
+        opacity: 0;
+    }
+
+    .show {
+        transition: 1s;
+        opacity: 1;
+    }
+}
+
+@media (min-width: 992px) {
+    .utility-content {
+        width: 900px;
+        margin: 0 auto;
+
+        .upper-section {
+            img {
+                width: 60% !important;
+            }
+        }
+    }
+}

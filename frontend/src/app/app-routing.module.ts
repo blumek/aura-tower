@@ -1,6 +1,8 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./views/home/home.component";
+import { AccesDeniedComponent } from "./views/utility/acces-denied/acces-denied.component";
+import { NotFoundComponent } from "./views/utility/not-found/not-found.component";
 
 const routes: Routes = [
     {
@@ -18,6 +20,14 @@ const routes: Routes = [
     {
         path: 'base',
         loadChildren: () => import('./views/base/base.module').then(m => m.BaseModule),
+    },
+    {
+        path: 'access-denied',
+        component: AccesDeniedComponent
+    },
+    {
+        path: '**',
+        component: NotFoundComponent
     },
     
 ]
