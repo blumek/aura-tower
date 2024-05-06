@@ -22,6 +22,6 @@ export class AuthenticationService {
       reminderQuestionAnswer: signUpForm.auxiliaryAnswer!
     }
 
-    return this.http.post(environment.authentication.signUp, signUpForm);
+    return this.http.post(environment.authentication.signUp, singUpData);
   }
 }

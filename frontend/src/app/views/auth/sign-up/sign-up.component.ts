@@ -72,7 +72,8 @@ export class SignUpComponent {
         console.log('register');
       },
       error: () => {
-        this.snackbaService.openSnackBar('Wystąpił błąd', true)
+        this.snackbaService.openSnackBar('Wystąpił błąd', true);
+        this.loadingButton = false;
       }
     })
 
