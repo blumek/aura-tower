@@ -70,7 +70,9 @@ class SecurityConfiguration {
                 .requestMatchers(
                         "/v1/authentications/credentials",
                         "/v1/authentications/tokens",
-                        "/v1/authentications/refreshed-tokens"
+                        "/v1/authentications/refreshed-tokens",
+                        "/swagger-ui/**",
+                        "/v3/api-docs/**"
                 ).permitAll()
                 .anyRequest().authenticated();
     }
