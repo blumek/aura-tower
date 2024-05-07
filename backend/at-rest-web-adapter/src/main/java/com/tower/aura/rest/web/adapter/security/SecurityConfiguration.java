@@ -6,19 +6,13 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.AuthorizeHttpRequestsConfigurer;
-import org.springframework.security.config.annotation.web.configurers.ExceptionHandlingConfigurer;
-import org.springframework.security.config.annotation.web.configurers.SessionManagementConfigurer;
+import org.springframework.security.config.annotation.web.configurers.*;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 import static org.springframework.http.HttpStatus.FORBIDDEN;
 import static org.springframework.http.HttpStatus.UNAUTHORIZED;
@@ -28,21 +22,23 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableWebSecurity
 class SecurityConfiguration {
     private final JwtAccessTokenFilter jwtAccessTokenFilter;
+    private final CorsSettings corsSettings;
 
-    SecurityConfiguration(JwtAccessTokenFilter jwtAccessTokenFilter) {
+    SecurityConfiguration(JwtAccessTokenFilter jwtAccessTokenFilter, CorsSettings corsSettings) {
         this.jwtAccessTokenFilter = jwtAccessTokenFilter;
+        this.corsSettings = corsSettings;
     }
 
     @Bean
-    public AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
+    AuthenticationManager authenticationManagerBean(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+    SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
-                .cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+                .cors(this::httpSecurityCorsConfiguration)
                 .sessionManagement(SecurityConfiguration::sessionManagementConfiguration)
                 .authorizeHttpRequests(SecurityConfiguration::httpRequestsAuthorizationConfiguration)
                 .exceptionHandling(SecurityConfiguration::exceptionHandlerConfiguration)
@@ -50,15 +46,25 @@ class SecurityConfiguration {
                 .build();
     }
 
+    private void httpSecurityCorsConfiguration(CorsConfigurer<HttpSecurity> httpSecurityCorsConfigurer) {
+        httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource());
+    }
+
     private CorsConfigurationSource corsConfigurationSource() {
-        final var configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(Collections.singletonList("*"));
-        configuration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
-        configuration.setExposedHeaders(Arrays.asList("Authorization", "content-type"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "content-type"));
-        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-        source.registerCorsConfiguration("/**", configuration);
+        final var source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", corsConfiguration());
         return source;
+    }
+
+    private CorsConfiguration corsConfiguration() {
+        final var corsConfiguration = new CorsConfiguration();
+        corsConfiguration.setAllowedOrigins(corsSettings.allowedOrigins());
+        corsConfiguration.setAllowedMethods(corsSettings.allowedMethods());
+        corsConfiguration.setExposedHeaders(corsSettings.exposedHeaders());
+        corsConfiguration.setAllowedHeaders(corsSettings.allowedHeaders());
+        corsConfiguration.setMaxAge(corsSettings.maxAge());
+        corsConfiguration.setAllowCredentials(corsSettings.allowCredentials());
+        return corsConfiguration;
     }
 
     private static void sessionManagementConfiguration(SessionManagementConfigurer<HttpSecurity> session) {
