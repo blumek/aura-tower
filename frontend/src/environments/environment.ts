@@ -6,6 +6,8 @@ export const environment = {
     },
 
     authentication: {
-        signUp: `${base}/authentications/credentials`
+        signUp: `${base}/authentications/credentials`,
+        signIn: `${base}/authentications/tokens`,
+        refresh: `${base}/authentications/refreshed-tokens`
     }
 }

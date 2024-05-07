@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInForm } from '../models/forms';
+import { AuthenticationService } from '../services/authentication.service';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'at-sign-in',
@@ -18,7 +20,9 @@ export class SignInComponent {
 
   constructor(
     private router: Router,
-    private fb: NonNullableFormBuilder
+    private fb: NonNullableFormBuilder,
+    private authService: AuthenticationService,
+    private snackbarService: SnackbarService
   ) { }
 
   get userNameControl(): FormControl<string> {
@@ -35,5 +39,22 @@ export class SignInComponent {
 
   signIn(): void {
     this.loadingButton = true
+    const signInFormRaw = this.signInForm.getRawValue();
+
+    this.authService.signIn(signInFormRaw).subscribe({
+      next: () => {
+        this.snackbarService.openSnackBar('Zalogowano');
+        this.router.navigate(['main/dashboard'])
+      },
+      error: (error) => {
+        this.loadingButton = false;
+
+        if (error.status === 400) {
+          this.snackbarService.openSnackBar('Błędne dane logowania', true);
+        } else {
+          this.snackbarService.openSnackBar('Wystąpił błąd', true);
+        }
+      }
+    })
   }
 }

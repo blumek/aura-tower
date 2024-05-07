@@ -5,6 +5,11 @@ export interface SignInForm {
     password: FormControl<string>;
 }
 
+export interface signInFormRaw {
+    userName: string | null;
+    password: string | null;
+}
+
 export interface SignUpForm {
     userName: FormControl<string | null>;
     password: FormControl<string | null>;
@@ -12,7 +17,6 @@ export interface SignUpForm {
     auxiliaryQuestion: FormControl<string | null>;
     auxiliaryAnswer: FormControl<string | null>;
 }
-
 
 export interface SignUpFormRaw {
     userName: string | null;

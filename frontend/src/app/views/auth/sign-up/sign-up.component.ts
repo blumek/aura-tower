@@ -26,7 +26,7 @@ export class SignUpComponent {
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthenticationService,
-    private snackbaService: SnackbarService
+    private snackbarService: SnackbarService
   ) { }
 
   get userNameControl(): FormControl<string> {
@@ -41,11 +41,11 @@ export class SignUpComponent {
     return this.signUpForm.get('confirmPassword') as FormControl<string>
   }
 
-  get auxiliaryQuestion(): FormControl<string> {
+  get auxiliaryQuestionControl(): FormControl<string> {
     return this.signUpForm.get('auxiliaryQuestion') as FormControl<string>
   }
 
-  get auxiliaryAnswer(): FormControl<string> {
+  get auxiliaryAnswerControl(): FormControl<string> {
     return this.signUpForm.get('auxiliaryAnswer') as FormControl<string>
   }
 
@@ -69,10 +69,10 @@ export class SignUpComponent {
 
     this.authService.signUp(signUpFormRaw).subscribe({
       next: () => {
-        console.log('register');
+        this.router.navigate(['base/intro'])
       },
       error: () => {
-        this.snackbaService.openSnackBar('Wystąpił błąd', true);
+        this.snackbarService.openSnackBar('Wystąpił błąd', true);
         this.loadingButton = false;
       }
     })

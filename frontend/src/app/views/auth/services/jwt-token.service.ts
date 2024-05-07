@@ -1,3 +1,4 @@
+import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,8 +7,10 @@ import { Injectable } from '@angular/core';
 export class JwtTokenService {
   constructor() {}
 
-  setToken(token: string) {
-    localStorage.setItem('token', token);
+  setToken(token: Token) {
+    if (token) {
+      localStorage.setItem('token', JSON.stringify(token));
+    }
   }
 
   getToken(): string | null {

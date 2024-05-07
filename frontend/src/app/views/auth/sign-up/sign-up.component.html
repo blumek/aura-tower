@@ -63,7 +63,7 @@
             <mat-option value="6">Second option</mat-option>
             <mat-option value="7">Second option</mat-option>
           </mat-select>
-            @if (auxiliaryQuestion.errors?.['required']) {
+            @if (auxiliaryQuestionControl.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
             }
         </mat-form-field>
@@ -75,7 +75,7 @@
             matInput
             formControlName="auxiliaryAnswer"
             required>
-            @if (auxiliaryAnswer.errors?.['required']) {
+            @if (auxiliaryAnswerControl.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
             }
         </mat-form-field>
