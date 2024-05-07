@@ -13,7 +13,7 @@ export class AuthenticationService {
 
   constructor (
     private http: HttpClient,
-    private jwtTokenService: JwtTokenService
+    private jwtTokenService: JwtTokenService,
   ) { }
 
   signUp(signUpForm: SignUpFormRaw): Observable<Object> {
@@ -42,5 +42,9 @@ export class AuthenticationService {
         this.jwtTokenService.setToken(tokenResponse)
       })
     );
+  }
+
+  logout(): void {
+    this.jwtTokenService.removeToken();
   }
 }

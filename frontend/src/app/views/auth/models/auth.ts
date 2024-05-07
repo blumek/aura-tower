@@ -14,7 +14,7 @@ export interface SignIn {
     password: string
 }
 
-export interface Token {
+export interface TokenResponse {
     accessToken: string,
     refreshToken: string
 }

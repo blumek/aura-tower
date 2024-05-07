@@ -1,5 +1,5 @@
-import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
+import { TokenResponse } from '../models/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class JwtTokenService {
   constructor() {}
 
-  setToken(token: Token) {
+  setToken(token: TokenResponse) {
     if (token) {
       localStorage.setItem('token', JSON.stringify(token));
     }
@@ -17,6 +17,15 @@ export class JwtTokenService {
     const token = localStorage.getItem('token');
 
     return token ? token : null;
+  }
+
+  getAccessToken(): string | null {
+    const token = localStorage.getItem('token');
+
+    if (token) {
+      return JSON.parse(token).accessToken
+    }
+    return null
   }
 
   removeToken(): void {
