@@ -13,7 +13,7 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping("/v1/catalog")
-public class ReminderQuestionsCatalogController {
+public class AuthenticationCatalogController {
 
     @GetMapping("/reminder-questions")
     public ResponseEntity<List<RestWebReminderQuestionsCatalogResponse>> getReminderQuestions() {
