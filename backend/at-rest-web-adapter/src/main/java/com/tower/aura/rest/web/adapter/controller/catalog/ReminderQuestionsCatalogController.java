@@ -22,7 +22,7 @@ public class ReminderQuestionsCatalogController {
 
     private List<RestWebReminderQuestionsCatalogResponse> sampleResponse() {
         return List.of(
-                new RestWebReminderQuestionsCatalogResponse(UUID.randomUUID().toString(), "What your dog's name?"),
+                new RestWebReminderQuestionsCatalogResponse(UUID.randomUUID().toString(), "What is your dog's name?"),
                 new RestWebReminderQuestionsCatalogResponse(UUID.randomUUID().toString(), "What is your childhood nickname?"),
                 new RestWebReminderQuestionsCatalogResponse(UUID.randomUUID().toString(), "What is the name of your primary school?"),
                 new RestWebReminderQuestionsCatalogResponse(UUID.randomUUID().toString(), "What is your mother's maiden name?")
