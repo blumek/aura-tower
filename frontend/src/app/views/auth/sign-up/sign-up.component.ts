@@ -1,19 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { SignUpForm } from '../models/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../services/authentication.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
+import { Observable } from 'rxjs';
+import { ReminderQuestions } from '../models/auth';
 
 @Component({
   selector: 'at-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrl: '../auth.component.scss'
 })
-export class SignUpComponent {
+export class SignUpComponent implements OnInit {
   hidePassword: boolean = true;
   hideConfirmPassword: boolean = true;
   loadingButton: boolean = false;
+  reminderQuestionsList$!: Observable<ReminderQuestions[]>;
   signUpForm: FormGroup<SignUpForm> = this.fb.group({
     userName: ['', Validators.required],
     password: ['', [Validators.required, Validators.minLength(8)]],
@@ -47,6 +50,10 @@ export class SignUpComponent {
 
   get auxiliaryAnswerControl(): FormControl<string> {
     return this.signUpForm.get('auxiliaryAnswer') as FormControl<string>
+  }
+
+  ngOnInit(): void {
+    this.reminderQuestionsList$ = this.authService.getRemindQuestions()
   }
 
   checkPasswords(formGroup: FormGroup): null | {notSame: boolean} {

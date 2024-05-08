@@ -3,7 +3,7 @@ import { SignUpFormRaw, signInFormRaw } from '../models/forms';
 import { Observable, concatMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { SignIn, SignUp } from '../models/auth';
+import { ReminderQuestions, SignIn, SignUp, TokenResponse } from '../models/auth';
 import { JwtTokenService } from './jwt-token.service';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class AuthenticationService {
     );
   }
 
-  signIn(signInForm: signInFormRaw): Observable<any> {
+  signIn(signInForm: signInFormRaw): Observable<TokenResponse> {
     const signInData: SignIn = {
       username: signInForm.userName!,
       password: signInForm.password!,
@@ -46,5 +46,9 @@ export class AuthenticationService {
 
   logout(): void {
     this.jwtTokenService.removeToken();
+  }
+
+  getRemindQuestions(): Observable<ReminderQuestions[]> {
+    return this.http.get<ReminderQuestions[]>(environment.catalogs.reminderQuestions)
   }
 }

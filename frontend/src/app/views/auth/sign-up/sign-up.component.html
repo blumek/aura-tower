@@ -3,7 +3,7 @@
     <p>Potrzebujemy od Ciebie kilku informacji, abyś mógł korzystać z wierży w swoim otoczeniu</p>
 </div>
 
-<div class="auth-form-container animate__animated animate__fadeIn">
+<div *ngIf="reminderQuestionsList$ | async; let questionList; else loading" class="auth-form-container animate__animated animate__fadeIn">
     <form [formGroup]="signUpForm">
       <div class="field-container">
         <mat-form-field>
@@ -55,13 +55,9 @@
         <mat-form-field>
           <mat-label>Pytanie pomocnicze</mat-label>
           <mat-select formControlName="auxiliaryQuestion" required>
-            <mat-option value="1">First option</mat-option>
-            <mat-option value="2">Second option</mat-option>
-            <mat-option value="3">Second option</mat-option>
-            <mat-option value="4">Second option</mat-option>
-            <mat-option value="5">Second option</mat-option>
-            <mat-option value="6">Second option</mat-option>
-            <mat-option value="7">Second option</mat-option>
+            @for (question of questionList; track $index) {
+              <mat-option [value]="question.reminderQuestionIdentifier">{{question.reminderQuestion}}</mat-option>
+            }
           </mat-select>
             @if (auxiliaryQuestionControl.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
@@ -89,5 +85,8 @@
     </button>
     <div class="spacer-3"></div>
     <p class="auth-botton-text">Masz już konto? <span (click)="goToSignIn()">Zaloguj się</span></p>
-
   </div>
+
+  <ng-template #loading>
+    <at-loading [blur]="true"></at-loading>
+  </ng-template>

@@ -22,10 +22,7 @@ export class JwtTokenService {
   getAccessToken(): string | null {
     const token = localStorage.getItem('token');
 
-    if (token) {
-      return JSON.parse(token).accessToken
-    }
-    return null
+    return token ? JSON.parse(token).accessToken : null
   }
 
   removeToken(): void {

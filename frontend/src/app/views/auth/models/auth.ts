@@ -19,3 +19,8 @@ export interface TokenResponse {
     refreshToken: string
 }
 
+export interface ReminderQuestions {
+    reminderQuestionIdentifier: string,
+    reminderQuestion: string
+}
+

@@ -12,6 +12,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSelectModule } from '@angular/material/select';
+import { LoadingComponent } from '../../shared/components/loading/loading.component';
 
 
 const matModules = [
@@ -34,7 +35,8 @@ const matModules = [
     CommonModule,
     AuthRoutingModule,
     ReactiveFormsModule,
-    NgOptimizedImage, 
+    NgOptimizedImage,
+    LoadingComponent,
     matModules
   ]
 })

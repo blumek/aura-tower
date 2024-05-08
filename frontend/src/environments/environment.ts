@@ -8,6 +8,10 @@ export const environment = {
     authentication: {
         signUp: `${base}/authentications/credentials`,
         signIn: `${base}/authentications/tokens`,
-        refresh: `${base}/authentications/refreshed-tokens`
+        refreshToken: `${base}/authentications/refreshed-tokens`,
+    },
+
+    catalogs: {
+        reminderQuestions: `${base}/catalogs/reminder-questions`
     }
 }
