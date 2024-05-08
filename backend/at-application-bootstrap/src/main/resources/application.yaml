@@ -6,8 +6,6 @@ aura-tower:
     cors:
       allowed-origins:
         - "*"
-      allowed-origin-patterns:
-        - "*"
       allowed-methods:
         - GET
         - POST

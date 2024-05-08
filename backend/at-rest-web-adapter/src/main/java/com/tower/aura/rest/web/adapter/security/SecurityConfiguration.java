@@ -62,7 +62,6 @@ class SecurityConfiguration {
         corsConfiguration.setAllowedMethods(corsSettings.allowedMethods());
         corsConfiguration.setExposedHeaders(corsSettings.exposedHeaders());
         corsConfiguration.setAllowedHeaders(corsSettings.allowedHeaders());
-        corsConfiguration.setAllowedOriginPatterns(corsSettings.allowedOriginPatterns());
         corsConfiguration.setMaxAge(corsSettings.maxAge());
         corsConfiguration.setAllowCredentials(corsSettings.allowCredentials());
         return corsConfiguration;

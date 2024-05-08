@@ -9,18 +9,16 @@ import java.util.Optional;
 @ConfigurationProperties(prefix = "aura-tower.security.cors")
 class CorsSettings {
     private final List<String> allowedOrigins;
-    private final List<String> allowedOriginPatterns;
     private final List<String> allowedMethods;
     private final List<String> allowedHeaders;
     private final List<String> exposedHeaders;
     private final boolean allowCredentials;
     private final Duration maxAge;
 
-    public CorsSettings(List<String> allowedOrigins, List<String> allowedOriginPatterns,
-                        List<String> allowedMethods, List<String> allowedHeaders,
-                        List<String> exposedHeaders, boolean allowCredentials, Duration maxAge) {
+    public CorsSettings(List<String> allowedOrigins, List<String> allowedMethods,
+                        List<String> allowedHeaders, List<String> exposedHeaders,
+                        boolean allowCredentials, Duration maxAge) {
         this.allowedOrigins = Optional.ofNullable(allowedOrigins).orElseGet(List::of);
-        this.allowedOriginPatterns = Optional.ofNullable(allowedOriginPatterns).orElseGet(List::of);
         this.allowedMethods = Optional.ofNullable(allowedMethods).orElseGet(List::of);
         this.allowedHeaders = Optional.ofNullable(allowedHeaders).orElseGet(List::of);
         this.exposedHeaders = Optional.ofNullable(exposedHeaders).orElseGet(List::of);
@@ -30,10 +28,6 @@ class CorsSettings {
 
     public List<String> allowedOrigins() {
         return allowedOrigins;
-    }
-
-    public List<String> allowedOriginPatterns() {
-        return allowedOriginPatterns;
     }
 
     public List<String> allowedMethods() {
