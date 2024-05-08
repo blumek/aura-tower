@@ -12,7 +12,7 @@ import java.util.UUID;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
-@RequestMapping("/v1/catalog")
+@RequestMapping("/v1/catalogs")
 public class AuthenticationCatalogController {
 
     @GetMapping("/reminder-questions")
