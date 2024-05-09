@@ -25,23 +25,6 @@ export class AuthInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    return from(this.handleRequest(req, next)).pipe(
-      catchError((error) => {
-        if (error.status === 500) {
-          this.snackBarService.openSnackBar('Wystąpił błąd', true);
-        }
-        return throwError(() => error);
-      })
-    );
-  }
-
-  addAuthHeader(req: HttpRequest<any>, token: TokenResponse) {
-    return token
-      ? req.clone({ setHeaders: { Authorization: `Beearer ${token}` } })
-      : req;
-  }
-
-  handleRequest(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     if (this.jwtTokenService.isAccessTokenExpired()) {
       if (this.jwtTokenService.isRefreshTokenExpired()) {
         this.jwtTokenService.removeToken();
@@ -64,5 +47,11 @@ export class AuthInterceptorService implements HttpInterceptor {
     }
 
     return next.handle(req);
+  }
+
+  addAuthHeader(req: HttpRequest<any>, token: TokenResponse) {
+    return token
+      ? req.clone({ setHeaders: { Authorization: `Beearer ${token}` } })
+      : req;
   }
 }
