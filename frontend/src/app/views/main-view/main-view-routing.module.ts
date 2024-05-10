@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { MainViewComponent } from "./main-view.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { authGuard } from "../../shared/guards/auth.guard";
 
 
 const operatorRoutes: Routes = [
@@ -13,11 +14,13 @@ const operatorRoutes: Routes = [
             { path: "", redirectTo: "dashboard", pathMatch: 'full'},
             { 
                 path: 'dashboard',
-                component: DashboardComponent
+                component: DashboardComponent,
+                canActivate: [authGuard]
             },
             { 
                 path: 'settings',
-                component: SettingsComponent
+                component: SettingsComponent,
+                canActivate: [authGuard]
             }
         ]
     },

@@ -46,7 +46,12 @@ export class JwtTokenService {
 
   isAccessTokenExpired(): boolean {
     const accessToken = this.getAccessToken();
-    const decodedTokenExp = this.decodeToken(accessToken).exp
+    const decodedToken = this.decodeToken(accessToken)
+    let decodedTokenExp = null
+
+    if (decodedToken) {
+      decodedTokenExp = decodedToken.exp
+    }
 
     return decodedTokenExp ? 1000 * Number(decodedTokenExp) - new Date().getTime() < 5000 : false;
   }
