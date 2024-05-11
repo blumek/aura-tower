@@ -2,7 +2,8 @@ aura-tower:
   security:
     jwt:
       secret: ${JWT_SECRET}
-      expiration-time: ${JWT_EXPIRATION_TIME:15m}
+      access-token-expiration-time: ${ACCESS_TOKEN_EXPIRATION_TIME:15m}
+      refresh-token-expiration-time: ${REFRESH_TOKEN_EXPIRATION_TIME:31d}
     cors:
       allowed-origins:
         - "*"

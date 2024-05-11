@@ -7,14 +7,20 @@ import java.time.Duration;
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @ConfigurationProperties(prefix = "aura-tower.security.jwt")
-public record JwtConfiguration(String secret, Duration expirationTime) {
+public record JwtConfiguration(String secret,
+                               Duration accessTokenExpirationTime,
+                               Duration refreshTokenExpirationTime) {
     public JwtConfiguration {
         if (isBlank(secret)) {
             throw new IllegalArgumentException("Secret cannot be blank");
         }
 
-        if (expirationTime == null) {
-            throw new IllegalArgumentException("Expiration time cannot be null");
+        if (accessTokenExpirationTime == null) {
+            throw new IllegalArgumentException("Access token Expiration time cannot be null");
+        }
+
+        if (refreshTokenExpirationTime == null) {
+            throw new IllegalArgumentException("Refresh token Expiration time cannot be null");
         }
     }
 }

@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 import java.time.Duration;
 
 @Component
-class ConfigurationBasedJwtExpirationTimePolicy implements JwtExpirationTimePolicy {
+class ConfigurationBasedRefreshTokenExpirationTimePolicy implements JwtExpirationTimePolicy {
     private final Duration expirationTime;
 
-    ConfigurationBasedJwtExpirationTimePolicy(JwtConfiguration jwtConfiguration) {
-        this.expirationTime = jwtConfiguration.expirationTime();
+    ConfigurationBasedRefreshTokenExpirationTimePolicy(JwtConfiguration jwtConfiguration) {
+        this.expirationTime = jwtConfiguration.refreshTokenExpirationTime();
     }
 
     @Override
