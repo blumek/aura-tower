@@ -31,7 +31,7 @@ export class AuthInterceptorService implements HttpInterceptor {
         this.router.navigate(['/auth/sign-in']);
         this.snackBarService.openSnackBar('Sesja wygasła', true);
       } else {
-        this.jwtTokenService.refreshToken().pipe(
+        this.jwtTokenService.refreshTokens().pipe(
           concatMap((token) => {
             const newReq = this.addAuthHeader(req, token);
 
@@ -41,7 +41,7 @@ export class AuthInterceptorService implements HttpInterceptor {
       }
     } else {
       const token = this.jwtTokenService.getToken();
-      const newReq = this.addAuthHeader(req, token);
+      const newReq = token ? this.addAuthHeader(req, token) : req;
 
       return next.handle(newReq);
     }
@@ -51,7 +51,7 @@ export class AuthInterceptorService implements HttpInterceptor {
 
   addAuthHeader(req: HttpRequest<any>, token: TokenResponse) {
     return token
-      ? req.clone({ setHeaders: { Authorization: `Beearer ${token}` } })
+      ? req.clone({ setHeaders: { Authorization: `Bearer ${token.accessToken}` } })
       : req;
   }
 }

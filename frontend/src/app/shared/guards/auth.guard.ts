@@ -6,10 +6,14 @@ export const authGuard: CanActivateFn = (route, state) => {
   const jwtService = inject(JwtTokenService);
   const router = inject(Router);
 
-  if (jwtService.isAccessTokenExpired() === true) {
-    router.navigate(['/auth/sign-in']);
-    return false
-  }
+  if (jwtService.isTokenValid() === false) {
+    router.navigate(['/access-denied']);
 
-  return true;
+    return false
+  } else if (jwtService.isTokenValid() === true) {
+    return true
+  }
+  router.navigate(['/access-denied']);
+
+  return false;
 };

@@ -1,43 +1,38 @@
 import { Injectable } from '@angular/core';
 import { TokenResponse } from '../models/auth';
-import { jwtDecode } from 'jwt-decode';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { Observable, catchError, tap } from 'rxjs';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class JwtTokenService {
-
   constructor(
     private http: HttpClient,
     private router: Router
   ) {}
 
-  setToken(token: TokenResponse) {
-    if (token) {
-      localStorage.setItem('token', JSON.stringify(token));
-    }
+  setToken(token: TokenResponse): void {
+    localStorage.setItem('token', JSON.stringify(token));
   }
 
-  getToken(): any{
+  getToken(): TokenResponse | null {
     const token = localStorage.getItem('token');
-
     return token ? JSON.parse(token) : null;
   }
 
   getAccessToken(): string | null {
-    const token = localStorage.getItem('token');
+    const token = this.getToken()
 
-    return token ? JSON.parse(token).accessToken : null
+    return token ? token.accessToken : null;
   }
 
   getRefreshToken(): string | null {
-    const token = localStorage.getItem('token');
+    const token = this.getToken()
 
-    return token ? JSON.parse(token).refreshToken : null
+    return token ? token.refreshToken : null;
   }
 
   removeToken(): void {
@@ -45,33 +40,49 @@ export class JwtTokenService {
   }
 
   isAccessTokenExpired(): boolean {
-    const accessToken = this.getAccessToken();
-    const decodedToken = this.decodeToken(accessToken)
-    let decodedTokenExp = null
+    const accessToken = this.getAccessToken()
 
-    if (decodedToken) {
-      decodedTokenExp = decodedToken.exp
-    }
-
-    return decodedTokenExp ? 1000 * Number(decodedTokenExp) - new Date().getTime() < 5000 : false;
+    console.log('access')
+    return !!accessToken && this.isTokenExpired(accessToken);
   }
 
   isRefreshTokenExpired(): boolean {
-    const refreshToken = this.getRefreshToken();
-    const decodedTokenExp = this.decodeToken(refreshToken).exp
+    const refreshToken = this.getRefreshToken()
 
-    return decodedTokenExp ? 1000 * Number(decodedTokenExp) - new Date().getTime() < 5000 : false;
+    console.log('refresh')
+    return !!refreshToken && this.isTokenExpired(refreshToken);
   }
 
-  decodeToken(token: string | null): any {
-    return token ? jwtDecode(token) : null
+  isTokenValid(): any {
+    const accessToken = this.getAccessToken()
+  
+    if (accessToken) {
+      return this.decodeToken(accessToken) ? true : false
+    }
+    return false
   }
 
-  refreshToken(): Observable<TokenResponse> {
+  decodeToken(token: string): any {
+    const payload = token.split('.')[1];
+    
+    return JSON.parse(atob(payload));
+  }
+
+  isTokenExpired(token: string): boolean {
+    const decodedToken = this.decodeToken(token),
+    currentTime = Date.now() / 1000;
+
+    console.log(decodedToken.exp < currentTime)
+    return decodedToken.exp < currentTime;
+  }
+
+  refreshTokens(): Observable<TokenResponse> {
+    console.log('refreshing')
     const body = {
       accessToken: this.getAccessToken(),
       refreshToken: this.getRefreshToken()
     }
+
 
     return this.http.post<TokenResponse>(environment.authentication.refreshToken, body).pipe(
       tap((token: TokenResponse) => {
@@ -80,7 +91,7 @@ export class JwtTokenService {
       catchError(err => {
         this.removeToken();
         this.router.navigate(['/auth/sign-in']);
-        throw err;
+        return throwError(() => err);
       })
     )
   }
