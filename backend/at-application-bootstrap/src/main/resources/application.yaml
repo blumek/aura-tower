@@ -19,5 +19,4 @@ aura-tower:
       exposed-headers:
         - Authorization
         - Content-Type
-      allow-credentials: true
       max-age: 1h

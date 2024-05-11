@@ -63,7 +63,6 @@ class SecurityConfiguration {
         corsConfiguration.setExposedHeaders(corsSettings.exposedHeaders());
         corsConfiguration.setAllowedHeaders(corsSettings.allowedHeaders());
         corsConfiguration.setMaxAge(corsSettings.maxAge());
-        corsConfiguration.setAllowCredentials(corsSettings.allowCredentials());
         return corsConfiguration;
     }
 

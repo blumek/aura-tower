@@ -36,7 +36,7 @@ class JwtAccessTokenFilter extends OncePerRequestFilter {
             return;
         }
 
-        final var validationResult = validateAccessTokenUseCase.validate(new ValidateAccessTokenRequest(new ApiJsonWebToken(accessToken.get())));
+        final var validationResult = validateAccessTokenUseCase.validate(toValidateAccessTokenRequest(accessToken.get()));
         if (!validationResult.isValid()) {
             filterChain.doFilter(request, response);
             return;
@@ -46,17 +46,21 @@ class JwtAccessTokenFilter extends OncePerRequestFilter {
         filterChain.doFilter(request, response);
     }
 
-    private static void authenticate(HttpServletRequest request, String accessToken) {
-        final var authenticationToken = new BearerTokenAuthenticationToken(accessToken);
-        authenticationToken.setAuthenticated(true);
-        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
-    }
-
     private static Optional<String> getAccessTokenFrom(HttpServletRequest request) {
         return Optional.ofNullable(request.getHeader(AUTHORIZATION))
                 .filter(StringUtils::isNotEmpty)
                 .filter(header -> header.startsWith("Bearer "))
                 .map(header -> header.split(" ")[1].trim());
+    }
+
+    private static ValidateAccessTokenRequest toValidateAccessTokenRequest(String accessToken) {
+        return new ValidateAccessTokenRequest(new ApiJsonWebToken(accessToken));
+    }
+
+    private static void authenticate(HttpServletRequest request, String accessToken) {
+        final var authenticationToken = new BearerTokenAuthenticationToken(accessToken);
+        authenticationToken.setAuthenticated(true);
+        authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+        SecurityContextHolder.getContext().setAuthentication(authenticationToken);
     }
 }
