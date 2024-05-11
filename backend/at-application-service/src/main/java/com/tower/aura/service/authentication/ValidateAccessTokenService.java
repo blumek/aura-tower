@@ -5,13 +5,11 @@ import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.tower.aura.api.authentication.ValidateAccessTokenRequest;
 import com.tower.aura.api.authentication.ValidateAccessTokenResponse;
 import com.tower.aura.api.authentication.ValidateAccessTokenUseCase;
-import org.springframework.stereotype.Service;
 
-@Service
-class ValidateAccessTokenService implements ValidateAccessTokenUseCase {
+public class ValidateAccessTokenService implements ValidateAccessTokenUseCase {
     private final JWTVerifier jwtVerifier;
 
-    ValidateAccessTokenService(JWTVerifier jwtVerifier) {
+    public ValidateAccessTokenService(JWTVerifier jwtVerifier) {
         this.jwtVerifier = jwtVerifier;
     }
 
