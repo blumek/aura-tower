@@ -2,6 +2,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { BaseComponent } from "./base.component";
 import { NgModule } from "@angular/core";
 import { IntroComponent } from "./intro/intro.component";
+import { authGuard } from "../../shared/guards/auth.guard";
 
 const operatorRoutes: Routes = [
     {
@@ -11,7 +12,8 @@ const operatorRoutes: Routes = [
             { path: "", redirectTo: "intro", pathMatch: 'full'},
             { 
                 path: 'intro',
-                component: IntroComponent
+                component: IntroComponent,
+                canActivate: [authGuard]    
             },
         ]
     },

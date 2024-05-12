@@ -42,14 +42,12 @@ export class JwtTokenService {
   isAccessTokenExpired(): boolean {
     const accessToken = this.getAccessToken()
 
-    console.log('access')
     return !!accessToken && this.isTokenExpired(accessToken);
   }
 
   isRefreshTokenExpired(): boolean {
     const refreshToken = this.getRefreshToken()
 
-    console.log('refresh')
     return !!refreshToken && this.isTokenExpired(refreshToken);
   }
 
@@ -72,7 +70,6 @@ export class JwtTokenService {
     const decodedToken = this.decodeToken(token),
     currentTime = Date.now() / 1000;
 
-    console.log(decodedToken.exp < currentTime)
     return decodedToken.exp < currentTime;
   }
 
@@ -82,7 +79,6 @@ export class JwtTokenService {
       accessToken: this.getAccessToken(),
       refreshToken: this.getRefreshToken()
     }
-
 
     return this.http.post<TokenResponse>(environment.authentication.refreshToken, body).pipe(
       tap((token: TokenResponse) => {

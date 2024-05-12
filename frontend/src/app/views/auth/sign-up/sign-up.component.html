@@ -14,8 +14,8 @@
             required>
             @if (userNameControl.errors?.['required']) {
               <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
-            } @else if (userNameControl.errors?.['minLength']) {
-              <mat-error><span class="material-symbols-outlined">error</span>Hasło musi mieć minimum 8 znaków</mat-error>
+            } @else if (userNameControl.errors?.['userNameExists']) {
+              <mat-error><span class="material-symbols-outlined">error</span>Podana nazwa użytkownika już istnieje w systemie</mat-error>
             }
         </mat-form-field>
       </div>
