@@ -3,8 +3,8 @@ package com.tower.aura.spi.authentication.jwt;
 import com.tower.aura.api.authentication.model.ApiUserIdentifier;
 import com.tower.aura.api.authentication.model.ApiUsername;
 
-public record JwtCreateRequest(ApiUserIdentifier userIdentifier, ApiUsername username) {
-    public JwtCreateRequest {
+public record AccessTokenCreateRequest(ApiUserIdentifier userIdentifier, ApiUsername username) {
+    public AccessTokenCreateRequest {
         if (userIdentifier == null) {
             throw new IllegalArgumentException("User identifier cannot be null");
         }

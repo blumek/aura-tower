@@ -10,23 +10,23 @@ import com.tower.aura.api.authentication.model.ApiJsonWebToken;
 import com.tower.aura.api.authentication.model.ApiJsonWebTokenPair;
 import com.tower.aura.api.authentication.model.ApiUserIdentifier;
 import com.tower.aura.api.authentication.model.ApiUsername;
-import com.tower.aura.spi.authentication.jwt.JwtCreateRequest;
-import com.tower.aura.spi.authentication.jwt.JwtTokenPairCreator;
+import com.tower.aura.spi.authentication.jwt.AccessTokenCreateRequest;
+import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
 
 public class RefreshTokenService implements RefreshTokenUseCase {
     private final JWTVerifier jwtVerifier;
-    private final JwtTokenPairCreator jwtTokenPairCreator;
+    private final AccessTokenCreator accessTokenCreator;
 
-    public RefreshTokenService(JWTVerifier jwtVerifier, JwtTokenPairCreator jwtTokenPairCreator) {
+    public RefreshTokenService(JWTVerifier jwtVerifier, AccessTokenCreator accessTokenCreator) {
         this.jwtVerifier = jwtVerifier;
-        this.jwtTokenPairCreator = jwtTokenPairCreator;
+        this.accessTokenCreator = accessTokenCreator;
     }
 
     @Override
     public RefreshTokenReply refresh(RefreshTokenRequest refreshTokenRequest) {
         validateRefreshToken(refreshTokenRequest.tokenPair().refreshToken());
 
-        return new RefreshTokenReply(generateJwtTokenPair(refreshTokenRequest.tokenPair().accessToken()));
+        return new RefreshTokenReply(generateNewJsonWebTokenPair(refreshTokenRequest));
     }
 
     private void validateRefreshToken(ApiJsonWebToken refreshToken) {
@@ -37,13 +37,15 @@ public class RefreshTokenService implements RefreshTokenUseCase {
         }
     }
 
-    private ApiJsonWebTokenPair generateJwtTokenPair(ApiJsonWebToken accessToken) {
-        final var decodedAccessToken = JWT.decode(accessToken.value());
+    private ApiJsonWebTokenPair generateNewJsonWebTokenPair(RefreshTokenRequest refreshTokenRequest) {
+        final var decodedAccessToken = JWT.decode(refreshTokenRequest.tokenPair().accessToken().value());
         final var userIdentifier = decodedAccessToken.getClaim("user_id").asString();
         final var username = decodedAccessToken.getClaim("username").asString();
-        return jwtTokenPairCreator.create(new JwtCreateRequest(
+        final var newAccessToken =  accessTokenCreator.create(new AccessTokenCreateRequest(
                 new ApiUserIdentifier(userIdentifier),
                 new ApiUsername(username)
         ));
+
+        return new ApiJsonWebTokenPair(newAccessToken, refreshTokenRequest.tokenPair().refreshToken());
     }
 }

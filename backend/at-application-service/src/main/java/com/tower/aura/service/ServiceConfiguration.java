@@ -3,9 +3,9 @@ package com.tower.aura.service;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.tower.aura.service.authentication.RefreshTokenService;
 import com.tower.aura.service.authentication.ValidateAccessTokenService;
-import com.tower.aura.service.authentication.jwt.JwtConfiguration;
-import com.tower.aura.service.authentication.jwt.JwtVerifierFactory;
-import com.tower.aura.spi.authentication.jwt.JwtTokenPairCreator;
+import com.tower.aura.service.authentication.jwt.*;
+import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
+import com.tower.aura.spi.authentication.jwt.RefreshTokenCreator;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,7 +39,21 @@ public class ServiceConfiguration {
 
     @Bean
     RefreshTokenService refreshTokenService(@Qualifier("refreshTokenVerifierFactory") JwtVerifierFactory refreshTokenVerifierFactory,
-                                            JwtTokenPairCreator jwtTokenPairCreator) {
-        return new RefreshTokenService(refreshTokenVerifierFactory.create(), jwtTokenPairCreator);
+                                            AccessTokenCreator accessTokenCreator) {
+        return new RefreshTokenService(refreshTokenVerifierFactory.create(), accessTokenCreator);
+    }
+
+    @Bean
+    AccessTokenCreator accessTokenCreator(Algorithm algorithm,
+                                          Clock clock,
+                                          @Qualifier("configurationBasedAccessTokenExpirationTimePolicy") JwtExpirationTimePolicy accessTokenExpirationTimePolicy) {
+        return new DefaultAccessTokenCreator(algorithm, clock, accessTokenExpirationTimePolicy);
+    }
+
+    @Bean
+    RefreshTokenCreator refreshTokenCreator(Algorithm algorithm,
+                                            Clock clock,
+                                            @Qualifier("configurationBasedRefreshTokenExpirationTimePolicy") JwtExpirationTimePolicy refreshTokenExpirationTimePolicy) {
+        return new DefaultRefreshTokenCreator(algorithm, clock, refreshTokenExpirationTimePolicy);
     }
 }
