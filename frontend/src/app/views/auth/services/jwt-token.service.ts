@@ -74,7 +74,6 @@ export class JwtTokenService {
   }
 
   refreshTokens(): Observable<TokenResponse> {
-    console.log('refreshing')
     const body = {
       accessToken: this.getAccessToken(),
       refreshToken: this.getRefreshToken()
