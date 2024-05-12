@@ -44,7 +44,7 @@ export class SignInComponent {
     this.authService.signIn(signInFormRaw).subscribe({
       next: () => {
         this.snackbarService.openSnackBar('Zalogowano');
-        this.router.navigate(['main/dashboard'])
+        this.router.navigate(['base/headquarters'])
       },
       error: (error) => {
         this.loadingButton = false;

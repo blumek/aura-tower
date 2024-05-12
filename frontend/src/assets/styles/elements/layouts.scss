@@ -1,11 +1,11 @@
 @import "../variables.scss";
 
-.main-container {
+.main-container, .base-container {
     min-height: 100vh;
     background-color: $background-light;
 }
 
-.auth-container, .base-container {
+.auth-container {
     height: 100vh;
     background-color: $white;
 }
@@ -17,7 +17,8 @@
 }
 
 .site-container,
-.auth-site-container {
+.auth-site-container,
+.base-site-container {
     padding: 30px;
 }
 

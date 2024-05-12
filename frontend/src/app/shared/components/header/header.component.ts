@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.sub = this.routesService.pageData.subscribe((value: {title: string, icon: string}) => {
       this.pageData = value;
     });
+
   }
 
   ngOnDestroy(): void {

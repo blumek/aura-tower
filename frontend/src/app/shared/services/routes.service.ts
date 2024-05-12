@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { BehaviorSubject, filter } from 'rxjs';
+import { BehaviorSubject, filter, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,8 @@ export class RoutesService {
   }
 
   updateUrlTitle(): void {
-    this.urlTitle = this.router.url.substring(6);
+    this.urlTitle = this.router.url;
+
     this.getPageData(this.urlTitle);
   }
 
@@ -27,11 +28,15 @@ export class RoutesService {
     let pageIcon = '';
 
     switch (urlTitle) {
-      case 'dashboard':
+      case '/base/headquarters':
+        pageTitle = 'Select your Aura Tower management center';
+        pageIcon = 'home_pin';
+        break;
+      case '/main/dashboard':
         pageTitle = 'Panel główny';
         pageIcon = 'dashboard';
         break;
-      case 'settings':
+      case '/main/settings':
         pageTitle = 'Ustawienia';
         pageIcon = 'settings';
         break;
