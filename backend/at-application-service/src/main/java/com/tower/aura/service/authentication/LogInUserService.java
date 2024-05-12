@@ -8,10 +8,7 @@ import com.tower.aura.spi.authentication.jwt.AccessTokenCreateRequest;
 import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
 import com.tower.aura.spi.authentication.jwt.RefreshTokenCreator;
 import com.tower.aura.spi.encryption.PasswordValidator;
-import com.tower.aura.spi.persistence.user.authentication.RefreshTokenPersistenceGateway;
-import com.tower.aura.spi.persistence.user.authentication.RefreshTokenPersistenceRequest;
-import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryGateway;
-import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryReply;
+import com.tower.aura.spi.persistence.user.authentication.*;
 import com.tower.aura.spi.persistence.user.authentication.model.PersistenceJsonWebToken;
 import com.tower.aura.spi.persistence.user.authentication.model.PersistencePassword;
 import com.tower.aura.spi.persistence.user.model.PersistenceUsername;
@@ -39,16 +36,29 @@ class LogInUserService implements LogInUserUseCase {
 
     @Override
     public LogInUserReply logIn(LogInUserRequest logInUserRequest) {
-        final var username = new PersistenceUsername(logInUserRequest.username().value());
-        final var userCredentialsQueryReply = userCredentialsQueryGateway.findByUsername(username);
-        if (passwordsMatch(logInUserRequest.password(), userCredentialsQueryReply.password())) {
-            throw new IllegalArgumentException("Password does not match");
-        }
+        final var userCredentialsQueryReply = findUserCredentials(logInUserRequest);
 
         final var generatedJsonWebTokenPair = generateJwtTokenPair(userCredentialsQueryReply);
         persistRefreshToken(generatedJsonWebTokenPair);
 
         return new LogInUserReply(generatedJsonWebTokenPair);
+    }
+
+    private UserCredentialsQueryReply findUserCredentials(LogInUserRequest logInUserRequest) {
+        final var username = new PersistenceUsername(logInUserRequest.username().value());
+        final var userCredentialsQueryReply = findUserCredentialsByUsername(username);
+        if (passwordsMatch(logInUserRequest.password(), userCredentialsQueryReply.password())) {
+            throw new IllegalArgumentException("Username or password does not match");
+        }
+        return userCredentialsQueryReply;
+    }
+
+    private UserCredentialsQueryReply findUserCredentialsByUsername(PersistenceUsername username) {
+        try {
+            return userCredentialsQueryGateway.findByUsername(username);
+        } catch (UserCredentialsNotFoundException exception) {
+            throw new IllegalArgumentException("Username or password does not match");
+        }
     }
 
     private boolean passwordsMatch(ApiPassword password, PersistencePassword anotherPassword) {

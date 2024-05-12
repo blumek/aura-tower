@@ -1,5 +1,6 @@
 package com.tower.aura.application.persistence.mongodb.adapter.user.authentication;
 
+import com.tower.aura.spi.persistence.user.authentication.UserCredentialsNotFoundException;
 import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryGateway;
 import com.tower.aura.spi.persistence.user.authentication.UserCredentialsQueryReply;
 import com.tower.aura.spi.persistence.user.authentication.model.PersistencePassword;
@@ -19,7 +20,7 @@ class MongodbUserCredentialsQueryGateway implements UserCredentialsQueryGateway 
     public UserCredentialsQueryReply findByUsername(PersistenceUsername username) {
         return userCredentialsRepository.findByUsername(username.value())
                 .map(this::toUserCredentialsQueryReply)
-                .orElseThrow(() -> new IllegalArgumentException("No user credentials for username: %s".formatted(username.value())));
+                .orElseThrow(() -> new UserCredentialsNotFoundException(username));
     }
 
     private UserCredentialsQueryReply toUserCredentialsQueryReply(UserCredentialsDocument userCredentials) {
