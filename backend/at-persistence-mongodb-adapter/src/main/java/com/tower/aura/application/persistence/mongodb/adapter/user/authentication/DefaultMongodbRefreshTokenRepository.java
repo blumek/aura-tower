@@ -2,6 +2,8 @@ package com.tower.aura.application.persistence.mongodb.adapter.user.authenticati
 
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 class DefaultMongodbRefreshTokenRepository implements MongodbRefreshTokenRepository {
     private final SpringMongodbRefreshTokenRepository repository;
@@ -13,5 +15,10 @@ class DefaultMongodbRefreshTokenRepository implements MongodbRefreshTokenReposit
     @Override
     public RefreshTokenDocument save(RefreshTokenDocument refreshTokenDocument) {
         return repository.save(refreshTokenDocument);
+    }
+
+    @Override
+    public Optional<RefreshTokenDocument> findByRefreshToken(String refreshToken) {
+        return repository.findById(refreshToken);
     }
 }

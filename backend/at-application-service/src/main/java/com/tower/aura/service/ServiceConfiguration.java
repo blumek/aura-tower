@@ -6,6 +6,8 @@ import com.tower.aura.service.authentication.ValidateAccessTokenService;
 import com.tower.aura.service.authentication.jwt.*;
 import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
 import com.tower.aura.spi.authentication.jwt.RefreshTokenCreator;
+import com.tower.aura.spi.persistence.user.authentication.RefreshTokenPersistenceGateway;
+import com.tower.aura.spi.persistence.user.authentication.RefreshTokenQueryGateway;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,8 +41,15 @@ public class ServiceConfiguration {
 
     @Bean
     RefreshTokenService refreshTokenService(@Qualifier("refreshTokenVerifierFactory") JwtVerifierFactory refreshTokenVerifierFactory,
-                                            AccessTokenCreator accessTokenCreator) {
-        return new RefreshTokenService(refreshTokenVerifierFactory.create(), accessTokenCreator);
+                                            RefreshTokenQueryGateway refreshTokenQueryGateway,
+                                            AccessTokenCreator accessTokenCreator,
+                                            RefreshTokenPersistenceGateway refreshTokenPersistenceGateway) {
+        return new RefreshTokenService(
+                refreshTokenVerifierFactory.create(),
+                refreshTokenQueryGateway,
+                accessTokenCreator,
+                refreshTokenPersistenceGateway
+        );
     }
 
     @Bean
