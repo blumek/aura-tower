@@ -7,6 +7,7 @@ import com.tower.aura.spi.authentication.jwt.RefreshTokenCreator;
 
 import java.time.Clock;
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 public class DefaultRefreshTokenCreator implements RefreshTokenCreator {
     private final Algorithm algorithm;
@@ -26,6 +27,7 @@ public class DefaultRefreshTokenCreator implements RefreshTokenCreator {
         final var now = ZonedDateTime.now(clock);
         final var refreshToken = JWT.create()
                 .withClaim("token_type", "refresh_token")
+                .withClaim("token_identifier", UUID.randomUUID().toString())
                 .withIssuedAt(now.toInstant())
                 .withExpiresAt(now.plus(refreshTokenExpirationTimePolicy.expirationTime()).toInstant())
                 .sign(algorithm);

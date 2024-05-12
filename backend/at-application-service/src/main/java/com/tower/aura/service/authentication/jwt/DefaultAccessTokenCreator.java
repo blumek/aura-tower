@@ -8,6 +8,7 @@ import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
 
 import java.time.Clock;
 import java.time.ZonedDateTime;
+import java.util.UUID;
 
 public class DefaultAccessTokenCreator implements AccessTokenCreator {
     private final Algorithm algorithm;
@@ -27,6 +28,7 @@ public class DefaultAccessTokenCreator implements AccessTokenCreator {
         final var now = ZonedDateTime.now(clock);
         final var accessToken = JWT.create()
                 .withClaim("token_type", "access_token")
+                .withClaim("token_identifier", UUID.randomUUID().toString())
                 .withClaim("user_id", accessTokenCreateRequest.userIdentifier().value())
                 .withClaim("username", accessTokenCreateRequest.username().value())
                 .withIssuedAt(now.toInstant())
