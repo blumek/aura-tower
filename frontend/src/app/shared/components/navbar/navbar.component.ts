@@ -81,7 +81,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.changeNavBarVisible()
         break;
       case 'logout':
-        console.log('logout')
+        this.router.navigate(['base/headquarters'])
         break;
       default:
         const link: string = actionName

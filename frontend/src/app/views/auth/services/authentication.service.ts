@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
 import { ReminderQuestions, SignIn, SignUp, TokenResponse } from '../models/auth';
 import { JwtTokenService } from './jwt-token.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class AuthenticationService {
   constructor (
     private http: HttpClient,
     private jwtTokenService: JwtTokenService,
+    private router: Router
   ) { }
 
   signUp(signUpForm: SignUpFormRaw): Observable<Object> {
@@ -46,6 +48,7 @@ export class AuthenticationService {
 
   logout(): void {
     this.jwtTokenService.removeToken();
+    this.router.navigate(['/auth/sign-in']);
   }
 
   getRemindQuestions(): Observable<ReminderQuestions[]> {

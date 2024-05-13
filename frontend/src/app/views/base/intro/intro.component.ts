@@ -87,8 +87,8 @@ export class IntroComponent implements OnInit {
     this.showElements();
   }
 
-  goToBaseCenter(): void {
-  
+  goToBaseHeadquarters(): void {
+    this.router.navigate(['/base/headquarters']);
   }
 
   skipIntro(): void {

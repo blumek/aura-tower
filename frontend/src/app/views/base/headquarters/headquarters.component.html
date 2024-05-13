@@ -7,9 +7,29 @@
   <div class="headquarters-content">
     <div class="headquarters-grid">
       <at-tower-center></at-tower-center>
-      <!-- <at-tower-center></at-tower-center> -->
+      <at-tower-center></at-tower-center>
+
+      <at-tower-center [isAAddingComponent]="true"></at-tower-center>
     </div>
 
+    <div class="spacer-4"></div>
+
+    <div class="buttons-container buttons-small-space justify-center">
+      <button
+      class="at-button circle iconic outline-green"
+      matTooltip="Logout"
+      mat-button
+      (click)="logout()">
+      <span class="material-symbols-outlined">power_settings_new</span>
+    </button>
+    <button
+      class="at-button normal iconic flat-green"
+      mat-button
+      (click)="goToSettings()">
+      <span class="material-symbols-outlined">settings</span>
+      <span>{{'Settings'}}</span>
+    </button>
+    </div>
   </div>
 
   <ng-template #loading>

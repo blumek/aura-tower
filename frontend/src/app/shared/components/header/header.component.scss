@@ -1,3 +1,5 @@
+@import '../../../../assets/styles/variables.scss';
+
 .header-container {
     margin: 64px 30px 30px 30px;
     display: flex;
@@ -6,10 +8,14 @@
         display: flex;
         align-items: center;
         gap: 20px;
-        font-size: 24px;
+        font-size: 29px;
+        font-family: $at-title-font;
+        background: $main-text-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
 
         .material-symbols-outlined {
-            font-size: 32px;
+            font-size: 37px;
         }
     }
 }

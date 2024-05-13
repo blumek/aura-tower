@@ -8,6 +8,7 @@ import { HeaderComponent } from '../../shared/components/header/header.component
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
 import { TowerCenterComponent } from './headquarters/tower-center/tower-center.component';
 import { TruncateTextDirective } from '../../shared/directives/truncate-text.directive';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const components = [
   SliderStepperComponent,
@@ -25,6 +26,7 @@ const components = [
     CommonModule,
     BaseRoutingModule,
     TruncateTextDirective,
+    MatTooltipModule,
     components
   ]
 })

@@ -1,34 +1,41 @@
+@import '../../../../assets/styles/variables.scss';
+
 .headquarters-container {
     height: 100%;
 
     .headquarters-title {
         display: flex;
         gap: 20px;
-        font-size: 24px;
         padding-bottom: 30px;
         justify-content: center;
         align-items: center;
+        font-family: $at-title-font;
+        background: $main-text-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
 
         span:nth-of-type(1) {
-            font-size: 32px;
+            font-size: 37px;
         }
 
         span:nth-of-type(2) {
-            font-size: 24px;
+            font-size: 29px;
             text-align: center;
         }
     }
 
     .headquarters-content {
         display: flex;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
-        height: calc(100vh - 92px - 60px - 30px);
+        align-items: center;
+        min-height: calc(100vh - 92px - 60px - 30px);
 
         .headquarters-grid {
-            justify-content: center;
-            align-items: center;
             display: flex;
+            justify-content: center;
+            align-items: flex-end;
             flex-wrap: wrap;
             gap: 20px;
         }

@@ -1,21 +1,31 @@
-<div class="tower-center-container">
+<div [ngClass]="{'tower-center-container': true, 'green-add-button': isAAddingComponent}">
   <div class="top-section">
-    <div
-      class="tower-icon">
-      <span class="material-symbols-outlined">apartment</span>
-    </div>
+    @if (isAAddingComponent) {
+        <div
+        class="tower-icon">
+            <span class="material-symbols-outlined">add</span>
+            <p [appTruncateText]="50">Add new tower center</p>
+        </div>
+    } @else {
+        <div
+        class="tower-icon">
+            <span class="material-symbols-outlined">home</span>
+            <p [appTruncateText]="50">Home</p>
+        </div>
+    }
   </div>
-  <div class="bottom-section">
-    <div>
+  <div *ngIf="!isAAddingComponent" class="bottom-section">
+    <div (click)="openDeleteDialog()">
       <span class="material-symbols-outlined">delete</span>
-    </div>
-    <div>
-      <p
-        [appTruncateText]="50"
-        class="tower-title">{{'Office'}}</p>
+      <span>Delete</span>
     </div>
     <div>
       <span class="material-symbols-outlined">edit</span>
+      <span>Edit</span>
+    </div>
+    <div (click)="goToTowerDashboard()">
+      <span class="material-symbols-outlined">login</span>
+      <span>Go into</span>
     </div>
   </div>
 </div>

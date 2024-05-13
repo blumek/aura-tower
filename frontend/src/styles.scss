@@ -30,3 +30,13 @@ html, body { height: 100%; overflow-x: hidden}
         background-color: #5bcba9;
     }
 }
+
+@font-face {
+    font-family: 'Nico-Moji';
+    src:url('./assets/fonts/Nico-Moji.ttf.woff') format('woff'),
+        url('./assets/fonts/Nico-Moji.ttf.svg#Nico-Moji') format('svg'),
+        url('./assets/fonts/Nico-Moji.ttf.eot'),
+        url('./assets/fonts/Nico-Moji.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}

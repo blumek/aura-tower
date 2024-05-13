@@ -33,15 +33,15 @@ export class RoutesService {
         pageIcon = 'home_pin';
         break;
       case '/main/dashboard':
-        pageTitle = 'Panel główny';
+        pageTitle = 'Dashboard';
         pageIcon = 'dashboard';
         break;
       case '/main/settings':
-        pageTitle = 'Ustawienia';
+        pageTitle = 'Settings';
         pageIcon = 'settings';
         break;
       default:
-        pageTitle = 'Panel główny';
+        pageTitle = 'Dashboard';
         pageIcon = 'dashboard';
         break;
     }
