@@ -9,7 +9,7 @@ import static org.springframework.boot.SpringApplication.run;
 
 @ComponentScan("com.tower.aura")
 @ConfigurationPropertiesScan("com.tower.aura")
-@EnableConfigurationProperties()
+@EnableConfigurationProperties
 @SpringBootApplication
 public class ApplicationBootstrapper {
     public static void main(String[] args) {

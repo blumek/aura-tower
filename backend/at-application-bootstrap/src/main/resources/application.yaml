@@ -21,3 +21,12 @@ aura-tower:
         - Authorization
         - Content-Type
       max-age: 1h
+
+spring:
+  data:
+    mongodb:
+      host: ${MONGODB_HOST}
+      port: ${MONGODB_PORT}
+      database: admin
+      username: ${MONGODB_USERNAME}
+      password: ${MONGODB_PASSWORD}
