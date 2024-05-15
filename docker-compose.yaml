@@ -16,7 +16,7 @@ services:
     environment:
       MONGODB_HOST: mongodb
       MONGODB_PORT: 27017
-      MONGODB_DATABASE: aura-tower
+      MONGODB_DATABASE: admin
       MONGODB_USERNAME: root-aura-tower
       MONGODB_PASSWORD: password-aura-tower
   mongodb:
