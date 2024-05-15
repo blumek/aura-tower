@@ -30,11 +30,11 @@ export class AuthInterceptorService implements HttpInterceptor {
       return next.handle(req);
     }
 
-    if (this.jwtTokenService.isAccessTokenExpired()) {
+    if (this.jwtTokenService.isTokenValid() && this.jwtTokenService.isAccessTokenExpired()) {
       if (this.jwtTokenService.isRefreshTokenExpired()) {
         this.jwtTokenService.removeToken();
         this.router.navigate(['/auth/sign-in']);
-        this.snackBarService.openSnackBar('Sesja wygasła', true);
+        this.snackBarService.openSnackBar('Seasion expired', true);
 
         return of();
       } else {

@@ -8,6 +8,8 @@ import { AuthenticationService } from '../../auth/services/authentication.servic
   styleUrl: './headquarters.component.scss',
 })
 export class HeadquartersComponent {
+  configMode: boolean = false
+
   constructor(
     private router: Router,
     private authService: AuthenticationService
@@ -19,6 +21,10 @@ export class HeadquartersComponent {
   
   goToSettings() {
     this.router.navigate(['main/settings']);
+  }
+  
+  setConfigMode(action?: boolean): void {
+    this.configMode = !action
   }
 
 

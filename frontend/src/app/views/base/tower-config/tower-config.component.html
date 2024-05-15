@@ -1,0 +1,80 @@
+@if (show) {
+  <div class="blur-container animate__animated animate__fadeIn">
+    <div class="config-container animate__animated animate__zoomIn animate__slow">
+      <div class="config-title">
+        <span class="material-symbols-outlined">home_pin</span>
+        <span>Add your Aura Tower management center</span>
+      </div>
+    
+      <div class="config-content">
+        <div class="config-grid">
+          <at-tower-center></at-tower-center>
+        </div>
+    
+        <div class="spacer-4"></div>
+    
+        <div class="config-box">
+            <!-- <div class="subtitle">
+                <div class="circle-pointer"></div>
+                <h4>Preview</h4>
+              </div> -->
+              <form [formGroup]="towerConfigForm">
+                <div class="tower-config-form-container">
+                  <div class="field-container">
+                    <mat-form-field>
+                      <mat-label>Management center name</mat-label>
+                      <input
+                        matInput
+                        formControlName="name"
+                        autocomplete="on"
+                        required>
+                        @if (towerNameControl.errors?.['required']) {
+                          <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
+                        }
+                    </mat-form-field>
+                  </div>
+                  <div class="field-container">
+                    <mat-form-field>
+                      <mat-label>Management center icon</mat-label>
+                      <mat-select formControlName="icon" required>
+                        <mat-option [value]="1">{{'icon'}}</mat-option>
+                        
+                      </mat-select>
+                        @if (towerIconControl.errors?.['required']) {
+                          <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
+                        }
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+              <at-info infoText="Provide basic information for your IoT device management center. Name and an icon representing for example Office, Home, Workshop.... In the preview, you will see how your management center will look like after it is created."></at-info>
+    
+    
+        </div>
+    
+        <div class="spacer-4"></div>
+    
+        <div class="buttons-container buttons-small-space justify-center">
+          <button
+            (click)="closeConfigMode()"
+            class="at-button normal iconic outline-green"
+            mat-button>
+            <span class="material-symbols-outlined">close</span>
+            <span>Cancel</span>
+          </button>
+          <button
+            class="at-button normal iconic flat-green"
+            mat-button>
+            <span class="material-symbols-outlined">save</span>
+            <span>Save</span>
+          </button>
+        </div>
+      </div>
+    
+      <ng-template #loading>
+        <at-loading [blur]="true"></at-loading>
+      </ng-template>
+    </div>
+  </div>  
+}
+

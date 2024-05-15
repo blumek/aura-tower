@@ -1,5 +1,5 @@
 <div class="headquarters-container">
-  <div class="headquarters-title">
+  <div *ngIf="!configMode" class="headquarters-title">
     <span class="material-symbols-outlined">home_pin</span>
     <span>Select your Aura Tower management center</span>
   </div>
@@ -9,7 +9,7 @@
       <at-tower-center></at-tower-center>
       <at-tower-center></at-tower-center>
 
-      <at-tower-center [isAAddingComponent]="true"></at-tower-center>
+      <at-tower-center (click)="setConfigMode()" [isAAddingComponent]="true"></at-tower-center>
     </div>
 
     <div class="spacer-4"></div>
@@ -31,6 +31,8 @@
     </button>
     </div>
   </div>
+
+  <at-tower-config [show]="configMode" (close)="setConfigMode($event)"></at-tower-config>
 
   <ng-template #loading>
     <at-loading [blur]="true"></at-loading>

@@ -17,16 +17,13 @@ export class TruncateTextDirective implements AfterViewInit {
       
       if (text.length > this.truncateText) {
         this.renderer.setProperty(this.el.nativeElement, 'textContent', truncatedText);
-        this.el.nativeElement.setAttribute('matTooltip', text);
+        this.el.nativeElement.setAttribute(`matTooltip`, text);
+        console.log(this.el.nativeElement);
       }
     }
 
     getTruncatedText(text: string): string {
-      if (text.length <= this.truncateText) {
-        return text;
-      } else {
-        return text.substring(0, this.truncateText) + '...';
-      }
+      return text.length <= this.truncateText ? text : `${text.substring(0, this.truncateText)}...`;
     }
 
 }

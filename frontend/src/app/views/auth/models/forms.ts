@@ -1,8 +1,8 @@
 import { FormControl } from "@angular/forms";
 
 export interface SignInForm {
-    userName: FormControl<string>;
-    password: FormControl<string>;
+    userName: FormControl<string | null>;
+    password: FormControl<string | null>;
 }
 
 export interface signInFormRaw {

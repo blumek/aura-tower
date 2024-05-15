@@ -10,15 +10,13 @@
     border-radius: 15px;
     height: 200px;
     width: 200px;
-    transition: .3s;
+    transition: 0.3s;
 
     &:hover {
         box-shadow: $shadow-active-green;
 
         .bottom-section {
-            div {
-                opacity: 1;
-            }
+            opacity: 1;
         }
     }
 
@@ -33,10 +31,16 @@
             transform: translate(-50%, -50%);
             text-align: center;
 
-            span {
+            .material-symbols-outlined {
                 font-size: 70px;
                 color: $icon-light;
                 margin-bottom: 10px;
+            }
+
+            .tower-name {
+                max-width: 160px;
+                text-align: center;
+                word-wrap: break-word;
             }
         }
     }
@@ -44,8 +48,12 @@
     .bottom-section {
         position: absolute;
         bottom: 0;
+        background-color: rgba($color: #fff, $alpha: 0.5);
         left: 0;
         right: 0;
+        opacity: 0;
+        transition: .3s;
+        border-radius: 0 0 15px 15px;
         padding: 20px 20px 10px 20px;
         display: flex;
         justify-content: space-between;
@@ -56,7 +64,6 @@
             flex-direction: column;
             align-items: center;
             transition: 0.3s;
-            opacity: 0;
             color: $at-green;
 
             span {
@@ -70,9 +77,6 @@
             &:hover {
                 cursor: pointer;
             }
-        }
-
-        div:nth-of-type(2) {
         }
 
         div:nth-of-type(3) {
@@ -91,9 +95,9 @@
     }
 
     .top-section {
-        color: white ;
+        color: white;
 
-       .tower-icon span {
+        .tower-icon .material-symbols-outlined {
             color: white;
         }
     }

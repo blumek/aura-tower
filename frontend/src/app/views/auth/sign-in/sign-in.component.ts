@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { SignInForm } from '../models/forms';
 import { AuthenticationService } from '../services/authentication.service';
@@ -20,7 +20,7 @@ export class SignInComponent {
 
   constructor(
     private router: Router,
-    private fb: NonNullableFormBuilder,
+    private fb: FormBuilder,
     private authService: AuthenticationService,
     private snackbarService: SnackbarService
   ) { }
@@ -50,9 +50,9 @@ export class SignInComponent {
         this.loadingButton = false;
 
         if (error.status === 400) {
-          this.snackbarService.openSnackBar('Błędne dane logowania', true);
+          this.snackbarService.openSnackBar(error.error.message, true);
         } else {
-          this.snackbarService.openSnackBar('Wystąpił błąd', true);
+          this.snackbarService.openSnackBar('Error occured', true);
         }
       }
     })
