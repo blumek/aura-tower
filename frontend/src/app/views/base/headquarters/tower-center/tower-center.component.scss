@@ -8,16 +8,14 @@
     background-color: $white;
     box-shadow: $shadow-light;
     border-radius: 15px;
-    height: 200px;
-    width: 200px;
+    height: 240px;
+    width: 240px;
     transition: 0.3s;
+    box-sizing: border-box;
 
     &:hover {
         box-shadow: $shadow-active-green;
-
-        .bottom-section {
-            opacity: 1;
-        }
+        cursor: pointer;
     }
 
     .top-section {
@@ -42,19 +40,42 @@
                 text-align: center;
                 word-wrap: break-word;
             }
+
+            .field-container {
+                width: 300px;
+                padding: 0;
+                
+                input {
+                    border: none;
+                    border-bottom: 1px solid $disabled-gray;
+                    background-color: transparent;
+                    text-align: center;
+                    padding-bottom: 5px;
+                    font-family: $at-font;
+                    color: $text-light;
+
+                    &:focus {
+                        outline: none;
+                        border: none;
+                        border-bottom: 1px solid $at-green;
+                    }
+
+                    &::placeholder {
+                        color: $icon-light;
+                    }
+                }
+            }
         }
     }
 
     .bottom-section {
         position: absolute;
         bottom: 0;
-        background-color: rgba($color: #fff, $alpha: 0.5);
         left: 0;
         right: 0;
-        opacity: 0;
         transition: .3s;
         border-radius: 0 0 15px 15px;
-        padding: 20px 20px 10px 20px;
+        padding: 20px 10px 8px 10px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -82,6 +103,10 @@
         div:nth-of-type(3) {
             text-align: end;
         }
+
+        .save-disable {
+            color: $disabled-gray;
+        }
     }
 }
 
@@ -100,5 +125,16 @@
         .tower-icon .material-symbols-outlined {
             color: white;
         }
+    }
+}
+
+.tower-center-container-config {
+    box-shadow: none;
+    border: 6px dashed $white;
+    background-color: rgba($color: #ffffff, $alpha: 0.4);
+
+    &:hover {
+        cursor: auto;
+        box-shadow: none;
     }
 }

@@ -9,7 +9,6 @@ import { LoadingComponent } from '../../shared/components/loading/loading.compon
 import { TowerCenterComponent } from './headquarters/tower-center/tower-center.component';
 import { TruncateTextDirective } from '../../shared/directives/truncate-text.directive';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { TowerConfigComponent } from './tower-config/tower-config.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatOptionModule } from '@angular/material/core';
@@ -39,7 +38,6 @@ const matModules = [
     BaseComponent,
     HeadquartersComponent,
     TowerCenterComponent,
-    TowerConfigComponent
   ],
   imports: [
     CommonModule,

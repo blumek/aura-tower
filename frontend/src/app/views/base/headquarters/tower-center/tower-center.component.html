@@ -1,31 +1,44 @@
-<div [ngClass]="{'tower-center-container': true, 'green-add-button': isAAddingComponent}">
-  <div class="top-section">
-    @if (isAAddingComponent) {
+<div class="animate__animated animate__fadeIn">
+  <div [ngClass]="{'tower-center-container': true, 'green-add-button': isAAddingComponent, 'tower-center-container-config': configMode}" (click)="goToTowerDashboard()">
+    <div class="top-section">
+      @if (isAAddingComponent) {
+          <div
+          class="tower-icon">
+              <span class="material-symbols-outlined">add</span>
+              <p [appTruncateText]="50">Add new tower center</p>
+          </div>
+      } @else if (configMode) {
         <div
-        class="tower-icon">
-            <span class="material-symbols-outlined">add</span>
-            <p [appTruncateText]="50">Add new tower center</p>
+        class="tower-icon"
+        [formGroup]="managementCenterForm">
+            <span class="material-symbols-outlined">{{centerData.icon}}</span>
+            <div class="tower-icon-trigger"><span class="material-symbols-outlined">arrow_drop_down</span></div>
+            <div class="field-container">
+                <input
+                  formControlName="centerName"
+                  autocomplete="on"
+                  placeholder="Edit name"
+                  required>
+            </div>
         </div>
-    } @else {
-        <div
-        class="tower-icon">
-            <span class="material-symbols-outlined">home</span>
-            <p class="tower-name"matTooltip="true" [matTooltipDisabled]="true" [appTruncateText]="50">Home</p>
-        </div>
-    }
-  </div>
-  <div *ngIf="!isAAddingComponent" class="bottom-section">
-    <div (click)="openDeleteDialog()">
-      <span class="material-symbols-outlined">delete</span>
-      <span>Delete</span>
+      } @else {
+          <div
+          class="tower-icon">
+              <span class="material-symbols-outlined">{{centerData.icon}}</span>
+              <p class="tower-name" [matTooltip]="centerData.name" [matTooltipDisabled]="centerData.name.length < 50" [appTruncateText]="50">{{centerData.name}}</p>
+          </div>
+      }
     </div>
-    <div>
-      <span class="material-symbols-outlined">edit</span>
-      <span>Edit</span>
-    </div>
-    <div (click)="goToTowerDashboard()">
-      <span class="material-symbols-outlined">login</span>
-      <span>Go into</span>
+    <div *ngIf="configMode" class="bottom-section">
+      <div (click)="cancel()">
+        <span class="material-symbols-outlined">close</span>
+        <span>Cancel</span>
+      </div>
+      <div [ngClass]="{'save-disable': centerNameControl.invalid}" (click)="save()">
+        <span class="material-symbols-outlined">check</span>
+        <span>Save</span>
+      </div>
     </div>
   </div>
 </div>
+
