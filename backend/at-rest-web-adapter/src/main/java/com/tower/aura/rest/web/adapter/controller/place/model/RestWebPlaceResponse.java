@@ -5,10 +5,10 @@ import com.tower.aura.api.place.model.ApiPlace;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record RestWebPlacesResponse(@JsonProperty("id") String identifier,
-                                    @JsonProperty("name") String name,
-                                    @JsonProperty("icon") RestWebPlaceIcon icon) {
-    public RestWebPlacesResponse {
+public record RestWebPlaceResponse(@JsonProperty("id") String identifier,
+                                   @JsonProperty("name") String name,
+                                   @JsonProperty("icon") RestWebPlaceIcon icon) {
+    public RestWebPlaceResponse {
         if (isBlank(identifier)) {
             throw new IllegalArgumentException("Identifier cannot be blank");
         }
@@ -22,8 +22,8 @@ public record RestWebPlacesResponse(@JsonProperty("id") String identifier,
         }
     }
 
-    public static RestWebPlacesResponse fromApiPlace(ApiPlace place) {
-        return new RestWebPlacesResponse(
+    public static RestWebPlaceResponse fromApiPlace(ApiPlace place) {
+        return new RestWebPlaceResponse(
                 place.identifier().value(),
                 place.name().value(),
                 RestWebPlaceIcon.fromApiPlaceIcon(place.icon())
