@@ -5,7 +5,7 @@ import com.tower.aura.api.place.model.ApiPlace;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record RestWebPlacesResponse(@JsonProperty("identifier") String identifier,
+public record RestWebPlacesResponse(@JsonProperty("id") String identifier,
                                     @JsonProperty("name") String name,
                                     @JsonProperty("icon") RestWebPlaceIcon icon) {
     public RestWebPlacesResponse {

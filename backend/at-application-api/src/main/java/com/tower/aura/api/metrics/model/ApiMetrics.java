@@ -2,8 +2,7 @@ package com.tower.aura.api.metrics.model;
 
 public record ApiMetrics(ApiMetricsIdentifier identifier,
                          ApiMetricsName name,
-                         ApiDeviceType deviceType,
-                         ApiDeviceData deviceData) {
+                         ApiDevice device) {
     public ApiMetrics {
         if (identifier == null) {
             throw new IllegalArgumentException("Metrics value cannot be null");
@@ -13,12 +12,8 @@ public record ApiMetrics(ApiMetricsIdentifier identifier,
             throw new IllegalArgumentException("Metrics value cannot be null");
         }
 
-        if (deviceType == null) {
-            throw new IllegalArgumentException("Device type cannot be null");
-        }
-
-        if (deviceData == null) {
-            throw new IllegalArgumentException("Device data cannot be null");
+        if (device == null) {
+            throw new IllegalArgumentException("Device cannot be null");
         }
     }
 }

@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record RestWebReminderQuestionsCatalogResponse(@JsonProperty("reminderQuestionIdentifier") String reminderQuestionIdentifier,
-                                                      @JsonProperty("reminderQuestion") String reminderQuestion) {
+public record RestWebReminderQuestionsCatalogResponse(@JsonProperty("id") String reminderQuestionIdentifier,
+                                                      @JsonProperty("question") String reminderQuestion) {
     public RestWebReminderQuestionsCatalogResponse {
         if (isBlank(reminderQuestionIdentifier)) {
             throw new IllegalArgumentException("Reminder question identifier cannot be blank");

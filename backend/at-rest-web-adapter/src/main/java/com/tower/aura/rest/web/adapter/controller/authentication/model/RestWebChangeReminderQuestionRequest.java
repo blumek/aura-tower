@@ -9,8 +9,9 @@ import com.tower.aura.api.authentication.model.ApiUserIdentifier;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record RestWebChangeReminderQuestionRequest(@JsonProperty("reminderQuestionId") String reminderQuestionIdentifier,
-                                                   @JsonProperty("reminderQuestionAnswer") String reminderQuestionAnswer) {
+public record RestWebChangeReminderQuestionRequest(
+        @JsonProperty("reminderQuestionId") String reminderQuestionIdentifier,
+        @JsonProperty("reminderQuestionAnswer") String reminderQuestionAnswer) {
     public RestWebChangeReminderQuestionRequest {
         if (isBlank(reminderQuestionIdentifier)) {
             throw new IllegalArgumentException("Reminder question identifier cannot be blank");

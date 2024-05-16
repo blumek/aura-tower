@@ -3,14 +3,11 @@ package com.tower.aura.rest.web.adapter.controller.metric.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tower.aura.api.metrics.model.ApiMetrics;
 
-import java.util.Map;
-
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 public record RestWebMetricsResponse(@JsonProperty("id") String identifier,
                                      @JsonProperty("name") String name,
-                                     @JsonProperty("deviceType") RestWebDeviceTypeResponse deviceTypeResponse,
-                                     @JsonProperty("deviceData") Map<String, Object> deviceData) {
+                                     @JsonProperty("device") RestWebDeviceResponse device) {
     public RestWebMetricsResponse {
         if (isBlank(identifier)) {
             throw new IllegalArgumentException("Id cannot be blank");
@@ -20,12 +17,8 @@ public record RestWebMetricsResponse(@JsonProperty("id") String identifier,
             throw new IllegalArgumentException("Name cannot be blank");
         }
 
-        if (deviceTypeResponse == null) {
-            throw new IllegalArgumentException("Device type cannot be null");
-        }
-
-        if (deviceData == null) {
-            throw new IllegalArgumentException("Device data cannot be null");
+        if (device == null) {
+            throw new IllegalArgumentException("Device cannot be null");
         }
     }
 
@@ -33,8 +26,7 @@ public record RestWebMetricsResponse(@JsonProperty("id") String identifier,
         return new RestWebMetricsResponse(
                 metrics.identifier().value(),
                 metrics.name().value(),
-                RestWebDeviceTypeResponse.fromApiDeviceType(metrics.deviceType()),
-                metrics.deviceData().asMap()
+                RestWebDeviceResponse.fromApiDevice(metrics.device())
         );
     }
 }

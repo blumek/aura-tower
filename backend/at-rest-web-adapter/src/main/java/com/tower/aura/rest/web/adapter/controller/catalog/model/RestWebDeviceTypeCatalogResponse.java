@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record RestWebDeviceTypeCatalogResponse(@JsonProperty("deviceTypeIdentifier") String deviceTypeIdentifier,
-                                               @JsonProperty("deviceTypeName") String deviceTypeName) {
+public record RestWebDeviceTypeCatalogResponse(@JsonProperty("id") String deviceTypeIdentifier,
+                                               @JsonProperty("name") String deviceTypeName) {
     public RestWebDeviceTypeCatalogResponse {
         if (isBlank(deviceTypeIdentifier)) {
             throw new IllegalArgumentException("Device type identifier cannot be blank");

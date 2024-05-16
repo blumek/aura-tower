@@ -16,11 +16,14 @@ public class GetMetricsService implements GetMetricsUseCase {
                 new ApiMetrics(
                         new ApiMetricsIdentifier(UUID.randomUUID().toString()),
                         new ApiMetricsName("Smart Light Bulb"),
-                        new ApiDeviceType(new ApiDeviceTypeIdentifier(UUID.randomUUID().toString()), new ApiDeviceTypeName("Light Bulb")),
-                        ApiDeviceData.of(Map.of(
-                                "status", "ON",
-                                "color", "#FFFF"
-                        ))
+                        new ApiDevice(
+                                new ApiDeviceIdentifier(UUID.randomUUID().toString()),
+                                new ApiDeviceType(new ApiDeviceTypeIdentifier(UUID.randomUUID().toString()), new ApiDeviceTypeName("Light Bulb")),
+                                ApiDeviceData.of(Map.of(
+                                        "status", "ON",
+                                        "color", "#FFFF"
+                                ))
+                        )
                 )
         ));
     }
