@@ -11,6 +11,10 @@ export const environment = {
         refreshToken: `${base}/authentications/refreshed-tokens`,
     },
 
+    places: {
+        base: `${base}/places`
+    },
+
     catalogs: {
         reminderQuestions: `${base}/catalogs/reminder-questions`
     }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TowerCenterComponent } from './tower-center.component';
+import { TowerCenterComponent } from './command-center.component';
 
 describe('TowerCenterComponent', () => {
   let component: TowerCenterComponent;

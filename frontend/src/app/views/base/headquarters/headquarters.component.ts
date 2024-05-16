@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../auth/services/authentication.service';
+import { CommandCenter } from '../models/comand-center';
+import { Observable, catchError, tap, throwError } from 'rxjs';
+import { CommandCenterService } from '../services/command-center.service';
+import { SnackbarService } from '../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'at-headquarters',
@@ -9,20 +13,32 @@ import { AuthenticationService } from '../../auth/services/authentication.servic
 })
 export class HeadquartersComponent implements OnInit {
   configMode: boolean = false;
-  managementCenters: any = [
-    {
-      name: 'Home',
-      icon: 'home',
-      id: 1,
-    },
-  ];
+  data$!: Observable<CommandCenter[]>
+  commandCenters: CommandCenter[] = [] 
 
   constructor(
     private router: Router,
-    private authService: AuthenticationService
+    private authService: AuthenticationService,
+    private commandCenterService: CommandCenterService,
+    private snackBarService: SnackbarService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCommandCenters()
+  }
+
+  getCommandCenters(): void {
+    this.data$ = this.commandCenterService.fetchCommandCenters().pipe(
+      tap((resp: CommandCenter[]) => {
+        this.commandCenters = resp;
+      }),
+      catchError(err => {
+        this.snackBarService.openSnackBar(err.error.message, true);
+        
+        return throwError(() => err);
+      })
+    )
+  }
 
   logout(): void {
     this.authService.logout();
@@ -34,7 +50,7 @@ export class HeadquartersComponent implements OnInit {
 
   addNewManagementCenter(): void {
     this.configMode = true;
-    this.managementCenters.push({
+    this.commandCenters.push({
       name: 'New',
       icon: 'question_mark',
       configMode: true,
@@ -45,20 +61,20 @@ export class HeadquartersComponent implements OnInit {
     this.configMode = false;
 
     if (cancelFromAddingMode) {
-      this.managementCenters.pop();
+      this.commandCenters.pop();
     }
   }
 
   saveConfigMode(saveFromConfig: any): void {
     if(saveFromConfig.addingMode) {
-      this.managementCenters[this.managementCenters.length - 1] = {
+      this.commandCenters[this.commandCenters.length - 1] = {
         name: saveFromConfig.centerName,
         icon: saveFromConfig.centerIcon,
         configMode: false
       }
       this.configMode = false;
 
-      console.log(this.managementCenters)
+      console.log(this.commandCenters)
     }
 
   }

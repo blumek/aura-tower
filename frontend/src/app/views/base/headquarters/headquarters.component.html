@@ -4,15 +4,15 @@
     <span>Select your Aura Tower command center</span>
   </div>
 
-  <div class="headquarters-content">
+  <div *ngIf="data$ | async else loading" class="headquarters-content">
     <div class="headquarters-grid">
-      <at-info *ngIf="managementCenters.length < 1" class="headquarters-initial-info" [border]="false" infoText="This is where you will find all your command centers. Add the first center by clicking on the green tile, then give it a name, e.g. 'Home' and select the representing icon, click save and you're done"></at-info>
+      <at-info *ngIf="commandCenters.length < 1" class="headquarters-initial-info" [border]="false" infoText="This is where you will find all your command centers. Add the first center by clicking on the green tile, then give it a name, e.g. 'Home' and select the representing icon, click save and you're done"></at-info>
 
-      @for (centerData of managementCenters; track $index) {
-        <at-tower-center [centerData]="centerData" (cancelAction)="cancelConfigMode($event)" (saveAction)="saveConfigMode($event)"></at-tower-center>
+      @for (centerData of commandCenters; track $index) {
+        <at-command-center [centerData]="centerData" (cancelAction)="cancelConfigMode($event)" (saveAction)="saveConfigMode($event)"></at-command-center>
       }
       @if (!configMode) {
-        <at-tower-center (click)="addNewManagementCenter()" [isAAddingComponent]="true"></at-tower-center>
+        <at-command-center (click)="addNewManagementCenter()" [isAAddingComponent]="true"></at-command-center>
       }
     </div>
 

@@ -6,7 +6,7 @@ import { SliderStepperComponent } from '../../shared/components/slider-stepper/s
 import { HeadquartersComponent } from './headquarters/headquarters.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { LoadingComponent } from '../../shared/components/loading/loading.component';
-import { TowerCenterComponent } from './headquarters/tower-center/tower-center.component';
+import { CommandCenterComponent } from './headquarters/command-center/command-center.component';
 import { TruncateTextDirective } from '../../shared/directives/truncate-text.directive';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -39,7 +39,7 @@ const matModules = [
   declarations: [
     BaseComponent,
     HeadquartersComponent,
-    TowerCenterComponent,
+    CommandCenterComponent,
   ],
   imports: [
     CommonModule,
