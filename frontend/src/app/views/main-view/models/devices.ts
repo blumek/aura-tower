@@ -1,8 +1,13 @@
-export interface Device {
+export interface Metric {
     id: string;
     name: string;
-    deviceType: DeviceType;
-    deviceData: any
+    device: Device
+}
+
+interface Device {
+    id: string;
+    type: DeviceType;
+    data: any
 }
 
 interface DeviceType {

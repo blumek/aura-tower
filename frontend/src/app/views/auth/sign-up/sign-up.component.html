@@ -56,8 +56,8 @@
         <mat-form-field>
           <mat-label>Support question</mat-label>
           <mat-select formControlName="auxiliaryQuestion" required>
-            @for (question of questionList; track $index) {
-              <mat-option [value]="question.reminderQuestionIdentifier">{{question.reminderQuestion}}</mat-option>
+            @for (questionData of questionList; track $index) {
+              <mat-option [value]="questionData.id">{{questionData.question}}</mat-option>
             }
           </mat-select>
             @if (auxiliaryQuestionControl.errors?.['required']) {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DeviceConfigDialogComponent } from '../../../shared/components/dialogs/device-config-dialog/device-config-dialog.component';
 import { HttpClient } from '@angular/common/http';
-import { Device } from '../models/devices';
+import { Metric } from '../models/devices';
 import { environment } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -31,7 +31,7 @@ export class DevicesService {
     });
   }
 
-  fetchDevicesData(): Observable<Device[]> {
-    return this.http.get<Device[]>(environment.metrics.base)
+  fetchMetricsData(): Observable<Metric[]> {
+    return this.http.get<Metric[]>(environment.metrics.base)
   }
 }

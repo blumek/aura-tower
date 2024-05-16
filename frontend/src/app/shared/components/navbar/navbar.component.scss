@@ -91,6 +91,17 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover {
+        color: $at-green-active;
+
+        .material-symbols-outlined {
+            color: $at-green-active;
+            transition: .3s;
+        }
+    }
 }
 
 .item-name {
@@ -157,11 +168,10 @@ nav {
     
                 .material-symbols-outlined{
                     font-size: 28px;
-                    transition: .3s;
+                    cursor: pointer;
 
                     &:hover {
                         color: $at-green-active;
-                        cursor: pointer;
                     }
                 }
 

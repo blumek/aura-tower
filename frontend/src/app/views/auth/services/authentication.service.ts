@@ -3,7 +3,7 @@ import { SignUpFormRaw, signInFormRaw } from '../models/forms';
 import { Observable, concatMap, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../../../environments/environment';
-import { ReminderQuestions, SignIn, SignUp, TokenResponse } from '../models/auth';
+import { ReminderQuestions, SignInData, SignUpData, SignUpResponse, TokenResponse } from '../models/auth';
 import { JwtTokenService } from './jwt-token.service';
 import { Router } from '@angular/router';
 
@@ -19,14 +19,14 @@ export class AuthenticationService {
   ) { }
 
   signUp(signUpForm: SignUpFormRaw): Observable<Object> {
-    const singUpData: SignUp = {
+    const singUpData: SignUpData = {
       username: signUpForm.userName!,
       password: signUpForm.password!,
       reminderQuestionId: signUpForm.auxiliaryQuestion!,
       reminderQuestionAnswer: signUpForm.auxiliaryAnswer!
     }
 
-    return this.http.post(environment.authentication.signUp, singUpData).pipe(
+    return this.http.post<SignUpResponse>(environment.authentication.signUp, singUpData).pipe(
       concatMap(() => {
         return this.signIn({userName: singUpData.username, password: singUpData.password})
       })
@@ -34,12 +34,12 @@ export class AuthenticationService {
   }
 
   signIn(signInForm: signInFormRaw): Observable<TokenResponse> {
-    const signInData: SignIn = {
+    const signInData: SignInData = {
       username: signInForm.userName!,
       password: signInForm.password!,
     }
 
-    return this.http.post(environment.authentication.signIn, signInData).pipe(
+    return this.http.post<TokenResponse>(environment.authentication.signIn, signInData).pipe(
       tap((tokenResponse: any) => {
         this.jwtTokenService.setToken(tokenResponse)
       })

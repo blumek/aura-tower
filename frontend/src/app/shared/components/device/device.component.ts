@@ -5,8 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from '../dialogs/confirmation-dialog/confirmation-dialog.component';
 import { LoadingComponent } from '../loading/loading.component';
-import { Device } from '../../../views/main-view/models/devices';
 import { TruncateTextDirective } from '../../directives/truncate-text.directive';
+import { Metric } from '../../../views/main-view/models/devices';
 
 @Component({
   selector: 'at-device',
@@ -16,12 +16,12 @@ import { TruncateTextDirective } from '../../directives/truncate-text.directive'
   styleUrl: './device.component.scss',
 })
 export class DeviceComponent {
-  @Input() deviceData!: Device;
+  @Input() metricData!: Metric;
 
   constructor(public dialog: MatDialog) {}
 
   getObjectData(): string[] {
-    return Object.keys(this.deviceData.deviceData);
+    return Object.keys(this.metricData.device.data);
   }
 
   refreshDeviceData(): void {}

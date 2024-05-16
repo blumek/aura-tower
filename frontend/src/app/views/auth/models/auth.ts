@@ -1,4 +1,4 @@
-export interface SignUp {
+export interface SignUpData {
     username: string;
     password: string;
     reminderQuestionId: string;
@@ -6,10 +6,10 @@ export interface SignUp {
 }
 
 export interface SignUpResponse {
-    userIdentifier: string
+    userId: string
 }
 
-export interface SignIn {
+export interface SignInData {
     username: string;
     password: string
 }
@@ -20,7 +20,7 @@ export interface TokenResponse {
 }
 
 export interface ReminderQuestions {
-    reminderQuestionIdentifier: string,
-    reminderQuestion: string
+    id: string,
+    question: string
 }
 

@@ -1,7 +1,7 @@
 <div class="main-container">
     <at-navbar (closeNavBar)="changeNavBarVisible($event)"></at-navbar>
     <div [ngClass]="{'flex-column': true, 'site-container': true, 'close-navbar': navBarClose}">
-        <at-header [homeName]="homeName"></at-header>
+        <at-header></at-header>
         <div >
             <router-outlet></router-outlet>
         </div>
