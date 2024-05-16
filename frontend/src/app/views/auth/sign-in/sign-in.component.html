@@ -1,26 +1,26 @@
-<div class="auth-section-header animate__animated animate__fadeIn">
-  <h3>Zaloguj się!</h3>
-  <p>Zarządzaj swoim domem niczym kontroler w wieży lotniczej</p>
-</div>
 
 <div class="auth-form-container animate__animated animate__fadeIn">
+  <div class="auth-section-header animate__animated animate__fadeIn">
+    <h3>Sign in!</h3>
+    <p>Manage your home like a controller in an air traffic control tower</p>
+  </div>
   <form [formGroup]="signInForm">
     <div class="field-container">
       <mat-form-field>
-        <mat-label>Nazwa użytkownika</mat-label>
+        <mat-label>User name</mat-label>
         <input
           matInput
           formControlName="userName"
           autocomplete="on"
           required>
           @if (userNameControl.errors?.['required']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
           }
       </mat-form-field>
     </div>
     <div class="field-container">
       <mat-form-field>
-        <mat-label>Hasło</mat-label>
+        <mat-label>Password</mat-label>
         <input 
           matInput 
           formControlName="password" 
@@ -30,7 +30,7 @@
           required>
         <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         @if (passwordControl.errors?.['required']) {
-          <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+          <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
         }
       </mat-form-field>
     </div>
@@ -39,10 +39,10 @@
   <button (click)="signIn()" [disabled]="signInForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
     <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
     <span class="material-symbols-outlined">login</span>
-    <span>Zaloguj się!</span>
+    <span>Sign in</span>
   </button>
 
   <div class="spacer-3"></div>
-  <p class="auth-botton-text">Nie pamiętasz hasła ? <span (click)="onLinkClick('forgot-pass')">Przypomnij hasło</span></p>
-  <p class="auth-botton-text">Nie masz jeszcze konta ? <span (click)="onLinkClick('sign-up')">Zarejestruj się</span></p>
+  <p class="auth-botton-text">Don't remember your password?  <span (click)="onLinkClick('forgot-pass')">Remind password</span></p>
+  <p class="auth-botton-text">Don't have an account yet? <span (click)="onLinkClick('sign-up')">Sign up</span></p>
 </div>

@@ -24,15 +24,15 @@ export class HeadquartersComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  logout() {
+  logout(): void {
     this.authService.logout();
   }
 
-  goToSettings() {
+  goToSettings(): void {
     this.router.navigate(['main/settings']);
   }
 
-  addNewManagementCenter() {
+  addNewManagementCenter(): void {
     this.configMode = true;
     this.managementCenters.push({
       name: 'New',
@@ -41,11 +41,25 @@ export class HeadquartersComponent implements OnInit {
     });
   }
 
-  cancelConfigMode(cancelFromAddingMode: boolean) {
+  cancelConfigMode(cancelFromAddingMode: boolean): void {
     this.configMode = false;
 
     if (cancelFromAddingMode) {
       this.managementCenters.pop();
     }
+  }
+
+  saveConfigMode(saveFromConfig: any): void {
+    if(saveFromConfig.addingMode) {
+      this.managementCenters[this.managementCenters.length - 1] = {
+        name: saveFromConfig.centerName,
+        icon: saveFromConfig.centerIcon,
+        configMode: false
+      }
+      this.configMode = false;
+
+      console.log(this.managementCenters)
+    }
+
   }
 }

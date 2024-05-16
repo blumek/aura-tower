@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { InfoComponent } from '../../shared/components/info/info.component';
+import { MatMenuModule } from '@angular/material/menu';
 
 const components = [
   SliderStepperComponent,
@@ -30,7 +31,8 @@ const matModules = [
   MatIconModule,
   MatTooltipModule,
   MatFormFieldModule,
-  MatSelectModule
+  MatSelectModule,
+  MatMenuModule
 ]
 
 @NgModule({

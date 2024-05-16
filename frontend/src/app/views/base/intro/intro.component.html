@@ -24,7 +24,7 @@
           [ngClass]="{'at-button': true, 'normal': true, 'iconic': true, 'flat-green': true, 'hide': !visibleConfig.button, 'show': visibleConfig.button}"
           class="at-button normal iconic flat-green">
           <span class="material-symbols-outlined">arrow_forward_ios</span>
-          <span>Następny krok</span>
+          <span>Next step</span>
         </button>
         <button
           *ngIf="step === allSteps"
@@ -32,13 +32,13 @@
           [ngClass]="{'at-button': true, 'normal': true, 'iconic': true, 'flat-green': true, 'hide': !visibleConfig.button, 'show': visibleConfig.button}"
           class="at-button normal iconic flat-green">
           <span class="material-symbols-outlined">login</span>
-          <span>Zaczynamy!</span>
+          <span>Get started!</span>
         </button>
       </div>
       <div class="spacer-2"></div>
       <p
         (click)="skipIntro()"
-        [ngClass]="{'skip-button': true, 'hide': step === allSteps}">Pomiń wprowadzenie</p>
+        [ngClass]="{'skip-button': true, 'hide': step === allSteps}">Skip introduction</p>
     </div>
   </div>
 </div>

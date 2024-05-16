@@ -5,14 +5,22 @@
           <div
           class="tower-icon">
               <span class="material-symbols-outlined">add</span>
-              <p [appTruncateText]="50">Add new tower center</p>
+              <p [appTruncateText]="50">Add new command center</p>
           </div>
       } @else if (configMode) {
         <div
         class="tower-icon"
         [formGroup]="managementCenterForm">
             <span class="material-symbols-outlined">{{centerData.icon}}</span>
-            <div class="tower-icon-trigger"><span class="material-symbols-outlined">arrow_drop_down</span></div>
+            <div class="tower-icon-trigger"><span class="material-symbols-outlined" [matMenuTriggerFor]="menu">arrow_drop_down</span></div>
+            <mat-menu  #menu="matMenu">
+              @for (item of iconsCatalog; track $index) {
+                <button (click)="setIcon(item)" class="tower-icon-menu" mat-menu-item>
+                  <span class="material-symbols-outlined">{{item.icon}}</span>
+                  <span>{{item.name}}</span>
+                </button>
+              }
+            </mat-menu>
             <div class="field-container">
                 <input
                   formControlName="centerName"
@@ -34,7 +42,7 @@
         <span class="material-symbols-outlined">close</span>
         <span>Cancel</span>
       </div>
-      <div [ngClass]="{'save-disable': centerNameControl.invalid}" (click)="save()">
+      <div [ngClass]="{'save-disable': managementCenterForm.invalid}" (click)="save()">
         <span class="material-symbols-outlined">check</span>
         <span>Save</span>
       </div>

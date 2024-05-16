@@ -15,7 +15,12 @@
 
     &:hover {
         box-shadow: $shadow-active-green;
+        color: $at-green-active;
         cursor: pointer;
+
+        .top-section .tower-icon .material-symbols-outlined {
+            color: $at-green-active;
+        }
     }
 
     .top-section {
@@ -32,6 +37,7 @@
             .material-symbols-outlined {
                 font-size: 70px;
                 color: $icon-light;
+                transition: .3s;
                 margin-bottom: 10px;
             }
 
@@ -117,13 +123,17 @@
 
     &:hover {
         background-color: $at-green-active;
+
+        .top-section .tower-icon .material-symbols-outlined {
+            color: $white;
+        }
     }
 
     .top-section {
-        color: white;
+        color: $white;
 
         .tower-icon .material-symbols-outlined {
-            color: white;
+            color: $white
         }
     }
 }
@@ -136,5 +146,37 @@
     &:hover {
         cursor: auto;
         box-shadow: none;
+
+        .top-section {
+            .tower-icon .material-symbols-outlined {
+                color: $icon-light;
+            } 
+        }
+    }
+
+    .top-section {
+        .tower-icon {
+            .tower-icon-menu {
+                background-color: red !important;
+            }
+    
+            .tower-icon-trigger {
+                position:  absolute;
+                top: 20%;
+                right: 30%;
+                cursor: pointer;
+        
+        
+                .material-symbols-outlined {
+                    font-size: 32px;
+                    transition: .3s;
+                    color: $icon-light;
+        
+                    &:hover {
+                        color: $at-green-active
+                    }
+                }
+            }
+        }
     }
 }

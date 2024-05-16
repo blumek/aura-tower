@@ -1,13 +1,13 @@
 <div class="headquarters-container">
   <div class="headquarters-title">
     <span class="material-symbols-outlined">home_pin</span>
-    <span>Select your Aura Tower management center</span>
+    <span>Select your Aura Tower command center</span>
   </div>
 
   <div class="headquarters-content">
     <div class="headquarters-grid">
       @for (centerData of managementCenters; track $index) {
-        <at-tower-center [centerData]="centerData" (cancelAction)="cancelConfigMode($event)"></at-tower-center>
+        <at-tower-center [centerData]="centerData" (cancelAction)="cancelConfigMode($event)" (saveAction)="saveConfigMode($event)"></at-tower-center>
       }
       @if (!configMode) {
         <at-tower-center (click)="addNewManagementCenter()" [isAAddingComponent]="true"></at-tower-center>

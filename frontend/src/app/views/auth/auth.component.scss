@@ -40,7 +40,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  justify-content: center;
+  height: calc(100vh - 103px - 60px - 30px);
 
   form {
     margin-top: 20px;
@@ -69,7 +70,7 @@
 
   .auth-form-container {
     form {
-      max-height: 280px;
+      // max-height: 280px;
     }
 
     button {
@@ -88,7 +89,7 @@
 @media (min-width: 992px) and (min-height: 800px) {
   .auth-form-container {
     form {
-      max-height: 320px;
+      // max-height: 320px;
     }
   }
 }
@@ -96,7 +97,7 @@
 @media (min-width: 992px) and (min-height: 945px) {
   .auth-form-container {
     form {
-      max-height: 600px
+      // max-height: 600px
     }
   }
 }

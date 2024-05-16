@@ -1,27 +1,28 @@
-<div class="auth-section-header animate__animated animate__fadeIn">
-    <h3>Zarejestruj się!</h3>
-    <p>Potrzebujemy od Ciebie kilku informacji, abyś mógł korzystać z wierży w swoim otoczeniu</p>
-</div>
+
 
 <div *ngIf="reminderQuestionsList$ | async; let questionList; else loading" class="auth-form-container animate__animated animate__fadeIn">
-    <form [formGroup]="signUpForm">
+  <div class="auth-section-header animate__animated animate__fadeIn">
+    <h3>Sign up!</h3>
+    <p>We need some information from you so that you can use tower in your environment</p>
+</div>  
+  <form [formGroup]="signUpForm">
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Nazwa użytkownika</mat-label>
+          <mat-label>User name</mat-label>
           <input
             matInput
             formControlName="userName"
             required>
             @if (userNameControl.errors?.['required']) {
-              <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+              <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
             } @else if (userNameControl.errors?.['userNameExists']) {
-              <mat-error><span class="material-symbols-outlined">error</span>Podana nazwa użytkownika już istnieje w systemie</mat-error>
+              <mat-error><span class="material-symbols-outlined">error</span>User name already exists in the system</mat-error>
             }
         </mat-form-field>
       </div>
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Hasło</mat-label>
+          <mat-label>Password</mat-label>
           <input 
             matInput 
             formControlName="password" 
@@ -30,15 +31,15 @@
             required>
           <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           @if (passwordControl.errors?.['required']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
           } @else if (passwordControl.errors?.['minlength']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Wymagane jest przynajmniej 8 znaków</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>At least 8 characters are required</mat-error>
           }
         </mat-form-field>
       </div>
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Powtórz hasło</mat-label>
+          <mat-label>Confirm password</mat-label>
           <input 
             matInput 
             formControlName="confirmPassword" 
@@ -47,32 +48,32 @@
             required>
           <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           @if (signUpForm.errors?.['notSame']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Hasła muszą być takie same</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>Passwords must be the same</mat-error>
           }
         </mat-form-field>
       </div>
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Pytanie pomocnicze</mat-label>
+          <mat-label>Support question</mat-label>
           <mat-select formControlName="auxiliaryQuestion" required>
             @for (question of questionList; track $index) {
               <mat-option [value]="question.reminderQuestionIdentifier">{{question.reminderQuestion}}</mat-option>
             }
           </mat-select>
             @if (auxiliaryQuestionControl.errors?.['required']) {
-              <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+              <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
             }
         </mat-form-field>
       </div>
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Odpowiedź na pytanie pomocnicze</mat-label>
+          <mat-label>Answer to the supporting question</mat-label>
           <input
             matInput
             formControlName="auxiliaryAnswer"
             required>
             @if (auxiliaryAnswerControl.errors?.['required']) {
-              <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+              <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
             }
         </mat-form-field>
       </div>
@@ -81,10 +82,10 @@
     <button (click)="signUp()" [disabled]="signUpForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
       <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
       <span class="material-symbols-outlined">login</span>
-      <span>Zarejestruj się</span>
+      <span>Sign up</span>
     </button>
     <div class="spacer-3"></div>
-    <p class="auth-botton-text">Masz już konto? <span (click)="goToSignIn()">Zaloguj się</span></p>
+    <p class="auth-botton-text">Do you already have an account? <span (click)="goToSignIn()">Sign in</span></p>
   </div>
 
   <ng-template #loading>
