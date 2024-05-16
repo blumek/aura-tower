@@ -68,11 +68,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     switch (actionName) {
       case 'full-screen':
         document.documentElement.requestFullscreen();
-        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Wyjdź z trybu pełnoekranowego', action: ActionName.fullscreenExit, display: DisplayType.both, id: 1}
+        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Exit fullscreen', action: ActionName.fullscreenExit, display: DisplayType.both, id: 1}
         break;
       case 'full-screen-exit':
         document.exitFullscreen();
-        this.menuElements[0] = {icon: 'fullscreen', name: 'Tryb pełnoekranowy', action: ActionName.fullscreen, display: DisplayType.both, id: 1}
+        this.menuElements[0] = {icon: 'fullscreen', name: 'Fullscreen', action: ActionName.fullscreen, display: DisplayType.both, id: 1}
         break;
       case 'add-device':
         this.devicesService.openAddDeviceDialog();

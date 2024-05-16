@@ -28,10 +28,15 @@
         *ngFor="let item of menuElements"
         [ngStyle]="{'display': item.display === displayTypeMobile ? 'none' : 'flex'}"
         class="flex-row justify-center">
-        <span
+        <div
+          class="menu-buttons-box"
           *ngIf="item.display !== displayTypeMobile"
           (click)="onMenuItemSelected(item.action)"
-          [ngClass]="{'material-symbols-outlined': true, 'menu-item-active': pageData.icon === item.icon}">{{item.icon}}</span>
+          [ngClass]="{'menu-item-active': pageData.icon === item.icon}">
+          <span class="material-symbols-outlined">{{item.icon}}</span>
+          <span class="item-name">{{item.name}}</span>
+        </div>
+
       </div>
     </div>
   </div>
