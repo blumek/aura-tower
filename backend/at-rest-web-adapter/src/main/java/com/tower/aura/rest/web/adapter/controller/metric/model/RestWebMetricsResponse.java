@@ -7,13 +7,13 @@ import java.util.Map;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
-public record RestWebMetricsResponse(@JsonProperty("id") String id,
+public record RestWebMetricsResponse(@JsonProperty("id") String identifier,
                                      @JsonProperty("name") String name,
                                      @JsonProperty("deviceType") RestWebDeviceTypeResponse deviceTypeResponse,
                                      @JsonProperty("deviceData") Map<String, Object> deviceData) {
     public RestWebMetricsResponse {
-        if (id == null) {
-            throw new IllegalArgumentException("Id cannot be null");
+        if (isBlank(identifier)) {
+            throw new IllegalArgumentException("Id cannot be blank");
         }
 
         if (isBlank(name)) {
