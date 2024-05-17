@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TowerCenterComponent } from './command-center.component';
+import { CommandCenterComponent } from './command-center.component';
 
 describe('TowerCenterComponent', () => {
-  let component: TowerCenterComponent;
-  let fixture: ComponentFixture<TowerCenterComponent>;
+  let component: CommandCenterComponent;
+  let fixture: ComponentFixture<CommandCenterComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [TowerCenterComponent]
+      declarations: [CommandCenterComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(TowerCenterComponent);
+    fixture = TestBed.createComponent(CommandCenterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

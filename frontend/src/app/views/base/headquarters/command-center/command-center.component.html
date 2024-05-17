@@ -1,4 +1,88 @@
 <div class="animate__animated animate__fadeIn">
+  <ng-container [ngSwitch]="configModeType">
+    <ng-container *ngSwitchCase="configModeTypes.config" [ngTemplateOutlet]="configTemplate" [ngTemplateOutletContext]="{data: $any(centerData)}"></ng-container>
+    <ng-container *ngSwitchCase="configModeTypes.add" [ngTemplateOutlet]="addTemplate" [ngTemplateOutletContext]="{data: $any(centerData)}"></ng-container>
+    <ng-container *ngSwitchDefault [ngTemplateOutlet]="normalTemplate" [ngTemplateOutletContext]="{data: $any(centerData)}"></ng-container>
+  </ng-container>
+</div>
+
+<!-- Normal -->
+<ng-template #normalTemplate let-data="data">
+  <div class="tower-center-container" (click)="goToTowerDashboard($event)">
+    <div class="top-section">
+      <div class="tower-icon-menu">
+        <span data-action="menu-action" class="material-symbols-outlined" [matMenuTriggerFor]="menu">menu</span>
+        <mat-menu #menu="matMenu">
+          <button (click)="editComandCenter()" mat-menu-item>
+            <mat-icon>edit</mat-icon>
+            <span>Edit command center</span>
+          </button>
+          <button (click)="openDeleteDialog()" class="danger" mat-menu-item>
+            <mat-icon>delete_forever</mat-icon>
+            <span>Delete command center</span>
+          </button>
+        </mat-menu>
+      </div>
+      <div class="tower-icon">
+          <span class="material-symbols-outlined">{{centerData.icon}}</span>
+          <p class="tower-name" [matTooltip]="centerData.name" [matTooltipDisabled]="centerData.name.length < 50" [appTruncateText]="50">{{centerData.name}}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Config -->
+<ng-template #configTemplate let-data="data">
+  <div class="tower-center-container tower-center-container-config">
+    <div class="top-section">
+      <div
+      class="tower-icon"
+      [formGroup]="managementCenterForm">
+          <span class="material-symbols-outlined">{{centerData.icon}}</span>
+          <div class="tower-icon-trigger"><span class="material-symbols-outlined" [matMenuTriggerFor]="iconsSelect">arrow_drop_down</span></div>
+          <mat-menu  #iconsSelect="matMenu">
+            @for (item of iconsCatalog; track $index) {
+              <button (click)="setIcon(item)" class="tower-icon-menu" mat-menu-item>
+                <span class="material-symbols-outlined">{{item.icon}}</span>
+                <span>{{item.name}}</span>
+              </button>
+            }
+          </mat-menu>
+          <div class="field-container">
+              <input
+                formControlName="centerName"
+                autocomplete="on"
+                placeholder="Edit name"
+                required>
+          </div>
+      </div>
+    </div>
+    <div class="bottom-section">
+      <div (click)="cancel()">
+        <span class="material-symbols-outlined">close</span>
+        <span>Cancel</span>
+      </div>
+      <div [ngClass]="{'save-disable': managementCenterForm.invalid}" (click)="save()">
+        <span class="material-symbols-outlined">check</span>
+        <span>Save</span>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- Add -->
+<ng-template #addTemplate let-data="data">
+  <div class="tower-center-container green-add-button" (click)="add()">
+    <div class="top-section">
+    <div class="tower-icon">
+        <span class="material-symbols-outlined">add</span>
+        <p [appTruncateText]="50">Add command center</p>
+    </div>
+    </div>
+  </div>
+</ng-template>
+
+<!-- <div class="animate__animated animate__fadeIn">
   <div [ngClass]="{'tower-center-container': true, 'green-add-button': isAAddingComponent, 'tower-center-container-config': configMode}" (click)="goToTowerDashboard()">
     <div class="top-section">
       @if (isAAddingComponent) {
@@ -48,5 +132,5 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 

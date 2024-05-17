@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../auth/services/authentication.service';
-import { CommandCenter } from '../models/comand-center';
+import { CommandCenter, ConfigModeTypes } from '../models/comand-center';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { CommandCenterService } from '../services/command-center.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
@@ -15,6 +15,7 @@ export class HeadquartersComponent implements OnInit {
   configMode: boolean = false;
   data$!: Observable<CommandCenter[]>
   commandCenters: CommandCenter[] = [] 
+  configModeTypes = ConfigModeTypes
 
   constructor(
     private router: Router,
@@ -53,14 +54,14 @@ export class HeadquartersComponent implements OnInit {
     this.commandCenters.push({
       name: 'New',
       icon: 'question_mark',
-      configMode: true,
+      configModeType: this.configModeTypes.config,
     });
   }
 
-  cancelConfigMode(cancelFromAddingMode: boolean): void {
+  cancelConfigMode(cancelFromAddMode: boolean): void {
     this.configMode = false;
 
-    if (cancelFromAddingMode) {
+    if (cancelFromAddMode) {
       this.commandCenters.pop();
     }
   }
@@ -68,14 +69,13 @@ export class HeadquartersComponent implements OnInit {
   saveConfigMode(saveFromConfig: any): void {
     if(saveFromConfig.addingMode) {
       this.commandCenters[this.commandCenters.length - 1] = {
+        id: 'new-element',
         name: saveFromConfig.centerName,
         icon: saveFromConfig.centerIcon,
-        configMode: false
+        configModeType: this.configModeTypes.normal
       }
       this.configMode = false;
-
-      console.log(this.commandCenters)
+      console.log(this.commandCenters);
     }
-
   }
 }

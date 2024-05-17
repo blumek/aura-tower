@@ -2,5 +2,11 @@ export interface CommandCenter {
     name: string;
     icon: string;
     id?: string;
-    configMode?: boolean
+    configModeType?: ConfigModeTypes
+}
+
+export enum ConfigModeTypes {
+    config = 'config',
+    add = 'add',
+    normal = 'normal'
 }

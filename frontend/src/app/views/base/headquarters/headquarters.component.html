@@ -12,7 +12,7 @@
         <at-command-center [centerData]="centerData" (cancelAction)="cancelConfigMode($event)" (saveAction)="saveConfigMode($event)"></at-command-center>
       }
       @if (!configMode) {
-        <at-command-center (click)="addNewManagementCenter()" [isAAddingComponent]="true"></at-command-center>
+        <at-command-center (addAction)="addNewManagementCenter()" [configModeType]="configModeTypes.add"></at-command-center>
       }
     </div>
 

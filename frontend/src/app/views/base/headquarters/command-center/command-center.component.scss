@@ -72,6 +72,21 @@
                 }
             }
         }
+
+        .tower-icon-menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: $icon-light;
+            z-index: 2;
+            cursor: pointer;
+            transition: .3s;
+
+            &:hover {
+                color: $at-green-active;
+            }
+
+        }
     }
 
     .bottom-section {
