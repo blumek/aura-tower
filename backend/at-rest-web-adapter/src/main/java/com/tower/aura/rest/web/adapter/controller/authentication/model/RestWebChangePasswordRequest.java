@@ -3,7 +3,7 @@ package com.tower.aura.rest.web.adapter.controller.authentication.model;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.tower.aura.api.authentication.ChangePasswordRequest;
 import com.tower.aura.api.authentication.model.ApiPassword;
-import com.tower.aura.api.authentication.model.ApiUserIdentifier;
+import com.tower.aura.api.model.ApiUserIdentifier;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 

@@ -4,6 +4,7 @@ import com.tower.aura.api.authentication.LogInUserReply;
 import com.tower.aura.api.authentication.LogInUserRequest;
 import com.tower.aura.api.authentication.LogInUserUseCase;
 import com.tower.aura.api.authentication.model.*;
+import com.tower.aura.api.model.ApiUserIdentifier;
 import com.tower.aura.spi.authentication.jwt.AccessTokenCreateRequest;
 import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;
 import com.tower.aura.spi.authentication.jwt.RefreshTokenCreator;

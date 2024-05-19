@@ -8,7 +8,7 @@ import com.tower.aura.api.authentication.RefreshTokenRequest;
 import com.tower.aura.api.authentication.RefreshTokenUseCase;
 import com.tower.aura.api.authentication.model.ApiJsonWebToken;
 import com.tower.aura.api.authentication.model.ApiJsonWebTokenPair;
-import com.tower.aura.api.authentication.model.ApiUserIdentifier;
+import com.tower.aura.api.model.ApiUserIdentifier;
 import com.tower.aura.api.authentication.model.ApiUsername;
 import com.tower.aura.spi.authentication.jwt.AccessTokenCreateRequest;
 import com.tower.aura.spi.authentication.jwt.AccessTokenCreator;

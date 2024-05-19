@@ -5,7 +5,7 @@ import com.tower.aura.api.authentication.ChangeReminderQuestionRequest;
 import com.tower.aura.api.authentication.model.ApiReminderQuestion;
 import com.tower.aura.api.authentication.model.ApiReminderQuestionAnswer;
 import com.tower.aura.api.authentication.model.ApiReminderQuestionIdentifier;
-import com.tower.aura.api.authentication.model.ApiUserIdentifier;
+import com.tower.aura.api.model.ApiUserIdentifier;
 
 import static org.apache.commons.lang3.StringUtils.isBlank;
 

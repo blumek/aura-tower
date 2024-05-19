@@ -3,7 +3,7 @@ package com.tower.aura.service.authentication;
 import com.tower.aura.api.authentication.RegisterUserReply;
 import com.tower.aura.api.authentication.RegisterUserRequest;
 import com.tower.aura.api.authentication.RegisterUserUseCase;
-import com.tower.aura.api.authentication.model.ApiUserIdentifier;
+import com.tower.aura.api.model.ApiUserIdentifier;
 import com.tower.aura.spi.encryption.PasswordEncrypter;
 import com.tower.aura.spi.persistence.user.UsernameQueryGateway;
 import com.tower.aura.spi.persistence.user.authentication.UserCredentialsPersistenceGateway;
