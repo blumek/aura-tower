@@ -4,6 +4,7 @@ import { NgModule } from "@angular/core";
 import { IntroComponent } from "./intro/intro.component";
 import { authGuard } from "../../shared/guards/auth.guard";
 import { HeadquartersComponent } from "./headquarters/headquarters.component";
+import { SettingsComponent } from "./settings/settings.component";
 
 const operatorRoutes: Routes = [
     {
@@ -21,6 +22,11 @@ const operatorRoutes: Routes = [
                 component: IntroComponent,
                 canActivate: [authGuard]    
             },
+            { 
+                path: 'settings',
+                component: SettingsComponent,
+                canActivate: [authGuard]
+            }
         ]
     },
 ];

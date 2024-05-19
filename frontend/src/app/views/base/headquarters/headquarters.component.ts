@@ -46,7 +46,7 @@ export class HeadquartersComponent implements OnInit {
   }
 
   goToSettings(): void {
-    this.router.navigate(['main/settings']);
+    this.router.navigate(['base/settings']);
   }
 
   addNewManagementCenter(): void {

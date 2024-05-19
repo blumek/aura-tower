@@ -1,0 +1,70 @@
+@if (loading) {
+    <at-loading [blur]="true"></at-loading>
+} @else {
+    <div class="sheadquarters-container">
+      <div class="headquarters-title">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </div>
+      
+      <div class="settings-container">
+        <mat-accordion class="example-headers-align" multi>
+          <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="material-symbols-outlined">
+                  person
+                  </span>
+                Dane konta
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="material-symbols-outlined">
+                  key
+                  </span>
+                Hasło
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="material-symbols-outlined">
+                  home_pin
+                  </span>
+                Lokalizacja
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="material-symbols-outlined">
+                  widgets
+                  </span>
+                Aplikacja
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <span class="material-symbols-outlined">
+                  diversity_1
+                  </span>
+                O autorach
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </div>
+
+    </div>
+}

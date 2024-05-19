@@ -17,12 +17,14 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { InfoComponent } from '../../shared/components/info/info.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { SettingsComponent } from './settings/settings.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const components = [
   SliderStepperComponent,
   HeaderComponent,
   LoadingComponent,
-  InfoComponent
+  InfoComponent,
 ]
 
 const matModules = [
@@ -32,7 +34,8 @@ const matModules = [
   MatTooltipModule,
   MatFormFieldModule,
   MatSelectModule,
-  MatMenuModule
+  MatMenuModule,
+  MatExpansionModule
 ]
 
 @NgModule({
@@ -40,6 +43,7 @@ const matModules = [
     BaseComponent,
     HeadquartersComponent,
     CommandCenterComponent,
+    SettingsComponent
   ],
   imports: [
     CommonModule,
