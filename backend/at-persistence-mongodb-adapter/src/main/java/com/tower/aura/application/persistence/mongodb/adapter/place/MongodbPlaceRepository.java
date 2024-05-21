@@ -6,4 +6,6 @@ interface MongodbPlaceRepository {
     List<PlaceDocument> findUserPlaces(String userIdentifier);
 
     PlaceDocument save(PlaceDocument placeDocument);
+
+    void removeByIdentifier(String identifier);
 }

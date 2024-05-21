@@ -21,4 +21,9 @@ class DefaultMongodbPlaceRepository implements MongodbPlaceRepository {
     public PlaceDocument save(PlaceDocument placeDocument) {
         return repository.save(placeDocument);
     }
+
+    @Override
+    public void removeByIdentifier(String identifier) {
+        repository.deleteById(identifier);
+    }
 }

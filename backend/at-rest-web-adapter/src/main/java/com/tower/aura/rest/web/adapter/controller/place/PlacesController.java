@@ -3,6 +3,7 @@ package com.tower.aura.rest.web.adapter.controller.place;
 import com.tower.aura.api.model.ApiUserIdentifier;
 import com.tower.aura.api.place.*;
 import com.tower.aura.api.place.model.ApiPlaceIcon;
+import com.tower.aura.api.place.model.ApiPlaceIdentifier;
 import com.tower.aura.api.place.model.ApiPlaceName;
 import com.tower.aura.rest.web.adapter.controller.model.RestWebUserIdentifier;
 import com.tower.aura.rest.web.adapter.controller.place.model.CreatePlaceRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static org.springframework.http.ResponseEntity.noContent;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
@@ -20,11 +22,14 @@ import static org.springframework.http.ResponseEntity.ok;
 class PlacesController {
     private final GetUserPlacesUseCase getUserPlacesUseCase;
     private final CreatePlaceUseCase createPlaceUseCase;
+    private final RemovePlaceUseCase removePlaceUseCase;
 
     public PlacesController(GetUserPlacesUseCase getUserPlacesUseCase,
-                            CreatePlaceUseCase createPlaceUseCase) {
+                            CreatePlaceUseCase createPlaceUseCase,
+                            RemovePlaceUseCase removePlaceUseCase) {
         this.getUserPlacesUseCase = getUserPlacesUseCase;
         this.createPlaceUseCase = createPlaceUseCase;
+        this.removePlaceUseCase = removePlaceUseCase;
     }
 
     @GetMapping
@@ -63,6 +68,18 @@ class PlacesController {
                 createPlaceReply.place().identifier().value(),
                 createPlaceReply.place().name().value(),
                 RestWebPlaceIcon.fromApiPlaceIcon(createPlaceReply.place().icon())
+        );
+    }
+
+    @DeleteMapping("/{placeIdentifier}")
+    public ResponseEntity<?> removePlace(@PathVariable String placeIdentifier) {
+        removePlaceUseCase.remove(toRemovePlaceRequest(placeIdentifier));
+        return noContent().build();
+    }
+
+    private RemovePlaceRequest toRemovePlaceRequest(String placeIdentifier) {
+        return new RemovePlaceRequest(
+                new ApiPlaceIdentifier(placeIdentifier)
         );
     }
 }
