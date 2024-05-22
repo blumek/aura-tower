@@ -12,16 +12,21 @@ import java.util.UUID;
 
 @Service
 class MongodbPlacePersistenceGateway implements PlacePersistenceGateway {
-    private final MongodbPlaceRepository repository;
+    private final MongodbPlaceRepository placeRepository;
+    private final MongodbUserPlacesRepository userPlacesRepository;
 
-    MongodbPlacePersistenceGateway(MongodbPlaceRepository repository) {
-        this.repository = repository;
+    MongodbPlacePersistenceGateway(MongodbPlaceRepository placeRepository,
+                                   MongodbUserPlacesRepository userPlacesRepository) {
+        this.placeRepository = placeRepository;
+        this.userPlacesRepository = userPlacesRepository;
     }
 
     @Override
     public PlacePersistenceReply persist(PlacePersistenceRequest placePersistenceRequest) {
         final var placeDocument = toPlaceDocument(placePersistenceRequest);
-        return toPlacePersistenceReply(repository.save(placeDocument));
+        final var savedPlace = placeRepository.save(placeDocument);
+        userPlacesRepository.addUserPlace(UUID.randomUUID().toString(), savedPlace.getIdentifier());
+        return toPlacePersistenceReply(savedPlace);
     }
 
     private PlaceDocument toPlaceDocument(PlacePersistenceRequest placePersistenceRequest) {

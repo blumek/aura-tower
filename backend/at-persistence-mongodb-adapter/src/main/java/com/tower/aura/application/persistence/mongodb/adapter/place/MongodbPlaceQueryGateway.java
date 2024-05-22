@@ -11,15 +11,18 @@ import java.util.List;
 
 @Service
 class MongodbPlaceQueryGateway implements PlaceQueryGateway {
-    private final MongodbPlaceRepository repository;
+    private final MongodbUserPlacesRepository userPlacesRepository;
+    private final MongodbPlaceRepository placeRepository;
 
-    MongodbPlaceQueryGateway(MongodbPlaceRepository repository) {
-        this.repository = repository;
+    MongodbPlaceQueryGateway(MongodbUserPlacesRepository userPlacesRepository,
+                             MongodbPlaceRepository placeRepository) {
+        this.userPlacesRepository = userPlacesRepository;
+        this.placeRepository = placeRepository;
     }
 
     @Override
     public List<PersistencePlace> findUserPlaces(String userIdentifier) {
-        return repository.findUserPlaces(userIdentifier)
+        return placeRepository.findPlacesByIdentifiers(userPlacesRepository.findUserPlaceIdentifiers(userIdentifier))
                 .stream()
                 .map(this::toPlacePersistence)
                 .toList();

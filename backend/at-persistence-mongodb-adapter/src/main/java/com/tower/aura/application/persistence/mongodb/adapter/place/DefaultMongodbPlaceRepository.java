@@ -13,8 +13,8 @@ class DefaultMongodbPlaceRepository implements MongodbPlaceRepository {
     }
 
     @Override
-    public List<PlaceDocument> findUserPlaces(String userIdentifier) {
-        return List.of();
+    public List<PlaceDocument> findPlacesByIdentifiers(List<String> placeIdentifiers) {
+        return repository.findAllById(placeIdentifiers);
     }
 
     @Override
