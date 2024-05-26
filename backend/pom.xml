@@ -6,7 +6,7 @@
 
     <groupId>com.tower.aura</groupId>
     <artifactId>aura-tower</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
         <module>at-application-bootstrap</module>
