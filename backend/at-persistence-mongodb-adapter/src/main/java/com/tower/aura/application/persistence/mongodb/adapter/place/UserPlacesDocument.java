@@ -38,9 +38,9 @@ public class UserPlacesDocument {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof UserPlacesDocument that)) return false;
+    public boolean equals(Object other) {
+        if (this == other) return true;
+        if (!(other instanceof UserPlacesDocument that)) return false;
         return Objects.equals(userIdentifier, that.userIdentifier);
     }
 
