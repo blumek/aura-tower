@@ -68,14 +68,24 @@ export class HeadquartersComponent implements OnInit {
 
   saveConfigMode(saveFromConfig: any): void {
     if(saveFromConfig.addingMode) {
-      this.commandCenters[this.commandCenters.length - 1] = {
-        id: 'new-element',
+      const newCenter = {
         name: saveFromConfig.centerName,
         icon: saveFromConfig.centerIcon,
-        configModeType: this.configModeTypes.normal
       }
+
+      this.commandCenterService.createCommandCenter(newCenter).subscribe({
+        next: () => {
+          this.snackBarService.openSnackBar('New command center added', false);
+          this.getCommandCenters()
+        },
+        error: (err) => {
+          this.snackBarService.openSnackBar(err.error.message, true);
+        }
+        
+        
+      })
+
       this.configMode = false;
-      console.log(this.commandCenters);
     }
   }
 }

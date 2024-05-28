@@ -16,4 +16,8 @@ export class CommandCenterService {
   fetchCommandCenters(): Observable<CommandCenter[]> {
     return this.http.get<CommandCenter[]>(environment.places.base)
   }
+
+  createCommandCenter(commandCenter: CommandCenter): Observable<CommandCenter> {
+    return this.http.post<CommandCenter>(environment.places.base, commandCenter)
+  }
 }
