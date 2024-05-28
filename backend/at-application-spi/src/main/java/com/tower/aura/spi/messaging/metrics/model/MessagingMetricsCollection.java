@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.toMap;
+
 public final class MessagingMetricsCollection {
     private final Map<String, MessagingMetric> metrics;
 
@@ -27,6 +29,12 @@ public final class MessagingMetricsCollection {
 
     public Collection<MessagingMetric> asCollection() {
         return metrics.values();
+    }
+
+    public Map<MessagingMetricName, MessagingMetricValue> asMap() {
+        return metrics.values()
+                .stream()
+                .collect(toMap(MessagingMetric::metricName, MessagingMetric::metricValue));
     }
 
     @Override

@@ -15,6 +15,7 @@
         <module>at-rest-web-adapter</module>
         <module>at-application-service</module>
         <module>at-application-spi</module>
+        <module>at-messaging-websocket-adapter</module>
     </modules>
 
     <properties>
@@ -68,6 +69,11 @@
             <dependency>
                 <groupId>com.tower.aura.application.persistence.adapter</groupId>
                 <artifactId>at-persistence-mongodb-adapter</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tower.aura.messaging.websocket.adapter</groupId>
+                <artifactId>at-messaging-websocket-adapter</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>

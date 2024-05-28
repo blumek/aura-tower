@@ -1,6 +1,6 @@
 package com.tower.aura.spi.messaging.metrics.model;
 
-public sealed class MessagingMetricValue permits
+public sealed abstract class MessagingMetricValue permits
         MessagingBooleanMetricValue,
         MessagingNumberMetricValue,
         MessagingStringMetricValue {

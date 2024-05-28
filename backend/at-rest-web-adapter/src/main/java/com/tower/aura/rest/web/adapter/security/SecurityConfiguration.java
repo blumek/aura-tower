@@ -77,6 +77,7 @@ class SecurityConfiguration {
                         "/v1/authentications/tokens",
                         "/v1/authentications/refreshed-tokens",
                         "/v1/catalogs/reminder-questions",
+                        "/ws/**",
                         "/swagger-ui/**",
                         "/v3/api-docs/**"
                 ).permitAll()
