@@ -12,6 +12,7 @@ import com.tower.aura.spi.persistence.place.PlacePersistenceReply;
 import com.tower.aura.spi.persistence.place.PlacePersistenceRequest;
 import com.tower.aura.spi.persistence.place.model.PersistencePlaceIcon;
 import com.tower.aura.spi.persistence.place.model.PersistencePlaceName;
+import com.tower.aura.spi.persistence.user.model.PersistenceUserIdentifier;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,7 +32,8 @@ public class CreatePlaceService implements CreatePlaceUseCase {
     private PlacePersistenceRequest toPlacePersistenceRequest(CreatePlaceRequest createPlaceRequest) {
         return new PlacePersistenceRequest(
                 new PersistencePlaceName(createPlaceRequest.name().value()),
-                PersistencePlaceIcon.valueOf(createPlaceRequest.icon().name())
+                PersistencePlaceIcon.valueOf(createPlaceRequest.icon().name()),
+                new PersistenceUserIdentifier(createPlaceRequest.ownerIdentifier().value())
         );
     }
 

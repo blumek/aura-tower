@@ -25,7 +25,7 @@ class MongodbPlacePersistenceGateway implements PlacePersistenceGateway {
     public PlacePersistenceReply persist(PlacePersistenceRequest placePersistenceRequest) {
         final var placeDocument = toPlaceDocument(placePersistenceRequest);
         final var savedPlace = placeRepository.save(placeDocument);
-        userPlacesRepository.addUserPlace(UUID.randomUUID().toString(), savedPlace.getIdentifier());
+        userPlacesRepository.addUserPlace(placePersistenceRequest.ownerIdentifier().value(), savedPlace.getIdentifier());
         return toPlacePersistenceReply(savedPlace);
     }
 

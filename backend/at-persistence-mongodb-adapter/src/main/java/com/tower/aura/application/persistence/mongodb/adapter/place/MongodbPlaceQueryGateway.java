@@ -5,6 +5,7 @@ import com.tower.aura.spi.persistence.place.model.PersistencePlaceIcon;
 import com.tower.aura.spi.persistence.place.model.PersistencePlaceIdentifier;
 import com.tower.aura.spi.persistence.place.model.PersistencePlaceName;
 import com.tower.aura.spi.persistence.place.model.PersistencePlace;
+import com.tower.aura.spi.persistence.user.model.PersistenceUserIdentifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,8 +22,8 @@ class MongodbPlaceQueryGateway implements PlaceQueryGateway {
     }
 
     @Override
-    public List<PersistencePlace> findUserPlaces(String userIdentifier) {
-        return placeRepository.findPlacesByIdentifiers(userPlacesRepository.findUserPlaceIdentifiers(userIdentifier))
+    public List<PersistencePlace> findUserPlaces(PersistenceUserIdentifier userIdentifier) {
+        return placeRepository.findPlacesByIdentifiers(userPlacesRepository.findUserPlaceIdentifiers(userIdentifier.value()))
                 .stream()
                 .map(this::toPlacePersistence)
                 .toList();

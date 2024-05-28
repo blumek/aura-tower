@@ -34,7 +34,7 @@ class PlacesController {
 
     @GetMapping
     public ResponseEntity<List<RestWebPlaceResponse>> retrieveUserPlaces(
-            @RequestHeader(name="Authorization") RestWebUserIdentifier userIdentifier) {
+            @RequestHeader(name = "Authorization") RestWebUserIdentifier userIdentifier) {
         final var getUserPlacesRequest = toGetUserPlacesRequest(userIdentifier);
         return ok().body(toMetricsResponses(getUserPlacesUseCase.getPlaces(getUserPlacesRequest)));
     }
@@ -51,15 +51,18 @@ class PlacesController {
     }
 
     @PostMapping
-    public ResponseEntity<RestWebPlaceResponse> createPlace(@RequestBody CreatePlaceRequest createPlaceRequest) {
-        final var createPlaceReply = createPlaceUseCase.create(toCreatePlaceUseCaseRequest(createPlaceRequest));
+    public ResponseEntity<RestWebPlaceResponse> createPlace(@RequestBody CreatePlaceRequest createPlaceRequest,
+                                                            @RequestHeader(name = "Authorization") RestWebUserIdentifier userIdentifier) {
+        final var createPlaceReply = createPlaceUseCase.create(toCreatePlaceUseCaseRequest(createPlaceRequest, userIdentifier));
         return ok(toRestWebPlaceResponse(createPlaceReply));
     }
 
-    private com.tower.aura.api.place.CreatePlaceRequest toCreatePlaceUseCaseRequest(CreatePlaceRequest createPlaceRequest) {
+    private com.tower.aura.api.place.CreatePlaceRequest toCreatePlaceUseCaseRequest(CreatePlaceRequest createPlaceRequest,
+                                                                                    RestWebUserIdentifier userIdentifier) {
         return new com.tower.aura.api.place.CreatePlaceRequest(
                 new ApiPlaceName(createPlaceRequest.name()),
-                ApiPlaceIcon.valueOf(createPlaceRequest.icon().name())
+                ApiPlaceIcon.valueOf(createPlaceRequest.icon().name()),
+                new ApiUserIdentifier(userIdentifier.value())
         );
     }
 
