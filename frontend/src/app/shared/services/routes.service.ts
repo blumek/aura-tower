@@ -36,7 +36,7 @@ export class RoutesService {
         pageTitle = 'Dashboard';
         pageIcon = 'dashboard';
         break;
-      case '/main/settings':
+      case '/base/settings':
         pageTitle = 'Settings';
         pageIcon = 'settings';
         break;

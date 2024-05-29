@@ -7,6 +7,7 @@
     .home-name {
         display: flex;
         align-items: center;
+        padding-bottom: 30px;
         gap: 20px;
         font-size: 29px;
         font-family: $at-title-font;
@@ -20,13 +21,25 @@
     }
 }
 
+.header-container-no-logo {
+    margin: 0 !important;
+    padding: 0 !important;
+    justify-content: center !important;
+
+    .home-name {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        padding: 0 0 30px 0 !important;
+    }
+}
+
 @media (min-width: 992px) {
     .header-container {
         display: flex;
         justify-content: space-between;
         margin: -10px 0 -10px 0;
-        padding-bottom: 30px;
-        
+
         .home-name {
             padding-left: 10px;
         }

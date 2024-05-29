@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../auth/services/authentication.service';
-import { CommandCenter, ConfigModeTypes } from '../models/comand-center';
+import { CommandCenter, CommandCenterEdit, ConfigModeTypes } from '../models/comand-center';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { CommandCenterService } from '../services/command-center.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
@@ -9,7 +9,7 @@ import { SnackbarService } from '../../../shared/services/snackbar.service';
 @Component({
   selector: 'at-headquarters',
   templateUrl: './headquarters.component.html',
-  styleUrl: './headquarters.component.scss',
+  styleUrl: '../base.component.scss',
 })
 export class HeadquartersComponent implements OnInit {
   configMode: boolean = false;
@@ -41,14 +41,6 @@ export class HeadquartersComponent implements OnInit {
     )
   }
 
-  logout(): void {
-    this.authService.logout();
-  }
-
-  goToSettings(): void {
-    this.router.navigate(['base/settings']);
-  }
-
   addNewManagementCenter(): void {
     this.configMode = true;
     this.commandCenters.push({
@@ -66,26 +58,35 @@ export class HeadquartersComponent implements OnInit {
     }
   }
 
-  saveConfigMode(saveFromConfig: any): void {
+  saveConfigMode(saveFromConfig: CommandCenterEdit): void {
     if(saveFromConfig.addingMode) {
       const newCenter = {
         name: saveFromConfig.centerName,
-        icon: saveFromConfig.centerIcon,
+        icon: 'HOME',
       }
 
       this.commandCenterService.createCommandCenter(newCenter).subscribe({
         next: () => {
           this.snackBarService.openSnackBar('New command center added', false);
-          this.getCommandCenters()
+          this.configMode = false;
+          this.refresh()
         },
         error: (err) => {
-          this.snackBarService.openSnackBar(err.error.message, true);
-        }
-        
-        
+          this.snackBarService.openSnackBar('Error occured', true);
+        }        
       })
-
-      this.configMode = false;
     }
+  }
+
+  refresh(): void {
+    this.getCommandCenters()
+  }
+
+  goToSettings(): void {
+    this.router.navigate(['base/settings']);
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

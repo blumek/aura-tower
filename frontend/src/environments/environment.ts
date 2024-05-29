@@ -12,7 +12,8 @@ export const environment = {
     },
 
     places: {
-        base: `${base}/places`
+        base: `${base}/places`,
+        specificPlace: `${base}/places/$placeIdentifier`,
     },
 
     catalogs: {

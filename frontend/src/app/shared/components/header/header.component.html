@@ -1,10 +1,11 @@
-<div class="header-container">
+<div [ngClass]="{'header-container': true, 'header-container-no-logo': hideLogo}">
   <div
     class="home-name">
     <span class="material-symbols-outlined">{{pageData.icon}}</span>
     <span>{{pageData.title}}</span>
   </div>
   <img
+    *ngIf="!hideLogo"
     class="normal-logo desktop"
     ngSrc="../../../../assets/images/logo-transparent.svg"
     alt="Aura-Tower logo"

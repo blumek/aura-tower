@@ -17,6 +17,8 @@ import {
 } from '@angular/forms';
 import { managementCetersIcons } from '../../../../shared/mocks/management-centers';
 import { ConfigModeTypes } from '../../models/comand-center';
+import { CommandCenterService } from '../../services/command-center.service';
+import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
 @Component({
   selector: 'at-command-center',
@@ -29,6 +31,7 @@ export class CommandCenterComponent implements OnInit, OnChanges {
   @Output() cancelAction = new EventEmitter<boolean>();
   @Output() saveAction = new EventEmitter<any>();
   @Output() addAction = new EventEmitter<any>();
+  @Output() refreshAction = new EventEmitter<any>();
 
   iconsCatalog = managementCetersIcons;
   configModeTypes = ConfigModeTypes;
@@ -40,6 +43,8 @@ export class CommandCenterComponent implements OnInit, OnChanges {
   });
 
   constructor(
+    private commandCenterService: CommandCenterService,
+    private snackbarService: SnackbarService,
     private router: Router,
     private dialog: MatDialog,
     private fb: FormBuilder
@@ -87,7 +92,17 @@ export class CommandCenterComponent implements OnInit, OnChanges {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      if(result) {
+        this.commandCenterService.deleteCommandCenter(this.centerData.id).subscribe({
+          next: () => {
+            this.refreshAction.emit();
+            this.snackbarService.openSnackBar('Management center deleted', false);
+          },
+          error: (err) => {
+            this.snackbarService.openSnackBar(err.error.message, true);
+          }
+        })
+      }
     });
   }
 

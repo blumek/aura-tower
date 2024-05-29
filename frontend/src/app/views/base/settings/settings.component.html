@@ -1,70 +1,65 @@
 @if (loading) {
     <at-loading [blur]="true"></at-loading>
 } @else {
-    <div class="sheadquarters-container">
-      <div class="headquarters-title">
-        <span class="material-symbols-outlined">settings</span>
-        <span>Settings</span>
+    <div class="base-custom-box">
+      <div class="base-content">
+        <div class="settings-container">
+          <mat-accordion class="example-headers-align" multi>
+            <mat-expansion-panel class="setting-expansion-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="material-symbols-outlined">
+                    person
+                    </span>
+                  Account details
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+  
+            <mat-expansion-panel class="setting-expansion-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="material-symbols-outlined">
+                    key
+                    </span>
+                  Password
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+  
+            <mat-expansion-panel class="setting-expansion-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="material-symbols-outlined">
+                    widgets
+                    </span>
+                  Application preferences
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+  
+            <mat-expansion-panel class="setting-expansion-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <span class="material-symbols-outlined">
+                    diversity_1
+                    </span>
+                  About the authors
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+        <div class="spacer-4"></div>
+        <div class="buttons-container buttons-small-space justify-center">
+          <button
+          class="at-button normal iconic outline-green"
+          mat-button
+          (click)="goToHeadquarters()">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span>Back to headquarter</span>
+          </button>
+        </div>
       </div>
-      
-      <div class="settings-container">
-        <mat-accordion class="example-headers-align" multi>
-          <mat-expansion-panel class="setting-expansion-panel">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <span class="material-symbols-outlined">
-                  person
-                  </span>
-                Dane konta
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel class="setting-expansion-panel">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <span class="material-symbols-outlined">
-                  key
-                  </span>
-                Hasło
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel class="setting-expansion-panel">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <span class="material-symbols-outlined">
-                  home_pin
-                  </span>
-                Lokalizacja
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel class="setting-expansion-panel">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <span class="material-symbols-outlined">
-                  widgets
-                  </span>
-                Aplikacja
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-
-          <mat-expansion-panel class="setting-expansion-panel">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                <span class="material-symbols-outlined">
-                  diversity_1
-                  </span>
-                O autorach
-              </mat-panel-title>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-        </mat-accordion>
-      </div>
-
     </div>
 }

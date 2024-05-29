@@ -1,5 +1,8 @@
 <div class="base-container">
-    <div class="base-site-container animate__animated animate__fadeIn">
-        <router-outlet></router-outlet>
+    <div class="base-site-container">
+        <at-header [hideLogo]="true"></at-header>
+        <div>
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

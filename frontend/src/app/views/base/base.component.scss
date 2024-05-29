@@ -1,0 +1,78 @@
+@import '../../../assets/styles/variables.scss';
+
+.base-custom-box {
+    height: 100%;
+
+    .base-title {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 30px;
+        justify-content: center;
+        align-items: center;
+        font-family: $at-title-font;
+        background: $main-text-gradient;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+
+        span:nth-of-type(1) {
+            font-size: 37px;
+        }
+
+        span:nth-of-type(2) {
+            font-size: 29px;
+            text-align: center;
+        }
+    }
+
+    .base-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: calc(100vh - 92px - 60px - 30px);
+
+        .base-grid {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 20px;
+
+            .base-initial-info {
+                top: -30px;
+            }
+        }
+    }
+}
+
+.settings-container {
+    width: 100%;
+    margin: 0 auto;
+
+    .setting-expansion-panel {
+        margin: 10px 0;
+        border-radius: 15px;
+        box-shadow: $shadow-light;
+
+        .mat-expansion-panel-header-title {
+            color: $text-light !important;
+            font-size: 16px;
+
+            .material-symbols-outlined {
+                color: $icon-light;
+                margin-right: 20px;
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .base-custom-box {
+        width: 900px;
+        margin: 0 auto;
+    }
+}
+
+

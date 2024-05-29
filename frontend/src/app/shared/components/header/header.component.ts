@@ -1,4 +1,4 @@
-import { NgIf, NgOptimizedImage } from '@angular/common';
+import { NgClass, NgIf, NgOptimizedImage } from '@angular/common';
 import {
   Component,
   Input,
@@ -11,11 +11,12 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'at-header',
   standalone: true,
-  imports: [NgIf, NgOptimizedImage],
+  imports: [NgIf, NgOptimizedImage, NgClass],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+  @Input() hideLogo: boolean = false;
   pageData!: {title: string, icon: string};
   sub!: Subscription;
 
