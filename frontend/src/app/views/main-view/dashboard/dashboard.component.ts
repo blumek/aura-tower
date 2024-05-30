@@ -3,6 +3,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 import { Metric } from '../models/devices';
 import { DevicesService } from '../services/devices.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'at-dashboard',
@@ -15,7 +16,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private deviceService: DevicesService,
-    private snackbarService: SnackbarService
+    private snackbarService: SnackbarService,
+    private activatedRoute: ActivatedRoute
   ){}
 
   ngOnInit(): void {
@@ -23,7 +25,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getMetricsData(): void {
-    this.data$ = this.deviceService.fetchMetricsData().pipe(
+    const headquarterId = this.activatedRoute.snapshot.params['id']
+
+    this.data$ = this.deviceService.fetchMetricsData(headquarterId).pipe(
       catchError(err => {
         this.snackbarService.openSnackBar('Błąd pobierania danych urządzeń', true)
         return throwError(() => err)

@@ -31,7 +31,7 @@ export class DevicesService {
     });
   }
 
-  fetchMetricsData(): Observable<Metric[]> {
-    return this.http.get<Metric[]>(environment.metrics.base)
+  fetchMetricsData(headquarterId: string): Observable<Metric[]> {
+    return this.http.get<Metric[]>(environment.metrics.base.replace('$placeIdentifier', headquarterId.toString()))
   }
 }

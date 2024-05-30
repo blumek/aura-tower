@@ -16,7 +16,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { managementCetersIcons } from '../../../../shared/mocks/management-centers';
-import { ConfigModeTypes } from '../../models/comand-center';
+import { CommandCenter, CommandCenterEdit, ConfigModeTypes } from '../../models/comand-center';
 import { CommandCenterService } from '../../services/command-center.service';
 import { SnackbarService } from '../../../../shared/services/snackbar.service';
 
@@ -26,7 +26,7 @@ import { SnackbarService } from '../../../../shared/services/snackbar.service';
   styleUrl: './command-center.component.scss',
 })
 export class CommandCenterComponent implements OnInit, OnChanges {
-  @Input() centerData: any = {};
+  @Input() centerData!: any;
   @Input() configModeType!: ConfigModeTypes;
   @Output() cancelAction = new EventEmitter<boolean>();
   @Output() saveAction = new EventEmitter<any>();
@@ -77,7 +77,7 @@ export class CommandCenterComponent implements OnInit, OnChanges {
   goToTowerDashboard(e: any): void {
     const {action} = e.target.dataset
 
-    if(!action) this.router.navigate(['main/dashboard']);
+    if(!action) this.router.navigate(['main/dashboard/', this.centerData.id]);
   }
 
   openDeleteDialog(): void {

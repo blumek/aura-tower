@@ -2,7 +2,7 @@ const base = 'http://localhost:8080/v1';
 
 export const environment = {
     metrics: {
-        base: `${base}/metrics`
+        base: `${base}/places/$placeIdentifier/metrics`
     },
 
     authentication: {
