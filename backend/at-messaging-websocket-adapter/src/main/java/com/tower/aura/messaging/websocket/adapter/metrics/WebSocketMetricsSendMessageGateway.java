@@ -20,7 +20,11 @@ class WebSocketMetricsSendMessageGateway implements MetricsSendMessageGateway {
 
     @Override
     public void send(MetricsSendMessageRequest metricsSendMessageRequest) {
-        messagingTemplate.convertAndSend("/topic/places/%s/metrics".formatted(metricsSendMessageRequest.metrics().metricsId().value()), toWebSocketMetrics(metricsSendMessageRequest));
+        messagingTemplate.convertAndSend(toTopic(metricsSendMessageRequest), toWebSocketMetrics(metricsSendMessageRequest));
+    }
+
+    private static String toTopic(MetricsSendMessageRequest metricsSendMessageRequest) {
+        return "/topic/places/%s/metrics".formatted(metricsSendMessageRequest.messagingPlaceIdentifier().value());
     }
 
     private WebSocketMetrics toWebSocketMetrics(MetricsSendMessageRequest metricsSendMessageRequest) {
