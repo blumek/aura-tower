@@ -9,9 +9,9 @@ import java.util.Map;
 import java.util.UUID;
 
 @Service
-public class GetMetricsService implements GetMetricsUseCase {
+public class GetPlaceMetricsService implements GetPlaceMetricsUseCase {
     @Override
-    public GetMetricsReply getMetrics() {
+    public GetMetricsReply getPlaceMetrics(GetPlaceMetricsRequest getPlaceMetricsRequest) {
         return new GetMetricsReply(List.of(
                 new ApiMetrics(
                         new ApiMetricsIdentifier(UUID.randomUUID().toString()),
