@@ -3,7 +3,7 @@ package com.tower.aura.http.light.bulb.simulator.model;
 import java.util.regex.Pattern;
 
 public record HexColor(String value) {
-    private static final Pattern pattern = Pattern.compile("^#[a-fA-F0-9]{4}$");
+    private static final Pattern pattern = Pattern.compile("^#[a-fA-F0-9]{6}$");
 
     public HexColor {
         if (!isValidHexCode(value)) {

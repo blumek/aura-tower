@@ -3,7 +3,9 @@ package com.tower.aura.http.light.bulb.simulator.service;
 import com.tower.aura.http.light.bulb.simulator.model.LightBulbIdentifier;
 import com.tower.aura.http.light.bulb.simulator.model.LightBulbRepository;
 import com.tower.aura.http.light.bulb.simulator.model.LightBulbSnapshot;
+import org.springframework.stereotype.Service;
 
+@Service
 public class LightBulbQueryGateway {
     private final LightBulbRepository lightBulbRepository;
 
