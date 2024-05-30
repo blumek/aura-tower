@@ -10,5 +10,9 @@
     </parent>
 
     <artifactId>at-http-device-simulator</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>at-http-light-bulb-device-simulator</module>
+    </modules>
 
 </project>
