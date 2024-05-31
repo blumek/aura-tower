@@ -144,6 +144,7 @@ nav {
         width: 100px;
         border-radius: 0 15px 15px 0;
         flex-direction: column;
+        overflow-y: auto;
 
         .left-container {
             display: flex;
@@ -162,7 +163,7 @@ nav {
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                gap: 35px;
+                gap: 30px;
                 padding: 25px 0;
                 color: $icon-light;
     

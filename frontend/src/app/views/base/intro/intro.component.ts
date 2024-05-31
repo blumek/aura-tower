@@ -91,8 +91,8 @@ export class IntroComponent implements OnInit {
     }
   }
 
-  goToBaseHeadquarters(): void {
-    if (this.visibleConfig.button) this.router.navigate(['/base/headquarters']);
+  goToBaseHeadquarters(skipIntro: boolean = false): void {
+    if (this.visibleConfig.button || skipIntro) this.router.navigate(['/base/headquarters']);
   }
 
   skipIntro(): void {
@@ -109,7 +109,7 @@ export class IntroComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        this.goToBaseHeadquarters();
+        this.goToBaseHeadquarters(true);
       }
     });
   }

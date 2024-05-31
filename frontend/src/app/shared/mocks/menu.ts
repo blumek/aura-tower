@@ -29,26 +29,19 @@ export const menuElements = [
       display: DisplayType.both,
       id: 4
     },
-    // {
-    //   icon: 'home_pin',
-    //   name: 'Zarządaj otoczeniem',
-    //   action: ActionName.manageLocalizations,
-    //   display: DisplayType.both,
-    //   id: 5
-    // },
-    // {
-    //   icon: 'settings',
-    //   name: 'Ustawienia aplikacji',
-    //   action: ActionName.settings,
-    //   display: DisplayType.both,
-    //   id: 6
-    // },
+    {
+      icon: 'settings',
+      name: 'Settings',
+      action: ActionName.settings,
+      display: DisplayType.both,
+      id: 5
+    },
     {
       icon: 'logout',
       name: 'Exit',
       action: ActionName.logout,
       display: DisplayType.both,
-      id: 5
+      id: 6 
     },
   ]
 

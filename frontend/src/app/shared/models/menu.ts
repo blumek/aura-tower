@@ -2,9 +2,9 @@ export enum ActionName {
     fullscreen = 'full-screen',
     fullscreenExit = 'full-screen-exit',
     addDevice = 'add-device',
-    dashboard = 'dashboard',
+    dashboard = 'main/dashboard',
     manageLocalizations = 'manage-localizations',
-    settings = 'settings',
+    settings = 'base/settings',
     logout = 'logout',
     showHideNav = 'show-hide-nav'
 }

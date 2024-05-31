@@ -1,5 +1,5 @@
+import { Location } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'at-settings',
@@ -10,10 +10,10 @@ export class SettingsComponent {
   loading: boolean = false;
 
   constructor(
-    private router: Router,
+    private location: Location
   ) { }
 
   goToHeadquarters(): void {
-    this.router.navigate(['/base/headquarters']);
+    this.location.back()
   }
 }

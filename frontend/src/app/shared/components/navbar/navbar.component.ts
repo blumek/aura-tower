@@ -85,7 +85,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         break;
       default:
         const link: string = actionName
-        this.router.navigate(['main/', link]);
+        this.router.navigate([link]);
     }
   }
 

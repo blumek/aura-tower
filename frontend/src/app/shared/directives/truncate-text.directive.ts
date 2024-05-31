@@ -18,7 +18,6 @@ export class TruncateTextDirective implements AfterViewInit {
       if (text.length > this.truncateText) {
         this.renderer.setProperty(this.el.nativeElement, 'textContent', truncatedText);
         this.el.nativeElement.setAttribute(`matTooltip`, text);
-        console.log(this.el.nativeElement);
       }
     }
 

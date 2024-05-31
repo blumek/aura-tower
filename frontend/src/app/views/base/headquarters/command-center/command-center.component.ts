@@ -155,7 +155,6 @@ export class CommandCenterComponent implements OnInit {
 
   save(): void {
     if (this.commandCenterForm.valid && this.centerIconControl.value !== 'question_mark') {
-      console.log(this.centerData)
       if (this.centerData.id) {
         this.configModeAction.emit()
         this.centerData = {
