@@ -21,7 +21,7 @@ export class CommandCenterService {
     return this.http.post<CommandCenter>(environment.places.base, commandCenter)
   }
 
-  deleteCommandCenter(commandCenterId: number): Observable<CommandCenter> {
+  deleteCommandCenter(commandCenterId: string): Observable<CommandCenter> {
     return this.http.delete<CommandCenter>(environment.places.specificPlace.replace('$placeIdentifier', commandCenterId.toString()))
   }
 }

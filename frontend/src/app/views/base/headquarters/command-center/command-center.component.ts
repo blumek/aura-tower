@@ -1,11 +1,4 @@
-import {
-  Component,
-  EventEmitter,
-  Input,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from '../../../../shared/components/dialogs/confirmation-dialog/confirmation-dialog.component';
@@ -15,29 +8,35 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
-import { managementCetersIcons } from '../../../../shared/mocks/management-centers';
-import { CommandCenter, CommandCenterEdit, ConfigModeTypes } from '../../models/comand-center';
+import { CommandCenter, ConfigModeTypes } from '../../models/comand-center';
 import { CommandCenterService } from '../../services/command-center.service';
 import { SnackbarService } from '../../../../shared/services/snackbar.service';
+import { CommandCenterForm } from '../../models/forms';
 
 @Component({
   selector: 'at-command-center',
   templateUrl: './command-center.component.html',
   styleUrl: './command-center.component.scss',
 })
-export class CommandCenterComponent implements OnInit, OnChanges {
-  @Input() centerData!: any;
+export class CommandCenterComponent {
+  @Input() centerData!: CommandCenter;
   @Input() configModeType!: ConfigModeTypes;
-  @Output() cancelAction = new EventEmitter<boolean>();
   @Output() saveAction = new EventEmitter<any>();
-  @Output() addAction = new EventEmitter<any>();
   @Output() refreshAction = new EventEmitter<any>();
 
-  iconsCatalog = managementCetersIcons;
+  iconsCatalog = new Map<string, string>([
+    ['HOME', 'home'],
+    ['OFFICE', 'apartment'],
+    ['GARAGE', 'garage_home'],
+    ['OTHER', 'other_houses'],
+  ]);
   configModeTypes = ConfigModeTypes;
-  centerDataPre = {}
+  centerDataPre: CommandCenter = {
+    name: '',
+    icon: '',
+  };
 
-  managementCenterForm: FormGroup<any> = this.fb.group({
+  commandCenterForm: FormGroup<CommandCenterForm> = this.fb.group({
     centerIcon: ['', Validators.required],
     centerName: ['', Validators.required],
   });
@@ -51,33 +50,17 @@ export class CommandCenterComponent implements OnInit, OnChanges {
   ) {}
 
   get centerIconControl(): FormControl<string> {
-    return this.managementCenterForm.get('centerIcon') as FormControl<string>;
+    return this.commandCenterForm.get('centerIcon') as FormControl<string>;
   }
 
   get centerNameControl(): FormControl<string> {
-    return this.managementCenterForm.get('centerName') as FormControl<string>;
-  }
-
-  ngOnInit(): void {
-    this.checkConfigModeType();
-  }
-
-  ngOnChanges(): void {
-    this.checkConfigModeType();
-  }
-
-  checkConfigModeType(): void {
-    if (this.configModeType !== ConfigModeTypes.add) {
-      this.configModeType = this.centerData.configModeType
-        ? this.centerData.configModeType
-        : this.configModeTypes.normal;
-    }
+    return this.commandCenterForm.get('centerName') as FormControl<string>;
   }
 
   goToTowerDashboard(e: any): void {
-    const {action} = e.target.dataset
+    const { action } = e.target.dataset;
 
-    if(!action) this.router.navigate(['main/dashboard/', this.centerData.id]);
+    if (!action) this.router.navigate(['main/dashboard/', this.centerData.id]);
   }
 
   openDeleteDialog(): void {
@@ -92,66 +75,73 @@ export class CommandCenterComponent implements OnInit, OnChanges {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      if(result) {
-        this.commandCenterService.deleteCommandCenter(this.centerData.id).subscribe({
-          next: () => {
-            this.refreshAction.emit();
-            this.snackbarService.openSnackBar('Management center deleted', false);
-          },
-          error: (err) => {
-            this.snackbarService.openSnackBar(err.error.message, true);
-          }
-        })
+      if (result) {
+        this.commandCenterService
+          .deleteCommandCenter(this.centerData.id!)
+          .subscribe({
+            next: () => {
+              this.refreshAction.emit();
+              this.snackbarService.openSnackBar(
+                'Management center deleted',
+                false
+              );
+            },
+            error: (err) => {
+              this.snackbarService.openSnackBar(err.error.message, true);
+            },
+          });
       }
     });
   }
 
   setIcon(iconData: any): void {
-    this.centerIconControl.setValue(iconData.icon);
-    this.centerData.icon = iconData.icon;
+    this.centerIconControl.setValue(iconData[0]);
+    this.centerData.icon = iconData[1];
   }
 
   add(): void {
-    this.addAction.emit(true);
+    this.centerData = {
+      name: '',
+      icon: 'question_mark',
+    };
+
+    this.edit();
   }
 
-  editComandCenter(): void{
-    this.centerDataPre = {...this.centerData}
-    this.configModeType = ConfigModeTypes.config
+  edit(): void {
+    this.centerDataPre = { ...this.centerData };
+    this.configModeType = ConfigModeTypes.config;
 
-    this.managementCenterForm.patchValue({
+    this.commandCenterForm.patchValue({
       centerIcon: this.centerData.icon,
       centerName: this.centerData.name,
-    })
+    });
   }
 
   cancel(): void {
     if (this.centerData.id) {
-      this.centerData = this.centerDataPre
-      this.configModeType = ConfigModeTypes.normal
+      this.centerData = this.centerDataPre;
+      this.configModeType = ConfigModeTypes.normal;
     } else {
-      this.cancelAction.emit(true);
+      this.configModeType = ConfigModeTypes.add;
     }
   }
 
   save(): void {
-    if (this.managementCenterForm.valid) {
-      setTimeout(() => {
-        if (this.centerData.id) {
-          this.centerData = {
-            name: this.centerNameControl.value,
-            icon: this.centerIconControl.value,
-          }
-          this.configModeType = ConfigModeTypes.normal
-          
-        } else {
-          this.saveAction.emit({
-            addingMode: true,
-            centerName: this.centerNameControl.value,
-            centerIcon: this.centerIconControl.value,
-          });
-        }
-      }, 0);
+    if (this.commandCenterForm.valid) {
+      if (this.centerData.id) {
+        this.centerData = {
+          name: this.centerNameControl.value,
+          icon: this.centerIconControl.value,
+        };
+        this.configModeType = ConfigModeTypes.normal;
+      } else {
+        this.saveAction.emit({
+          addingMode: true,
+          centerName: this.centerNameControl.value,
+          centerIcon: this.centerIconControl.value,
+        });
+      }
     }
   }
 }

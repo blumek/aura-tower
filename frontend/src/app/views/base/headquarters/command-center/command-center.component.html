@@ -8,12 +8,12 @@
 
 <!-- Normal -->
 <ng-template #normalTemplate let-data="data">
-  <div class="tower-center-container" (click)="goToTowerDashboard($event)">
+  <div class="tower-center-container animate__animated animate__fadeIn" (click)="goToTowerDashboard($event)">
     <div class="top-section">
       <div class="tower-icon-menu">
         <span data-action="menu-action" class="material-symbols-outlined" [matMenuTriggerFor]="menu">menu</span>
         <mat-menu #menu="matMenu">
-          <button (click)="editComandCenter()" mat-menu-item>
+          <button (click)="edit()" mat-menu-item>
             <mat-icon>edit</mat-icon>
             <span>Edit command center</span>
           </button>
@@ -33,18 +33,18 @@
 
 <!-- Config -->
 <ng-template #configTemplate let-data="data">
-  <div class="tower-center-container tower-center-container-config">
+  <div class="tower-center-container tower-center-container-config animate__animated animate__fadeIn">
     <div class="top-section">
       <div
       class="tower-icon"
-      [formGroup]="managementCenterForm">
+      [formGroup]="commandCenterForm">
           <span class="material-symbols-outlined">{{centerData.icon}}</span>
           <div class="tower-icon-trigger"><span class="material-symbols-outlined" [matMenuTriggerFor]="iconsSelect">arrow_drop_down</span></div>
           <mat-menu  #iconsSelect="matMenu">
             @for (item of iconsCatalog; track $index) {
               <button (click)="setIcon(item)" class="tower-icon-menu" mat-menu-item>
-                <span class="material-symbols-outlined">{{item.icon}}</span>
-                <span>{{item.name}}</span>
+                <span class="material-symbols-outlined">{{item[1]}}</span>
+                <span>{{item[0] | titlecase}}</span>
               </button>
             }
           </mat-menu>
@@ -62,7 +62,7 @@
         <span class="material-symbols-outlined">close</span>
         <span>Cancel</span>
       </div>
-      <div [ngClass]="{'save-disable': managementCenterForm.invalid}" (click)="save()">
+      <div [ngClass]="{'save-disable': commandCenterForm.invalid}" (click)="save()">
         <span class="material-symbols-outlined">check</span>
         <span>Save</span>
       </div>
@@ -72,7 +72,7 @@
 
 <!-- Add -->
 <ng-template #addTemplate let-data="data">
-  <div class="tower-center-container green-add-button" (click)="add()">
+  <div class="tower-center-container green-add-button animate__animated animate__fadeIn" (click)="add()">
     <div class="top-section">
     <div class="tower-icon">
         <span class="material-symbols-outlined">add</span>
@@ -81,56 +81,3 @@
     </div>
   </div>
 </ng-template>
-
-<!-- <div class="animate__animated animate__fadeIn">
-  <div [ngClass]="{'tower-center-container': true, 'green-add-button': isAAddingComponent, 'tower-center-container-config': configMode}" (click)="goToTowerDashboard()">
-    <div class="top-section">
-      @if (isAAddingComponent) {
-          <div
-          class="tower-icon">
-              <span class="material-symbols-outlined">add</span>
-              <p [appTruncateText]="50">Add command center</p>
-          </div>
-      } @else if (configMode) {
-        <div
-        class="tower-icon"
-        [formGroup]="managementCenterForm">
-            <span class="material-symbols-outlined">{{centerData.icon}}</span>
-            <div class="tower-icon-trigger"><span class="material-symbols-outlined" [matMenuTriggerFor]="menu">arrow_drop_down</span></div>
-            <mat-menu  #menu="matMenu">
-              @for (item of iconsCatalog; track $index) {
-                <button (click)="setIcon(item)" class="tower-icon-menu" mat-menu-item>
-                  <span class="material-symbols-outlined">{{item.icon}}</span>
-                  <span>{{item.name}}</span>
-                </button>
-              }
-            </mat-menu>
-            <div class="field-container">
-                <input
-                  formControlName="centerName"
-                  autocomplete="on"
-                  placeholder="Edit name"
-                  required>
-            </div>
-        </div>
-      } @else {
-          <div
-          class="tower-icon">
-              <span class="material-symbols-outlined">{{centerData.icon}}</span>
-              <p class="tower-name" [matTooltip]="centerData.name" [matTooltipDisabled]="centerData.name.length < 50" [appTruncateText]="50">{{centerData.name}}</p>
-          </div>
-      }
-    </div>
-    <div *ngIf="configMode" class="bottom-section">
-      <div (click)="cancel()">
-        <span class="material-symbols-outlined">close</span>
-        <span>Cancel</span>
-      </div>
-      <div [ngClass]="{'save-disable': managementCenterForm.invalid}" (click)="save()">
-        <span class="material-symbols-outlined">check</span>
-        <span>Save</span>
-      </div>
-    </div>
-  </div>
-</div> -->
-

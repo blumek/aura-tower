@@ -5,7 +5,7 @@ export interface CommandCenter {
     configModeType?: ConfigModeTypes
 }
 
-export interface CommandCenterEdit {
+export interface CommandCenterConfig {
     addingMode: boolean,
     centerName: string,
     centerIcon: string

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../auth/services/authentication.service';
-import { CommandCenter, CommandCenterEdit, ConfigModeTypes } from '../models/comand-center';
+import { CommandCenter, CommandCenterConfig, ConfigModeTypes } from '../models/comand-center';
 import { Observable, catchError, tap, throwError } from 'rxjs';
 import { CommandCenterService } from '../services/command-center.service';
 import { SnackbarService } from '../../../shared/services/snackbar.service';
@@ -14,7 +14,7 @@ import { SnackbarService } from '../../../shared/services/snackbar.service';
 export class HeadquartersComponent implements OnInit {
   configMode: boolean = false;
   data$!: Observable<CommandCenter[]>
-  commandCenters: CommandCenter[] = [] 
+  commandCenters!: CommandCenter[]
   configModeTypes = ConfigModeTypes
 
   constructor(
@@ -41,28 +41,11 @@ export class HeadquartersComponent implements OnInit {
     )
   }
 
-  addNewManagementCenter(): void {
-    this.configMode = true;
-    this.commandCenters.push({
-      name: 'New',
-      icon: 'question_mark',
-      configModeType: this.configModeTypes.config,
-    });
-  }
-
-  cancelConfigMode(cancelFromAddMode: boolean): void {
-    this.configMode = false;
-
-    if (cancelFromAddMode) {
-      this.commandCenters.pop();
-    }
-  }
-
-  saveConfigMode(saveFromConfig: CommandCenterEdit): void {
-    if(saveFromConfig.addingMode) {
+  saveCommandCenterConfig(saveFromConfig: CommandCenterConfig): void {
+    if (saveFromConfig.addingMode) {
       const newCenter = {
         name: saveFromConfig.centerName,
-        icon: 'HOME',
+        icon: saveFromConfig.centerIcon,
       }
 
       this.commandCenterService.createCommandCenter(newCenter).subscribe({

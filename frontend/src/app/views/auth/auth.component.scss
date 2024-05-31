@@ -53,12 +53,16 @@
     width: 300px;
   }
 
-  .auth-botton-text span {
-    color: $at-green;
+  .auth-botton-text {
+    text-align: center;
 
-    &:hover {
-      cursor: pointer;
-      text-decoration: underline;
+    span {
+      color: $at-green;
+
+      &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
   }
 }

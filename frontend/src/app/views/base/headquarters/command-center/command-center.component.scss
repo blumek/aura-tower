@@ -10,7 +10,7 @@
     border-radius: 15px;
     height: 240px;
     width: 240px;
-    transition: 0.3s;
+    transition: .3s;
     box-sizing: border-box;
 
     &:hover {
@@ -157,6 +157,7 @@
     box-shadow: none;
     border: 6px dashed $white;
     background-color: rgba($color: #ffffff, $alpha: 0.4);
+    transition: .3s;
 
     &:hover {
         cursor: auto;

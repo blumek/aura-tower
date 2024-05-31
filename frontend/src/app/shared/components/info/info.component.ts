@@ -11,5 +11,5 @@ import { Component, Input } from '@angular/core';
 export class InfoComponent {
   @Input() infoText: string = '';
   @Input() border: boolean = true;
-  
+  @Input() textAlignment: string = 'left';
 }
