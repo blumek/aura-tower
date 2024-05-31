@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/light-bulb")
+@RequestMapping("/v1/light-bulbs")
 public class LightBulbController {
     private final LightBulbQueryGateway lightBulbQueryGateway;
     private final LightBulbService lightBulbService;
@@ -31,19 +31,19 @@ public class LightBulbController {
         );
     }
 
-    @PostMapping("/{identifier}/on")
+    @PostMapping("/{identifier}/turn-on")
     public ResponseEntity<?> turnOn(@PathVariable String identifier) {
         lightBulbService.turnOnLightBulb(identifier);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{identifier}/off")
+    @PostMapping("/{identifier}/turn-off")
     public ResponseEntity<?> turnOff(@PathVariable String identifier) {
         lightBulbService.turnOffLightBulb(identifier);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/{identifier}/color")
+    @PostMapping("/{identifier}/change-color")
     public ResponseEntity<?> setColor(@PathVariable String identifier, @RequestBody ColorChangeRequest colorChangeRequest) {
         lightBulbService.changeColor(identifier, colorChangeRequest.hexColor());
         return ResponseEntity.ok().build();

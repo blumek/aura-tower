@@ -23,9 +23,13 @@ public class LightBulb {
         this.color = color;
     }
 
-    static LightBulb create(HexColor color) {
+    public static LightBulb create(HexColor color) {
         return new LightBulb(LightBulbIdentifier.generate(), false, color);
     }
+    public static LightBulb create(LightBulbIdentifier identifier, HexColor color) {
+        return new LightBulb(identifier, false, color);
+    }
+
 
     public LightBulbSnapshot toLightBulbSnapshot() {
         return new LightBulbSnapshot(identifier, isOn, color);
