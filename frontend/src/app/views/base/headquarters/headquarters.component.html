@@ -1,7 +1,7 @@
 <div class="base-custom-box">
   <div *ngIf="data$ | async else loading" class="base-content">
     <div class="base-grid">
-      <at-info *ngIf="commandCenters.length < 1 && !configMode || commandCenters.length === 1 && configMode" class="base-initial-info" [border]="false" textAlignment="center" infoText="This is where you will find all your command centers. Add the first center by clicking on the green tile, then give it a name, e.g. 'Home' and select the representing icon, click save and you're done"></at-info>
+      <at-info *ngIf="commandCenters.length < 1" class="base-initial-info" [border]="false" textAlignment="center" infoText="This is where you will find all your command centers. Add the first center by clicking on the green tile, then give it a name, e.g. 'Home' and select the representing icon, click save and you're done"></at-info>
 
       @for (centerData of commandCenters; track $index) {
         <at-command-center [centerData]="centerData" [configMode]="configMode" (saveAction)="saveCommandCenterConfig($event)" (refreshAction)="refresh()" (configModeAction)="setConfigMode()"></at-command-center>
