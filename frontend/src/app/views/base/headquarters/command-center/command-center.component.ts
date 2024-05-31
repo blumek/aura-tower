@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from '../../../../shared/components/dialogs/confirmation-dialog/confirmation-dialog.component';
@@ -19,7 +19,11 @@ import { CommandCenterForm } from '../../models/forms';
   styleUrl: './command-center.component.scss',
 })
 export class CommandCenterComponent implements OnInit {
-  @Input() centerData!: CommandCenter;
+  @Input() centerData: CommandCenter = {
+    id: '',
+    name: '',
+    icon: '',
+  };
   @Input() configModeType!: ConfigModeTypes;
   @Input() configMode: boolean = false;
   @Output() saveAction = new EventEmitter<any>();
@@ -32,7 +36,6 @@ export class CommandCenterComponent implements OnInit {
     ['GARAGE', 'garage_home'],
     ['OTHER', 'other_houses'],
   ]);
-  commandCenterIcon: string = '';
   configModeTypes = ConfigModeTypes;
   centerDataPre: CommandCenter = {
     name: '',
@@ -61,7 +64,19 @@ export class CommandCenterComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.commandCenterIcon = this.iconsCatalog.get(this.centerData.icon)!;
+    this.centerData.icon = this.mapIconName(this.centerData.icon)
+  }
+
+  mapIconName(mapElement: string): string {
+    return this.iconsCatalog.get(mapElement) ? this.iconsCatalog.get(mapElement)! : 'other_houses';
+  }
+
+  reverseMapIconName(searchElement: string): string {
+    for (const [key, value] of this.iconsCatalog.entries()) {
+      if (value === searchElement) return key;
+    }
+
+    return 'OTHER';
   }
 
   goToTowerDashboard(e: any): void {
@@ -123,7 +138,7 @@ export class CommandCenterComponent implements OnInit {
     this.configModeType = ConfigModeTypes.config;
 
     this.commandCenterForm.patchValue({
-      centerIcon: this.centerData.icon,
+      centerIcon: this.reverseMapIconName(this.centerData.icon),
       centerName: this.centerData.name,
     });
   }
@@ -140,11 +155,13 @@ export class CommandCenterComponent implements OnInit {
 
   save(): void {
     if (this.commandCenterForm.valid && this.centerIconControl.value !== 'question_mark') {
+      console.log(this.centerData)
       if (this.centerData.id) {
         this.configModeAction.emit()
         this.centerData = {
           name: this.centerNameControl.value,
-          icon: this.centerIconControl.value,
+          icon: this.mapIconName(this.centerIconControl.value),
+          id: this.centerData.id,
         };
         this.configModeType = ConfigModeTypes.normal;
       } else {
