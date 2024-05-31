@@ -8,10 +8,10 @@
 
 <!-- Normal -->
 <ng-template #normalTemplate let-data="data">
-  <div class="tower-center-container animate__animated animate__fadeIn" (click)="goToTowerDashboard($event)">
+  <div class="tower-center-container animate__animated animate__zoomIn" (click)="goToTowerDashboard($event)">
     <div class="top-section">
       <div class="tower-icon-menu">
-        <span data-action="menu-action" class="material-symbols-outlined" [matMenuTriggerFor]="menu">menu</span>
+        <span *ngIf="!configMode" data-action="menu-action" class="material-symbols-outlined" [matMenuTriggerFor]="menu">menu</span>
         <mat-menu #menu="matMenu">
           <button (click)="edit()" mat-menu-item>
             <mat-icon>edit</mat-icon>
@@ -24,7 +24,7 @@
         </mat-menu>
       </div>
       <div class="tower-icon">
-          <span class="material-symbols-outlined">{{centerData.icon}}</span>
+          <span class="material-symbols-outlined">{{commandCenterIcon}}</span>
           <p class="tower-name" [matTooltip]="centerData.name" [matTooltipDisabled]="centerData.name.length < 50" [appTruncateText]="50">{{centerData.name}}</p>
       </div>
     </div>
@@ -33,7 +33,7 @@
 
 <!-- Config -->
 <ng-template #configTemplate let-data="data">
-  <div class="tower-center-container tower-center-container-config animate__animated animate__fadeIn">
+  <div class="tower-center-container tower-center-container-config animate__animated animate__zoomIn">
     <div class="top-section">
       <div
       class="tower-icon"
@@ -72,7 +72,7 @@
 
 <!-- Add -->
 <ng-template #addTemplate let-data="data">
-  <div class="tower-center-container green-add-button animate__animated animate__fadeIn" (click)="add()">
+  <div class="tower-center-container green-add-button animate__animated animate__zoomIn" (click)="add()">
     <div class="top-section">
     <div class="tower-icon">
         <span class="material-symbols-outlined">add</span>

@@ -61,6 +61,10 @@ export class HeadquartersComponent implements OnInit {
     }
   }
 
+  setConfigMode(): void {
+    this.configMode = !this.configMode;
+  }
+
   refresh(): void {
     this.getCommandCenters()
   }

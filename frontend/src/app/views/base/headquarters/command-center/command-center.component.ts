@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ConfirmationDialogComponent } from '../../../../shared/components/dialogs/confirmation-dialog/confirmation-dialog.component';
@@ -18,11 +18,13 @@ import { CommandCenterForm } from '../../models/forms';
   templateUrl: './command-center.component.html',
   styleUrl: './command-center.component.scss',
 })
-export class CommandCenterComponent {
+export class CommandCenterComponent implements OnInit {
   @Input() centerData!: CommandCenter;
   @Input() configModeType!: ConfigModeTypes;
+  @Input() configMode: boolean = false;
   @Output() saveAction = new EventEmitter<any>();
   @Output() refreshAction = new EventEmitter<any>();
+  @Output() configModeAction = new EventEmitter<any>();
 
   iconsCatalog = new Map<string, string>([
     ['HOME', 'home'],
@@ -30,6 +32,7 @@ export class CommandCenterComponent {
     ['GARAGE', 'garage_home'],
     ['OTHER', 'other_houses'],
   ]);
+  commandCenterIcon: string = '';
   configModeTypes = ConfigModeTypes;
   centerDataPre: CommandCenter = {
     name: '',
@@ -55,6 +58,10 @@ export class CommandCenterComponent {
 
   get centerNameControl(): FormControl<string> {
     return this.commandCenterForm.get('centerName') as FormControl<string>;
+  }
+
+  ngOnInit(): void {
+    this.commandCenterIcon = this.iconsCatalog.get(this.centerData.icon)!;
   }
 
   goToTowerDashboard(e: any): void {
@@ -100,15 +107,18 @@ export class CommandCenterComponent {
   }
 
   add(): void {
-    this.centerData = {
-      name: '',
-      icon: 'question_mark',
-    };
-
-    this.edit();
+    if (!this.configMode) {
+      this.centerData = {
+        name: '',
+        icon: 'question_mark',
+      };
+  
+      this.edit();
+    }
   }
 
   edit(): void {
+    this.configModeAction.emit()
     this.centerDataPre = { ...this.centerData };
     this.configModeType = ConfigModeTypes.config;
 
@@ -119,6 +129,7 @@ export class CommandCenterComponent {
   }
 
   cancel(): void {
+    this.configModeAction.emit()
     if (this.centerData.id) {
       this.centerData = this.centerDataPre;
       this.configModeType = ConfigModeTypes.normal;
@@ -128,8 +139,9 @@ export class CommandCenterComponent {
   }
 
   save(): void {
-    if (this.commandCenterForm.valid) {
+    if (this.commandCenterForm.valid && this.centerIconControl.value !== 'question_mark') {
       if (this.centerData.id) {
+        this.configModeAction.emit()
         this.centerData = {
           name: this.centerNameControl.value,
           icon: this.centerIconControl.value,

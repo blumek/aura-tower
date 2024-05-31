@@ -4,14 +4,14 @@
       <at-info *ngIf="commandCenters.length < 1 && !configMode || commandCenters.length === 1 && configMode" class="base-initial-info" [border]="false" textAlignment="center" infoText="This is where you will find all your command centers. Add the first center by clicking on the green tile, then give it a name, e.g. 'Home' and select the representing icon, click save and you're done"></at-info>
 
       @for (centerData of commandCenters; track $index) {
-        <at-command-center [centerData]="centerData" (saveAction)="saveCommandCenterConfig($event)" (refreshAction)="refresh()"></at-command-center>
+        <at-command-center [centerData]="centerData" [configMode]="configMode" (saveAction)="saveCommandCenterConfig($event)" (refreshAction)="refresh()" (configModeAction)="setConfigMode()"></at-command-center>
       }
-      <at-command-center (saveAction)="saveCommandCenterConfig($event)" [configModeType]="configModeTypes.add"></at-command-center>
+      <at-command-center (saveAction)="saveCommandCenterConfig($event)" (configModeAction)="setConfigMode()" [configModeType]="configModeTypes.add" [configMode]="configMode"></at-command-center>
     </div>
 
     <div class="spacer-4"></div>
 
-    <div class="buttons-container buttons-small-space justify-center">
+    <div class="buttons-container buttons-small-space justify-center animate__animated animate__fadeIn">
       <button
       class="at-button circle iconic outline-green"
       matTooltip="Logout"
