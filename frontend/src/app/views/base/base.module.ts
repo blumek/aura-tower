@@ -19,12 +19,14 @@ import { InfoComponent } from '../../shared/components/info/info.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { SettingsComponent } from './settings/settings.component';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { AvatarComponent } from '../../shared/components/avatar/avatar.component';
 
 const components = [
   SliderStepperComponent,
   HeaderComponent,
   LoadingComponent,
   InfoComponent,
+  AvatarComponent
 ]
 
 const matModules = [

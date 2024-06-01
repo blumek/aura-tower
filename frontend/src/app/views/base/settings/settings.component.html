@@ -5,7 +5,7 @@
       <div class="base-content">
         <div class="settings-container animate__animated animate__fadeInUp">
           <mat-accordion class="example-headers-align" multi>
-            <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel class="setting-expansion-panel" [expanded]="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <span class="material-symbols-outlined">
@@ -14,9 +14,52 @@
                   Account details
                 </mat-panel-title>
               </mat-expansion-panel-header>
+              <div class="panel-container">
+                <div class="account-details-content">
+                  <div class="left-content">
+                    <p class="settings-subtitle">User avatar</p>
+                    <div class="avatar-container">
+                      <at-avatar
+                      [size]="150"
+                      [hover]="true"
+                      sourceName="Example User"
+                      class="flex-row justify-center"></at-avatar>
+                    </div>
+                  </div>
+                  <div class="right-content">
+                    <p class="settings-subtitle">User information</p>
+                    <div class="account-details-element">
+                      <span class="material-symbols-outlined">person</span>
+                      <span>Example User</span>
+                    </div>
+                    <div class="account-details-element">
+                      <span class="material-symbols-outlined">lock</span>
+                      <span>Password wisible after edit authentication</span>
+                    </div>
+                    <div class="account-details-element">
+                      <span class="material-symbols-outlined">question_mark</span>
+                      <span>Remind question visible after edit authentication</span>
+                    </div>
+                    <div class="account-details-element">
+                      <span class="material-symbols-outlined">border_color</span>
+                      <span>Remind answear visible after edit authentication</span>
+                    </div>
+                    <div class="spacer-1"></div>
+                    <div class="buttons-container buttons-small-space justify-start">
+                      <button
+                      class="at-button normal iconic flat-green"
+                      mat-button
+                      (click)="goToHeadquarters()">
+                        <span class="material-symbols-outlined">edit</span>
+                        <span>Edit</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </mat-expansion-panel>
   
-            <mat-expansion-panel class="setting-expansion-panel">
+            <!-- <mat-expansion-panel class="setting-expansion-panel">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <span class="material-symbols-outlined">
@@ -25,9 +68,9 @@
                   Password
                 </mat-panel-title>
               </mat-expansion-panel-header>
-            </mat-expansion-panel>
+            </mat-expansion-panel> -->
   
-            <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel class="setting-expansion-panel" [expanded]="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <span class="material-symbols-outlined">
@@ -36,9 +79,10 @@
                   Application preferences
                 </mat-panel-title>
               </mat-expansion-panel-header>
+            
             </mat-expansion-panel>
   
-            <mat-expansion-panel class="setting-expansion-panel">
+            <mat-expansion-panel class="setting-expansion-panel" [expanded]="true">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <span class="material-symbols-outlined">

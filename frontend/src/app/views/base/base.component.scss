@@ -65,6 +65,51 @@
                 margin-right: 20px;
             }
         }
+
+        .panel-container {
+            padding: 30px;
+        }
+
+        .settings-subtitle {
+            font-size: 18px;
+            color: $text-light;
+        }
+
+        .account-details-content {
+            display: flex;
+
+            .left-content,
+            .right-content {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .avatar-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 70%;
+            }
+
+            .right-content {
+                gap: 30px;
+                
+            }
+
+            .account-details-element {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                gap: 20px;
+                color: $text-light;
+
+                .material-symbols-outlined {
+                    color: $icon-light;
+                    font-size: 30px;
+                }
+            }
+        }
     }
 }
 
