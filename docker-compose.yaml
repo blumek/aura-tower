@@ -35,3 +35,10 @@ services:
     depends_on:
       - backend
     restart: always
+  thermometer-simulator:
+    build: backend/at-device-simulator/at-http-device-simulator/at-http-thermometer-device-simulator
+    ports:
+      - "8082:8080"
+    depends_on:
+      - backend
+    restart: always

@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>at-http-light-bulb-device-simulator</module>
+        <module>at-http-thermometer-device-simulator</module>
     </modules>
 
 </project>
