@@ -2,5 +2,5 @@
   <div class="info-icon">
     <span class="material-symbols-outlined">info</span>
   </div>
-  <div [ngClass]="{'info-text': true, 'text-left': textAlignment === 'left', 'text-center': textAlignment === 'center', 'text-right': textAlignment === 'right'}">{{infoText}}</div>
+  <div [ngStyle]="{'maxWidth': width ? width + 'px' : 'auto'}" [ngClass]="{'info-text': true, 'text-left': textAlignment === 'left', 'text-center': textAlignment === 'center', 'text-right': textAlignment === 'right'}">{{infoText}}</div>
 </div>

@@ -2,12 +2,13 @@
 
 .info-container {
     display: flex;
+    flex-direction: column;
+    gap: 15px;
     align-items: center;
     border-top: 1px solid $disabled-gray;
-    column-gap: 50px;
-    padding: 24px;
   
     .info-icon{
+      padding-top: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -17,6 +18,16 @@
   
     .info-text{
       width: 90%;
+    }
+
+    @media (min-width: 992px) {
+      flex-direction: row;
+      padding: 24px;
+      column-gap: 30px;
+
+      .info-icon {
+        padding-top: 0;
+      }
     }
   }
 

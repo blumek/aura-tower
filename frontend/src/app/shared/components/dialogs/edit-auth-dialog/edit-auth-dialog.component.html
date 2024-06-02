@@ -1,0 +1,44 @@
+<div class="dialog-container">
+    <h2 mat-dialog-title>Edit authentication</h2>
+    <mat-dialog-content class="mat-typography">
+        <div class="flex-row justify-center">
+            <div class="field-container mobile-dialog">
+                <mat-form-field>
+                    <mat-label>Password</mat-label>
+                    <input 
+                      matInput 
+                      [formControl]="passwordControl" 
+                      [type]="hidePassword ? 'password' : 'text'" 
+                      autocomplete="on" 
+                      required>
+                    <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    @if (passwordControl.errors?.['required']) {
+                      <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
+                    }
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="spacer-3"></div>
+      <at-info infoText="To avoid unwanted changes to your settings by third parties, enter your password for authorization and click the “Confirm” button. Your settings will be editable." [width]="300"></at-info>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <div class="buttons-container buttons-container-mobile buttons-small-space">
+        <button
+          class="at-button normal iconic outline-green"
+          mat-button
+          mat-dialog-close>
+          <span class="material-symbols-outlined">close</span>
+          <span>Cancel</span>
+        </button>
+        <button
+          class="at-button normal iconic flat-green"
+          mat-button
+          [disabled]="passwordControl.invalid"
+          (click)="confirmPassword()">
+          <span class="material-symbols-outlined">done</span>
+          <span>Confirm</span>
+        </button>
+      </div>
+    </mat-dialog-actions>
+  </div>
+  

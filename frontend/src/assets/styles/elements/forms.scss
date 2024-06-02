@@ -15,6 +15,27 @@
     }
 }
 
+.mobile-dialog {
+    .mat-mdc-form-field {
+        width: 230px;
+
+        @media (min-width: 992px) {
+            width: 400px;
+        }
+    }
+}
+
+.mobile-short {
+    .mat-mdc-form-field {
+        width: 100%;
+
+        @media (min-width: 992px) {
+            width: 400px;
+        }
+    }
+}
+
+
 .mat-mdc-form-field{
     width: 300px;
 

@@ -66,21 +66,21 @@
             }
         }
 
-        .panel-container {
-            padding: 30px;
-        }
-
         .settings-subtitle {
             font-size: 18px;
             color: $text-light;
+            text-align: center;
         }
+
+        .account-details-content,
 
         .account-details-content {
             display: flex;
+            flex-direction: column;
 
             .left-content,
             .right-content {
-                width: 50%;
+                width: 100%;
                 display: flex;
                 flex-direction: column;
             }
@@ -89,12 +89,26 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                height: 70%;
+                height: 100%;
+                padding: 30px;
             }
 
             .right-content {
                 gap: 30px;
                 
+                button {
+                    width: 100%;
+                }
+
+                .change-password-link {
+                    margin-left: 15px;
+                    color: $at-green;
+                    cursor: pointer;
+                    
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
             }
 
             .account-details-element {
@@ -118,6 +132,37 @@
         width: 900px;
         margin: 0 auto;
     }
+
+    .settings-container {
+        .setting-expansion-panel {
+            .panel-container {
+                padding: 30px;
+            }
+
+            .settings-subtitle {
+                text-align: left;
+            }
+    
+            .account-details-content {
+                flex-direction: row;
+    
+                .left-content,
+                .right-content {
+                    width: 50%;
+                }
+
+                .right-content button {
+                    width: initial;
+                }
+
+                .avatar-container {
+                    height: 70%;
+                    padding: 0;
+                }
+            }
+        }
+    }
+
 }
 
 

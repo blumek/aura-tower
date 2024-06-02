@@ -73,10 +73,6 @@
   }
 
   .auth-form-container {
-    form {
-      // max-height: 280px;
-    }
-
     button {
       width: 480px;
     }
@@ -87,21 +83,5 @@
     background-image: url("../../../assets/images/auth-side-background.svg");
     background-repeat: no-repeat;
     background-size: cover;
-  }
-}
-
-@media (min-width: 992px) and (min-height: 800px) {
-  .auth-form-container {
-    form {
-      // max-height: 320px;
-    }
-  }
-}
-
-@media (min-width: 992px) and (min-height: 945px) {
-  .auth-form-container {
-    form {
-      // max-height: 600px
-    }
   }
 }
