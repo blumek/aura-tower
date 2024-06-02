@@ -2,12 +2,14 @@
 
 .main-container, .base-container {
     min-height: 100vh;
-    background-color: $background-light;
+    background-color: var(--background);
+    transition: .3s;
 }
 
 .auth-container {
     height: 100vh;
-    background-color: $white;
+    background-color: var(--box-color);
+    transition: .3s;
 }
 
 .dashboard-container {

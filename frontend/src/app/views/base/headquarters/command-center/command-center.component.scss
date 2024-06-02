@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: $white;
-    box-shadow: $shadow-light;
+    background-color: var(--box-color);
+    box-shadow: var(--shadow);
     border-radius: 15px;
     height: 240px;
     width: 240px;
@@ -14,7 +14,7 @@
     box-sizing: border-box;
 
     &:hover {
-        box-shadow: $shadow-active-green;
+        box-shadow: var(--shadow-active-green);
         color: $at-green-active;
         cursor: pointer;
 
@@ -36,7 +36,7 @@
 
             .material-symbols-outlined {
                 font-size: 70px;
-                color: $icon-light;
+                color: var(--icon);
                 transition: .3s;
                 margin-bottom: 10px;
             }
@@ -53,12 +53,12 @@
                 
                 input {
                     border: none;
-                    border-bottom: 1px solid $disabled-gray;
+                    border-bottom: 1px solid var(--disabled-gray);
                     background-color: transparent;
                     text-align: center;
                     padding-bottom: 5px;
                     font-family: $at-font;
-                    color: $text-light;
+                    color: var(--text);
 
                     &:focus {
                         outline: none;
@@ -67,7 +67,7 @@
                     }
 
                     &::placeholder {
-                        color: $icon-light;
+                        color: var(--icon);
                     }
                 }
             }
@@ -77,7 +77,7 @@
             position: absolute;
             top: 0;
             right: 0;
-            color: $icon-light;
+            color: var(--icon);
             z-index: 2;
             cursor: pointer;
             transition: .3s;
@@ -126,7 +126,7 @@
         }
 
         .save-disable {
-            color: $disabled-gray;
+            color: var(--disabled-gray);
         }
     }
 }
@@ -140,22 +140,22 @@
         background-color: $at-green-active;
 
         .top-section .tower-icon .material-symbols-outlined {
-            color: $white;
+            color: var(--box-color);
         }
     }
 
     .top-section {
-        color: $white;
+        color: var(--box-color);
 
         .tower-icon .material-symbols-outlined {
-            color: $white
+            color: var(--box-color)
         }
     }
 }
 
 .tower-center-container-config {
     box-shadow: none;
-    border: 6px dashed $white;
+    border: 6px dashed var(--box-color);
     background-color: rgba($color: #ffffff, $alpha: 0.4);
     transition: .3s;
 
@@ -165,7 +165,7 @@
 
         .top-section {
             .tower-icon .material-symbols-outlined {
-                color: $icon-light;
+                color: var(--icon);
             } 
         }
     }
@@ -185,7 +185,7 @@
                 .material-symbols-outlined {
                     font-size: 32px;
                     transition: .3s;
-                    color: $icon-light;
+                    color: var(--icon);
         
                     &:hover {
                         color: $at-green-active

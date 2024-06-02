@@ -13,11 +13,11 @@
 }
 
 .auth-right-content {
-  background-color: $white;
+  background-color: var(--box-color);
 }
 
 .auth-left-content {
-  background-color: $white;
+  background-color: var(--box-color);
 }
 
 .auth-section-header {
@@ -80,7 +80,7 @@
 
   .auth-right-content {
     width: 45%;
-    background-image: url("../../../assets/images/auth-side-background.svg");
+    background-image: url("../../../assets/images/auth-side-background-2.svg");
     background-repeat: no-repeat;
     background-size: cover;
   }

@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $blur;
+    background-color: var(--blur);
 }
 
 .loading-container {

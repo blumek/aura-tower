@@ -20,11 +20,12 @@ import { MatMenuModule } from '@angular/material/menu';
 import { SettingsComponent } from './settings/settings.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { AvatarComponent } from '../../shared/components/avatar/avatar.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 const components = [
   SliderStepperComponent,
   HeaderComponent,
-  LoadingComponent,
+  LoadingComponent, 
   InfoComponent,
   AvatarComponent
 ]
@@ -37,7 +38,8 @@ const matModules = [
   MatFormFieldModule,
   MatSelectModule,
   MatMenuModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatSlideToggleModule
 ]
 
 @NgModule({

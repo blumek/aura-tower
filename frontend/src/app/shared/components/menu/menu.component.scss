@@ -7,8 +7,8 @@
     box-sizing: border-box;
     justify-content: center;
     padding: 30px;
-    box-shadow: $shadow-light;
-    background-color: $white;
+    box-shadow: var(--shadow);
+    background-color: var(--box-color);
     border-radius: 15px 0 0 15px;
     opacity: 1;
 
@@ -35,19 +35,19 @@
             align-items: center;
             width: 120px;
             height: 120px;
-            box-shadow: $shadow-light;
+            box-shadow: var(--shadow);
             transition: .3s;
             border-radius: 15px;
         
             .material-symbols-outlined {
                 font-size: 48px;
-                color: $icon-light;
+                color: var(--icon);
                 transition: .3s;
             }
 
             &:hover {
                 cursor: pointer;
-                box-shadow: $shadow-active-green;
+                box-shadow: var(--shadow-active-green);
 
                 .material-symbols-outlined {
                     color: $at-green-active

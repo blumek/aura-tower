@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     padding: 20px;
-    background-color: $white;
-    box-shadow: $shadow-light;
+    background-color: var(--box-color);
+    box-shadow: var(--shadow);
     border-radius: 15px;
     height: 250px;
 
@@ -35,7 +35,7 @@
 
           span {
             font-size: 60px;
-            color: $icon-light;
+            color: var(--icon);
             margin-bottom: 10px
           };
         }

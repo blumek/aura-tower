@@ -5,7 +5,7 @@
     flex-direction: column;
     gap: 15px;
     align-items: center;
-    border-top: 1px solid $disabled-gray;
+    border-top: 1px solid var(--disabled-gray);
   
     .info-icon{
       padding-top: 15px;

@@ -10,7 +10,7 @@
         justify-content: center;
         align-items: center;
         font-family: $at-title-font;
-        background: $main-text-gradient;
+        background: var(--main-text-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         
@@ -54,30 +54,31 @@
     .setting-expansion-panel {
         margin: 10px 0;
         border-radius: 15px;
-        box-shadow: $shadow-light;
+        box-shadow: var(--shadow);
 
         .mat-expansion-panel-header-title {
-            color: $text-light !important;
+            color: var(--text) !important;
             font-size: 16px;
 
             .material-symbols-outlined {
-                color: $icon-light;
+                color: var(--icon);
                 margin-right: 20px;
             }
         }
 
         .settings-subtitle {
             font-size: 18px;
-            color: $text-light;
+            color: var(--text);
             text-align: center;
         }
 
         .account-details-content,
-
-        .account-details-content {
+        .app-preferences-content {
             display: flex;
             flex-direction: column;
+        }
 
+        .account-details-content {
             .left-content,
             .right-content {
                 width: 100%;
@@ -109,19 +110,44 @@
                         text-decoration: underline;
                     }
                 }
-            }
 
-            .account-details-element {
+                .account-details-element {
+                    display: flex;
+                    align-items: center;
+                    font-size: 14px;
+                    gap: 20px;
+                    color: var(--text);
+        
+                    .material-symbols-outlined {
+                        color: var(--icon);
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+
+        .app-preferences-content {
+            gap: 30px;
+
+            .app-pref-element {
                 display: flex;
                 align-items: center;
-                font-size: 14px;
-                gap: 20px;
-                color: $text-light;
+                justify-content: space-between;
+                width: 40%;
 
-                .material-symbols-outlined {
-                    color: $icon-light;
-                    font-size: 30px;
-                }
+                div:nth-of-type(1) {
+                    display: flex;
+                    align-items: center;
+
+                    font-size: 14px;
+                    gap: 20px;
+                    color: var(--text);
+        
+                    .material-symbols-outlined {
+                        color: var(--icon);
+                        font-size: 30px;
+                    }
+                } 
             }
         }
     }

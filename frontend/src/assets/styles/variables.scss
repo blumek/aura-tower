@@ -2,19 +2,35 @@ $at-green: #5bcba9;
 $at-green-active: #66e4be;
 $at-blue: #54a2ba;
 
-$background-light: #E7ECFF;
-$white: #fff;
-$danger: #ff2a00;
-$danger-icon-light: #ff2a0082;
-$shadow-light: 0 2px 16px 2px #6683d040;
-$shadow-active-green: 0 2px 16px 2px #66e4be;
-$shadow-green: 0 2px 16px 2px #5bcba9;
-$text-light: #8C8C8C;
-$icon-light: #c0c0c0;
-$disabled-gray: #CDCDCD;
-$blur: rgba(255, 255, 255, 0.7);
-$light-green-gradient: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(91 203 169 / 31%) 100%);
-$main-text-gradient: -webkit-linear-gradient(90deg, rgba(91,203,169,1) 26%, rgba(84,162,186,1) 100%);
-
 $at-font: 'Noto Sans', sans-serif;
-$at-title-font: 'Nico-Moji'
+$at-title-font: 'Nico-Moji';
+
+$light-background: #E7ECFF;
+$light-box: #fff;
+$light-danger: #ff2a00;
+$light-danger-icon: #ff2a0082;
+$light-shadow: 0 2px 16px 2px #6683d040;
+$light-shadow-active-green: 0 2px 16px 2px #66e4be;
+$light-shadow-green: 0 2px 16px 2px #5bcba9;
+$light-text: #8C8C8C;
+$light-button-text: #fff;
+$light-icon: #c0c0c0;
+$light-disabled-gray: #CDCDCD;
+$light-blur: rgba(255, 255, 255, 0.7);
+$light-green-gradient: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(91 203 169 / 31%) 100%);
+$light-main-text-gradient: -webkit-linear-gradient(90deg, rgba(91,203,169,1) 26%, rgba(84,162,186,1) 100%);
+
+$dark-background: #0F0F11;
+$dark-box: #2E3034;
+$dark-danger: #ff2a00;
+$dark-danger-icon: #ff2a0082;
+$dark-shadow: 0 2px 16px 2px #0F0F11;
+$dark-shadow-active-green: 0 2px 16px 2px #66e4be;
+$dark-shadow-green: 0 2px 16px 2px #5bcba9;
+$dark-text: #c0c0c0;
+$dark-button-text: #8C8C8C;
+$dark-icon: #c0c0c0;
+$dark-disabled-gray: #CDCDCD;
+$dark-blur: #444444;
+$dark-green-gradient: linear-gradient(180deg, rgb(255, 255, 255) 0%, rgb(91 203 169 / 31%) 100%);
+$dark-main-text-gradient: -webkit-linear-gradient(90deg, rgba(91,203,169,1) 26%, rgba(84,162,186,1) 100%);

@@ -5,9 +5,45 @@ body {
     padding: 0;
     margin: 0;
     font-family: $at-font;
-    color: $text-light
+    color: var(--text)
 }
 html, body { height: 100%; overflow-x: hidden}
+
+
+body {
+    --background: #{$light-background};
+    --box-color: #{$light-box};
+    --danger: #{$light-danger};
+    --danger-icon: #{$light-danger-icon};
+    --shadow: #{$light-shadow};
+    --shadow-active-green: #{$light-shadow-active-green};
+    --shadow-green: #{$light-shadow-green};
+    --text: #{$light-text};
+    --button-text: #{$light-button-text};
+    --icon: #{$light-icon};
+    --disabled-gray: #{$light-disabled-gray};
+    --blur: #{$light-blur};
+    --green-gradient: #{$light-green-gradient};
+    --main-text-gradient: #{$light-main-text-gradient};
+}
+
+body.theme-dark {
+    --background: #{$dark-background};
+    --box-color: #{$dark-box};
+    --danger: #{$dark-danger};
+    --danger-icon: #{$dark-danger-icon};
+    --shadow: #{$dark-shadow};
+    --shadow-active-green: #{$dark-shadow-active-green};
+    --shadow-green: #{$dark-shadow-green};
+    --text: #{$dark-text};
+    --button-text: #{$dark-button-text};
+    --icon: #{$dark-icon};
+    --disabled-gray: #{$dark-disabled-gray};
+    --blur: #{$dark-blur};
+    --green-gradient: #{$dark-green-gradient};
+    --main-text-gradient: #{$dark-main-text-gradient};
+}
+
 
 ::-webkit-scrollbar-track {
 

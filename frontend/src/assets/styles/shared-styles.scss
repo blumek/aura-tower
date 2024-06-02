@@ -8,7 +8,7 @@
 .mat-mdc-button,
 .mat-mdc-tab-label,
 .mat-mdc-menu-item {
-  color: $text-light !important;
+  color: var(--text) !important;
 
   .mat-mdc-menu-item-text {
     display: flex;
@@ -17,12 +17,12 @@
 
   .mat-icon,
   .material-symbols-outlined {
-    color: $icon-light !important;
+    color: var(--icon) !important;
   }
 }
 
 .mat-mdc-elevation-specific.mat-elevation-z8 {
-  box-shadow: $shadow-light !important;
+  box-shadow: var(--shadow) !important;
   border-radius: 15px !important;
 }
 
@@ -35,11 +35,11 @@
 }
 
 .danger {
-  color: $danger !important;
+  color: var(--danger) !important;
 
   .mat-icon,
   .material-symbols-outlined {
-    color: $danger-icon-light !important;
+    color: var(--danger-icon-light) !important;
   }
 }
 
@@ -58,26 +58,26 @@
 }
 
 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-label {
-  color: $text-light;
+  color: var(--text);
   font-size: 14px;
 }
 
 .mat-stepper-label-position-bottom .mat-horizontal-stepper-header .mat-step-icon {
-  color: $white;
-  background-color: $disabled-gray;
+  color: var(--box-color);
+  background-color: var(--disabled-gray);
 }
 
 .mat-step-icon {
-  background-color: $disabled-gray;
+  background-color: var(--disabled-gray);
 }
 
 .mat-step-icon-selected {
   background-color: $at-green !important;
-  color: $white;
+  color: var(--box-color);
 }
 
 .mdc-text-field--filled:not(.mdc-text-field--disabled) {
-  background-color: $white !important;
+  background-color: var(--box-color) !important;
 }
 
 .mobile {

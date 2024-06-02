@@ -124,7 +124,6 @@
                         <at-loading [blur]="true"></at-loading>
                       </ng-template>
                     }
-                 
                   </div>
                 </div>
               </div>
@@ -140,7 +139,28 @@
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div class="panel-container">
-                
+                <div class="app-preferences-content">
+                  <div class="app-pref-element">
+                    <div>
+                      <span class="material-symbols-outlined">conversion_path</span>
+                      <span>Application version: </span>
+                    </div>
+                    <div>
+                      <span>{{appVersion}}</span>
+                    </div>
+                  </div>
+                  <div class="app-pref-element">
+                    <div>
+                      <span class="material-symbols-outlined">light_mode</span>
+                      <span>Dark mode</span>
+                    </div>
+                    <div>
+                      <form [formGroup]="themeForm">
+                        <mat-slide-toggle (change)="toggleTheme()" formControlName="theme" color="primary"></mat-slide-toggle>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
             </mat-expansion-panel>
   

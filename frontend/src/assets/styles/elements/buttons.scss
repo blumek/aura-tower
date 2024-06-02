@@ -33,27 +33,27 @@
 
     &.flat-green {
         background-color: $at-green;
-        color: $white;
+        color: var(--box-color);
 
         &:hover {
             cursor: pointer;
             background-color: $at-green-active;
-            box-shadow: $shadow-active-green;
+            box-shadow: var(--shadow-active-green);
         }
 
         &:disabled {
-            background-color: $disabled-gray;
+            background-color: var(--disabled-gray);
 
             &:hover {
                 box-shadow: none;
-                background-color: $disabled-gray;
+                background-color: var(--disabled-gray);
                 cursor: default;
             }
         }
     }
 
     &.outline-green {
-        background-color: $white;
+        background-color: var(--box-color);
         border: 2px solid $at-green;
         color: $at-green;
 
@@ -61,7 +61,7 @@
             cursor: pointer;
             border-color: $at-green-active;
             color: $at-green-active;
-            box-shadow: $shadow-active-green;
+            box-shadow: var(--shadow-active-green);
 
             @media (max-width: 932px) {
                 border-color: $at-green;
