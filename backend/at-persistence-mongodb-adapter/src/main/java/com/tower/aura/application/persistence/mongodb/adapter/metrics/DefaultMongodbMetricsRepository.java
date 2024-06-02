@@ -13,8 +13,8 @@ class DefaultMongodbMetricsRepository implements MongodbMetricsRepository {
     }
 
     @Override
-    public Optional<MetricsDocument> findById(String identifier) {
-        return repository.findById(identifier);
+    public Optional<MetricsDocument> findByIdentifier(String metricsIdentifier) {
+        return repository.findById(metricsIdentifier);
     }
 
     @Override

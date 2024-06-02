@@ -1,11 +1,11 @@
 package com.tower.aura.spi.persistence.metrics;
 
-import com.tower.aura.spi.persistence.metrics.model.PersistenceMetricsCollection;
+import com.tower.aura.spi.persistence.metrics.model.PersistenceDeviceData;
 import com.tower.aura.spi.persistence.metrics.model.PersistenceMetricsIdentifier;
 
-public record MetricsPersistenceRequest(PersistenceMetricsIdentifier metricsId,
-                                        PersistenceMetricsCollection metricsCollection) {
-    public MetricsPersistenceRequest {
+public record MetricsUpdateRequest(PersistenceMetricsIdentifier metricsId,
+                                   PersistenceDeviceData metricsCollection) {
+    public MetricsUpdateRequest {
         if (metricsId == null) {
             throw new IllegalArgumentException("Metrics identifier cannot be null");
         }

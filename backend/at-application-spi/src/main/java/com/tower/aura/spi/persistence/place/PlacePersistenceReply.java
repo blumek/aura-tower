@@ -5,8 +5,8 @@ import com.tower.aura.spi.persistence.place.model.PersistencePlaceIdentifier;
 import com.tower.aura.spi.persistence.place.model.PersistencePlaceName;
 
 public record PlacePersistenceReply(PersistencePlaceIdentifier placeIdentifier,
-                                      PersistencePlaceName placeName,
-                                      PersistencePlaceIcon placeIcon) {
+                                    PersistencePlaceName placeName,
+                                    PersistencePlaceIcon placeIcon) {
     public PlacePersistenceReply {
         if (placeIdentifier == null) {
             throw new IllegalArgumentException("Place identifier cannot be null");

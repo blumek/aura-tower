@@ -1,6 +1,6 @@
 package com.tower.aura.spi.persistence.metrics.model;
 
-public sealed class PersistenceMetricValue permits
+public sealed abstract class PersistenceMetricValue permits
         PersistenceBooleanMetricValue,
         PersistenceNumberMetricValue,
         PersistenceStringMetricValue {

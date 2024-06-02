@@ -20,6 +20,14 @@ public class MetricsDocument {
         return new MetricsDocument(id, new ArrayList<>());
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public List<Map<String, Object>> getMetrics() {
+        return metrics;
+    }
+
     public MetricsDocument addMetrics(Map<String, Object> metrics) {
         this.metrics.add(metrics);
         return this;
