@@ -22,6 +22,13 @@ class MongodbPlaceQueryGateway implements PlaceQueryGateway {
     }
 
     @Override
+    public List<PersistencePlace> findAllPlaces() {
+        return placeRepository.findAll().stream()
+                .map(this::toPlacePersistence)
+                .toList();
+    }
+
+    @Override
     public List<PersistencePlace> findUserPlaces(PersistenceUserIdentifier userIdentifier) {
         return placeRepository.findPlacesByIdentifiers(userPlacesRepository.findUserPlaceIdentifiers(userIdentifier.value()))
                 .stream()

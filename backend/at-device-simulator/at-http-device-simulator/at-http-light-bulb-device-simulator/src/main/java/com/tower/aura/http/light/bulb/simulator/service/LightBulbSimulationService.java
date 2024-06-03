@@ -31,7 +31,7 @@ class LightBulbSimulationService {
     }
 
     private String randomHexColor() {
-        int nextInt = new Random().nextInt(0xffffff + 1);
-        return String.format("#%06x", nextInt).toUpperCase(ROOT);
+        final var randomInteger = new Random().nextInt(0xffffff + 1);
+        return String.format("#%06x", randomInteger).toUpperCase(ROOT);
     }
 }

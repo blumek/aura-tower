@@ -1,7 +1,7 @@
 package com.tower.aura.application.persistence.mongodb.adapter.metrics;
 
-import com.tower.aura.spi.persistence.metrics.MetricsUpdateGateway;
-import com.tower.aura.spi.persistence.metrics.MetricsUpdateRequest;
+import com.tower.aura.spi.persistence.metrics.MetricsUpdateDataGateway;
+import com.tower.aura.spi.persistence.metrics.MetricsUpdateDataRequest;
 import com.tower.aura.spi.persistence.metrics.model.*;
 import org.springframework.stereotype.Service;
 
@@ -10,20 +10,20 @@ import java.util.Map;
 import static java.util.stream.Collectors.toMap;
 
 @Service
-class MongodbMetricsUpdateGateway implements MetricsUpdateGateway {
+class MongodbMetricsUpdateDataGateway implements MetricsUpdateDataGateway {
     private final MongodbMetricsRepository repository;
 
-    MongodbMetricsUpdateGateway(MongodbMetricsRepository repository) {
+    MongodbMetricsUpdateDataGateway(MongodbMetricsRepository repository) {
         this.repository = repository;
     }
 
     @Override
-    public void update(MetricsUpdateRequest metricsUpdateRequest) {
-        final var metricsIdentifierAsString = metricsUpdateRequest.metricsId().value();
+    public void update(MetricsUpdateDataRequest metricsUpdateDataRequest) {
+        final var metricsIdentifierAsString = metricsUpdateDataRequest.metricsId().value();
         final var metrics = repository.findByIdentifier(metricsIdentifierAsString)
                 .orElseThrow(() -> new IllegalStateException("Metrics with identifier %s not found".formatted(metricsIdentifierAsString)));
 
-        metrics.addMetrics(toMetricsMap(metricsUpdateRequest.metricsCollection()));
+        metrics.addMetrics(toMetricsMap(metricsUpdateDataRequest.metricsCollection()));
         repository.save(metrics);
     }
 

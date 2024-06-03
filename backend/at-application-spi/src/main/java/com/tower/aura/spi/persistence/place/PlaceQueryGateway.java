@@ -6,5 +6,6 @@ import com.tower.aura.spi.persistence.user.model.PersistenceUserIdentifier;
 import java.util.List;
 
 public interface PlaceQueryGateway {
+    List<PersistencePlace> findAllPlaces();
     List<PersistencePlace> findUserPlaces(PersistenceUserIdentifier userIdentifier);
 }

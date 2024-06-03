@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toMap;
 
-public final class MessagingMetricsCollection {
+public final class MessagingDeviceData {
     private final Map<String, MessagingMetric> metrics;
 
-    private MessagingMetricsCollection(Map<String, MessagingMetric> metrics) {
+    private MessagingDeviceData(Map<String, MessagingMetric> metrics) {
         if (metrics == null) {
             throw new IllegalArgumentException("Metrics cannot be null");
         }
@@ -19,8 +19,8 @@ public final class MessagingMetricsCollection {
         this.metrics = metrics;
     }
 
-    public static MessagingMetricsCollection fromMap(Map<String, MessagingMetric> metrics) {
-        return new MessagingMetricsCollection(metrics);
+    public static MessagingDeviceData fromMap(Map<String, MessagingMetric> metrics) {
+        return new MessagingDeviceData(metrics);
     }
 
     public Stream<MessagingMetric> asStream() {
@@ -41,7 +41,7 @@ public final class MessagingMetricsCollection {
     public boolean equals(Object other) {
         if (this == other) return true;
         if (other == null || getClass() != other.getClass()) return false;
-        MessagingMetricsCollection that = (MessagingMetricsCollection) other;
+        MessagingDeviceData that = (MessagingDeviceData) other;
         return Objects.equals(metrics, that.metrics);
     }
 
@@ -52,7 +52,7 @@ public final class MessagingMetricsCollection {
 
     @Override
     public String toString() {
-        return "MetricsCollection{" +
+        return "MessagingDeviceData{" +
                 "metrics=" + metrics +
                 '}';
     }
@@ -69,8 +69,8 @@ public final class MessagingMetricsCollection {
             return this;
         }
 
-        public MessagingMetricsCollection build() {
-            return new MessagingMetricsCollection(Map.copyOf(metrics));
+        public MessagingDeviceData build() {
+            return new MessagingDeviceData(Map.copyOf(metrics));
         }
     }
 }
