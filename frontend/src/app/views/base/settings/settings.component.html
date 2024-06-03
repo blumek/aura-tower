@@ -22,108 +22,24 @@
                       <at-avatar
                       [size]="150"
                       [hover]="true"
-                      sourceName="Example User"
+                      [sourceName]="username!"
                       class="flex-row justify-center"></at-avatar>
                     </div>
                   </div>
                   <div class="right-content">
                     <p class="settings-subtitle">User information</p>
-                    @if (!editMode) {
                       <div class="account-details-element">
                         <span class="material-symbols-outlined">person</span>
-                        <span>Example User</span>
-                      </div>
-                      <div class="account-details-element">
-                        <span class="material-symbols-outlined">question_mark</span>
-                        <span>Remind question visible after edit authentication</span>
+                        <span>{{username}}</span>
                       </div>
                       <div class="account-details-element">
                         <span class="material-symbols-outlined">border_color</span>
-                        <span>Remind answear visible after edit authentication</span>
+                        <span (click)="openEditAuthDialog()" class="change-password-link">Change remind question and answer</span>
                       </div>
                       <div class="account-details-element">
                         <span class="material-symbols-outlined">lock</span>
-                        <span>Password wisible after edit authentication</span>
+                        <span (click)="openChangePasswordDialog()" class="change-password-link">Change password</span>
                       </div>
-                      <div class="spacer-1"></div>
-                      <div class="buttons-container buttons-small-space justify-start">
-                        <button
-                        class="at-button normal iconic flat-green"
-                        mat-button
-                        (click)="openEditAuthDialog()">
-                          <span class="material-symbols-outlined">edit</span>
-                          <span>Edit</span>
-                        </button>
-                      </div>
-                    } @else {
-                      <div *ngIf="reminderQuestionsList$ | async; let questionList; else loading" class="animate__animated animate__fadeIn">
-                        <form [formGroup]="accountDetailsForm">
-                          <div class="field-container mobile-short">
-                            <mat-form-field>
-                              <mat-label>User name</mat-label>
-                              <input
-                                matInput
-                                formControlName="userName"
-                                required>
-                                @if (userNameControl.errors?.['required']) {
-                                  <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
-                                } @else if (userNameControl.errors?.['userNameExists']) {
-                                  <mat-error><span class="material-symbols-outlined">error</span>User name already exists in the system</mat-error>
-                                }
-                            </mat-form-field>
-                          </div>
-                          <div class="field-container mobile-short">
-                            <mat-form-field>
-                              <mat-label>Support question</mat-label>
-                              <mat-select formControlName="auxiliaryQuestion" required>
-                                @for (questionData of questionList; track $index) {
-                                  <mat-option [value]="questionData.id">{{questionData.question}}</mat-option>
-                                }
-                              </mat-select>
-                                @if (auxiliaryQuestionControl.errors?.['required']) {
-                                  <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
-                                }
-                            </mat-form-field>
-                          </div>
-                          <div class="field-container mobile-short">
-                            <mat-form-field>
-                              <mat-label>Answer to the supporting question</mat-label>
-                              <input
-                                matInput
-                                formControlName="auxiliaryAnswer"
-                                required>
-                                @if (auxiliaryAnswerControl.errors?.['required']) {
-                                  <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
-                                }
-                            </mat-form-field>
-                          </div>
-                          <div class="field-container">
-                            <span (click)="openChangePasswordDialog()" class="change-password-link">Change password</span>
-                          </div>
-                        </form>
-                      </div>
-                      <div class="spacer-1"></div>
-                      <div class="buttons-container buttons-container-mobile buttons-small-space justify-start">
-                        <button
-                        class="at-button normal iconic outline-green"
-                        mat-button
-                        (click)="editMode = false">
-                          <span class="material-symbols-outlined">close</span>
-                          <span>Cancel</span>
-                        </button>
-                        <button
-                        class="at-button normal iconic flat-green"
-                        mat-button
-                        (click)="saveAccountDetails()">
-                          <span class="material-symbols-outlined">save</span>
-                          <span>Save</span>
-                        </button>
-                      </div>
-
-                      <ng-template #loading>
-                        <at-loading [blur]="true"></at-loading>
-                      </ng-template>
-                    }
                   </div>
                 </div>
               </div>

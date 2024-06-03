@@ -1,0 +1,56 @@
+<div class="dialog-container">
+    <h2 mat-dialog-title>Edit remind question</h2>
+    <mat-dialog-content class="mat-typography">
+        <div *ngIf="reminderQuestionsList$ | async; let questionList; else loading" class="flex-column justify-center">
+            <form [formGroup]="remindQuestionForm"></form>
+            <div class="field-container mobile-short">
+                <mat-form-field>
+                  <mat-label>Support question</mat-label>
+                  <mat-select formControlName="auxiliaryQuestion" required>
+                    @for (questionData of questionList; track $index) {
+                      <mat-option [value]="questionData.id">{{questionData.question}}</mat-option>
+                    }
+                  </mat-select>
+                    @if (auxiliaryQuestionControl.errors?.['required']) {
+                      <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
+                    }
+                </mat-form-field>
+              </div>
+              <div class="field-container mobile-short">
+                <mat-form-field>
+                  <mat-label>Answer to the supporting question</mat-label>
+                  <input
+                    matInput
+                    formControlName="auxiliaryAnswer"
+                    required>
+                    @if (auxiliaryAnswerControl.errors?.['required']) {
+                      <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
+                    }
+                </mat-form-field>
+              </div>
+        </div>
+        <ng-template #loading>
+            <at-loading [blur]="true"></at-loading>
+          </ng-template>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <div class="buttons-container buttons-container-mobile buttons-small-space">
+        <button
+          class="at-button normal iconic outline-green"
+          mat-button
+          mat-dialog-close>
+          <span class="material-symbols-outlined">close</span>
+          <span>Cancel</span>
+        </button>
+        <button
+          class="at-button normal iconic flat-green"
+          mat-button
+          [disabled]="remindQuestionForm.invalid"
+          (click)="changeRemindQuestion()">
+          <span class="material-symbols-outlined">done</span>
+          <span>Confirm</span>
+        </button>
+      </div>
+    </mat-dialog-actions>
+  </div>
+  

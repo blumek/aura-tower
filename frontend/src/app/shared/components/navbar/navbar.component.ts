@@ -13,6 +13,7 @@ import { ActionName, DisplayType, IMenu } from '../../models/menu';
 import { RoutesService } from '../../services/routes.service';
 import { Subscription } from 'rxjs';
 import { ScreenModeService } from '../../services/screen-mode.service';
+import { JwtTokenService } from '../../../views/auth/services/jwt-token.service';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   menuVisible: boolean = false;
   locationMenuVisible: boolean = false;
   isFullScreen: boolean = false;
+  username: string | null = '';
   fullscreenSubscription!: Subscription;
   menuElements: IMenu[] = menuElements;
   displayTypeMobile: DisplayType = DisplayType.mobile;
@@ -38,11 +40,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private devicesService: DevicesService,
+    private jwtTokenService: JwtTokenService,
     private screenModeService: ScreenModeService,
     private routesService: RoutesService
   ){}
 
   ngOnInit(): void {
+    this.username = this.jwtTokenService.getUserName();
     this.sub = this.routesService.pageData.subscribe((value: {title: string, icon: string}) => {
       this.pageData = value;
     });

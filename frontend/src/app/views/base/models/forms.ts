@@ -6,8 +6,7 @@ export interface CommandCenterForm {
     centerName: FormControl<string | null>;
 }
 
-export interface AccountDetailsForm {
-    userName: FormControl<string | null>
+export interface RemindQuestionForm {
     auxiliaryQuestion: FormControl<string | null>,
     auxiliaryAnswer: FormControl<string | null>,
 }

@@ -66,6 +66,13 @@ export class JwtTokenService {
     return JSON.parse(atob(payload));
   }
 
+  getUserName(): string | null {
+    const token = this.getAccessToken()
+    const decodedToken = token ? this.decodeToken(token) : null;
+
+    return decodedToken ? decodedToken.username : null;
+  }
+
   isTokenExpired(token: string): boolean {
     const decodedToken = this.decodeToken(token),
     currentTime = Date.now() / 1000;
