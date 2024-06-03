@@ -47,13 +47,8 @@ export const menuElements = [
 
   export const menuLocalizations = [
     {
-      name: 'Salon',
-      icon: 'chair',
-      id: 11
-    },
-    {
-      name: 'Kuchnia',
+      name: 'Kitchen',
       icon: 'oven_gen',
-      id: 12,
+      id: 11,
     },
   ]

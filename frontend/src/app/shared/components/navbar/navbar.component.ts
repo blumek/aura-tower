@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 import { ActionName, DisplayType, IMenu } from '../../models/menu';
 import { RoutesService } from '../../services/routes.service';
 import { Subscription } from 'rxjs';
+import { ScreenModeService } from '../../services/screen-mode.service';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   menuVisible: boolean = false;
   locationMenuVisible: boolean = false;
   isFullScreen: boolean = false;
+  fullscreenSubscription!: Subscription;
   menuElements: IMenu[] = menuElements;
   displayTypeMobile: DisplayType = DisplayType.mobile;
   mockLocalizationData = menuLocalizations;
@@ -36,12 +38,22 @@ export class NavbarComponent implements OnInit, OnDestroy {
   constructor(
     private router: Router,
     private devicesService: DevicesService,
+    private screenModeService: ScreenModeService,
     private routesService: RoutesService
   ){}
 
   ngOnInit(): void {
     this.sub = this.routesService.pageData.subscribe((value: {title: string, icon: string}) => {
       this.pageData = value;
+    });
+    this.fullscreenSubscription = this.screenModeService.fullscreenChange$.subscribe(isFullscreen => {
+      this.isFullScreen = isFullscreen;
+
+      if (isFullscreen) {
+        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Exit fullscreen', action: ActionName.fullscreenExit, display: DisplayType.both, id: 1}
+      } else {
+        this.menuElements[0] = {icon: 'fullscreen', name: 'Fullscreen', action: ActionName.fullscreen, display: DisplayType.both, id: 1}
+      }
     });
   }
 
@@ -68,11 +80,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     switch (actionName) {
       case 'full-screen':
         document.documentElement.requestFullscreen();
-        this.menuElements[0] = {icon: 'fullscreen_exit', name: 'Exit fullscreen', action: ActionName.fullscreenExit, display: DisplayType.both, id: 1}
         break;
       case 'full-screen-exit':
         document.exitFullscreen();
-        this.menuElements[0] = {icon: 'fullscreen', name: 'Fullscreen', action: ActionName.fullscreen, display: DisplayType.both, id: 1}
         break;
       case 'add-device':
         this.devicesService.openAddDeviceDialog();
@@ -96,5 +106,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
+    this.fullscreenSubscription.unsubscribe();
   }
 }

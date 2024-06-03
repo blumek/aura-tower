@@ -5,10 +5,11 @@ import { AccesDeniedComponent } from "./views/utility/acces-denied/acces-denied.
 import { NotFoundComponent } from "./views/utility/not-found/not-found.component";
 
 const routes: Routes = [
-    {
-        path: '',
-        component: HomeComponent
-    },
+    // {
+    //     path: '',
+    //     component: HomeComponent
+    // },
+    { path: "", redirectTo: "base", pathMatch: 'full'},
     {
         path: 'main',
         loadChildren: () => import('./views/main-view/main-view.module').then(m => m.MainViewModule),

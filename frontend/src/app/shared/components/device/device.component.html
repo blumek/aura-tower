@@ -1,4 +1,4 @@
-<div class="device-container">
+<div class="device-container animate__animated animate__zoomIn">
   <div class="top-section">
     <div
       *ngIf="!metricData.device"
@@ -14,11 +14,6 @@
   </div>
   <div class="bottom-section">
     <div>
-      <span
-        (click)="refreshDeviceData()"
-        class="material-symbols-outlined">refresh</span>
-    </div>
-    <div>
       <p [appTruncateText]="50" class="device-title">{{metricData.name}}</p>
       <p class="device-type">{{metricData.device.type.name}}</p>
     </div>
@@ -33,14 +28,14 @@
 <mat-menu #menu="matMenu">
   <button (click)="openEditDialog()" mat-menu-item>
     <mat-icon>edit</mat-icon>
-    <span>Edytuj urządzenie</span>
+    <span>Edit device</span>
   </button>
   <button (click)="openOrderingDialog()" mat-menu-item>
     <mat-icon>low_priority</mat-icon>
-    <span>Zmień kolejność urządzenia</span>
+    <span>Change order of the device</span>
   </button>
   <button (click)="openDeleteDialog()" class="danger" mat-menu-item>
     <mat-icon>delete_forever</mat-icon>
-    <span>Usuń urządzenie</span>
+    <span>Delete device</span>
   </button>
 </mat-menu>

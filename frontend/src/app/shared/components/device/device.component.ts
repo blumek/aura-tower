@@ -24,8 +24,6 @@ export class DeviceComponent {
     return Object.keys(this.metricData.device.data);
   }
 
-  refreshDeviceData(): void {}
-
   openEditDialog(): void {}
 
   openOrderingDialog(): void {}
@@ -33,10 +31,10 @@ export class DeviceComponent {
   openDeleteDialog(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       data: {
-        title: 'Usunąć urządzenie?',
-        content: 'Usunięcie urządzenia spwoduje utratę wszystkich jego zapisanych danych oraz nie będzie ono już widoczne na panelu głównym',
-        cancelButtonText: 'Anuluj',
-        acceptButtonText: 'Usuń'
+        title: 'Delete the device?',
+        content: 'Deleting the device will cause the loss of all its stored data and it will no longer be visible on the dashboard',
+        cancelButtonText: 'Cancel',
+        acceptButtonText: 'Delete'
       }
     });
 
