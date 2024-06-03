@@ -19,6 +19,7 @@ services:
       MONGODB_DATABASE: admin
       MONGODB_USERNAME: root-aura-tower
       MONGODB_PASSWORD: password-aura-tower
+      LIGHT_BULB_SIMULATOR_URL: http://light-bulb-simulator:8080/v1/light-bulbs/0c2ba6c3-5c96-4df3-b008-c68ca92137d3
   mongodb:
     image: mongo:7.0.8
     ports:

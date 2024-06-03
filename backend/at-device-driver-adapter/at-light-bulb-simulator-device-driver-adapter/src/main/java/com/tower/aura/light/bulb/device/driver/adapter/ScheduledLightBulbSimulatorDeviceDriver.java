@@ -7,6 +7,7 @@ import com.tower.aura.spi.messaging.metrics.model.*;
 import com.tower.aura.spi.persistence.place.PlaceQueryGateway;
 import com.tower.aura.spi.persistence.place.model.PersistencePlace;
 import com.tower.aura.spi.persistence.place.model.PersistencePlaceIdentifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -16,18 +17,20 @@ class ScheduledLightBulbSimulatorDeviceDriver implements DeviceDriverProcessor {
     private final RestClient restClient;
     private final PlaceQueryGateway placeQueryGateway;
     private final MetricsSendMessageGateway metricsSendMessageGateway;
+    private final String url;
 
     ScheduledLightBulbSimulatorDeviceDriver(RestClient restClient, PlaceQueryGateway placeQueryGateway,
-                                            MetricsSendMessageGateway metricsSendMessageGateway) {
+                                            MetricsSendMessageGateway metricsSendMessageGateway, @Value("${light-bulb-simulator.url}") String url) {
         this.restClient = restClient;
         this.placeQueryGateway = placeQueryGateway;
         this.metricsSendMessageGateway = metricsSendMessageGateway;
+        this.url = url;
     }
 
     @Override
     public void process() {
         final var lightBulb = restClient.get()
-                .uri("http://localhost:8081/v1/light-bulbs/0c2ba6c3-5c96-4df3-b008-c68ca92137d3")
+                .uri(url)
                 .retrieve()
                 .body(LightBulb.class);
 

@@ -30,3 +30,6 @@ spring:
       database: ${MONGODB_DATABASE}
       username: ${MONGODB_USERNAME}
       password: ${MONGODB_PASSWORD}
+
+light-bulb-simulator:
+  url: ${LIGHT_BULB_SIMULATOR_URL}
