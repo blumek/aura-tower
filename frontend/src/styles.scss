@@ -13,6 +13,7 @@ html, body { height: 100%; overflow-x: hidden}
 body {
     --background: #{$light-background};
     --box-color: #{$light-box};
+    --command-center-background: #{$light-command-center-background};
     --danger: #{$light-danger};
     --danger-icon: #{$light-danger-icon};
     --shadow: #{$light-shadow};
@@ -30,6 +31,7 @@ body {
 body.theme-dark {
     --background: #{$dark-background};
     --box-color: #{$dark-box};
+    --command-center-background: #{$dark-command-center-background};
     --danger: #{$dark-danger};
     --danger-icon: #{$dark-danger-icon};
     --shadow: #{$dark-shadow};
@@ -46,14 +48,13 @@ body.theme-dark {
 
 
 ::-webkit-scrollbar-track {
-
-    background-color: #f5f5f5;
+    background-color: var(--box-color)
 }
 
 ::-webkit-scrollbar {
     border-radius: 15px;
     width: 8px;
-    background-color: #f5f5f5;
+    background-color: var(--box-color)
 }
 
 ::-webkit-scrollbar-thumb {

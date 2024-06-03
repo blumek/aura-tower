@@ -1,4 +1,4 @@
-@import '../../../assets/styles/variables.scss';
+@import "../../../assets/styles/variables.scss";
 
 .base-custom-box {
     height: 100%;
@@ -13,7 +13,6 @@
         background: var(--main-text-gradient);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        
 
         span:nth-of-type(1) {
             font-size: 37px;
@@ -73,12 +72,14 @@
         }
 
         .account-details-content,
-        .app-preferences-content {
+        .app-preferences-content,
+        .authors-content {
             display: flex;
             flex-direction: column;
         }
 
         .account-details-content {
+            padding-top: 30px;
             .left-content,
             .right-content {
                 width: 100%;
@@ -96,7 +97,7 @@
 
             .right-content {
                 gap: 30px;
-                
+
                 button {
                     width: 100%;
                 }
@@ -105,7 +106,7 @@
                     margin-left: 15px;
                     color: $at-green;
                     cursor: pointer;
-                    
+
                     &:hover {
                         text-decoration: underline;
                     }
@@ -117,7 +118,7 @@
                     font-size: 14px;
                     gap: 20px;
                     color: var(--text);
-        
+
                     .material-symbols-outlined {
                         color: var(--icon);
                         font-size: 30px;
@@ -126,14 +127,17 @@
             }
         }
 
-        .app-preferences-content {
+        .app-preferences-content,
+        .authors-content {
+            padding-top: 30px;
             gap: 30px;
 
-            .app-pref-element {
+            .app-pref-element,
+            .authors-element {
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                width: 40%;
+                width: 100%;
 
                 div:nth-of-type(1) {
                     display: flex;
@@ -142,12 +146,12 @@
                     font-size: 14px;
                     gap: 20px;
                     color: var(--text);
-        
+
                     .material-symbols-outlined {
                         color: var(--icon);
                         font-size: 30px;
                     }
-                } 
+                }
             }
         }
     }
@@ -168,10 +172,10 @@
             .settings-subtitle {
                 text-align: left;
             }
-    
+
             .account-details-content {
                 flex-direction: row;
-    
+
                 .left-content,
                 .right-content {
                     width: 50%;
@@ -186,9 +190,15 @@
                     padding: 0;
                 }
             }
+
+            .app-preferences-content,
+            .account-details-content,
+            .authors-content {
+                padding-top: 0;
+                .app-pref-element {
+                    width: 40%;
+                }
+            }
         }
     }
-
 }
-
-

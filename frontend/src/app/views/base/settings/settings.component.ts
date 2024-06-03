@@ -19,6 +19,8 @@ export class SettingsComponent implements OnInit {
   loading: boolean = false;
   editMode: boolean = false;
   appVersion: string = '1.0.0';
+  javaVersion: string = '21.0.0';
+  angularVersion: string = '17.2.3';
   accountDetailsForm: FormGroup<AccountDetailsForm> = this.fb.group({
     userName: ['', Validators.required],
     auxiliaryQuestion: ['', Validators.required],

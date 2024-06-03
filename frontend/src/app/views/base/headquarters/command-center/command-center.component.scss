@@ -156,7 +156,7 @@
 .tower-center-container-config {
     box-shadow: none;
     border: 6px dashed var(--box-color);
-    background-color: rgba($color: #ffffff, $alpha: 0.4);
+    background-color: var(--command-center-background);
     transition: .3s;
 
     &:hover {

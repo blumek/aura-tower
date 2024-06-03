@@ -1,5 +1,6 @@
 @use '@angular/material' as mat;
 @import '../src/assets/styles/aura-tower-pallets.scss';
+@import './assets/styles/variables.scss';
 
 // font: normal normal normal 14px/19px Montserrat;
 
@@ -13,7 +14,9 @@ $aura-tower-typography: mat.define-typography-config(
 
 $aura-tower-primary: mat.define-palette($aura-tower-primary-palette, 500);
 $aura-tower-accent: mat.define-palette($aura-tower-accent-palette, 500);
+$aura-tower-dark: mat.define-palette($aura-tower-dark-pallete, 500);
 $aura-tower-warn: mat.define-palette(mat.$red-palette);
+
 
 
 $aura-tower-theme: mat.define-light-theme(
@@ -26,4 +29,22 @@ $aura-tower-theme: mat.define-light-theme(
   )
 );
 
+$angular-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $aura-tower-primary,
+      accent: $aura-tower-accent,
+      warn: $aura-tower-warn,
+    ),
+  )
+);
+
 @include mat.all-component-themes($aura-tower-theme);
+
+body.theme-dark {
+  @include mat.all-component-colors($angular-dark-theme);
+  --mdc-dialog-container-color: var(--box-color);
+  --mat-menu-container-color: var(--box-color);
+  --mat-expansion-container-background-color: var(--box-color);
+  --mat-select-panel-background-color: var(--box-color);
+}
