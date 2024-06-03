@@ -14,7 +14,7 @@ class MongodbMetricsQueryGateway implements MetricsQueryGateway {
     public List<PersistenceMetrics> findMetricsForPlace(PersistencePlaceIdentifier placeIdentifier) {
         return List.of(
                 new PersistenceMetrics(
-                        new PersistenceMetricsIdentifier("e37da368-180b-4287-916f-176f3bd35e12"),
+                        new PersistenceMetricsIdentifier("0c2ba6c3-5c96-4df3-b008-c68ca92137d3"),
                         new PersistenceMetricsName("Smart Light Bulb"),
                         new PersistenceDevice(
                                 new PersistenceDeviceIdentifier("eb267f73-f474-43b0-9d0f-fdcfdcd877bb"),

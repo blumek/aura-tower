@@ -37,6 +37,14 @@
             <artifactId>at-messaging-websocket-adapter</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.tower.aura.scheduled.device.driver.adapter</groupId>
+            <artifactId>at-scheduled-device-driver-adapter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.aura.tower.light.bulb.simulator.device.driver.adapter</groupId>
+            <artifactId>at-light-bulb-simulator-device-driver-adapter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
         </dependency>

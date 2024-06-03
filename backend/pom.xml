@@ -17,6 +17,7 @@
         <module>at-application-spi</module>
         <module>at-messaging-websocket-adapter</module>
         <module>at-device-simulator</module>
+        <module>at-device-driver-adapter</module>
     </modules>
 
     <properties>
@@ -70,6 +71,16 @@
             <dependency>
                 <groupId>com.tower.aura.application.persistence.adapter</groupId>
                 <artifactId>at-persistence-mongodb-adapter</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tower.aura.scheduled.device.driver.adapter</groupId>
+                <artifactId>at-scheduled-device-driver-adapter</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aura.tower.light.bulb.simulator.device.driver.adapter</groupId>
+                <artifactId>at-light-bulb-simulator-device-driver-adapter</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>
