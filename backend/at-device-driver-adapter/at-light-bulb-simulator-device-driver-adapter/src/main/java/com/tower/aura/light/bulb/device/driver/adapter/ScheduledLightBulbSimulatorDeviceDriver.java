@@ -34,6 +34,10 @@ class ScheduledLightBulbSimulatorDeviceDriver implements DeviceDriverProcessor {
                 .retrieve()
                 .body(LightBulb.class);
 
+        if (lightBulb == null) {
+            return;
+        }
+
         placeQueryGateway.findAllPlaces().stream()
                 .map(PersistencePlace::placeIdentifier)
                 .forEach(placeIdentifier -> sendMetrics(placeIdentifier, lightBulb));
