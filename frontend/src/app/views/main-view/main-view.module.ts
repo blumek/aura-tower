@@ -9,6 +9,8 @@ import { LoadingComponent } from '../../shared/components/loading/loading.compon
 import { NavbarComponent } from '../../shared/components/navbar/navbar.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { GroupManagementComponent } from './group-management/group-management.component';
+import { WebSocketService } from '../../core/web-socket/web-socket.service';
+import { webSocketServiceFactory } from '../../core/web-socket/web-socket-service-factory';
 
 
 @NgModule({
@@ -25,6 +27,12 @@ import { GroupManagementComponent } from './group-management/group-management.co
     NoResultsComponent,
     LoadingComponent,
     HeaderComponent,
-  ]
+  ],
+  providers: [
+    {
+      provide: WebSocketService,
+      useFactory: webSocketServiceFactory,
+    },
+  ],
 })
 export class MainViewModule { }

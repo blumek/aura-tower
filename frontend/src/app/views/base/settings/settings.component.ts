@@ -6,7 +6,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { ReminderQuestions } from '../../auth/models/auth';
 import { ChangePasswordDialogComponent } from '../../../shared/components/dialogs/change-password-dialog/change-password-dialog.component';
-import { ThemeService } from '../../../shared/services/theme.service';
+import { ThemeService } from '../../../core/theme/theme.service';
 import { EditRemindQuestionDialogComponent } from '../../../shared/components/dialogs/edit-remind-question-dialog/edit-remind-question-dialog.component';
 import { JwtTokenService } from '../../auth/services/jwt-token.service';
 

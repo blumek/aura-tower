@@ -10,9 +10,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { ActionName, DisplayType, IMenu } from '../../models/menu';
-import { RoutesService } from '../../services/routes.service';
+import { RoutesService } from '../../../core/routes/routes.service';
 import { Subscription } from 'rxjs';
-import { ScreenModeService } from '../../services/screen-mode.service';
+import { ScreenModeService } from '../../../core/screen-mode/screen-mode.service';
 import { JwtTokenService } from '../../../views/auth/services/jwt-token.service';
 
 

@@ -5,7 +5,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { RoutesService } from '../../services/routes.service';
+import { RoutesService } from '../../../core/routes/routes.service';
 import { Subscription } from 'rxjs';
 
 @Component({
