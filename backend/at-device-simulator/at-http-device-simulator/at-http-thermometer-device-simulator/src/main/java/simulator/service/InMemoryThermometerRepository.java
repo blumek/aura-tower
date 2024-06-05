@@ -18,7 +18,7 @@ class InMemoryThermometerRepository implements ThermometerRepository {
 
     @PostConstruct
     public void bootstrap() {
-        final var thermometer = Thermometer.create(new ThermometerIdentifier("0c2ba6c3-5c96-4df3-b008-c68ca92137d3"), new TemperatureCelsius(10.0));
+        final var thermometer = Thermometer.create(new ThermometerIdentifier("48dcf7a9-780b-4e96-8414-a236c776a92f"), new TemperatureCelsius(10.0));
         save(thermometer);
     }
 

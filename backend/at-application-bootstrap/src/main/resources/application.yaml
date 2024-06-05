@@ -33,3 +33,6 @@ spring:
 
 light-bulb-simulator:
   url: ${LIGHT_BULB_SIMULATOR_URL}
+
+thermometer-simulator:
+  url: ${THERMOMETER_SIMULATOR_URL}

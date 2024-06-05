@@ -15,6 +15,7 @@
     <modules>
         <module>at-scheduled-device-driver-adapter</module>
         <module>at-light-bulb-simulator-device-driver-adapter</module>
+        <module>at-thermometer-simulator-device-driver-adapter</module>
     </modules>
 
 </project>

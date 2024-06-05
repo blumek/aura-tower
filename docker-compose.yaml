@@ -20,6 +20,7 @@ services:
       MONGODB_USERNAME: root-aura-tower
       MONGODB_PASSWORD: password-aura-tower
       LIGHT_BULB_SIMULATOR_URL: http://light-bulb-simulator:8080/v1/light-bulbs/0c2ba6c3-5c96-4df3-b008-c68ca92137d3
+      THERMOMETER_SIMULATOR_URL: http://thermometer-simulator:8080/v1/thermometers/48dcf7a9-780b-4e96-8414-a236c776a92f
   mongodb:
     image: mongo:7.0.8
     ports:

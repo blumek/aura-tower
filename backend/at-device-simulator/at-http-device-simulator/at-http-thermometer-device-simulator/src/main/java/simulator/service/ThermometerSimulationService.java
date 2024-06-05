@@ -13,6 +13,6 @@ class ThermometerSimulationService {
 
     @Scheduled(fixedDelay = 1300)
     void simulate() {
-        thermometerService.updateTemperature("0c2ba6c3-5c96-4df3-b008-c68ca92137d3", Math.random() * 30);
+        thermometerService.updateTemperature("48dcf7a9-780b-4e96-8414-a236c776a92f", Math.random() * 30);
     }
 }
