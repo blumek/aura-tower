@@ -14,3 +14,8 @@ interface DeviceType {
     id: string;
     name: string;
 }
+
+export interface WebSocketMetric {
+    id: string,
+    deviceData: any
+}

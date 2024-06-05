@@ -2,7 +2,7 @@
     <at-loading [blur]="true"></at-loading>
 </ng-template>
 
-<div *ngIf="data$ | async as metrics else loading">
+<div *ngIf="data$ | async; else loading">
     <div *ngIf="metrics.length > 0; else noResults" class="dashboard-container flex-row flex-wrap gap-20">
         <at-device *ngFor="let metric of metrics" [metricData]="metric"></at-device>
     </div>
