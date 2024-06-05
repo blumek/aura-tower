@@ -65,7 +65,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     if (selectedMetric) {
       selectedMetric.device.data = webSocketData.deviceData
-      console.log(this.metrics)
     }
   }
 
