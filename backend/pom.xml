@@ -84,6 +84,11 @@
                 <version>${project.parent.version}</version>
             </dependency>
             <dependency>
+                <groupId>com.aura.tower.thermometer.simulator.device.driver.adapter</groupId>
+                <artifactId>at-thermometer-simulator-device-driver-adapter</artifactId>
+                <version>${project.parent.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.tower.aura.messaging.websocket.adapter</groupId>
                 <artifactId>at-messaging-websocket-adapter</artifactId>
                 <version>${project.parent.version}</version>

@@ -45,6 +45,10 @@
             <artifactId>at-light-bulb-simulator-device-driver-adapter</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.aura.tower.thermometer.simulator.device.driver.adapter</groupId>
+            <artifactId>at-thermometer-simulator-device-driver-adapter</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
         </dependency>
