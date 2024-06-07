@@ -37,7 +37,7 @@ Aura Tower aims to simplify the management of IoT devices, providing a centraliz
 monitoring various devices. The project is built with flexibility in mind, enabling developers to create custom drivers
 and expand the system's capabilities.
 
-<img src="frontend/src/assets/images/youtube-thumbnail.png" alt="Aura Tower Trailer" width="282" height="195">
+<a href="https://www.youtube.com/watch?v=vA4TfWpt0PY"><img src="frontend/src/assets/images/youtube-thumbnail.png" alt="Aura Tower Trailer" width="282" height="195"></a>
 
 ## ✨ Features
 
