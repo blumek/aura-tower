@@ -151,7 +151,7 @@ Please ensure your code adheres to the project's coding standards and includes a
 
 ## 🎖️ License
 
-Aura Tower is open-source software licensed under the [MIT License](https://opensource.org/licenses/MIT). You are free to use, modify, and
+Aura Tower is open-source software licensed under the [MIT License](LICENSE). You are free to use, modify, and
 distribute this software as long as you comply with the license terms.
 
 ---
