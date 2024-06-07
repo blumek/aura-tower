@@ -93,6 +93,9 @@ and expand the system's capabilities.
 
 ## 💿 Installation
 
+> [!NOTE]
+> Docker is required.
+
 1. Clone the repository:
     ```bash
     git clone https://github.com/blumek/aura-tower.git
