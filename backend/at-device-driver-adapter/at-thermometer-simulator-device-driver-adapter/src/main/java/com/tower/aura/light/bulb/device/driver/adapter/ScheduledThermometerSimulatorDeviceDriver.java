@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 //TODO Fix the class, current state just for POC
 @Service
 class ScheduledThermometerSimulatorDeviceDriver implements DeviceDriverProcessor {
@@ -49,9 +52,18 @@ class ScheduledThermometerSimulatorDeviceDriver implements DeviceDriverProcessor
                 new MessagingMetrics(
                         new MessagingMetricsIdentifier(thermometer.identifier()),
                         MessagingDeviceData.builder()
-                                .withMetric(new MessagingMetric(new MessagingMetricName("temperature"), new MessagingNumberMetricValue(thermometer.temperature())))
+                                .withMetric(new MessagingMetric(new MessagingMetricName("temperature"), celsiusValue(thermometer)))
+                                .withMetric(new MessagingMetric(new MessagingMetricName("unit"), new MessagingStringMetricValue("Celsius")))
                                 .build()
                 )
         ));
+    }
+
+    private static MessagingNumberMetricValue celsiusValue(Thermometer thermometer) {
+        return new MessagingNumberMetricValue(
+                BigDecimal.valueOf(thermometer.temperature())
+                        .setScale(2, RoundingMode.HALF_UP)
+                        .doubleValue()
+        );
     }
 }

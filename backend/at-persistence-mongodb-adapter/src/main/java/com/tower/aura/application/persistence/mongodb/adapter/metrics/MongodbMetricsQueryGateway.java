@@ -32,7 +32,8 @@ class MongodbMetricsQueryGateway implements MetricsQueryGateway {
                                 new PersistenceDeviceIdentifier("eb267f73-f474-43b0-9d0f-fdcfdcd877bb"),
                                 new PersistenceDeviceType(new PersistenceDeviceTypeIdentifier("0554fdcf-2dea-471f-b753-19d890541050"), new PersistenceDeviceTypeName("Thermometer")),
                                 PersistenceDeviceData.fromMap(Map.of(
-                                        new PersistenceMetricName("temperature"), PersistenceNumberMetricValue.fromNumber(10.0)
+                                        new PersistenceMetricName("temperature"), PersistenceNumberMetricValue.fromNumber(10.0),
+                                        new PersistenceMetricName("unit"), PersistenceStringMetricValue.fromString("Celsius")
                                 ))
                         )
                 )
