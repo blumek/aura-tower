@@ -1,13 +1,13 @@
 <div class="auth-section-header animate__animated animate__fadeIn">
-    <h3>Zresetuj hasło</h3>
-    <p>Podaj nowe hasło, aby odzyskać dostęp do konta</p>
+    <h3>Reset password</h3>
+    <p>Enter a new password to regain access to your account</p>
 </div>
 
 <div class="auth-form-container animate__animated animate__fadeIn">
     <form [formGroup]="resetPassForm">
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Hasło</mat-label>
+          <mat-label>Password</mat-label>
           <input 
             matInput 
             formControlName="password" 
@@ -16,15 +16,15 @@
             required>
           <mat-icon matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           @if (passwordControl.errors?.['required']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Pole jest wymagane</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>Field is required</mat-error>
           } @else if (passwordControl.errors?.['minlength']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Wymagane jest przynajmniej 8 znaków</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>At least 8 characters are required</mat-error>
           }
         </mat-form-field>
       </div>
       <div class="field-container">
         <mat-form-field>
-          <mat-label>Powtórz hasło</mat-label>
+          <mat-label>Confirm password</mat-label>
           <input 
             matInput 
             formControlName="confirmPassword" 
@@ -33,7 +33,7 @@
             required>
           <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirmPassword">{{hideConfirmPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
           @if (resetPassForm.errors?.['notSame']) {
-            <mat-error><span class="material-symbols-outlined">error</span>Hasła muszą być takie same</mat-error>
+            <mat-error><span class="material-symbols-outlined">error</span>Passwords must be the same</mat-error>
           }
         </mat-form-field>
       </div>
@@ -43,6 +43,6 @@
     <button (click)="resetPassword()" [disabled]="resetPassForm.invalid || loadingButton" class="at-button normal flat-green iconic auth-button">
       <mat-spinner *ngIf="loadingButton" [strokeWidth]="3" [diameter]="20"></mat-spinner>
       <span class="material-symbols-outlined">lock_reset</span>
-      <span>Zmień hasło</span>
+      <span>Change password</span>
     </button>
   </div>

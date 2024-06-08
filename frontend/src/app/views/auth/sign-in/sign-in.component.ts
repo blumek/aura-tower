@@ -43,7 +43,7 @@ export class SignInComponent {
 
     this.authService.signIn(signInFormRaw).subscribe({
       next: () => {
-        this.snackbarService.openSnackBar('Zalogowano');
+        this.snackbarService.openSnackBar('Signed in');
         this.router.navigate(['base/headquarters'])
       },
       error: (error) => {

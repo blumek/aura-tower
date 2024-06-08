@@ -19,10 +19,10 @@ export class DevicesService {
   openAddDeviceDialog(): void {
     const dialogRef = this.dialog.open(DeviceConfigDialogComponent , {
       data: {
-        title: 'Dodaj nowe urządzenie',
+        title: 'Add a new device',
         content: '',
-        cancelButtonText: 'Anuluj',
-        acceptButtonText: 'Kolejny krok'
+        cancelButtonText: 'Cancel',
+        acceptButtonText: 'Next step'
       }
     });
 

@@ -38,7 +38,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       }),
       catchError((err) => {
         this.snackbarService.openSnackBar(
-          'Błąd pobierania danych urządzeń',
+          'Device data download error',
           true
         );
         return throwError(() => err);
