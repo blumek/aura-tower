@@ -16,6 +16,8 @@ export class MenuComponent {
   displayTypeDesktop: DisplayType = DisplayType.desktop;
   
   onMenuIteMSelected(actionName: string) {
-    this.menuItemSelected.emit(actionName);
+    if(actionName != '0') {
+      this.menuItemSelected.emit(actionName);
+    }
   }
 }
