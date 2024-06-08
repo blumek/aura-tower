@@ -34,7 +34,7 @@
         <docker.service.tag.unique>${project.version}</docker.service.tag.unique>
         <docker.skip>false</docker.skip>
 
-        <spring-boot-starter.version>3.2.5</spring-boot-starter.version>
+        <spring-boot-starter.version>3.3.0</spring-boot-starter.version>
         <springdoc-openapi-starter.version>2.5.0</springdoc-openapi-starter.version>
         <commons-lang3.version>3.14.0</commons-lang3.version>
         <java-jwt.version>4.4.0</java-jwt.version>
