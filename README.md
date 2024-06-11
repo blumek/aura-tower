@@ -137,6 +137,8 @@ After starting the development server, open your browser and navigate to `http:/
 you can register a new account, log in, and start managing your IoT devices. Use the settings to customize your
 experience and explore the various features offered by Aura Tower.
 
+![Aura Tower screen](frontend/src/assets/images/aura-screenshot.png)
+
 ## 🛠️ Contributing
 
 Aura Tower is open to contributions from the community. To contribute:
