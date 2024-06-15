@@ -1,5 +1,5 @@
 services:
-  fronted:
+  frontend:
     build: frontend
     ports:
       - "4201:80"
@@ -7,7 +7,9 @@ services:
       - backend
     restart: always
   backend:
-    build: backend/at-application-bootstrap
+    build:
+      context: backend
+      dockerfile: at-application-bootstrap/Dockerfile-with-build
     ports:
       - "8080:8080"
     depends_on:
@@ -31,14 +33,18 @@ services:
       MONGO_INITDB_ROOT_USERNAME: root-aura-tower
       MONGO_INITDB_ROOT_PASSWORD: password-aura-tower
   light-bulb-simulator:
-    build: backend/at-device-simulator/at-http-device-simulator/at-http-light-bulb-device-simulator
+    build:
+      context: backend
+      dockerfile: at-device-simulator/at-http-device-simulator/at-http-light-bulb-device-simulator/Dockerfile-with-build
     ports:
       - "8081:8080"
     depends_on:
       - backend
     restart: always
   thermometer-simulator:
-    build: backend/at-device-simulator/at-http-device-simulator/at-http-thermometer-device-simulator
+    build:
+      context: backend
+      dockerfile: at-device-simulator/at-http-device-simulator/at-http-thermometer-device-simulator/Dockerfile-with-build
     ports:
       - "8082:8080"
     depends_on:

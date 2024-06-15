@@ -107,27 +107,17 @@ and expand the system's capabilities.
     cd aura-tower
     ```
 
-3. Install the necessary dependencies:
-   <br />If using Windows:
-    ```bash
-   .\backend\mvnw.cmd clean install
-   ```
-   <br />If using Linux/Mac:
-   ```bash
-   ./backend/mvnw clean install
-   ```
-
-4. Pull docker containers:
+3. Pull docker containers:
     ```bash
     docker compose pull
     ```
 
-5. Build docker containers:
+4. Build docker containers:
     ```bash
     docker compose build
     ```
 
-6. Start docker containers:
+5. Start docker containers:
     ```bash
     docker compose up -d
     ```
