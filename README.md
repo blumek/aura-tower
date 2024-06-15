@@ -95,7 +95,6 @@ and expand the system's capabilities.
 
 > [!NOTE]
 > Docker is required.
-> Java 21 is required
 
 1. Clone the repository:
     ```bash
