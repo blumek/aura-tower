@@ -30,12 +30,3 @@ for windows
 ```bash
 ./mvnw.cmd clean package
 ```
-
-## Running
-
-In order to run application and its dependencies firstly build the project and then execute the following command 
-```
-docker compose up -d
-```
-
-(Docker is required to follow the steps)
